@@ -95,7 +95,7 @@ export default function ModelsSection() {
               <div className="flex justify-center mb-5">
                 <div className="enrolling-badge inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
                   <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
-                  <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>Active Pathway — Now Enrolling</span>
+                  <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>Now Enrolling</span>
                 </div>
               </div>
 
