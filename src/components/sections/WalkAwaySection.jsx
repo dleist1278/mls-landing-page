@@ -169,7 +169,7 @@ export default function WalkAwaySection() {
 
   return (
     <section className="py-16 md:py-24" style={{ backgroundColor: "#FAF7F2" }}>
-      <div className="w-full h-px mb-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
