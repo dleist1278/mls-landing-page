@@ -1,32 +1,22 @@
-import React, { useEffect, useState, useRef } from "react";
-import { base44 } from "@/api/base44Client";
+import React, { useEffect, useState } from "react";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
-  const [bgImage, setBgImage] = useState("https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=1800&q=85");
-  const fileInputRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
-  const handleBgUpload = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const { file_url } = await base44.integrations.Core.UploadFile({ file });
-    setBgImage(file_url);
-  };
-
   const scrollToIntake = () => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
   const scrollToMethod = () => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
-      {/* Hero image — uploadable */}
+      {/* Hero image — natural childcare environment */}
       <div className="absolute inset-0 z-0">
         <img
-          src={bgImage}
+          src="https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=1800&q=85"
           alt=""
           role="presentation"
           className="w-full h-full object-cover"
@@ -36,15 +26,6 @@ export default function HeroSection() {
           className="absolute inset-0"
           style={{ background: "linear-gradient(100deg, #FAF7F2 48%, rgba(250,247,242,0.8) 65%, rgba(250,247,242,0.1) 100%)" }}
         />
-        {/* Upload button */}
-        <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleBgUpload} />
-        <button
-          onClick={() => fileInputRef.current?.click()}
-          className="absolute bottom-4 right-4 font-micro text-white px-4 py-2 rounded-full hover:opacity-90 transition-opacity z-20"
-          style={{ backgroundColor: "rgba(77,94,73,0.75)", fontSize: "0.65rem", backdropFilter: "blur(4px)" }}
-        >
-          Change Background Image
-        </button>
       </div>
 
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
