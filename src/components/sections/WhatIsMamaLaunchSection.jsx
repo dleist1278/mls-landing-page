@@ -132,11 +132,11 @@ export default function WhatIsMamaLaunchSection() {
           className="w-full h-full object-cover"
           style={{ filter: "saturate(0.7) brightness(0.95)" }} />
           
-          <img
-            src="https://images.unsplash.com/photo-1576502200916-3808e07386a5?w=700&q=80"
-            alt="Calm organized shelving in a home childcare space"
-            className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.92)", objectPosition: "center 30%" }} />
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/c862e10f1_Untitled_design__1_.jpg"
+
+          alt="Calm organized shelving in a home childcare space"
+          className="w-full h-full object-cover"
+          style={{ filter: "saturate(0.7) brightness(0.92)", objectPosition: "center 30%" }} />
           
           <img
             src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?w=700&q=80"
