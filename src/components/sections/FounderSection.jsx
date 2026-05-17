@@ -96,6 +96,13 @@ export default function FounderSection() {
               </div>
             </div>
 
+            {/* Bio text — mobile only, shown below photo */}
+            <div className="md:hidden space-y-3 mb-5">
+              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6" }}>
+                I spent years as a teacher, assistant principal, and implementation lead before becoming a licensed home daycare owner and mother of two. I know both sides — the professional systems and the real life you're building inside of.
+              </p>
+            </div>
+
             {/* Credibility grid — shown FIRST on mobile for immediate trust signals */}
             <div
               ref={credRef}
@@ -132,12 +139,12 @@ export default function FounderSection() {
               <p className="text-center font-micro mt-1.5" style={{ color: "#C4956A", fontSize: "0.6rem", opacity: 0.7 }}>← scroll to see more →</p>
             </div>
 
-            {/* Credibility grid — desktop only (mobile shown above) */}
-            <div className="space-y-3 mb-5">
+            {/* Bio text — desktop only */}
+            <div className="hidden md:block space-y-3 mb-5">
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6" }}>
                 I spent years as a teacher, assistant principal, and implementation lead before becoming a licensed home daycare owner and mother of two. I know both sides — the professional systems and the real life you're building inside of.
               </p>
-              <p className="hidden md:block font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6" }}>
+              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6" }}>
                 When I launched my own program, I found scattered information, no clear roadmap, and almost no support designed for serious home providers. So I built the system I needed.
               </p>
             </div>
