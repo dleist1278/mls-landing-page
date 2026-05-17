@@ -168,15 +168,15 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: "#FAF7F2" }}>
-      <div className="w-full h-px mb-20" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+    <section className="py-16 md:py-24" style={{ backgroundColor: "#FAF7F2" }}>
+      <div className="w-full h-px mb-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Header */}
         <div
           ref={headerRef}
-          className="mb-20"
+          className="mb-14"
           style={{ transition: "all 0.8s ease", opacity: headerVisible ? 1 : 0, transform: headerVisible ? "translateY(0)" : "translateY(28px)", filter: headerVisible ? "blur(0)" : "blur(3px)" }}
         >
           <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -221,7 +221,7 @@ export default function WalkAwaySection() {
         </div>
 
         {/* Four ecosystem pillars — alternating */}
-        <div className="flex flex-col gap-20 md:gap-24 mb-24">
+        <div className="flex flex-col gap-14 md:gap-18 mb-16">
           {ecosystemPillars.map((pillar, i) => (
             <PillarRow key={pillar.number} pillar={pillar} index={i} />
           ))}
@@ -230,7 +230,7 @@ export default function WalkAwaySection() {
         {/* REAL ASSET — Deliverables per phase */}
         <div
           ref={deliverablesRef}
-          className="mb-20"
+          className="mb-12"
           style={{ transition: "all 0.9s ease", opacity: deliverablesVisible ? 1 : 0, transform: deliverablesVisible ? "translateY(0)" : "translateY(32px)", filter: deliverablesVisible ? "blur(0)" : "blur(3px)" }}
         >
           <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
@@ -268,7 +268,7 @@ export default function WalkAwaySection() {
         </div>
       </div>
 
-      <div className="w-full h-px mt-20" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      <div className="w-full h-px mt-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>
   );
 }

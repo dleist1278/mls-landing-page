@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 
+// 5 phases only — Phase 06 (Growth/Expansion) removed per brand direction
 const phases = [
   {
     number: "01",
@@ -8,6 +9,9 @@ const phases = [
     emotional: "Feel clear on who you are as a provider and what you're building.",
     deliverables: ["Program Vision Blueprint", "Ideal Program Summary", "Parent Experience Statement", "Brand Foundation Summary", "Lifestyle Alignment Summary"],
     color: "#4D5E49",
+    image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=80",
+    imageAlt: "Mother journaling her childcare vision at a calm desk",
+    imagePosition: "center 30%",
   },
   {
     number: "02",
@@ -16,6 +20,9 @@ const phases = [
     emotional: "Feel grounded and prepared — not overwhelmed by paperwork.",
     deliverables: ["Licensing & Compliance Tracker", "Document Checklist", "Policy & Procedure Outline", "Business Setup Summary", "Insurance & Safety Plan"],
     color: "#6B7E67",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
+    imageAlt: "Organized workspace with licensing documents and planning materials",
+    imagePosition: "center 40%",
   },
   {
     number: "03",
@@ -24,6 +31,9 @@ const phases = [
     emotional: "Feel like a real provider building something beautiful and safe.",
     deliverables: ["Room Layouts & Floor Plans", "Environment & Material List", "Safety & Setup Checklist", "Outdoor Space Plan", "Aesthetic Vision Board"],
     color: "#C4956A",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    imageAlt: "Calm, organized home childcare environment with natural light",
+    imagePosition: "center 35%",
   },
   {
     number: "04",
@@ -32,6 +42,9 @@ const phases = [
     emotional: "Feel operationally confident — with systems that actually fit your life.",
     deliverables: ["Daily Schedule Template", "Curriculum Plan Outline", "Routine & Flow Guide", "Communication Plan", "Behavior Support Plan"],
     color: "#4D5E49",
+    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80",
+    imageAlt: "Children engaged in structured play activity with a calm provider",
+    imagePosition: "center 25%",
   },
   {
     number: "05",
@@ -40,14 +53,9 @@ const phases = [
     emotional: "Feel ready to open your doors and welcome your first families.",
     deliverables: ["Brand Identity Guide", "Website & Marketing Copy", "Enrollment Process Map", "Parent Communication Templates", "Launch Plan Checklist"],
     color: "#6B7E67",
-  },
-  {
-    number: "06",
-    name: "Growth & Expansion Plan",
-    tagline: "Dream bigger and create more impact.",
-    emotional: "Feel sustainable — and ready to grow without burning out.",
-    deliverables: ["Growth Roadmap", "Financial Plan Summary", "Systems & Team Plan", "Expansion Pathway Plan", "Long-Term Vision Statement"],
-    color: "#C4956A",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
+    imageAlt: "Warm family moment — parent and child arriving at a home program",
+    imagePosition: "center 20%",
   },
 ];
 
@@ -58,7 +66,7 @@ function PhaseCard({ phase, index }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.06 }
+      { threshold: 0.05 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -69,61 +77,57 @@ function PhaseCard({ phase, index }) {
       ref={ref}
       className="flex-none"
       style={{
-        width: "288px",
+        width: "300px",
         transition: `all 0.65s ease ${index * 80}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(28px)",
-        filter: visible ? "blur(0)" : "blur(3px)",
+        transform: visible ? "translateY(0)" : "translateY(24px)",
+        filter: visible ? "blur(0)" : "blur(2px)",
       }}
     >
-      <div
-        className="rounded-3xl flex flex-col h-full"
-        style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A2A" }}
-      >
-        {/* Phase header */}
-        <div className="rounded-t-3xl px-6 pt-6 pb-5" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
-          <div className="flex items-start justify-between mb-3">
-            <span
-              className="font-display select-none"
-              style={{ color: phase.color, opacity: 0.18, fontSize: "4rem", letterSpacing: "-0.04em", lineHeight: 1 }}
-            >
-              {phase.number}
-            </span>
-            <span
-              className="font-micro mt-1"
-              style={{ color: phase.color, fontSize: "0.6rem", backgroundColor: `${phase.color}10`, padding: "3px 9px", borderRadius: "100px" }}
-            >
-              Phase {phase.number}
-            </span>
+      <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
+
+        {/* Phase image */}
+        <div style={{ height: "160px", overflow: "hidden", position: "relative" }}>
+          <img
+            src={phase.image}
+            alt={phase.imageAlt}
+            className="w-full h-full object-cover"
+            style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)" }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to bottom, transparent 30%, ${phase.color}40 100%)` }} />
+          {/* Phase badge */}
+          <div
+            className="absolute top-4 left-4 font-micro"
+            style={{ color: "white", fontSize: "0.6rem", backgroundColor: `${phase.color}CC`, padding: "3px 10px", borderRadius: "100px" }}
+          >
+            Phase {phase.number}
           </div>
-          <h3 className="font-display text-lg mb-1.5" style={{ color: "#2C2C2C", lineHeight: "1.25" }}>
+        </div>
+
+        {/* Phase header */}
+        <div className="px-6 pt-5 pb-4" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
+          <h3 className="font-display text-lg mb-1" style={{ color: "#2C2C2C", lineHeight: "1.25" }}>
             {phase.name}
           </h3>
           <p className="font-body text-xs italic" style={{ color: "#7A6E65" }}>
             {phase.tagline}
           </p>
-        </div>
-
-        {/* Emotional outcome */}
-        <div className="px-6 pt-4 pb-3">
-          <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148", fontStyle: "italic" }}>
+          <p className="font-body text-xs mt-2 leading-relaxed" style={{ color: "#5C5148", fontStyle: "italic" }}>
             "{phase.emotional}"
           </p>
         </div>
 
         {/* Deliverables */}
-        <div className="px-6 pb-6 flex-1" style={{ borderTop: `1px solid ${phase.color}12` }}>
-          <p className="font-micro mt-4 mb-3" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>
+        <div className="px-6 py-5 flex-1">
+          <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>
             You'll walk away with
           </p>
-          <ul className="flex flex-col gap-2.5">
+          <ul className="flex flex-col gap-2">
             {phase.deliverables.map((d) => (
               <li key={d} className="flex items-start gap-2.5">
-                <span
-                  className="flex-none mt-0.5 w-4 h-4 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${phase.color}14`, border: `1px solid ${phase.color}28` }}
-                >
-                  <span style={{ color: phase.color, fontSize: "0.55rem" }}>✓</span>
+                <span className="flex-none mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: `${phase.color}14`, border: `1px solid ${phase.color}28` }}>
+                  <span style={{ color: phase.color, fontSize: "0.5rem" }}>✓</span>
                 </span>
                 <span className="font-body text-xs leading-snug" style={{ color: "#3A3330" }}>{d}</span>
               </li>
@@ -149,57 +153,57 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-24 md:py-32 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
-      <div className="w-full h-px mb-20" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+    <section id="method" className="py-16 md:py-24 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
+      <div className="w-full h-px mb-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
         ref={headerRef}
-        className="max-w-7xl mx-auto px-6 md:px-12 mb-12"
+        className="max-w-7xl mx-auto px-6 md:px-12 mb-10"
         style={{
           transition: "all 0.8s ease",
           opacity: headerVisible ? 1 : 0,
-          transform: headerVisible ? "translateY(0)" : "translateY(28px)",
-          filter: headerVisible ? "blur(0)" : "blur(3px)",
+          transform: headerVisible ? "translateY(0)" : "translateY(24px)",
+          filter: headerVisible ? "blur(0)" : "blur(2px)",
         }}
       >
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
           <div>
-            <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               The Implementation Roadmap
             </p>
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
+            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.4rem)" }}>
               The Mama Launch Method
               <br />
-              <em style={{ color: "#4D5E49" }}>Six Phases. Real Deliverables.</em>
+              <em style={{ color: "#4D5E49" }}>Five Phases. Real Deliverables.</em>
             </h2>
           </div>
-          <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
-            Each phase of the Mama Launch Method produces real operational documents — so by the end, you have a complete, launch-ready childcare program.
+          <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem" }}>
+            Each phase produces real operational documents — so by the end, you have a complete, launch-ready childcare program.
           </p>
         </div>
       </div>
 
       {/* Horizontal scroll */}
       <div
-        className="flex gap-4 overflow-x-auto pb-6 px-6 md:px-12"
+        className="flex gap-4 overflow-x-auto pb-5 px-6 md:px-12"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {phases.map((phase, i) => (
           <PhaseCard key={phase.number} phase={phase} index={i} />
         ))}
-        <div className="flex-none w-8 md:w-12" />
+        <div className="flex-none w-6 md:w-10" />
       </div>
 
-      <div className="flex items-center justify-center gap-3 mt-4 px-6">
-        <div className="w-10 h-px" style={{ backgroundColor: "#C4956A33" }} />
+      <div className="flex items-center justify-center gap-3 mt-3 px-6">
+        <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
         <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
-          Drag to explore all six phases
+          Drag to explore all five phases
         </p>
-        <div className="w-10 h-px" style={{ backgroundColor: "#C4956A33" }} />
+        <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
       </div>
 
-      <div className="w-full h-px mt-20" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      <div className="w-full h-px mt-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>
   );
 }

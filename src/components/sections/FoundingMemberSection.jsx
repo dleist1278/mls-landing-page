@@ -4,7 +4,7 @@ const steps = [
   {
     step: "01",
     title: "Join the Waitlist",
-    description: "Share a little about your vision and your readiness. We'll use this to understand where you are and what you need.",
+    description: "Share a little about your vision and readiness. We use this to understand where you are and what you need most.",
   },
   {
     step: "02",
@@ -19,96 +19,108 @@ const steps = [
   {
     step: "04",
     title: "Shape the Platform",
-    description: "As a founding member, your feedback and experience directly influence how the platform evolves. You're not just a user — you're a co-architect.",
+    description: "Your feedback and experience directly influence how the platform evolves. You're not just a user — you're a co-architect.",
   },
   {
     step: "05",
     title: "Open Your Doors",
-    description: "By the end of the method, you'll have a licensed, operational, enrollment-ready home childcare program — and a community standing with you.",
+    description: "By the end of the method, you'll have a licensed, operational, enrollment-ready home childcare program — with a community standing beside you.",
   },
 ];
 
 export default function FoundingMemberSection() {
   const headerRef = useRef(null);
+  const imgRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
+  const [imgVisible, setImgVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setHeaderVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (headerRef.current) observer.observe(headerRef.current);
-    return () => observer.disconnect();
+    const o1 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setHeaderVisible(true); }, { threshold: 0.08 });
+    const o2 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setImgVisible(true); }, { threshold: 0.06 });
+    if (headerRef.current) o1.observe(headerRef.current);
+    if (imgRef.current) o2.observe(imgRef.current);
+    return () => { o1.disconnect(); o2.disconnect(); };
   }, []);
 
   return (
-    <section className="py-24 md:py-36" style={{ backgroundColor: "#F0EBE1" }}>
+    <section className="py-16 md:py-24" style={{ backgroundColor: "#F0EBE1" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
-        {/* Header */}
         <div
           ref={headerRef}
-          className="mb-16"
-          style={{
-            transition: "all 0.8s ease",
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(28px)",
-            filter: headerVisible ? "blur(0)" : "blur(3px)",
-          }}
+          className="mb-12"
+          style={{ transition: "all 0.8s ease", opacity: headerVisible ? 1 : 0, transform: headerVisible ? "translateY(0)" : "translateY(24px)", filter: headerVisible ? "blur(0)" : "blur(2px)" }}
         >
-          <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.75rem" }}>
+          <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             The Founding Member Experience
           </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.8rem)" }}>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.4rem)" }}>
               What Happens After
               <br />
               <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
             </h2>
-            <p className="font-body md:max-w-sm leading-relaxed" style={{ color: "#5C5148", fontSize: "1rem" }}>
+            <p className="font-body md:max-w-sm leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
               Mama Launch Studio is in early access. Here's exactly what founding members experience — transparently, honestly, and with full clarity.
             </p>
           </div>
         </div>
 
-        {/* Steps */}
-        <div className="relative">
-          {/* Vertical connector line — desktop */}
-          <div
-            className="hidden md:block absolute left-[2.25rem] top-10 bottom-10 w-px"
-            style={{ backgroundColor: "#C4956A33" }}
-          />
+        {/* Steps + image side by side */}
+        <div className="grid md:grid-cols-5 gap-8 mb-10">
+          {/* Steps */}
+          <div className="md:col-span-3 relative">
+            <div className="hidden md:block absolute left-[2.1rem] top-10 bottom-10 w-px" style={{ backgroundColor: "#C4956A28" }} />
+            <div className="flex flex-col gap-6">
+              {steps.map((step, i) => (
+                <StepRow key={step.step} step={step} index={i} />
+              ))}
+            </div>
+          </div>
 
-          <div className="flex flex-col gap-8">
-            {steps.map((step, i) => (
-              <StepRow key={step.step} step={step} index={i} />
-            ))}
+          {/* Image */}
+          <div
+            ref={imgRef}
+            className="md:col-span-2 flex flex-col gap-4"
+            style={{ transition: "all 0.8s ease 0.2s", opacity: imgVisible ? 1 : 0, transform: imgVisible ? "translateY(0)" : "translateY(24px)" }}
+          >
+            <div className="rounded-3xl overflow-hidden flex-1" style={{ minHeight: "200px" }}>
+              <img
+                src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=85"
+                alt="Mother working through her childcare planning workbook"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "center 25%", filter: "saturate(0.68) brightness(0.95)", minHeight: "200px" }}
+              />
+            </div>
+            <div className="rounded-3xl overflow-hidden" style={{ height: "180px" }}>
+              <img
+                src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=85"
+                alt="Children engaged in calm floor play"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "center 40%", filter: "saturate(0.68) brightness(0.93)" }}
+              />
+            </div>
           </div>
         </div>
 
         {/* Transparency note */}
-        <div
-          className="mt-16 p-8 rounded-3xl"
-          style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A22" }}
-        >
-          <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
-            A Note on Transparency
-          </p>
-          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem", maxWidth: "680px" }}>
+        <div className="p-7 rounded-3xl" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A" }}>
+          <p className="font-micro mb-2" style={{ color: "#C4956A", fontSize: "0.7rem" }}>A Note on Transparency</p>
+          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "660px" }}>
             Mama Launch Studio is a guided implementation platform in active development. Founding members receive early access, help shape the experience, and move through the Mama Launch Method as the platform evolves. This is a collaborative, community-centered launch — not a fully finished product. We believe in building with our community, not before them.
           </p>
         </div>
 
-        <div className="mt-12 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
           <button
             onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-            className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] focus-sage"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.8rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}
+            className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px]"
+            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}
           >
             Apply for Early Access
           </button>
-          <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.85rem" }}>
+          <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.83rem" }}>
             Founding member spots are limited.
           </p>
         </div>
@@ -124,7 +136,7 @@ function StepRow({ step, index }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -133,32 +145,21 @@ function StepRow({ step, index }) {
   return (
     <div
       ref={ref}
-      className="flex gap-6 items-start"
+      className="flex gap-5 items-start"
       style={{
-        transition: `all 0.7s ease ${index * 100}ms`,
+        transition: `all 0.65s ease ${index * 90}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateX(0)" : "translateX(-20px)",
-        filter: visible ? "blur(0)" : "blur(3px)",
+        transform: visible ? "translateX(0)" : "translateX(-16px)",
+        filter: visible ? "blur(0)" : "blur(2px)",
       }}
     >
-      {/* Step circle */}
-      <div
-        className="flex-none w-[4.5rem] h-[4.5rem] rounded-full flex items-center justify-center z-10"
-        style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A44" }}
-      >
-        <span className="font-display text-lg" style={{ color: "#C4956A", letterSpacing: "-0.02em" }}>
-          {step.step}
-        </span>
+      <div className="flex-none w-[4rem] h-[4rem] rounded-full flex items-center justify-center z-10"
+        style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A44" }}>
+        <span className="font-display text-base" style={{ color: "#C4956A", letterSpacing: "-0.02em" }}>{step.step}</span>
       </div>
-
-      {/* Content */}
-      <div className="pt-3 pb-4">
-        <h3 className="font-display text-xl mb-2" style={{ color: "#2C2C2C" }}>
-          {step.title}
-        </h3>
-        <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148", maxWidth: "560px" }}>
-          {step.description}
-        </p>
+      <div className="pt-2 pb-3">
+        <h3 className="font-display text-lg mb-1.5" style={{ color: "#2C2C2C" }}>{step.title}</h3>
+        <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px" }}>{step.description}</p>
       </div>
     </div>
   );
