@@ -28,7 +28,7 @@ export default function FounderSection() {
         {/* Main two-col */}
         <div
           ref={ref}
-          className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-12"
+          className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-12"
           style={{
             transition: "all 0.9s ease",
             opacity: visible ? 1 : 0,
