@@ -3,38 +3,51 @@ import React, { useRef, useEffect, useState } from "react";
 const phases = [
   {
     number: "01",
-    name: "Dream & Align",
-    emotional: "Feel clear on what you're building and why it fits your life.",
-    deliverables: ["Childcare Ecosystem Blueprint", "Program Model Clarity", "Lifestyle Alignment Notes"],
+    name: "Program Foundation",
+    tagline: "Your why, your vision, your path.",
+    emotional: "Feel clear on who you are as a provider and what you're building.",
+    deliverables: ["Program Vision Blueprint", "Ideal Program Summary", "Parent Experience Statement", "Brand Foundation Summary", "Lifestyle Alignment Summary"],
     color: "#4D5E49",
   },
   {
     number: "02",
-    name: "Foundation",
-    emotional: "Feel grounded and prepared — not overwhelmed by the legal process.",
-    deliverables: ["Licensing Organization Plan", "Home Safety Checklist", "State Requirements Tracker"],
+    name: "Licensing & Legal Setup",
+    tagline: "Build on a strong and compliant foundation.",
+    emotional: "Feel grounded and prepared — not overwhelmed by paperwork.",
+    deliverables: ["Licensing & Compliance Tracker", "Document Checklist", "Policy & Procedure Outline", "Business Setup Summary", "Insurance & Safety Plan"],
     color: "#6B7E67",
   },
   {
     number: "03",
-    name: "Ecosystem Design",
-    emotional: "Feel like a real provider building something beautiful and meaningful.",
-    deliverables: ["Room Planning Worksheet", "Daily Rhythm Framework", "Curriculum Philosophy Guide"],
+    name: "Environment & Space Plan",
+    tagline: "Design a space that inspires learning.",
+    emotional: "Feel like a real provider building something beautiful and safe.",
+    deliverables: ["Room Layouts & Floor Plans", "Environment & Material List", "Safety & Setup Checklist", "Outdoor Space Plan", "Aesthetic Vision Board"],
     color: "#C4956A",
   },
   {
     number: "04",
-    name: "Launch Preparation",
-    emotional: "Feel genuinely ready — structured, confident, and calm.",
-    deliverables: ["Parent Handbook Structure", "Waitlist & Enrollment System", "Tour Workflow Guide"],
+    name: "Daily Operations Plan",
+    tagline: "Create calm, consistent, and meaningful days.",
+    emotional: "Feel operationally confident — with systems that actually fit your life.",
+    deliverables: ["Daily Schedule Template", "Curriculum Plan Outline", "Routine & Flow Guide", "Communication Plan", "Behavior Support Plan"],
     color: "#4D5E49",
   },
   {
     number: "05",
-    name: "Open & Sustain",
-    emotional: "Feel sustainable — running a program that fits your life.",
-    deliverables: ["Ongoing Operations Framework", "Growth & Capacity Plan", "Calm Systems Checklist"],
+    name: "Branding & Enrollment Plan",
+    tagline: "Attract the right families and grow with ease.",
+    emotional: "Feel ready to open your doors and welcome your first families.",
+    deliverables: ["Brand Identity Guide", "Website & Marketing Copy", "Enrollment Process Map", "Parent Communication Templates", "Launch Plan Checklist"],
     color: "#6B7E67",
+  },
+  {
+    number: "06",
+    name: "Growth & Expansion Plan",
+    tagline: "Dream bigger and create more impact.",
+    emotional: "Feel sustainable — and ready to grow without burning out.",
+    deliverables: ["Growth Roadmap", "Financial Plan Summary", "Systems & Team Plan", "Expansion Pathway Plan", "Long-Term Vision Statement"],
+    color: "#C4956A",
   },
 ];
 
@@ -45,7 +58,7 @@ function PhaseCard({ phase, index }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.08 }
+      { threshold: 0.06 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -56,8 +69,8 @@ function PhaseCard({ phase, index }) {
       ref={ref}
       className="flex-none"
       style={{
-        width: "300px",
-        transition: `all 0.65s ease ${index * 90}ms`,
+        width: "288px",
+        transition: `all 0.65s ease ${index * 80}ms`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(28px)",
         filter: visible ? "blur(0)" : "blur(3px)",
@@ -67,48 +80,52 @@ function PhaseCard({ phase, index }) {
         className="rounded-3xl flex flex-col h-full"
         style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A2A" }}
       >
-        {/* Phase header band */}
-        <div
-          className="rounded-t-3xl px-7 pt-7 pb-5"
-          style={{ borderBottom: `1px solid ${phase.color}22` }}
-        >
-          <div className="flex items-start justify-between mb-4">
+        {/* Phase header */}
+        <div className="rounded-t-3xl px-6 pt-6 pb-5" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
+          <div className="flex items-start justify-between mb-3">
             <span
-              className="font-display text-5xl select-none"
-              style={{ color: phase.color, opacity: 0.2, letterSpacing: "-0.04em", lineHeight: 1 }}
+              className="font-display select-none"
+              style={{ color: phase.color, opacity: 0.18, fontSize: "4rem", letterSpacing: "-0.04em", lineHeight: 1 }}
             >
               {phase.number}
             </span>
             <span
               className="font-micro mt-1"
-              style={{ color: phase.color, fontSize: "0.62rem", backgroundColor: `${phase.color}12`, padding: "4px 10px", borderRadius: "100px" }}
+              style={{ color: phase.color, fontSize: "0.6rem", backgroundColor: `${phase.color}10`, padding: "3px 9px", borderRadius: "100px" }}
             >
               Phase {phase.number}
             </span>
           </div>
-          <h3 className="font-display text-xl mb-3" style={{ color: "#2C2C2C" }}>
+          <h3 className="font-display text-lg mb-1.5" style={{ color: "#2C2C2C", lineHeight: "1.25" }}>
             {phase.name}
           </h3>
-          <p className="font-body text-sm leading-relaxed italic" style={{ color: "#5C5148" }}>
+          <p className="font-body text-xs italic" style={{ color: "#7A6E65" }}>
+            {phase.tagline}
+          </p>
+        </div>
+
+        {/* Emotional outcome */}
+        <div className="px-6 pt-4 pb-3">
+          <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148", fontStyle: "italic" }}>
             "{phase.emotional}"
           </p>
         </div>
 
         {/* Deliverables */}
-        <div className="px-7 py-6 flex-1">
-          <p className="font-micro mb-4" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>
+        <div className="px-6 pb-6 flex-1" style={{ borderTop: `1px solid ${phase.color}12` }}>
+          <p className="font-micro mt-4 mb-3" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>
             You'll walk away with
           </p>
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-2.5">
             {phase.deliverables.map((d) => (
-              <li key={d} className="flex items-center gap-3">
+              <li key={d} className="flex items-start gap-2.5">
                 <span
-                  className="flex-none w-5 h-5 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${phase.color}18`, border: `1px solid ${phase.color}30` }}
+                  className="flex-none mt-0.5 w-4 h-4 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: `${phase.color}14`, border: `1px solid ${phase.color}28` }}
                 >
-                  <span style={{ color: phase.color, fontSize: "0.6rem" }}>✓</span>
+                  <span style={{ color: phase.color, fontSize: "0.55rem" }}>✓</span>
                 </span>
-                <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{d}</span>
+                <span className="font-body text-xs leading-snug" style={{ color: "#3A3330" }}>{d}</span>
               </li>
             ))}
           </ul>
@@ -125,7 +142,7 @@ export default function MethodSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setHeaderVisible(true); },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
     if (headerRef.current) observer.observe(headerRef.current);
     return () => observer.disconnect();
@@ -154,16 +171,16 @@ export default function MethodSection() {
             <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
               The Mama Launch Method
               <br />
-              <em style={{ color: "#4D5E49" }}>Five Phases. Real Deliverables.</em>
+              <em style={{ color: "#4D5E49" }}>Six Phases. Real Deliverables.</em>
             </h2>
           </div>
           <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
-            A true implementation roadmap — each phase produces real operational assets, not just new knowledge.
+            Each phase of the Mama Launch Method produces real operational documents — so by the end, you have a complete, launch-ready childcare program.
           </p>
         </div>
       </div>
 
-      {/* Horizontal scroll track */}
+      {/* Horizontal scroll */}
       <div
         className="flex gap-4 overflow-x-auto pb-6 px-6 md:px-12"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
@@ -177,7 +194,7 @@ export default function MethodSection() {
       <div className="flex items-center justify-center gap-3 mt-4 px-6">
         <div className="w-10 h-px" style={{ backgroundColor: "#C4956A33" }} />
         <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
-          Drag to explore all phases
+          Drag to explore all six phases
         </p>
         <div className="w-10 h-px" style={{ backgroundColor: "#C4956A33" }} />
       </div>
