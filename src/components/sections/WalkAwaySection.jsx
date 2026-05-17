@@ -136,9 +136,7 @@ export default function WalkAwaySection() {
               <br />
               <em style={{ color: "#4D5E49" }}>Childcare Ecosystem.</em>
             </h2>
-            <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
-              The Mama Launch Method builds four interconnected pillars — each one supporting the others to create a whole, sustainable childcare program.
-            </p>
+
           </div>
         </div>
 
