@@ -113,7 +113,7 @@ export default function EcosystemSection() {
   }, []);
 
   return (
-    <section id="ecosystem" className="md:py-24 py-12" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="ecosystem" className="md:py-24 py-16" style={{ backgroundColor: "#FAF7F2" }}>
       <div className="w-full h-px mb-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">

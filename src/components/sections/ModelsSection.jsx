@@ -4,29 +4,29 @@ const activeModel = {
   tag: "Active Now",
   title: "Home Daycare / Nursery",
   description:
-    "Launch a calm, intentional home childcare program designed around your family life, licensing goals, and community needs. This is the core Mama Launch pathway — full-time, part-time, nursery-style, or mixed-age.",
+  "Launch a calm, intentional home childcare program designed around your family life, licensing goals, and community needs. This is the core Mama Launch pathway — full-time, part-time, nursery-style, or mixed-age.",
   features: [
-    "State licensing navigation & documentation",
-    "Full-time, part-time & mixed-age structures",
-    "Room planning & environment design",
-    "Enrollment, pricing & parent communication",
-    "Daily rhythm & curriculum framework",
-    "Waitlist, tour & launch workflows",
-  ],
+  "State licensing navigation & documentation",
+  "Full-time, part-time & mixed-age structures",
+  "Room planning & environment design",
+  "Enrollment, pricing & parent communication",
+  "Daily rhythm & curriculum framework",
+  "Waitlist, tour & launch workflows"]
+
 };
 
 const comingSoon = [
-  {
-    title: "Drop-In Childcare",
-    description:
-      "Flexible short-format care models built around specific time blocks, rhythms, or caregiver schedules. Ideal for mothers who want to start smaller or offer need-based care.",
-  },
-  {
-    title: "Kids Classes & Enrichment Programs",
-    description:
-      "Creative, movement-based, sensory, or educational programs hosted from home or community spaces. A village-centered model for mothers with an educational or developmental focus.",
-  },
-];
+{
+  title: "Drop-In Childcare",
+  description:
+  "Flexible short-format care models built around specific time blocks, rhythms, or caregiver schedules. Ideal for mothers who want to start smaller or offer need-based care."
+},
+{
+  title: "Kids Classes & Enrichment Programs",
+  description:
+  "Creative, movement-based, sensory, or educational programs hosted from home or community spaces. A village-centered model for mothers with an educational or developmental focus."
+}];
+
 
 export default function ModelsSection() {
   const headerRef = useRef(null);
@@ -35,15 +35,15 @@ export default function ModelsSection() {
   const [activeVisible, setActiveVisible] = useState(false);
 
   useEffect(() => {
-    const obs1 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setHeaderVisible(true); }, { threshold: 0.1 });
-    const obs2 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setActiveVisible(true); }, { threshold: 0.08 });
+    const obs1 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setHeaderVisible(true);}, { threshold: 0.1 });
+    const obs2 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setActiveVisible(true);}, { threshold: 0.08 });
     if (headerRef.current) obs1.observe(headerRef.current);
     if (activeRef.current) obs2.observe(activeRef.current);
-    return () => { obs1.disconnect(); obs2.disconnect(); };
+    return () => {obs1.disconnect();obs2.disconnect();};
   }, []);
 
   return (
-    <section id="models" className="py-16 md:py-22" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="models" className="py-16 md:py-22 mx-1" style={{ backgroundColor: "#FAF7F2" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Header */}
@@ -54,9 +54,9 @@ export default function ModelsSection() {
             transition: "all 0.8s ease",
             opacity: headerVisible ? 1 : 0,
             transform: headerVisible ? "translateY(0)" : "translateY(28px)",
-            filter: headerVisible ? "blur(0)" : "blur(3px)",
-          }}
-        >
+            filter: headerVisible ? "blur(0)" : "blur(3px)"
+          }}>
+          
           <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             Program Pathways
@@ -83,9 +83,9 @@ export default function ModelsSection() {
             transition: "all 0.8s ease",
             opacity: activeVisible ? 1 : 0,
             transform: activeVisible ? "translateY(0)" : "translateY(28px)",
-            filter: activeVisible ? "blur(0)" : "blur(3px)",
-          }}
-        >
+            filter: activeVisible ? "blur(0)" : "blur(3px)"
+          }}>
+          
           <div className="flex flex-col md:flex-row md:gap-16 gap-8">
             <div className="flex-1">
               {/* Active badge */}
@@ -104,8 +104,8 @@ export default function ModelsSection() {
               <button
                 onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
                 className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] focus-sage"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.22)" }}
-              >
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.22)" }}>
+                
                 Join the Founding Member Waitlist
               </button>
             </div>
@@ -117,12 +117,12 @@ export default function ModelsSection() {
               </p>
               <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A22" }} />
               <ul className="flex flex-col gap-3.5">
-                {activeModel.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
+                {activeModel.features.map((f) =>
+                <li key={f} className="flex items-start gap-3">
                     <span className="mt-1.5 flex-none w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
                     <span className="font-body text-sm" style={{ color: "#5C5148" }}>{f}</span>
                   </li>
-                ))}
+                )}
               </ul>
             </div>
           </div>
@@ -130,13 +130,13 @@ export default function ModelsSection() {
 
         {/* Coming soon pathways */}
         <div className="grid md:grid-cols-2 gap-4">
-          {comingSoon.map((m, i) => (
-            <ComingSoonCard key={m.title} model={m} index={i} />
-          ))}
+          {comingSoon.map((m, i) =>
+          <ComingSoonCard key={m.title} model={m} index={i} />
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
 
 function ComingSoonCard({ model, index }) {
@@ -145,7 +145,7 @@ function ComingSoonCard({ model, index }) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      ([entry]) => {if (entry.isIntersecting) setVisible(true);},
       { threshold: 0.08 }
     );
     if (ref.current) observer.observe(ref.current);
@@ -162,9 +162,9 @@ function ComingSoonCard({ model, index }) {
         opacity: visible ? 0.88 : 0,
         transform: visible ? "translateY(0)" : `translateY(${20 + index * 6}px)`,
         filter: visible ? "blur(0)" : "blur(2px)",
-        transition: `all 0.7s ease ${index * 120}ms`,
-      }}
-    >
+        transition: `all 0.7s ease ${index * 120}ms`
+      }}>
+      
       {/* Coming soon badge */}
       <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22" }}>
         <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem" }}>Coming Soon</span>
@@ -180,10 +180,10 @@ function ComingSoonCard({ model, index }) {
       <button
         onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
         className="font-micro self-start mt-2 px-5 py-2.5 rounded-full border transition-all min-h-[40px] focus-sage"
-        style={{ color: "#C4956A", borderColor: "#C4956A44", fontSize: "0.7rem", backgroundColor: "transparent" }}
-      >
+        style={{ color: "#C4956A", borderColor: "#C4956A44", fontSize: "0.7rem", backgroundColor: "transparent" }}>
+        
         Join the Waitlist
       </button>
-    </div>
-  );
+    </div>);
+
 }
