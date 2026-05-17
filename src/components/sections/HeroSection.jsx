@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import HeroImage from "@/components/sections/HeroImage";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
@@ -31,7 +32,8 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24 w-full">
-        <div style={{ maxWidth: "560px" }}>
+        <div className="flex items-center gap-12 lg:gap-20">
+        <div style={{ maxWidth: "560px", flex: "0 0 auto" }}>
 
           {/* Eyebrow */}
           <div className={`transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
@@ -98,6 +100,8 @@ export default function HeroSection() {
               Built for mothers creating calm, intentional childcare environments rooted in community, structure, and real family life.
             </p>
           </div>
+        </div>
+        <HeroImage visible={visible} />
         </div>
       </div>
 
