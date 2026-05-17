@@ -80,9 +80,9 @@ export default function FounderSection() {
             </p>
 
             <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.5vw, 2.8rem)" }}>
-              Hi, I'm Danielle.
-              <br />
-              <em style={{ color: "#4D5E49" }}>I built this because I needed it.</em>
+              Hi, I'm Danielle.<br />
+              I built this<br />
+              <em style={{ color: "#4D5E49" }}>because I needed it.</em>
             </h2>
 
             <div className="space-y-4 mb-7">
