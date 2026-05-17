@@ -60,9 +60,9 @@ export default function FounderSection() {
                 className="absolute bottom-0 left-0 right-0 p-6"
                 style={{ background: "linear-gradient(to top, rgba(44,44,44,0.82) 0%, transparent 100%)" }}>
                 
-                <p className="font-display text-sm italic hidden" style={{ color: "#FAF7F2" }}>
-                  "The living room is the most intentional classroom."
-                </p>
+                
+
+                
               </div>
             </div>
           </div>
@@ -93,17 +93,17 @@ export default function FounderSection() {
             </div>
 
             {/* Real talk */}
-            <div className="rounded-3xl p-6 mb-7 hidden" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A18" }}>
-              <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.67rem" }}>What I learned the hard way</p>
-              <div className="flex flex-col gap-2.5">
-                {realTalkItems.map((item) =>
-                <div key={item} className="flex items-start gap-2.5">
-                    <span className="mt-1.5 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#C4956A" }} />
-                    <span className="font-body text-sm leading-snug" style={{ color: "#5C5148" }}>{item}</span>
-                  </div>
-                )}
-              </div>
-            </div>
+            
+
+
+
+
+
+
+
+
+
+            
 
             <button
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
