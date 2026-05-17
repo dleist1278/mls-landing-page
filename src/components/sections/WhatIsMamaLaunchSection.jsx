@@ -170,8 +170,8 @@ export default function WhatIsMamaLaunchSection() {
         {/* Desktop: fixed height strip */}
         <div className="hidden md:block" style={{ height: "320px" }}>
           {stripImages.length > 0 &&
-          <div className="grid grid-cols-3 h-full gap-0">
-              {stripImages.map((img, i) =>
+          <div className="grid grid-cols-2 h-full gap-0">
+              {[stripImages[0], stripImages[2]].filter(Boolean).map((img, i) =>
             <img
               key={i}
               src={img.image_url}
