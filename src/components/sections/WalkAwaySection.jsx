@@ -130,7 +130,7 @@ export default function WalkAwaySection() {
             Member Experience
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
-          <h2 className="font-display leading-tight mb-3 mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", maxWidth: "30rem", lineHeight: "1.15" }}>
+          <h2 className="font-display leading-tight mb-3 mx-auto text-lg" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", maxWidth: "30rem", lineHeight: "1.15" }}>
             Move Through the Method With{" "}
             <em style={{ color: "#4D5E49" }}>Structure + Support.</em>
           </h2>
@@ -161,20 +161,20 @@ export default function WalkAwaySection() {
                 transform: "translate(4px, 8px)",
                 backgroundColor: "#C4956A",
                 opacity: 0.1,
-                zIndex: 0,
-              }}
-            />
+                zIndex: 0
+              }} />
+            
             {/* Image surface — soft edge, barely there shadow */}
             <div
               className="relative rounded-[16px] overflow-hidden"
-              style={{ boxShadow: "0 4px 24px rgba(196,149,106,0.1)", border: "1px solid rgba(196,149,106,0.08)", zIndex: 1 }}
-            >
+              style={{ boxShadow: "0 4px 24px rgba(196,149,106,0.1)", border: "1px solid rgba(196,149,106,0.08)", zIndex: 1 }}>
+              
               <img
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/61484979d_ChatGPT_Image_May_17__2026__06_49_23_AM.png"
                 alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
                 className="w-full h-auto block"
-                style={{ filter: "saturate(0.9) brightness(0.98)" }}
-              />
+                style={{ filter: "saturate(0.9) brightness(0.98)" }} />
+              
             </div>
           </div>
           <p className="font-body mt-5 text-center" style={{ color: "#b0a49a", fontSize: "0.78rem", letterSpacing: "0.01em" }}>
