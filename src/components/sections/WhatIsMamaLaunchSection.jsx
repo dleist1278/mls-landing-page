@@ -126,7 +126,7 @@ export default function WhatIsMamaLaunchSection() {
         }}>
         
         <div className="grid grid-cols-3 h-full gap-0">
-          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/1eca1e669_Untitled_design__2_.jpg"
 
           alt="Children exploring sensory play on the floor"
           className="w-full h-full object-cover"
