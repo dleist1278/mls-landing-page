@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import HeroImage from "@/components/sections/HeroImage";
+import { trackCTAClick } from "@/lib/analytics";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
@@ -14,8 +15,14 @@ export default function HeroSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  const scrollToIntake = () => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
-  const scrollToMethod = () => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToIntake = () => {
+    trackCTAClick("Join the Founding Member Waitlist", "hero");
+    document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollToMethod = () => {
+    trackCTAClick("Explore the Method", "hero");
+    document.getElementById("method")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section

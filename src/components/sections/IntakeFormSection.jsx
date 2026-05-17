@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { trackWaitlistSubmit, trackPathwaySelect, trackCTAClick } from "@/lib/analytics";
 
 const roles = [
   "Stay-at-home mother",
@@ -109,7 +110,9 @@ export default function IntakeFormSection() {
         const body = await res.json().catch(() => ({}));
         throw new Error(body?.message || "Submission failed. Please try again.");
       }
-      setSubmitted(true);
+      trackWaitlistSubmit({ interest: form.interest, state: form.state });
+      // Redirect to dedicated thank-you page, passing first name
+      window.location.href = `/thank-you?name=${encodeURIComponent(form.firstName)}`;
     } catch (err) {
       setSubmitError(err.message || "Something went wrong. Please try again.");
     } finally {
@@ -254,7 +257,7 @@ export default function IntakeFormSection() {
                   <select
                     required
                     value={form.interest}
-                    onChange={(e) => handleChange("interest", e.target.value)}
+                    onChange={(e) => { handleChange("interest", e.target.value); trackPathwaySelect(e.target.value); }}
                     style={{ ...selectStyle, color: form.interest ? "#2C2C2C" : "#9a8f84" }}
                   >
                     <option value="" disabled>What type interests you?</option>
@@ -313,6 +316,7 @@ export default function IntakeFormSection() {
                 <button
                   type="submit"
                   disabled={submitting}
+                  onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
                   className="font-micro text-white w-full sm:w-auto px-10 py-5 rounded-full hover:opacity-90 transition-all min-h-[56px] disabled:opacity-60"
                   style={{
                     backgroundColor: "#4D5E49",

@@ -1,4 +1,5 @@
 import React from "react";
+import useScrollDepth from "@/lib/useScrollDepth";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/sections/HeroSection";
@@ -13,6 +14,7 @@ import FounderSection from "@/components/sections/FounderSection";
 import IntakeFormSection from "@/components/sections/IntakeFormSection";
 
 export default function Home() {
+  useScrollDepth();
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#FAF7F2" }}>
       <SiteNav />

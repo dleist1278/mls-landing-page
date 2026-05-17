@@ -2,15 +2,102 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="https://base44.com/logo_v2.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PRIMARY SEO
+    ═══════════════════════════════════════════════════════════════ -->
     <title>Mama Launch Studio — Build a Legacy from the Living Room</title>
     <meta name="description" content="Mama Launch Studio helps mothers build intentional, licensed home-based childcare programs — with calm structure, expert guidance, and a community that holds you." />
-    <meta property="og:title" content="Mama Launch Studio — Build a Legacy from the Living Room" />
-    <meta property="og:description" content="The 5-Phase method for launching your home childcare program with confidence." />
-    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mamalaunchchstudio.com/" />
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OPEN GRAPH (Facebook / LinkedIn / iMessage previews)
+         Replace og:image with a real 1200×630 brand image URL
+    ═══════════════════════════════════════════════════════════════ -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://mamalaunchchstudio.com/" />
+    <meta property="og:title"       content="Mama Launch Studio — Build a Legacy from the Living Room" />
+    <meta property="og:description" content="The 5-Phase guided system for launching your home childcare program with confidence, calm, and community." />
+    <meta property="og:image"       content="https://mamalaunchchstudio.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name"   content="Mama Launch Studio" />
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         TWITTER / X CARD
+    ═══════════════════════════════════════════════════════════════ -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Mama Launch Studio — Build a Legacy from the Living Room" />
+    <meta name="twitter:description" content="The 5-Phase guided system for launching your home childcare program with confidence, calm, and community." />
+    <meta name="twitter:image"       content="https://mamalaunchchstudio.com/og-image.jpg" />
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FAVICON
+         Replace with your real favicon files when ready.
+         Use https://realfavicongenerator.net to generate all sizes.
+    ═══════════════════════════════════════════════════════════════ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png"     href="/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon"          href="/apple-touch-icon.png" />
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FONTS
+    ═══════════════════════════════════════════════════════════════ -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         GOOGLE ANALYTICS 4
+         Replace G-XXXXXXXXXX with your real Measurement ID.
+         GA4 → Admin → Data Streams → select stream → Measurement ID
+    ═══════════════════════════════════════════════════════════════ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { send_page_view: true });
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         META PIXEL
+         Replace XXXXXXXXXXXXXXXXX with your numeric Pixel ID.
+         Meta Events Manager → Data Sources → Pixels → your pixel ID
+         Delete this block if you are not running Meta ads.
+    ═══════════════════════════════════════════════════════════════ -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'XXXXXXXXXXXXXXXXX');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXXXX&ev=PageView&noscript=1" />
+    </noscript>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         MICROSOFT CLARITY (session recordings + heatmaps — free)
+         Replace XXXXXXXXXX with your Project ID.
+         clarity.microsoft.com → your project → Settings → get the ID
+         Delete this block if you prefer Hotjar instead.
+    ═══════════════════════════════════════════════════════════════ -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "XXXXXXXXXX");
+    </script>
+
   </head>
   <body>
     <div id="root"></div>
