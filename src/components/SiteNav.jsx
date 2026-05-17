@@ -76,30 +76,36 @@ export default function SiteNav() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div
-          className="md:hidden px-6 pb-10 pt-5 flex flex-col gap-5"
+          className="md:hidden px-6 pb-8 pt-5"
           style={{ backgroundColor: "#FAF7F2", borderBottom: "1px solid #C4956A55" }}
         >
-          {[
-            { label: "The Method", id: "method" },
-            { label: "Programs", id: "models" },
-            { label: "Community", id: "ecosystem" },
-            { label: "Meet Danielle", id: "founder" },
-          ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className="font-micro text-charcoal hover:text-sage transition-colors text-left min-h-[48px] flex items-center focus-sage"
-              style={{ fontSize: "0.9rem" }}
-            >
-              {item.label}
-            </button>
-          ))}
+          {/* 2-column grid of nav links */}
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1 mb-5">
+            {[
+              { label: "The Method", id: "method" },
+              { label: "Program Pathways", id: "models" },
+              { label: "Community", id: "ecosystem" },
+              { label: "Meet Danielle", id: "founder" },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="font-micro text-charcoal hover:text-sage transition-colors text-left focus-sage flex items-center"
+                style={{ fontSize: "0.78rem", minHeight: "52px", letterSpacing: "0.06em" }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+          {/* Divider */}
+          <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A33" }} />
+          {/* CTA */}
           <button
             onClick={() => scrollTo("intake")}
-            className="font-micro text-white px-6 py-4 rounded-full min-h-[52px] focus-sage w-full text-center mt-1"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.85rem" }}
+            className="font-micro text-white px-6 py-4 rounded-full min-h-[52px] focus-sage w-full text-center"
+            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem" }}
           >
-            Start Your Launch Path
+            Join the Founding Member Waitlist
           </button>
         </div>
       )}
