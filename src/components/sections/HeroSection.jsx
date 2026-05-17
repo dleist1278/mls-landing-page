@@ -56,17 +56,6 @@ export default function HeroSection() {
           {/* Text block — mobile-constrained */}
           <div className="w-full md:max-w-[520px] md:flex-none">
 
-            {/* Eyebrow */}
-            <div className={`transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-              <p
-                className="font-micro mb-6 flex items-center gap-2 flex-wrap"
-                style={{ color: "#C4956A", fontSize: "0.68rem" }}
-              >
-                <span className="inline-block w-6 h-px flex-none" style={{ backgroundColor: "#C4956A" }} />
-                The Mama Launch Method — Early Access
-              </p>
-            </div>
-
             {/* Headline */}
             <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1

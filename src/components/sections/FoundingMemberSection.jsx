@@ -210,9 +210,7 @@ export default function FoundingMemberSection() {
               <br />
               <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
             </h2>
-            <p className="font-body md:max-w-sm leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
-              Here's exactly what founding members experience — transparently, honestly, and with full clarity.
-            </p>
+
           </div>
         </div>
 

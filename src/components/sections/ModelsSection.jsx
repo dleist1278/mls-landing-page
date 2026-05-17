@@ -66,7 +66,7 @@ export default function ModelsSection() {
               One Method.{" "}
               <em style={{ color: "#4D5E49" }}>Built Around Your Life.</em>
             </h2>
-            <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
               Built to meet you where you are — whatever form your program takes.
             </p>
           </div>
