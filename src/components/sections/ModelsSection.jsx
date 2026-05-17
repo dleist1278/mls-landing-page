@@ -109,8 +109,8 @@ export default function ModelsSection() {
               </p>
               <button
                 onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-                className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px] focus-sage"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
+                className="font-micro text-white px-6 py-3 rounded-full transition-all min-h-[44px] focus-sage"
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.7rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
                 
                 Join the Founding Member Waitlist
               </button>
