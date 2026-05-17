@@ -2,6 +2,7 @@ import React from "react";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/sections/HeroSection";
+import TrustBar from "@/components/sections/TrustBar";
 import WhatIsMamaLaunchSection from "@/components/sections/WhatIsMamaLaunchSection";
 import MethodSection from "@/components/sections/MethodSection";
 import WalkAwaySection from "@/components/sections/WalkAwaySection";
@@ -17,6 +18,7 @@ export default function Home() {
       <SiteNav />
       <main>
         <HeroSection />
+        <TrustBar />
         <WhatIsMamaLaunchSection />
         <MethodSection />
         <WalkAwaySection />

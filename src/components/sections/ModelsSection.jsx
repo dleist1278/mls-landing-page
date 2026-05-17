@@ -62,7 +62,7 @@ export default function ModelsSection() {
             Program Pathways
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
+            <h2 className="font-display leading-tight break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.6rem)", maxWidth: "100%", overflowWrap: "break-word" }}>
               One Method.{" "}
               <em style={{ color: "#4D5E49" }}>Built Around Your Life.</em>
             </h2>

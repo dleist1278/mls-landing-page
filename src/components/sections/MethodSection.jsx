@@ -65,7 +65,8 @@ function PhaseCard({ phase, index }) {
       ref={ref}
       className="flex-none"
       style={{
-        width: "300px",
+        width: "clamp(260px, 78vw, 300px)",
+        scrollSnapAlign: "start",
         transition: `all 0.65s ease ${index * 80}ms`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(24px)",
@@ -159,17 +160,21 @@ export default function MethodSection() {
 
       {/* Horizontal scroll */}
       <div
-        className="flex gap-4 overflow-x-auto pb-5 px-6 md:px-12"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+        className="flex gap-4 overflow-x-auto pb-6 px-6 md:px-12"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+          scrollSnapType: "x mandatory",
+        }}>
 
         {phases.map((phase, i) =>
         <PhaseCard
           key={phase.number}
           phase={phase}
           index={i} />
-
         )}
-        <div className="flex-none w-6 md:w-10" />
+        <div className="flex-none w-2 md:w-8" />
       </div>
 
       <div className="flex items-center justify-center gap-3 mt-3 px-6">

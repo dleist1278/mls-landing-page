@@ -10,9 +10,7 @@ const pillars = [
   "State-specific licensing roadmaps",
   "Phase-by-phase implementation checklists",
   "Downloadable templates and workbooks",
-  "Guided action steps in every module"],
-
-  offsetY: 0
+  "Guided action steps in every module"]
 },
 {
   num: "02",
@@ -23,9 +21,7 @@ const pillars = [
   "Private peer implementation community",
   "Cohort-based milestone tracking",
   "Monthly live community calls",
-  "Phase-organized peer support groups"],
-
-  offsetY: 20
+  "Phase-organized peer support groups"]
 }];
 
 
@@ -50,7 +46,6 @@ function PillarCard({ pillar, index }) {
       style={{
         backgroundColor: "#F0EBE1",
         border: "1px solid #C4956A1A",
-        marginTop: `${pillar.offsetY}px`,
         transition: `all 0.8s ease ${index * 140}ms`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(28px)",
@@ -129,18 +124,18 @@ export default function EcosystemSection() {
         </div>
 
         {/* Community image + pillars */}
-        <div className="grid md:grid-cols-5 gap-5 mb-10">
-          {/* Image */}
-          <div className="md:col-span-2 rounded-3xl overflow-hidden" style={{ minHeight: "280px" }}>
-            <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
-
-            alt="Mothers in a warm, supportive community gathering"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)", minHeight: "280px" }} />
-            
+        <div className="grid md:grid-cols-5 gap-5 mb-10 items-start">
+          {/* Image — hidden on mobile to avoid awkward stacking */}
+          <div className="hidden md:block md:col-span-2 rounded-3xl overflow-hidden" style={{ height: "520px" }}>
+            <img
+              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
+              alt="Mothers in a warm, supportive community gathering"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)" }}
+            />
           </div>
           {/* Pillars */}
-          <div className="md:col-span-3 grid md:grid-cols-1 gap-4">
+          <div className="md:col-span-3 flex flex-col gap-4">
             {pillars.slice(0, 2).map((pillar, i) =>
             <PillarCard key={pillar.num} pillar={pillar} index={i} />
             )}

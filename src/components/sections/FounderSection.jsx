@@ -1,18 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 
 const credentials = [
-{ label: "Former Teacher", note: "Deep background in child development, curriculum design, and parent communication." },
-{ label: "Former Elementary Assistant Principal", note: "School leadership, operations management, staff oversight, and systemic program building." },
-{ label: "Licensed Home Daycare Owner", note: "Opened, passed licensing inspection, enrolled families, hired staff, and scaled a home program." },
-{ label: "Education Technology & Implementation", note: "Built community adoption and implementation frameworks for an educator-facing communication platform." },
-{ label: "Mother of Two", note: "Mom to two boys — building this method inside the same real family life you're living." }];
-
-
-const realTalkItems = [
-"The licensing paperwork was a maze — and no one handed me a map.",
-"The business decisions were lonely and I second-guessed everything.",
-"I experienced burnout before I found operational clarity.",
-"Real support for serious home providers barely existed."];
+{ label: "Teacher & Assistant Principal", note: "Curriculum, child development, parent communication, and school operations." },
+{ label: "Licensed Home Daycare Owner", note: "Opened a program, navigated licensing, enrolled families, and scaled sustainably." },
+{ label: "EdTech Implementation Lead", note: "Built adoption frameworks for an educator-facing platform — at scale." },
+{ label: "Mother of Two Boys", note: "Building this inside the same real, full family life you're navigating." }];
 
 
 export default function FounderSection() {
@@ -82,35 +74,34 @@ export default function FounderSection() {
 
             <div className="space-y-4 mb-7">
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.97rem" }}>
-                I spent years in education as a teacher and assistant principal before working in educator-focused app and systems implementation. Later, I became a licensed home daycare owner and mother to two boys.
+                I spent years as a teacher, assistant principal, and implementation lead before becoming a licensed home daycare owner and mother of two. I know both sides of this — the professional systems and the real life you're building inside of.
               </p>
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.97rem" }}>
-                Through teaching, leadership, childcare operations, and implementation work, I developed a deep understanding of child development, parent communication, operational systems, and the real-life challenges providers face while building sustainable programs — but what I didn't have was a clear, modern roadmap for launching a home childcare program that felt calm, intentional, and aligned with real family life.
-              </p>
-              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.97rem" }}>
-                Mama Launch Studio is the system I wish existed: a guided implementation method helping mothers build home childcare programs with structure, support, and step-by-step guidance.
+                When I launched my own program, I found scattered information, no clear roadmap, and almost no support designed for serious home providers. So I built the system I needed. Mama Launch Studio is the guided method I wish had existed when I started.
               </p>
             </div>
 
             {/* Credibility grid */}
             <div
               ref={credRef}
-              className="grid grid-cols-1 gap-3 mb-8"
+              className="mb-8"
               style={{
                 transition: "all 0.8s ease 0.2s",
                 opacity: credVisible ? 1 : 0,
                 transform: credVisible ? "translateY(0)" : "translateY(16px)"
               }}>
-              <p className="font-micro mb-1" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>Why this method is credible</p>
-              {credentials.map((c) => (
-                <div key={c.label} className="flex items-start gap-3 p-3 rounded-2xl" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
-                  <span className="mt-0.5 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
-                  <div>
-                    <span className="font-body text-sm font-medium" style={{ color: "#2C2C2C" }}>{c.label}</span>
-                    <span className="font-body text-xs ml-2" style={{ color: "#7A6E65" }}>{c.note}</span>
+              <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>Background & experience</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {credentials.map((c) => (
+                  <div key={c.label} className="flex items-start gap-2.5 p-3 rounded-2xl" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
+                    <span className="mt-1 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
+                    <div>
+                      <p className="font-body text-xs font-medium leading-snug" style={{ color: "#2C2C2C" }}>{c.label}</p>
+                      <p className="font-body text-xs leading-relaxed" style={{ color: "#7A6E65" }}>{c.note}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
 

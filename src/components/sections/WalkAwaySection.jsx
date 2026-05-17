@@ -115,7 +115,7 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section className="py-6 md:py-12" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="walkaway" className="py-6 md:py-12" style={{ backgroundColor: "#FAF7F2" }}>
 
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
