@@ -111,7 +111,7 @@ export default function HeroSection() {
                   boxShadow: "0 4px 20px rgba(77,94,73,0.22)",
                 }}
               >
-                Join the Founding Member Waitlist
+                Become a Founding Member
               </button>
               <button
                 onClick={scrollToMethod}
