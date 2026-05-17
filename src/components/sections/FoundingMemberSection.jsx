@@ -2,32 +2,32 @@ import React, { useRef, useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 
 const steps = [
-  {
-    step: "01",
-    title: "Join the Waitlist",
-    description: "Share a little about your vision and readiness. We use this to understand where you are and what you need most."
-  },
-  {
-    step: "02",
-    title: "Receive Your Welcome",
-    description: "Founding members receive a personal welcome, early access to Phase One materials, and an invitation to the founding community."
-  },
-  {
-    step: "03",
-    title: "Begin Phase One Together",
-    description: "You'll move through the Mama Launch Method with a cohort of founding members — guided, supported, and never alone."
-  },
-  {
-    step: "04",
-    title: "Shape the Platform",
-    description: "Your feedback and experience directly influence how the platform evolves. You're not just a user — you're a co-architect."
-  },
-  {
-    step: "05",
-    title: "Open Your Doors",
-    description: "By the end of the method, you'll have a licensed, operational, enrollment-ready home childcare program — with a community standing beside you."
-  }
-];
+{
+  step: "01",
+  title: "Join the Waitlist",
+  description: "Share a little about your vision and readiness. We use this to understand where you are and what you need most."
+},
+{
+  step: "02",
+  title: "Receive Your Welcome",
+  description: "Founding members receive a personal welcome, early access to Phase One materials, and an invitation to the founding community."
+},
+{
+  step: "03",
+  title: "Begin Phase One Together",
+  description: "You'll move through the Mama Launch Method with a cohort of founding members — guided, supported, and never alone."
+},
+{
+  step: "04",
+  title: "Shape the Platform",
+  description: "Your feedback and experience directly influence how the platform evolves. You're not just a user — you're a co-architect."
+},
+{
+  step: "05",
+  title: "Open Your Doors",
+  description: "By the end of the method, you'll have a licensed, operational, enrollment-ready home childcare program — with a community standing beside you."
+}];
+
 
 function StepRow({ step, index }) {
   const ref = useRef(null);
@@ -35,7 +35,7 @@ function StepRow({ step, index }) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      ([entry]) => {if (entry.isIntersecting) setVisible(true);},
       { threshold: 0.08 }
     );
     if (ref.current) observer.observe(ref.current);
@@ -61,8 +61,8 @@ function StepRow({ step, index }) {
         <h3 className="font-display text-lg mb-1.5" style={{ color: "#2C2C2C" }}>{step.title}</h3>
         <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px" }}>{step.description}</p>
       </div>
-    </div>
-  );
+    </div>);
+
 }
 
 /**
@@ -87,63 +87,63 @@ function EditorialImagery({ img1, img2, visible }) {
         style={{
           background: "radial-gradient(ellipse at 60% 40%, #E8D5C030 0%, transparent 65%)",
           zIndex: 0
-        }}
-      />
+        }} />
+      
 
       {/* Primary image — large, anchored bottom-right */}
-      {true && (
-        <div
-          className="absolute rounded-[24px] overflow-hidden"
-          style={{
-            width: "72%",
-            aspectRatio: "3/4",
-            right: 0,
-            bottom: 0,
-            zIndex: 2,
-            boxShadow: "0 12px 48px rgba(44,44,44,0.1), 0 2px 12px rgba(196,149,106,0.1)",
-            border: "1px solid #C4956A14"
-          }}>
+      {true &&
+      <div
+        className="absolute rounded-[24px] overflow-hidden"
+        style={{
+          width: "72%",
+          aspectRatio: "3/4",
+          right: 0,
+          bottom: 0,
+          zIndex: 2,
+          boxShadow: "0 12px 48px rgba(44,44,44,0.1), 0 2px 12px rgba(196,149,106,0.1)",
+          border: "1px solid #C4956A14"
+        }}>
           <img
-            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/3b7c88598_Untitleddesign2.jpg"
-            alt="Mother and child playing together"
-            className="w-full h-full object-cover"
-            style={{
-              objectPosition: "center 20%",
-              filter: "saturate(0.72) brightness(0.96)"
-            }}
-          />
+          src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/3b7c88598_Untitleddesign2.jpg"
+          alt="Mother and child playing together"
+          className="w-full h-full object-cover"
+          style={{
+            objectPosition: "center 20%",
+            filter: "saturate(0.72) brightness(0.96)"
+          }} />
+        
           {/* Soft vignette overlay */}
           <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, transparent 55%, rgba(44,44,44,0.18) 100%)" }}
-          />
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(180deg, transparent 55%, rgba(44,44,44,0.18) 100%)" }} />
+        
         </div>
-      )}
+      }
 
       {/* Secondary image — smaller, floated top-left, overlapping */}
-      {img2?.image_url && (
-        <div
-          className="absolute rounded-[20px] overflow-hidden"
-          style={{
-            width: "52%",
-            aspectRatio: "4/3",
-            left: 0,
-            top: "6%",
-            zIndex: 3,
-            boxShadow: "0 8px 32px rgba(44,44,44,0.12), 0 2px 8px rgba(196,149,106,0.08)",
-            border: "1px solid rgba(250,247,242,0.9)"
-          }}>
-          <img
-            src={img2.image_url}
-            alt={img2.alt_text || ""}
-            className="w-full h-full object-cover"
-            style={{
-              objectPosition: img2.focal_position || "center 25%",
-              filter: "saturate(0.68) brightness(0.97)"
-            }}
-          />
+      {img2?.image_url &&
+      <div
+        className="absolute rounded-[20px] overflow-hidden"
+        style={{
+          width: "52%",
+          aspectRatio: "4/3",
+          left: 0,
+          top: "6%",
+          zIndex: 3,
+          boxShadow: "0 8px 32px rgba(44,44,44,0.12), 0 2px 8px rgba(196,149,106,0.08)",
+          border: "1px solid rgba(250,247,242,0.9)"
+        }}>
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/1eca1e669_Untitled_design__2_.jpg"
+
+        alt={img2.alt_text || ""}
+        className="w-full h-full object-cover"
+        style={{
+          objectPosition: img2.focal_position || "center 25%",
+          filter: "saturate(0.68) brightness(0.97)"
+        }} />
+        
         </div>
-      )}
+      }
 
       {/* Level 1 — editorial backing shape behind primary image */}
       <div
@@ -156,10 +156,10 @@ function EditorialImagery({ img1, img2, visible }) {
           zIndex: 1,
           backgroundColor: "#E8D5C0",
           opacity: 0.36
-        }}
-      />
-    </div>
-  );
+        }} />
+      
+    </div>);
+
 }
 
 export default function FoundingMemberSection() {
@@ -171,19 +171,19 @@ export default function FoundingMemberSection() {
   const [img2, setImg2] = useState(null);
 
   useEffect(() => {
-    const o1 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setHeaderVisible(true); }, { threshold: 0.08 });
-    const o2 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setImgVisible(true); }, { threshold: 0.06 });
+    const o1 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setHeaderVisible(true);}, { threshold: 0.08 });
+    const o2 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setImgVisible(true);}, { threshold: 0.06 });
     if (headerRef.current) o1.observe(headerRef.current);
     if (imgRef.current) o2.observe(imgRef.current);
-    return () => { o1.disconnect(); o2.disconnect(); };
+    return () => {o1.disconnect();o2.disconnect();};
   }, []);
 
   // Load both images independently — each from its own SiteContent record
   useEffect(() => {
-    base44.entities.SiteContent.filter({ key: "waitlist_experience_image_01" })
-      .then((r) => { if (r?.length > 0) setImg1(r[0]); });
-    base44.entities.SiteContent.filter({ key: "waitlist_experience_image_02" })
-      .then((r) => { if (r?.length > 0) setImg2(r[0]); });
+    base44.entities.SiteContent.filter({ key: "waitlist_experience_image_01" }).
+    then((r) => {if (r?.length > 0) setImg1(r[0]);});
+    base44.entities.SiteContent.filter({ key: "waitlist_experience_image_02" }).
+    then((r) => {if (r?.length > 0) setImg2(r[0]);});
   }, []);
 
   return (
@@ -221,9 +221,9 @@ export default function FoundingMemberSection() {
           <div className="md:col-span-3 relative">
             <div className="hidden md:block absolute left-[2.1rem] top-10 bottom-10 w-px" style={{ backgroundColor: "#C4956A28" }} />
             <div className="flex flex-col gap-6">
-              {steps.map((step, i) => (
-                <StepRow key={step.step} step={step} index={i} />
-              ))}
+              {steps.map((step, i) =>
+              <StepRow key={step.step} step={step} index={i} />
+              )}
             </div>
           </div>
 
@@ -252,6 +252,6 @@ export default function FoundingMemberSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
