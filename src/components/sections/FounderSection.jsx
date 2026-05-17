@@ -45,9 +45,9 @@ export default function FounderSection() {
           }}
         >
           {/* Image */}
-          <div className="relative flex flex-col items-center gap-6">
+          <div className="relative">
             <div
-              className="rounded-3xl overflow-hidden w-full"
+              className="rounded-3xl overflow-hidden"
               style={{ aspectRatio: "4/5", boxShadow: "0 16px 60px rgba(196,149,106,0.14)" }}
             >
               <img
@@ -65,13 +65,6 @@ export default function FounderSection() {
                 </p>
               </div>
             </div>
-            <button
-              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px]"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}
-            >
-              Join the Founding Member Waitlist
-            </button>
           </div>
 
           {/* Content */}
@@ -112,6 +105,13 @@ export default function FounderSection() {
               </div>
             </div>
 
+            <button
+              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+              className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px]"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}
+            >
+              Join the Founding Member Waitlist
+            </button>
           </div>
         </div>
 
