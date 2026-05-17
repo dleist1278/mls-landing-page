@@ -116,7 +116,7 @@ export default function ModelsSection() {
             </div>
 
             {/* Feature list */}
-            <div className="md:w-72 flex-none">
+            <div className="md:w-72 flex-none hidden">
               <p className="font-micro mb-4 hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
                 Guided through the Mama Launch Method
               </p>
