@@ -87,6 +87,7 @@ export default function WhatIsMamaLaunchSection() {
   const [imgVisible, setImgVisible] = useState(false);
   const [primaryImage, setPrimaryImage] = useState(null);
   const [stripImages, setStripImages] = useState([]);
+  const [mobileHeroImage, setMobileHeroImage] = useState(null);
 
   useEffect(() => {
     const o1 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setVisible(true);}, { threshold: 0.08 });
@@ -109,6 +110,10 @@ export default function WhatIsMamaLaunchSection() {
     ).then(([r1, r2, r3]) => {
       const imgs = [r1, r2, r3].map((r) => r?.[0]).filter(Boolean);
       setStripImages(imgs);
+    });
+    // Load mobile hero image
+    base44.entities.SiteContent.filter({ key: "method_mobile_hero_image" }).then((r) => {
+      if (r?.length > 0) setMobileHeroImage(r[0]);
     });
   }, []);
 
@@ -233,42 +238,26 @@ export default function WhatIsMamaLaunchSection() {
           }
         </div>
 
-        {/* Mobile: swipe carousel with editorial framing */}
-        {stripImages.length > 0 &&
-        <div className="block md:hidden py-6">
+        {/* Mobile: single centered editorial image */}
+        {mobileHeroImage &&
+        <div className="block md:hidden px-5 py-6">
             <div
-            className="flex overflow-x-auto gap-3 px-5 pb-1"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none", scrollSnapType: "x mandatory" }}>
-            
-              {stripImages.map((img, i) =>
-            <div
-              key={i}
-              className="flex-none rounded-2xl overflow-hidden"
+              className="rounded-2xl overflow-hidden mx-auto"
               style={{
-                width: "72vw",
-                aspectRatio: "3/4",
-                scrollSnapAlign: "start",
-                boxShadow: "0 8px 32px rgba(196,149,106,0.14)",
+                maxWidth: "420px",
+                aspectRatio: "4/3",
+                boxShadow: "0 12px 48px rgba(196,149,106,0.16)",
                 border: "1px solid #C4956A18"
               }}>
-              
-                  <img
-                src={img.image_url}
-                alt={img.alt_text || ""}
+              <img
+                src={mobileHeroImage.image_url}
+                alt={mobileHeroImage.alt_text || ""}
                 className="w-full h-full object-cover"
                 style={{
-                  objectPosition: img.focal_position || "center",
+                  objectPosition: mobileHeroImage.focal_position || "35% 40%",
                   filter: "saturate(0.72) brightness(0.95)"
-                }} />
-              
-                </div>
-            )}
-              <div className="flex-none w-4" />
-            </div>
-            <div className="flex items-center justify-center gap-2 mt-3">
-              <div className="w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
-              <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.6rem" }}>Swipe to explore</p>
-              <div className="w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
+                }}
+              />
             </div>
           </div>
         }

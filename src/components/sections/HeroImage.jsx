@@ -45,9 +45,9 @@ export default function HeroImage({ imageData, visible }) {
         </div>
       </div>
 
-      {/* Mobile: full-width image below text, shorter aspect ratio */}
+      {/* Mobile: hidden — desktop only */}
       <div
-        className={`block md:hidden w-full transition-all duration-1000 delay-400 ${
+        className={`hidden w-full transition-all duration-1000 delay-400 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
         style={{ marginTop: "2rem" }}
