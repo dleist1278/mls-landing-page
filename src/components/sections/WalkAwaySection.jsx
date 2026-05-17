@@ -115,7 +115,7 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section className="py-12 md:py-16" style={{ backgroundColor: "#FAF7F2" }}>
+    <section className="py-6 md:py-16" style={{ backgroundColor: "#FAF7F2" }}>
 
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -143,7 +143,7 @@ export default function WalkAwaySection() {
         {/* REAL ASSET — Portal mockup */}
         <div
           ref={portalRef}
-          className="mb-24"
+          className="mb-8 md:mb-16"
           style={{ transition: "all 0.9s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(32px)", filter: portalVisible ? "blur(0)" : "blur(3px)" }}>
           
           <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#4D5E49", fontSize: "0.7rem" }}>
