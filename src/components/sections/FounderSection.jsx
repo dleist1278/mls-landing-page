@@ -93,7 +93,7 @@ export default function FounderSection() {
             </div>
 
             {/* Real talk */}
-            <div className="rounded-3xl p-6 mb-7" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A18" }}>
+            <div className="rounded-3xl p-6 mb-7 hidden" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A18" }}>
               <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.67rem" }}>What I learned the hard way</p>
               <div className="flex flex-col gap-2.5">
                 {realTalkItems.map((item) =>
