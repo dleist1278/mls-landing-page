@@ -1,47 +1,47 @@
 import React, { useRef, useEffect, useState } from "react";
 
 const pillars = [
-  {
-    num: "01",
-    title: "Implementation-First Guidance",
-    description:
-      "Every phase of the Mama Launch Method comes with structured checklists, templates, and operational tools — so you're always moving forward, never just consuming content.",
-    items: [
-      "State-specific licensing roadmaps",
-      "Phase-by-phase implementation checklists",
-      "Downloadable templates and workbooks",
-      "Guided action steps in every module",
-    ],
-    offsetY: 0,
-  },
-  {
-    num: "02",
-    title: "A Village That Moves Forward",
-    description:
-      "The Mama Launch community is implementation-focused, milestone-driven, and uplifting. We celebrate progress, share what's actually working, and move through the method together — a village helping a village.",
-    items: [
-      "Private peer implementation community",
-      "Cohort-based milestone tracking",
-      "Monthly live community calls",
-      "Phase-organized peer support groups",
-    ],
-    offsetY: 20,
-  },
-  {
-    num: "03",
-    title: "Completion Certificate",
-    description:
-      "Members who complete the Mama Launch Method receive a completion certificate showing they worked through the full five-phase implementation framework.",
-    items: [
-      "Completion of all 5 phases",
-      "Full portfolio of operational documents",
-      "Childcare Ecosystem Blueprint finalized",
-      "Community milestone recognition",
-    ],
-    note: "This is not a state license or legal endorsement — it's a meaningful marker of the systems, planning, and intentional foundation you built.",
-    offsetY: -8,
-  },
-];
+{
+  num: "01",
+  title: "Implementation-First Guidance",
+  description:
+  "Every phase of the Mama Launch Method comes with structured checklists, templates, and operational tools — so you're always moving forward, never just consuming content.",
+  items: [
+  "State-specific licensing roadmaps",
+  "Phase-by-phase implementation checklists",
+  "Downloadable templates and workbooks",
+  "Guided action steps in every module"],
+
+  offsetY: 0
+},
+{
+  num: "02",
+  title: "A Village That Moves Forward",
+  description:
+  "The Mama Launch community is implementation-focused, milestone-driven, and uplifting. We celebrate progress, share what's actually working, and move through the method together — a village helping a village.",
+  items: [
+  "Private peer implementation community",
+  "Cohort-based milestone tracking",
+  "Monthly live community calls",
+  "Phase-organized peer support groups"],
+
+  offsetY: 20
+},
+{
+  num: "03",
+  title: "Completion Certificate",
+  description:
+  "Members who complete the Mama Launch Method receive a completion certificate showing they worked through the full five-phase implementation framework.",
+  items: [
+  "Completion of all 5 phases",
+  "Full portfolio of operational documents",
+  "Childcare Ecosystem Blueprint finalized",
+  "Community milestone recognition"],
+
+  note: "This is not a state license or legal endorsement — it's a meaningful marker of the systems, planning, and intentional foundation you built.",
+  offsetY: -8
+}];
+
 
 function PillarCard({ pillar, index }) {
   const ref = useRef(null);
@@ -49,7 +49,7 @@ function PillarCard({ pillar, index }) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      ([entry]) => {if (entry.isIntersecting) setVisible(true);},
       { threshold: 0.08 }
     );
     if (ref.current) observer.observe(ref.current);
@@ -68,9 +68,9 @@ function PillarCard({ pillar, index }) {
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(28px)",
         filter: visible ? "blur(0)" : "blur(2px)",
-        boxShadow: "0 4px 32px rgba(196,149,106,0.04)",
-      }}
-    >
+        boxShadow: "0 4px 32px rgba(196,149,106,0.04)"
+      }}>
+      
       <div className="w-7 h-7 rounded-full mb-5 flex items-center justify-center flex-none" style={{ backgroundColor: "#4D5E49" }}>
         <span className="font-display text-white" style={{ fontSize: "0.65rem" }}>{pillar.num}</span>
       </div>
@@ -81,21 +81,21 @@ function PillarCard({ pillar, index }) {
       <div className="w-full h-px mb-4" style={{ backgroundColor: "#C4956A22" }} />
 
       <ul className="flex flex-col gap-2.5 flex-1">
-        {pillar.items.map((item) => (
-          <li key={item} className="flex items-start gap-2.5">
+        {pillar.items.map((item) =>
+        <li key={item} className="flex items-start gap-2.5">
             <span className="mt-1.5 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
             <span className="font-body text-sm" style={{ color: "#5C5148" }}>{item}</span>
           </li>
-        ))}
+        )}
       </ul>
 
-      {pillar.note && (
-        <p className="font-body mt-5 pt-4 text-xs italic leading-relaxed" style={{ color: "#9a8f84", borderTop: "1px solid #C4956A14" }}>
+      {pillar.note &&
+      <p className="font-body mt-5 pt-4 text-xs italic leading-relaxed" style={{ color: "#9a8f84", borderTop: "1px solid #C4956A14" }}>
           {pillar.note}
         </p>
-      )}
-    </div>
-  );
+      }
+    </div>);
+
 }
 
 export default function EcosystemSection() {
@@ -105,15 +105,15 @@ export default function EcosystemSection() {
   const [quoteVisible, setQuoteVisible] = useState(false);
 
   useEffect(() => {
-    const o1 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setHeaderVisible(true); }, { threshold: 0.08 });
-    const o2 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setQuoteVisible(true); }, { threshold: 0.08 });
+    const o1 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setHeaderVisible(true);}, { threshold: 0.08 });
+    const o2 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setQuoteVisible(true);}, { threshold: 0.08 });
     if (headerRef.current) o1.observe(headerRef.current);
     if (quoteRef.current) o2.observe(quoteRef.current);
-    return () => { o1.disconnect(); o2.disconnect(); };
+    return () => {o1.disconnect();o2.disconnect();};
   }, []);
 
   return (
-    <section id="ecosystem" className="py-16 md:py-24" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="ecosystem" className="md:py-24 py-12" style={{ backgroundColor: "#FAF7F2" }}>
       <div className="w-full h-px mb-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -124,9 +124,9 @@ export default function EcosystemSection() {
             transition: "all 0.8s ease",
             opacity: headerVisible ? 1 : 0,
             transform: headerVisible ? "translateY(0)" : "translateY(24px)",
-            filter: headerVisible ? "blur(0)" : "blur(2px)",
-          }}
-        >
+            filter: headerVisible ? "blur(0)" : "blur(2px)"
+          }}>
+          
           <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             Community & Support
@@ -149,14 +149,14 @@ export default function EcosystemSection() {
               src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=85"
               alt="Mothers in a warm, supportive community gathering"
               className="w-full h-full object-cover"
-              style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)", minHeight: "280px" }}
-            />
+              style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)", minHeight: "280px" }} />
+            
           </div>
           {/* Pillars */}
           <div className="md:col-span-3 grid md:grid-cols-1 gap-4">
-            {pillars.slice(0, 2).map((pillar, i) => (
-              <PillarCard key={pillar.num} pillar={pillar} index={i} />
-            ))}
+            {pillars.slice(0, 2).map((pillar, i) =>
+            <PillarCard key={pillar.num} pillar={pillar} index={i} />
+            )}
           </div>
         </div>
 
@@ -170,9 +170,9 @@ export default function EcosystemSection() {
           style={{
             transition: "all 0.8s ease",
             opacity: quoteVisible ? 1 : 0,
-            transform: quoteVisible ? "translateY(0)" : "translateY(20px)",
-          }}
-        >
+            transform: quoteVisible ? "translateY(0)" : "translateY(20px)"
+          }}>
+          
           <div className="w-8 h-px mx-auto mb-6" style={{ backgroundColor: "#C4956A" }} />
           <blockquote className="font-display text-xl md:text-2xl leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic" }}>
             "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
@@ -184,6 +184,6 @@ export default function EcosystemSection() {
       </div>
 
       <div className="w-full h-px mt-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
-    </section>
-  );
+    </section>);
+
 }
