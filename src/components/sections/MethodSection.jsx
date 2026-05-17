@@ -100,7 +100,7 @@ function PhaseCard({ phase, index }) {
               <span className="font-micro" style={{ color: phase.color, opacity: 0.4, fontSize: "0.65rem" }}>Your image here</span>
             </div>
           }
-          <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to bottom, transparent 30%, ${phase.color}40 100%)` }} className="hidden" />
+          
           {/* Phase badge */}
           <div
             className="absolute top-4 left-4 font-micro"
