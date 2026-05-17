@@ -85,21 +85,11 @@ export default function FoundingMemberSection() {
             className="md:col-span-2 flex flex-col gap-4"
             style={{ transition: "all 0.8s ease 0.2s", opacity: imgVisible ? 1 : 0, transform: imgVisible ? "translateY(0)" : "translateY(24px)" }}>
             
-            <div className="rounded-3xl overflow-hidden flex-1" style={{ minHeight: "200px" }}>
-              <img
-                src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=85"
-                alt="Mother working through her childcare planning workbook"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 25%", filter: "saturate(0.68) brightness(0.95)", minHeight: "200px" }} />
-              
+            <div className="rounded-3xl overflow-hidden flex-1 flex items-center justify-center" style={{ minHeight: "200px", backgroundColor: "#E8D5C014", border: "1px dashed #C4956A44" }}>
+              <span className="font-micro" style={{ color: "#C4956A", opacity: 0.5, fontSize: "0.65rem" }}>Your image here</span>
             </div>
-            <div className="rounded-3xl overflow-hidden" style={{ height: "180px" }}>
-              <img
-                src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=85"
-                alt="Children engaged in calm floor play"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 40%", filter: "saturate(0.68) brightness(0.93)" }} />
-              
+            <div className="rounded-3xl overflow-hidden flex items-center justify-center" style={{ height: "180px", backgroundColor: "#E8D5C014", border: "1px dashed #C4956A44" }}>
+              <span className="font-micro" style={{ color: "#C4956A", opacity: 0.5, fontSize: "0.65rem" }}>Your image here</span>
             </div>
           </div>
         </div>

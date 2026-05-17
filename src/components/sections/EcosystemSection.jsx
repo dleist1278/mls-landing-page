@@ -27,20 +27,7 @@ const pillars = [
 
   offsetY: 20
 },
-{
-  num: "03",
-  title: "Completion Certificate",
-  description:
-  "Members who complete the Mama Launch Method receive a completion certificate showing they worked through the full five-phase implementation framework.",
-  items: [
-  "Completion of all 5 phases",
-  "Full portfolio of operational documents",
-  "Childcare Ecosystem Blueprint finalized",
-  "Community milestone recognition"],
-
-  note: "This is not a state license or legal endorsement — it's a meaningful marker of the systems, planning, and intentional foundation you built.",
-  offsetY: -8
-}];
+];
 
 
 function PillarCard({ pillar, index }) {
@@ -160,8 +147,7 @@ export default function EcosystemSection() {
           </div>
         </div>
 
-        {/* Third pillar full width */}
-        <PillarCard pillar={pillars[2]} index={2} />
+
 
         {/* Quote */}
         <div
