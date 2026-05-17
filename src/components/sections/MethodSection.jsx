@@ -65,7 +65,7 @@ function PhaseCard({ phase, index }) {
       ref={ref}
       className="flex-none"
       style={{
-        width: "clamp(260px, 78vw, 300px)",
+        width: "clamp(272px, 80vw, 300px)",
         scrollSnapAlign: "start",
         transition: `all 0.65s ease ${index * 80}ms`,
         opacity: visible ? 1 : 0,
@@ -76,7 +76,7 @@ function PhaseCard({ phase, index }) {
       <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
 
         {/* Phase header */}
-        <div className="px-6 pt-5 pb-4" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
+        <div className="px-5 pt-5 pb-3" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
           {/* Phase number */}
           <div className="font-display mb-2" style={{ color: phase.color, fontSize: "2rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
             {phase.number}
@@ -93,11 +93,11 @@ function PhaseCard({ phase, index }) {
         </div>
 
         {/* Deliverables */}
-        <div className="px-6 py-5 flex-1">
+        <div className="px-5 py-4 flex-1">
           <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>
             You'll walk away with
           </p>
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-1.5">
             {phase.deliverables.map((d) =>
             <li key={d} className="flex items-start gap-2.5">
                 <span className="flex-none mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
@@ -126,7 +126,7 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="method" className="py-12 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
       <div className="w-full h-px mb-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div

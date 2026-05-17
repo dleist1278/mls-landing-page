@@ -22,7 +22,7 @@ export default function FounderSection() {
   }, []);
 
   return (
-    <section id="founder" className="pt-12 md:pt-16 pb-4" style={{ backgroundColor: "#F0EBE1" }}>
+    <section id="founder" className="pt-14 md:pt-16 pb-6 md:pb-4" style={{ backgroundColor: "#F0EBE1" }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         {/* Main two-col */}
@@ -79,7 +79,7 @@ export default function FounderSection() {
               Meet Your Guide
             </p>
 
-            <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.5vw, 2.8rem)" }}>
+            <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3.5vw, 2.8rem)", lineHeight: "1.2" }}>
               Hi, I'm Danielle.<br />
               I built this<br />
               <em style={{ color: "#4D5E49" }}>because I needed it.</em>

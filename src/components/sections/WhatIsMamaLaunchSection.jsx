@@ -57,7 +57,7 @@ export default function WhatIsMamaLaunchSection() {
   return (
     <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden" }}>
       {/* Main two-column editorial block */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-12 md:py-20">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20">
         <div
           ref={ref}
           className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
@@ -123,8 +123,8 @@ export default function WhatIsMamaLaunchSection() {
               Understanding the Platform
             </p>
             <h2
-              className="font-display leading-tight mb-5"
-              style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.5vw, 3rem)" }}>
+              className="font-display leading-tight mb-6"
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3.5vw, 3rem)", lineHeight: "1.2" }}>
               
               What is the{" "}
               <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>

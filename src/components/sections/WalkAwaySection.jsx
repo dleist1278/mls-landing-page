@@ -115,7 +115,7 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section id="walkaway" className="py-8 md:py-14" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="walkaway" className="py-12 md:py-14" style={{ backgroundColor: "#FAF7F2" }}>
 
       <div className="max-w-6xl mx-auto px-6 md:px-12">
 
@@ -130,7 +130,7 @@ export default function WalkAwaySection() {
             Member Experience
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
-          <h2 className="font-display leading-tight mb-3 mx-auto text-lg" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.4rem)", maxWidth: "52rem", lineHeight: "1.15" }}>
+          <h2 className="font-display leading-tight mb-3 mx-auto text-lg" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", maxWidth: "52rem", lineHeight: "1.18" }}>
             Move Through the Method With
             <br />
             <em style={{ color: "#4D5E49" }}>Structure + Support.</em>

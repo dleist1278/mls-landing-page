@@ -43,7 +43,7 @@ export default function ModelsSection() {
   }, []);
 
   return (
-    <section id="models" className="py-10 md:py-16" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="models" className="py-12 md:py-16" style={{ backgroundColor: "#FAF7F2" }}>
       <div className="max-w-5xl mx-auto px-6 md:px-12">
 
         {/* Header */}
@@ -73,7 +73,7 @@ export default function ModelsSection() {
         {/* Active pathway — prominent */}
         <div
           ref={activeRef}
-          className="rounded-3xl p-7 md:p-10 mb-6"
+          className="rounded-3xl p-6 md:p-10 mb-6"
           style={{
             backgroundColor: "#F0EBE1",
             border: "1px solid #4D5E4930",
@@ -84,10 +84,10 @@ export default function ModelsSection() {
             filter: activeVisible ? "blur(0)" : "blur(3px)"
           }}>
           
-          <div className="flex flex-col md:flex-row md:gap-10 gap-8">
+          <div className="flex flex-col md:flex-row md:gap-10 gap-6">
             <div className="flex-1">
               {/* Active badge */}
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
+              <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
                 <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
                 <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>Active Pathway — Now Enrolling</span>
               </div>
@@ -96,7 +96,7 @@ export default function ModelsSection() {
               <h3 className="font-display mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
                 {activeModel.title}
               </h3>
-              <p className="font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "1rem", maxWidth: "520px" }}>
+              <p className="font-body leading-relaxed mb-6" style={{ color: "#5C5148", fontSize: "1rem", maxWidth: "520px" }}>
                 {activeModel.description}
               </p>
               <button

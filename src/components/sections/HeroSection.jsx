@@ -50,8 +50,8 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
       {/* Constrained, overflow-safe content wrapper */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-28 pb-16 overflow-x-hidden">
-        <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12 lg:gap-20">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-28 pb-20 md:pb-16 overflow-x-hidden">
+        <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-12 lg:gap-20">
 
           {/* Text block — mobile-constrained */}
           <div className="w-full md:max-w-[520px] md:flex-none">
@@ -59,12 +59,12 @@ export default function HeroSection() {
             {/* Headline */}
             <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1
-                className="font-display mb-5 break-words"
+                className="font-display mb-6 break-words"
                 style={{
                   color: "#2C2C2C",
                   fontSize: "clamp(1.75rem, 5vw, 4.2rem)",
                   letterSpacing: "-0.02em",
-                  lineHeight: "1.18",
+                  lineHeight: "1.22",
                   maxWidth: "100%",
                   wordBreak: "break-word",
                   overflowWrap: "break-word",
@@ -78,8 +78,8 @@ export default function HeroSection() {
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
-                className="font-body mb-5"
-                style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.7", maxWidth: "100%" }}
+                className="font-body mb-7"
+                style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.75", maxWidth: "100%" }}
               >
                 Launch your home childcare program with guided systems, intentional structure, and a supportive community built around real family life.
               </p>
@@ -88,7 +88,7 @@ export default function HeroSection() {
             {/* Tag line */}
             <div className={`transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <p
-                className="font-micro mb-8"
+                className="font-micro mb-9"
                 style={{ color: "#C4956A", fontSize: "0.66rem", letterSpacing: "0.1em" }}
               >
                 Launch System · Templates · Community · Guided Implementation
@@ -97,7 +97,7 @@ export default function HeroSection() {
 
             {/* CTAs — stacked on mobile, row on sm+ */}
             <div
-              className={`transition-all duration-700 delay-500 flex flex-col sm:flex-row flex-wrap gap-3 ${
+              className={`transition-all duration-700 delay-500 flex flex-col sm:flex-row flex-wrap gap-4 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >

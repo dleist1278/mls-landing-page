@@ -76,7 +76,7 @@ export default function SiteNav() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div
-          className="md:hidden px-6 pb-8 pt-4 flex flex-col gap-6"
+          className="md:hidden px-6 pb-10 pt-5 flex flex-col gap-5"
           style={{ backgroundColor: "#FAF7F2", borderBottom: "1px solid #C4956A55" }}
         >
           {[
@@ -88,15 +88,15 @@ export default function SiteNav() {
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className="font-micro text-charcoal hover:text-sage transition-colors text-left min-h-[44px] flex items-center focus-sage"
-              style={{ fontSize: "0.85rem" }}
+              className="font-micro text-charcoal hover:text-sage transition-colors text-left min-h-[48px] flex items-center focus-sage"
+              style={{ fontSize: "0.9rem" }}
             >
               {item.label}
             </button>
           ))}
           <button
             onClick={() => scrollTo("intake")}
-            className="font-micro text-white px-6 py-4 rounded-full min-h-[44px] focus-sage"
+            className="font-micro text-white px-6 py-4 rounded-full min-h-[52px] focus-sage w-full text-center mt-1"
             style={{ backgroundColor: "#4D5E49", fontSize: "0.85rem" }}
           >
             Start Your Launch Path

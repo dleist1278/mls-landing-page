@@ -53,7 +53,7 @@ function StepRow({ step, index }) {
         filter: visible ? "blur(0)" : "blur(2px)"
       }}>
       <div
-        className="flex-none w-[4rem] h-[4rem] rounded-full flex items-center justify-center z-10"
+        className="flex-none w-[3.5rem] h-[3.5rem] rounded-full flex items-center justify-center z-10"
         style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A44" }}>
         <span className="font-display text-base" style={{ color: "#C4956A", letterSpacing: "-0.02em" }}>{step.step}</span>
       </div>
@@ -187,7 +187,7 @@ export default function FoundingMemberSection() {
   }, []);
 
   return (
-    <section className="md:py-16 py-12" style={{ backgroundColor: "#F0EBE1" }}>
+    <section className="md:py-16 py-14" style={{ backgroundColor: "#F0EBE1" }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         {/* Header */}
@@ -205,7 +205,7 @@ export default function FoundingMemberSection() {
             The Founding Member Experience
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.4rem)" }}>
+            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.2" }}>
               What Happens After
               <br />
               <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
@@ -220,7 +220,7 @@ export default function FoundingMemberSection() {
           {/* Steps timeline */}
           <div className="md:col-span-3 relative">
             <div className="hidden md:block absolute left-[2.1rem] top-10 bottom-10 w-px" style={{ backgroundColor: "#C4956A28" }} />
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-5">
               {steps.map((step, i) =>
               <StepRow key={step.step} step={step} index={i} />
               )}

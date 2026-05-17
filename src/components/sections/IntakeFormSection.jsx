@@ -125,12 +125,14 @@ export default function IntakeFormSection() {
     border: "none",
     borderBottom: "1px solid #C4956A",
     borderRadius: 0,
-    padding: "12px 0",
+    padding: "14px 0",
     fontFamily: "'Inter', sans-serif",
     fontSize: "1rem",
     color: "#2C2C2C",
     width: "100%",
     outline: "none",
+    WebkitAppearance: "none",
+    appearance: "none",
   };
 
   const selectStyle = {
@@ -142,7 +144,7 @@ export default function IntakeFormSection() {
 
   return (
     <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden" }}>
-      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-16 md:py-20">
         <div
           ref={ref}
           style={{
@@ -202,7 +204,7 @@ export default function IntakeFormSection() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-9">
               {/* Row 1 — Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                 <div>
@@ -317,7 +319,7 @@ export default function IntakeFormSection() {
                   type="submit"
                   disabled={submitting}
                   onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
-                  className="font-micro text-white w-full sm:w-auto px-10 py-5 rounded-full hover:opacity-90 transition-all min-h-[56px] disabled:opacity-60"
+                  className="font-micro text-white w-full px-10 py-5 rounded-full hover:opacity-90 transition-all min-h-[56px] disabled:opacity-60"
                   style={{
                     backgroundColor: "#4D5E49",
                     fontSize: "0.82rem",
