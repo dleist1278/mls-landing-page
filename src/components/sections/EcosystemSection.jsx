@@ -54,7 +54,7 @@ function PillarCard({ pillar, index }) {
       }}>
 
       <h3 className="font-display text-lg md:text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
-      <p className="font-body text-sm leading-relaxed mb-3 hidden" style={{ color: "#5C5148" }}>{pillar.description}</p>
+      
 
       <div className="w-full h-px mb-2" style={{ backgroundColor: "#C4956A22" }} />
 
