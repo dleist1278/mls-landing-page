@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { base44 } from "@/api/base44Client";
 
 const steps = [
 {
@@ -33,6 +34,17 @@ export default function FoundingMemberSection() {
   const imgRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [imgVisible, setImgVisible] = useState(false);
+  const [img1, setImg1] = useState(null);
+  const [img2, setImg2] = useState(null);
+  const input1Ref = useRef(null);
+  const input2Ref = useRef(null);
+
+  const handleUpload = async (e, setImg) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const { file_url } = await base44.integrations.Core.UploadFile({ file });
+    setImg(file_url);
+  };
 
   useEffect(() => {
     const o1 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setHeaderVisible(true);}, { threshold: 0.08 });
@@ -85,11 +97,24 @@ export default function FoundingMemberSection() {
             className="md:col-span-2 flex flex-col gap-4"
             style={{ transition: "all 0.8s ease 0.2s", opacity: imgVisible ? 1 : 0, transform: imgVisible ? "translateY(0)" : "translateY(24px)" }}>
             
-            <div className="rounded-3xl overflow-hidden flex-1 flex items-center justify-center" style={{ minHeight: "200px", backgroundColor: "#E8D5C014", border: "1px dashed #C4956A44" }}>
-              <span className="font-micro" style={{ color: "#C4956A", opacity: 0.5, fontSize: "0.65rem" }}>Your image here</span>
+            <input ref={input1Ref} type="file" accept="image/*" className="hidden" onChange={(e) => handleUpload(e, setImg1)} />
+            <div
+              className="rounded-3xl overflow-hidden flex-1 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+              style={{ minHeight: "200px", backgroundColor: "#E8D5C014", border: "1px dashed #C4956A44" }}
+              onClick={() => input1Ref.current?.click()}>
+              {img1
+                ? <img src={img1} alt="" className="w-full h-full object-cover" style={{ minHeight: "200px" }} />
+                : <span className="font-micro" style={{ color: "#C4956A", opacity: 0.5, fontSize: "0.65rem" }}>Click to upload image</span>}
             </div>
-            <div className="rounded-3xl overflow-hidden flex items-center justify-center" style={{ height: "180px", backgroundColor: "#E8D5C014", border: "1px dashed #C4956A44" }}>
-              <span className="font-micro" style={{ color: "#C4956A", opacity: 0.5, fontSize: "0.65rem" }}>Your image here</span>
+
+            <input ref={input2Ref} type="file" accept="image/*" className="hidden" onChange={(e) => handleUpload(e, setImg2)} />
+            <div
+              className="rounded-3xl overflow-hidden flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+              style={{ height: "180px", backgroundColor: "#E8D5C014", border: "1px dashed #C4956A44" }}
+              onClick={() => input2Ref.current?.click()}>
+              {img2
+                ? <img src={img2} alt="" className="w-full h-full object-cover" style={{ height: "180px" }} />
+                : <span className="font-micro" style={{ color: "#C4956A", opacity: 0.5, fontSize: "0.65rem" }}>Click to upload image</span>}
             </div>
           </div>
         </div>
