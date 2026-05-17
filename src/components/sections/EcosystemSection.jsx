@@ -91,13 +91,13 @@ export default function EcosystemSection() {
   }, []);
 
   return (
-    <section id="ecosystem" className="md:py-16 py-10" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
-      <div className="w-full h-px mb-8 md:mb-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+    <section id="ecosystem" className="md:py-16 py-7" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+      <div className="w-full h-px mb-5 md:mb-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div
           ref={headerRef}
-          className="text-center mb-8 md:mb-12"
+          className="text-center mb-5 md:mb-12"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
@@ -169,7 +169,7 @@ export default function EcosystemSection() {
         {/* Quote */}
         <div
           ref={quoteRef}
-          className="mt-7 md:mt-10 text-center mx-auto max-w-xl"
+          className="mt-4 md:mt-10 text-center mx-auto max-w-xl"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: quoteVisible ? 1 : 0,
@@ -186,7 +186,7 @@ export default function EcosystemSection() {
         </div>
       </div>
 
-      <div className="w-full h-px mt-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      <div className="w-full h-px mt-6 md:mt-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>);
 
 }

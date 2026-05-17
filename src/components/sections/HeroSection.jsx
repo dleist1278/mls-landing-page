@@ -26,7 +26,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[65vh] flex items-center overflow-hidden"
+      className="relative flex items-center overflow-hidden"
       style={{ backgroundColor: "#FAF7F2" }}
     >
       {/* Background image wash */}
@@ -50,7 +50,7 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
       {/* Constrained, overflow-safe content wrapper */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-8 md:pt-28 pb-10 md:pb-16 overflow-x-hidden">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-6 md:pt-28 pb-7 md:pb-16 overflow-x-hidden">
         <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-12 lg:gap-20">
 
           {/* Text block — mobile-constrained */}
@@ -59,7 +59,7 @@ export default function HeroSection() {
             {/* Headline */}
             <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1
-                className="font-display mb-6 break-words"
+                className="font-display mb-4 break-words"
                 style={{
                   color: "#2C2C2C",
                   fontSize: "clamp(1.75rem, 5vw, 4.2rem)",
@@ -78,8 +78,8 @@ export default function HeroSection() {
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
-                className="font-body mb-5"
-                style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "100%" }}
+                className="font-body mb-4"
+                style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.55", maxWidth: "100%" }}
               >
                 Launch your home childcare program with guided systems, intentional structure, and a supportive community built around real family life.
               </p>
@@ -94,7 +94,7 @@ export default function HeroSection() {
                 Launch System · Templates · Community · Guided Implementation
               </p>
             </div>
-            <div className="sm:hidden mb-6" />
+            <div className="sm:hidden mb-3" />
 
             {/* CTAs — stacked on mobile, row on sm+ */}
             <div

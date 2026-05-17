@@ -57,7 +57,7 @@ export default function WhatIsMamaLaunchSection() {
   return (
     <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden" }}>
       {/* Main two-column editorial block */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20">
         <div
           ref={ref}
           className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
@@ -128,7 +128,7 @@ export default function WhatIsMamaLaunchSection() {
               What is the{" "}
               <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
             </h2>
-            <p className="font-body leading-relaxed mb-3" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.65", maxWidth: "38rem" }}>
+            <p className="font-body leading-relaxed mb-3" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "38rem" }}>
               Mama Launch is a guided implementation system helping mothers launch intentional home childcare programs through step-by-step phases, operational systems, templates, and community support.
             </p>
             <p className="hidden md:block font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "38rem" }}>
@@ -137,7 +137,7 @@ export default function WhatIsMamaLaunchSection() {
             <div className="md:hidden mb-5" />
 
             <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 mb-5">
               {included.map((item) =>
               <div key={item} className="flex items-start gap-2">
                   <span className="mt-1 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />

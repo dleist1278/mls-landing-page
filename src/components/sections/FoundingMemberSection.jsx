@@ -52,13 +52,13 @@ function StepRow({ step, index }) {
         transform: visible ? "translateX(0)" : "translateX(-12px)"
       }}>
       <div
-        className="flex-none w-10 h-10 rounded-full flex items-center justify-center z-10"
+        className="flex-none w-8 h-8 rounded-full flex items-center justify-center z-10"
         style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A44" }}>
         <span className="font-display text-sm" style={{ color: "#C4956A", letterSpacing: "-0.02em" }}>{step.step}</span>
       </div>
-      <div className="pt-1.5 pb-2">
-        <h3 className="font-display text-base mb-1" style={{ color: "#2C2C2C", lineHeight: "1.3" }}>{step.title}</h3>
-        <p className="font-body text-sm leading-snug" style={{ color: "#5C5148", maxWidth: "480px", lineHeight: "1.55" }}>{step.description}</p>
+      <div className="pt-0.5 pb-1">
+        <h3 className="font-display text-sm mb-0.5" style={{ color: "#2C2C2C", lineHeight: "1.3" }}>{step.title}</h3>
+        <p className="font-body text-xs leading-snug" style={{ color: "#5C5148", maxWidth: "480px", lineHeight: "1.5" }}>{step.description}</p>
       </div>
     </div>);
 
@@ -186,13 +186,13 @@ export default function FoundingMemberSection() {
   }, []);
 
   return (
-    <section className="md:py-16 py-10" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
+    <section className="md:py-16 py-7" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         {/* Header */}
         <div
           ref={headerRef}
-          className="mb-8 md:mb-12"
+          className="mb-5 md:mb-12"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
@@ -218,7 +218,7 @@ export default function FoundingMemberSection() {
           {/* Steps timeline */}
           <div className="md:col-span-3 relative">
             <div className="hidden md:block absolute left-[2.1rem] top-10 bottom-10 w-px" style={{ backgroundColor: "#C4956A28" }} />
-            <div className="flex flex-col gap-3.5 md:gap-5">
+            <div className="flex flex-col gap-2.5 md:gap-5">
               {steps.map((step, i) =>
               <StepRow key={step.step} step={step} index={i} />
               )}

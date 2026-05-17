@@ -16,7 +16,7 @@ export default function SiteFooter() {
       {/* Top clay accent line */}
       <div className="w-full h-px" style={{ backgroundColor: "#C4956A", opacity: 0.35 }} />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-14 pb-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-8 md:pt-14 pb-7 md:pb-10">
 
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 pb-12 mb-10 border-b" style={{ borderColor: "#C4956A28" }}>
@@ -37,10 +37,10 @@ export default function SiteFooter() {
 
           {/* Navigation column */}
           <div>
-            <p className="font-micro mb-5" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
+            <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
               Navigate
             </p>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-1">
               {navLinks.map((item) => (
                 <button
                   key={item.id}
@@ -56,10 +56,10 @@ export default function SiteFooter() {
 
           {/* CTA column */}
           <div>
-            <p className="font-micro mb-5" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
+            <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
               Ready to Begin?
             </p>
-            <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#7A6E65" }}>
+            <p className="font-body text-sm leading-relaxed mb-4" style={{ color: "#7A6E65" }}>
               Join the founding member waitlist and get early access to the full Mama Launch Method when it opens.
             </p>
             <button

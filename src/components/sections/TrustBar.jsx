@@ -10,7 +10,7 @@ const signals = [
 
 export default function TrustBar() {
   return (
-    <div className="w-full py-3 overflow-hidden" style={{ backgroundColor: "#4D5E49" }}>
+    <div className="w-full py-2 overflow-hidden" style={{ backgroundColor: "#4D5E49" }}>
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -19,7 +19,7 @@ export default function TrustBar() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 36s linear infinite;
+          animation: marquee 28s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;

@@ -125,7 +125,7 @@ export default function IntakeFormSection() {
     border: "none",
     borderBottom: "1px solid #C4956A",
     borderRadius: 0,
-    padding: "14px 0",
+    padding: "11px 0",
     fontFamily: "'Inter', sans-serif",
     fontSize: "1rem",
     color: "#2C2C2C",
@@ -144,7 +144,7 @@ export default function IntakeFormSection() {
 
   return (
     <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden", scrollMarginTop: "60px" }}>
-      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-12 md:py-20">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20">
         <div
           ref={ref}
           style={{
@@ -154,7 +154,7 @@ export default function IntakeFormSection() {
           }}
         >
           {/* Header */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-7">
             <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               Founding Member Waitlist
@@ -203,7 +203,7 @@ export default function IntakeFormSection() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-9">
+            <form onSubmit={handleSubmit} className="space-y-5 md:space-y-9">
               {/* Row 1 — Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 <div>

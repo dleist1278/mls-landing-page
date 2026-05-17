@@ -43,13 +43,13 @@ export default function ModelsSection() {
   }, []);
 
   return (
-    <section id="models" className="py-10 md:py-16" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+    <section id="models" className="py-7 md:py-16" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
       <div className="max-w-5xl mx-auto px-6 md:px-12">
 
         {/* Header */}
         <div
           ref={headerRef}
-          className="mb-8 md:mb-14"
+          className="mb-5 md:mb-14"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
@@ -73,7 +73,7 @@ export default function ModelsSection() {
         {/* Active pathway — prominent */}
         <div
           ref={activeRef}
-          className="rounded-3xl p-5 md:p-10 mb-5 md:mb-6"
+          className="rounded-3xl p-4 md:p-10 mb-4 md:mb-6"
           style={{
             backgroundColor: "#F0EBE1",
             border: "1px solid #4D5E4930",
@@ -172,7 +172,7 @@ function ComingSoonCard({ model, index }) {
       style={{
         backgroundColor: "#FAF7F2",
         border: "1px solid #C4956A1A",
-        opacity: visible ? 0.88 : 0,
+        opacity: visible ? 0.65 : 0,
         transform: visible ? "translateY(0)" : `translateY(${16 + index * 4}px)`,
         transition: `opacity 0.5s ease ${index * 100}ms, transform 0.5s ease ${index * 100}ms`,
         width: "min(80vw, 320px)",

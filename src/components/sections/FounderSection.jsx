@@ -22,13 +22,13 @@ export default function FounderSection() {
   }, []);
 
   return (
-    <section id="founder" className="pt-10 md:pt-16 pb-6 md:pb-4" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
+    <section id="founder" className="pt-7 md:pt-16 pb-4 md:pb-4" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
       <div className="max-w-6xl mx-auto px-5 md:px-12">
 
         {/* Main two-col */}
         <div
           ref={ref}
-          className="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-10 md:mb-12"
+          className="grid md:grid-cols-2 gap-6 md:gap-16 items-center mb-6 md:mb-12"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: visible ? 1 : 0,
@@ -76,7 +76,7 @@ export default function FounderSection() {
             </h2>
 
             {/* Image — mobile only, shown after heading */}
-            <div className="md:hidden mb-5">
+            <div className="md:hidden mb-4">
               <div className="relative w-full">
                 <div
                   className="absolute rounded-[28px]"
@@ -84,7 +84,7 @@ export default function FounderSection() {
                 />
                 <div
                   className="relative rounded-[28px] overflow-hidden"
-                  style={{ aspectRatio: "4/5", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1, maxWidth: "88%", margin: "0 auto" }}
+                  style={{ aspectRatio: "3/2", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1, maxWidth: "88%", margin: "0 auto" }}
                 >
                   <img
                     src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
@@ -97,7 +97,7 @@ export default function FounderSection() {
             </div>
 
             {/* Bio text — mobile only, shown below photo */}
-            <div className="md:hidden space-y-3 mb-5">
+            <div className="md:hidden space-y-2 mb-4">
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6" }}>
                 I spent years as a teacher, assistant principal, and implementation lead before becoming a licensed home daycare owner and mother of two. I know both sides — the professional systems and the real life you're building inside of.
               </p>
@@ -106,7 +106,7 @@ export default function FounderSection() {
             {/* Credibility grid — shown FIRST on mobile for immediate trust signals */}
             <div
               ref={credRef}
-              className="mb-5 md:hidden"
+              className="mb-4 md:hidden"
               style={{
                 transition: "opacity 0.6s ease, transform 0.6s ease",
                 opacity: credVisible ? 1 : 0,

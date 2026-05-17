@@ -66,8 +66,8 @@ function PhaseCard({ phase, index }) {
       ref={ref}
       className="flex-none"
       style={{
-        width: "68vw",
-        maxWidth: "240px",
+        width: "62vw",
+        maxWidth: "220px",
         scrollSnapAlign: "start",
         scrollSnapStop: "always",
         transition: `opacity 0.5s ease ${index * 60}ms, transform 0.5s ease ${index * 60}ms`,
@@ -153,7 +153,7 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+    <section id="method" className="py-7 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
       <div className="w-full h-px mb-6" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
@@ -201,7 +201,7 @@ export default function MethodSection() {
         <div className="flex-none w-2 md:w-8" />
       </div>
 
-      <div className="flex items-center justify-center gap-3 mt-3 px-6">
+      <div className="flex items-center justify-center gap-3 mt-2 px-6 md:flex hidden">
       <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
       <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
         Scroll to explore all five phases
