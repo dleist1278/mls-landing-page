@@ -9,9 +9,9 @@ const phases = [
   emotional: "Feel clear on who you are as a provider and what you're building.",
   deliverables: ["Program Vision Blueprint", "Ideal Program Summary", "Parent Experience Statement", "Brand Foundation Summary", "Lifestyle Alignment Summary"],
   color: "#4D5E49",
-  image: null, // TODO: replace with your image URL
+  image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80",
   imageAlt: "Phase 01 — Program Foundation",
-  imagePosition: "center center"
+  imagePosition: "center 30%"
 },
 {
   number: "02",
@@ -20,9 +20,9 @@ const phases = [
   emotional: "Feel grounded and prepared — not overwhelmed by paperwork.",
   deliverables: ["Licensing & Compliance Tracker", "Document Checklist", "Policy & Procedure Outline", "Business Setup Summary", "Insurance & Safety Plan"],
   color: "#6B7E67",
-  image: null, // TODO: replace with your image URL
+  image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
   imageAlt: "Phase 02 — Licensing & Legal Setup",
-  imagePosition: "center center"
+  imagePosition: "center 20%"
 },
 {
   number: "03",
@@ -31,9 +31,9 @@ const phases = [
   emotional: "Feel like a real provider building something beautiful and safe.",
   deliverables: ["Room Layouts & Floor Plans", "Environment & Material List", "Safety & Setup Checklist", "Outdoor Space Plan", "Aesthetic Vision Board"],
   color: "#C4956A",
-  image: null, // TODO: replace with your image URL
+  image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
   imageAlt: "Phase 03 — Environment & Space Plan",
-  imagePosition: "center center"
+  imagePosition: "center 35%"
 },
 {
   number: "04",
@@ -42,9 +42,9 @@ const phases = [
   emotional: "Feel operationally confident — with systems that actually fit your life.",
   deliverables: ["Daily Schedule Template", "Curriculum Plan Outline", "Routine & Flow Guide", "Communication Plan", "Behavior Support Plan"],
   color: "#4D5E49",
-  image: null, // TODO: replace with your image URL
+  image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80",
   imageAlt: "Phase 04 — Daily Operations Plan",
-  imagePosition: "center center"
+  imagePosition: "center 20%"
 },
 {
   number: "05",
@@ -53,9 +53,9 @@ const phases = [
   emotional: "Feel ready to open your doors and welcome your first families.",
   deliverables: ["Brand Identity Guide", "Website & Marketing Copy", "Enrollment Process Map", "Parent Communication Templates", "Launch Plan Checklist"],
   color: "#6B7E67",
-  image: null, // TODO: replace with your image URL
+  image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80",
   imageAlt: "Phase 05 — Branding & Enrollment Plan",
-  imagePosition: "center center"
+  imagePosition: "center 25%"
 }];
 
 
