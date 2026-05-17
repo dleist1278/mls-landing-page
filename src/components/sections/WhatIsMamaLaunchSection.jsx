@@ -126,11 +126,11 @@ export default function WhatIsMamaLaunchSection() {
         }}>
         
         <div className="grid grid-cols-3 h-full gap-0">
-          <img
-            src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=700&q=80"
-            alt="Children exploring sensory play on the floor"
-            className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.95)" }} />
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
+
+          alt="Children exploring sensory play on the floor"
+          className="w-full h-full object-cover"
+          style={{ filter: "saturate(0.7) brightness(0.95)" }} />
           
           <img
             src="https://images.unsplash.com/photo-1576502200916-3808e07386a5?w=700&q=80"
