@@ -87,7 +87,7 @@ function PhaseCard({ phase, index }) {
       <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
 
         {/* Phase image */}
-        <div style={{ height: "160px", overflow: "hidden", position: "relative" }}>
+        <div style={{ height: "160px", overflow: "hidden", position: "relative" }} className="my-1">
           {phase.image ?
           <img
             src={phase.image}
