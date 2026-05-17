@@ -54,7 +54,7 @@ function PillarCard({ pillar, index }) {
       }}>
 
       <h3 className="font-display text-lg md:text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
-      <p className="font-body text-sm leading-relaxed mb-3 hidden" style={{ color: "#5C5148" }}>{pillar.description}</p>
+      
 
       <div className="w-full h-px mb-2" style={{ backgroundColor: "#C4956A22" }} />
 
@@ -177,12 +177,12 @@ export default function EcosystemSection() {
           }}>
           
           <div className="w-8 h-px mx-auto mb-5" style={{ backgroundColor: "#C4956A" }} />
-          <blockquote className="font-display leading-relaxed mb-4 hidden" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.05rem, 2vw, 1.35rem)", lineHeight: "1.5", maxWidth: "480px", margin: "0 auto 1rem" }}>
-            "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
-          </blockquote>
-          <p className="font-micro hidden" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>
-            — Early Access Member, Mama Launch Studio
-          </p>
+          
+
+          
+          
+
+          
         </div>
       </div>
 
