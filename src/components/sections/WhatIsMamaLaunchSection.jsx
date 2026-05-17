@@ -52,8 +52,8 @@ export default function WhatIsMamaLaunchSection() {
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bcd7fe44c_Untitled_design__1_.jpg"
                 alt="Mother reading with children in a calm home environment"
                 className="w-full h-full object-cover"
-                style={{ objectPosition: "center 40%", filter: "saturate(0.75) brightness(0.96)" }}
-              />
+                style={{ objectPosition: "center 40%", filter: "saturate(0.75) brightness(0.96)" }} />
+              
             </div>
 
             {/* Differentiator block */}
@@ -125,20 +125,20 @@ export default function WhatIsMamaLaunchSection() {
             src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
             alt="Children exploring sensory play on the floor"
             className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.95)" }}
-          />
-          <img
-            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/c862e10f1_Untitled_design__1_.jpg"
-            alt="Calm organized shelving in a home childcare space"
-            className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.92)", objectPosition: "center 30%" }}
-          />
+            style={{ filter: "saturate(0.7) brightness(0.95)" }} />
+          
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/fb6b687cd_4.jpg"
+
+          alt="Calm organized shelving in a home childcare space"
+          className="w-full h-full object-cover"
+          style={{ filter: "saturate(0.7) brightness(0.92)", objectPosition: "center 30%" }} />
+          
           <img
             src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/8edc2d80e_Untitled_design__1__copy.jpg"
             alt="Child reading independently in a cozy reading corner"
             className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.93)" }}
-          />
+            style={{ filter: "saturate(0.7) brightness(0.93)" }} />
+          
         </div>
       </div>
     </section>);
