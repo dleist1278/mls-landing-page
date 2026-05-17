@@ -130,11 +130,11 @@ export default function WalkAwaySection() {
             Member Experience
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
-          <h2 className="font-display leading-tight mb-5 mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.5vw, 3.1rem)", maxWidth: "34rem", lineHeight: "1.15" }}>
+          <h2 className="font-display leading-tight mb-4 mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", maxWidth: "30rem", lineHeight: "1.15" }}>
             Move Through the Method With{" "}
             <em style={{ color: "#4D5E49" }}>Structure + Support.</em>
           </h2>
-          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.95rem", maxWidth: "36rem" }}>
+          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.94rem", maxWidth: "30rem" }}>
             Move through the Mama Launch Method™ with guided implementation, milestone tracking, community support, and operational tools designed for real motherhood.
           </p>
         </div>
@@ -151,28 +151,29 @@ export default function WalkAwaySection() {
             <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
           </p>
 
-          {/* Grounded image — one quiet backing layer */}
+          {/* Grounded image — warm tonal integration */}
           <div className="relative">
-            {/* Level 1 — single tonal backing, barely visible */}
+            {/* Single warm tonal wash beneath — blends into cream page */}
             <div
-              className="absolute rounded-[20px]"
+              className="absolute rounded-[16px]"
               style={{
                 inset: 0,
-                transform: "translate(6px, 10px)",
-                backgroundColor: "#D9C9B4",
-                opacity: 0.28,
+                transform: "translate(4px, 8px)",
+                backgroundColor: "#C4956A",
+                opacity: 0.1,
                 zIndex: 0,
               }}
             />
-            {/* Level 2 — image surface */}
+            {/* Image surface — soft edge, barely there shadow */}
             <div
-              className="relative rounded-[20px] overflow-hidden"
-              style={{ boxShadow: "0 6px 32px rgba(44,44,44,0.08)", border: "1px solid rgba(196,149,106,0.1)", zIndex: 1 }}
+              className="relative rounded-[16px] overflow-hidden"
+              style={{ boxShadow: "0 4px 24px rgba(196,149,106,0.1)", border: "1px solid rgba(196,149,106,0.08)", zIndex: 1 }}
             >
               <img
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/61484979d_ChatGPT_Image_May_17__2026__06_49_23_AM.png"
                 alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
                 className="w-full h-auto block"
+                style={{ filter: "saturate(0.9) brightness(0.98)" }}
               />
             </div>
           </div>

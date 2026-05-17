@@ -75,11 +75,11 @@ export default function ModelsSection() {
         {/* Active pathway — prominent */}
         <div
           ref={activeRef}
-          className="rounded-3xl p-8 md:p-12 mb-6"
+          className="rounded-3xl p-7 md:p-10 mb-6"
           style={{
             backgroundColor: "#F0EBE1",
             border: "1px solid #4D5E4930",
-            boxShadow: "0 8px 48px rgba(77,94,73,0.1)",
+            boxShadow: "0 6px 36px rgba(77,94,73,0.08)",
             transition: "all 0.8s ease",
             opacity: activeVisible ? 1 : 0,
             transform: activeVisible ? "translateY(0)" : "translateY(28px)",
@@ -155,7 +155,7 @@ function ComingSoonCard({ model, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-8 flex flex-col gap-4"
+      className="rounded-3xl p-6 flex flex-col gap-3"
       style={{
         backgroundColor: "#FAF7F2",
         border: "1px solid #C4956A1A",

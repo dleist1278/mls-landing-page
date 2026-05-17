@@ -42,7 +42,7 @@ function PillarCard({ pillar, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-5 flex flex-col"
+      className="rounded-3xl p-5 pb-4 flex flex-col"
       style={{
         backgroundColor: "#F0EBE1",
         border: "1px solid #C4956A1A",

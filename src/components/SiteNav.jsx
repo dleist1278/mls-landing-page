@@ -24,7 +24,7 @@ export default function SiteNav() {
         borderBottom: scrolled ? "1px solid #C4956A33" : "none",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-7 flex items-center justify-between">
         {/* Logo */}
         <div
           className="cursor-pointer"
