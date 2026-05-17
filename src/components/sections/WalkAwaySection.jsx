@@ -12,7 +12,7 @@ const ecosystemPillars = [
   tags: ["Program philosophy", "Licensing direction", "Family-aligned schedule", "Program model clarity"],
   accent: "#4D5E49",
   image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=80",
-  imagePosition: "center 30%",
+  imagePosition: "center 30%"
 },
 {
   number: "02",
@@ -22,7 +22,7 @@ const ecosystemPillars = [
   tags: ["Room planning", "Daily rhythm design", "Sensory & play environments", "Calm organizational systems"],
   accent: "#C4956A",
   image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-  imagePosition: "center 35%",
+  imagePosition: "center 35%"
 },
 {
   number: "03",
@@ -32,7 +32,7 @@ const ecosystemPillars = [
   tags: ["Home tour workflow", "Enrollment & onboarding", "Parent communication systems", "Policy guidance"],
   accent: "#6B7E67",
   image: "https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=600&q=80",
-  imagePosition: "center 20%",
+  imagePosition: "center 20%"
 },
 {
   number: "04",
@@ -42,7 +42,7 @@ const ecosystemPillars = [
   tags: ["Operational routines", "Capacity & growth planning", "Launch-ready messaging", "Calm systems framework"],
   accent: "#4D5E49",
   image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80",
-  imagePosition: "center 15%",
+  imagePosition: "center 15%"
 }];
 
 
@@ -78,14 +78,14 @@ function PillarRow({ pillar, index }) {
           style={{
             aspectRatio: "3/2",
             boxShadow: `0 12px 40px ${pillar.accent}18`,
-            border: `1px solid ${pillar.accent}18`,
+            border: `1px solid ${pillar.accent}18`
           }}>
-          <img
-            src={pillar.image}
-            alt={pillar.title}
-            className="w-full h-full object-cover"
-            style={{ objectPosition: pillar.imagePosition, filter: "saturate(0.7) brightness(0.95)" }}
-          />
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/fb6b687cd_4.jpg"
+
+          alt={pillar.title}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: pillar.imagePosition, filter: "saturate(0.7) brightness(0.95)" }} />
+          
         </div>
       </div>
 
