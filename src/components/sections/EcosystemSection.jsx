@@ -42,7 +42,7 @@ function PillarCard({ pillar, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-7 flex flex-col"
+      className="rounded-3xl p-5 flex flex-col"
       style={{
         backgroundColor: "#F0EBE1",
         border: "1px solid #C4956A1A",
@@ -52,17 +52,13 @@ function PillarCard({ pillar, index }) {
         filter: visible ? "blur(0)" : "blur(2px)",
         boxShadow: "0 4px 32px rgba(196,149,106,0.04)"
       }}>
-      
-      <div className="w-7 h-7 rounded-full mb-5 flex items-center justify-center flex-none" style={{ backgroundColor: "#4D5E49" }}>
-        <span className="font-display text-white" style={{ fontSize: "0.65rem" }}>{pillar.num}</span>
-      </div>
 
-      <h3 className="font-display text-xl mb-3" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
-      <p className="font-body text-sm leading-relaxed mb-5" style={{ color: "#5C5148" }}>{pillar.description}</p>
+      <h3 className="font-display text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
+      <p className="font-body text-sm leading-relaxed mb-4" style={{ color: "#5C5148" }}>{pillar.description}</p>
 
-      <div className="w-full h-px mb-4" style={{ backgroundColor: "#C4956A22" }} />
+      <div className="w-full h-px mb-3" style={{ backgroundColor: "#C4956A22" }} />
 
-      <ul className="flex flex-col gap-2.5 flex-1">
+      <ul className="flex flex-col gap-2 flex-1">
         {pillar.items.map((item) =>
         <li key={item} className="flex items-start gap-2.5">
             <span className="mt-1.5 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
@@ -72,7 +68,7 @@ function PillarCard({ pillar, index }) {
       </ul>
 
       {pillar.note &&
-      <p className="font-body mt-5 pt-4 text-xs italic leading-relaxed" style={{ color: "#9a8f84", borderTop: "1px solid #C4956A14" }}>
+      <p className="font-body mt-4 pt-3 text-xs italic leading-relaxed" style={{ color: "#9a8f84", borderTop: "1px solid #C4956A14" }}>
           {pillar.note}
         </p>
       }
@@ -124,22 +120,21 @@ export default function EcosystemSection() {
         </div>
 
         {/* Community image + pillars */}
-        <div className="grid md:grid-cols-5 gap-5 mb-10 items-start">
+        <div className="grid md:grid-cols-5 gap-5 mb-10 items-center">
           {/* Image — hidden on mobile */}
-          <div className="hidden md:block md:col-span-2">
-            {/* Level 1 — editorial backing */}
-            <div className="relative" style={{ height: "480px" }}>
+          <div className="hidden md:block md:col-span-2 self-stretch">
+            {/* Relative wrapper fills full column height */}
+            <div className="relative h-full" style={{ minHeight: "360px" }}>
               <div
                 className="absolute rounded-[24px]"
                 style={{
                   inset: 0,
-                  transform: "translate(-10px, 10px)",
+                  transform: "translate(-8px, 8px)",
                   backgroundColor: "#E8D5C0",
-                  opacity: 0.38,
+                  opacity: 0.32,
                   zIndex: 0,
                 }}
               />
-              {/* Level 2 — image surface */}
               <div
                 className="relative w-full h-full rounded-[24px] overflow-hidden"
                 style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}
@@ -174,7 +169,7 @@ export default function EcosystemSection() {
           }}>
           
           <div className="w-8 h-px mx-auto mb-6" style={{ backgroundColor: "#C4956A" }} />
-          <blockquote className="font-display text-xl md:text-2xl leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic" }}>
+          <blockquote className="font-display leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.1rem, 2vw, 1.35rem)", maxWidth: "560px", margin: "0 auto 1rem" }}>
             "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
           </blockquote>
           <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>

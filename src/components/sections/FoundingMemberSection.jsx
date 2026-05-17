@@ -235,24 +235,23 @@ export default function FoundingMemberSection() {
           </div>
         </div>
 
-        {/* Transparency note */}
-        <div className="p-7 rounded-3xl" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A" }}>
-          <p className="font-micro mb-2" style={{ color: "#C4956A", fontSize: "0.7rem" }}>A Note on Transparency</p>
-          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "660px" }}>
+        {/* Transparency note — centered editorial composition */}
+        <div className="p-7 rounded-3xl text-center" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A" }}>
+          <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.7rem" }}>A Note on Transparency</p>
+          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "580px" }}>
             Mama Launch Studio is a guided implementation platform in active development. Founding members receive early access, help shape the experience, and move through the Mama Launch Method™ as the platform evolves. This is a collaborative, community-centered launch — not a fully finished product. We believe in building with our community, not before them.
           </p>
-        </div>
-
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-          <button
-            onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-            className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px] focus-sage"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
-            Join the Founding Member Waitlist
-          </button>
-          <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.83rem" }}>
-            Founding member spots are limited.
-          </p>
+          <div className="mt-7 flex flex-col items-center gap-3">
+            <button
+              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+              className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px] focus-sage"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
+              Join the Founding Member Waitlist
+            </button>
+            <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.83rem" }}>
+              Founding member spots are limited.
+            </p>
+          </div>
         </div>
       </div>
     </section>

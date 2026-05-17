@@ -86,7 +86,7 @@ export default function ModelsSection() {
             filter: activeVisible ? "blur(0)" : "blur(3px)"
           }}>
           
-          <div className="flex flex-col md:flex-row md:gap-16 gap-8">
+          <div className="flex flex-col md:flex-row md:gap-10 gap-8">
             <div className="flex-1">
               {/* Active badge */}
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>

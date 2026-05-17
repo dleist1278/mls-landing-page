@@ -127,15 +127,17 @@ export default function WalkAwaySection() {
           
           <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-            The Childcare Ecosystem
+            Member Experience
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
             <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
-              Building Your
+              Move Through the Method With
               <br />
-              <em style={{ color: "#4D5E49" }}>Childcare Ecosystem.</em>
+              <em style={{ color: "#4D5E49" }}>Structure + Support.</em>
             </h2>
-
+            <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
+              Move through the Mama Launch Method™ with guided implementation, milestone tracking, community support, and operational tools designed for real motherhood.
+            </p>
           </div>
         </div>
 
