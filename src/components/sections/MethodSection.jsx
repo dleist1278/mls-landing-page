@@ -82,19 +82,19 @@ function PhaseCard({ phase, index, imageData }) {
 
         {/* Phase image — editor-managed via SiteContent entity */}
         <div style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px" }}>
-          {imageData?.image_url ? (
-            <img
-              src={imageData.image_url}
-              alt={imageData.alt_text || phase.name}
-              className="w-full h-full object-cover transition-transform duration-500"
-              style={{
-                objectPosition: imageData.focal_position || "center 30%",
-                filter: "saturate(0.65) brightness(0.94)"
-              }}
-            />
-          ) : (
-            <div className="w-full h-full" style={{ backgroundColor: `${phase.color}12` }} />
-          )}
+          {imageData?.image_url ?
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/0d8a2dc7b_6.jpg"
+
+          alt={imageData.alt_text || phase.name}
+          className="w-full h-full object-cover transition-transform duration-500"
+          style={{
+            objectPosition: imageData.focal_position || "center 30%",
+            filter: "saturate(0.65) brightness(0.94)"
+          }} /> :
+
+
+          <div className="w-full h-full" style={{ backgroundColor: `${phase.color}12` }} />
+          }
 
           {/* Phase badge */}
           <div
@@ -154,10 +154,10 @@ export default function MethodSection() {
 
   // Load all phase images from the editor-managed SiteContent entity
   useEffect(() => {
-    const keys = phases.map(p => p.imageKey);
+    const keys = phases.map((p) => p.imageKey);
     Promise.all(
-      keys.map(key => base44.entities.SiteContent.filter({ key }))
-    ).then(results => {
+      keys.map((key) => base44.entities.SiteContent.filter({ key }))
+    ).then((results) => {
       const map = {};
       results.forEach((r, i) => {
         if (r?.length > 0) map[keys[i]] = r[0];
@@ -208,8 +208,8 @@ export default function MethodSection() {
           key={phase.number}
           phase={phase}
           index={i}
-          imageData={phaseImages[phase.imageKey]}
-        />
+          imageData={phaseImages[phase.imageKey]} />
+
         )}
         <div className="flex-none w-6 md:w-10" />
       </div>
