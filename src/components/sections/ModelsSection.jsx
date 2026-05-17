@@ -1,61 +1,152 @@
 import React, { useRef, useEffect, useState } from "react";
 
-const models = [
-  {
-    title: "Home Daycare & Nursery",
-    subtitle: "Consistent • Licensed • Full-Time",
-    description:
-      "A structured, licensed daily program for a small group of children in your home. The Mama Launch Method guides you through every step of building a full-time program that serves families consistently.",
-    features: [
-      "State licensing navigation & documentation",
-      "Infant through Pre-K program design",
-      "Capacity, ratio & scheduling systems",
-      "Tuition structure & enrollment workflow",
-      "Daily rhythm & curriculum framework",
-    ],
-    accent: "#4D5E49",
-    bg: "#F0EBE1",
-  },
+const activeModel = {
+  tag: "Active Now",
+  title: "Home Daycare / Nursery",
+  description:
+    "Launch a calm, intentional home childcare program designed around your family life, licensing goals, and community needs. This is the core Mama Launch pathway — full-time, part-time, nursery-style, or mixed-age.",
+  features: [
+    "State licensing navigation & documentation",
+    "Full-time, part-time & mixed-age structures",
+    "Room planning & environment design",
+    "Enrollment, pricing & parent communication",
+    "Daily rhythm & curriculum framework",
+    "Waitlist, tour & launch workflows",
+  ],
+};
+
+const comingSoon = [
   {
     title: "Drop-In Childcare",
-    subtitle: "Flexible • Part-Time • Community-Facing",
     description:
-      "A part-time, as-needed care model for families who need occasional, reliable childcare. Ideal if you want to begin with flexibility and grow into a fuller program over time.",
-    features: [
-      "Flexible scheduling & booking systems",
-      "Hourly & session pricing strategy",
-      "Drop-in policies & safety protocols",
-      "Digital enrollment & waiver setup",
-      "Community visibility & referral systems",
-    ],
-    accent: "#C4956A",
-    bg: "#FAF7F2",
+      "Flexible short-format care models built around specific time blocks, rhythms, or caregiver schedules. Ideal for mothers who want to start smaller or offer need-based care.",
   },
   {
-    title: "Small-Group Caregiver Care",
-    subtitle: "Collaborative • Village-Centered • Shared",
+    title: "Kids Classes & Enrichment Programs",
     description:
-      "A cooperative model built on mutual investment among a small circle of families. Village-Centered Care — where community is the program, and you are the trusted facilitator.",
-    features: [
-      "Co-op structure, agreements & roles",
-      "Shared resource & supply planning",
-      "Rotating schedule & facilitation systems",
-      "Community care philosophy & policies",
-      "Conflict resolution & family communication",
-    ],
-    accent: "#2C2C2C",
-    bg: "#F0EBE1",
+      "Creative, movement-based, sensory, or educational programs hosted from home or community spaces. A village-centered model for mothers with an educational or developmental focus.",
   },
 ];
 
-function ModelCard({ model, index }) {
+export default function ModelsSection() {
+  const headerRef = useRef(null);
+  const activeRef = useRef(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const [activeVisible, setActiveVisible] = useState(false);
+
+  useEffect(() => {
+    const obs1 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setHeaderVisible(true); }, { threshold: 0.1 });
+    const obs2 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setActiveVisible(true); }, { threshold: 0.08 });
+    if (headerRef.current) obs1.observe(headerRef.current);
+    if (activeRef.current) obs2.observe(activeRef.current);
+    return () => { obs1.disconnect(); obs2.disconnect(); };
+  }, []);
+
+  return (
+    <section id="models" className="py-24 md:py-32" style={{ backgroundColor: "#FAF7F2" }}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+        {/* Header */}
+        <div
+          ref={headerRef}
+          className="mb-14"
+          style={{
+            transition: "all 0.8s ease",
+            opacity: headerVisible ? 1 : 0,
+            transform: headerVisible ? "translateY(0)" : "translateY(28px)",
+            filter: headerVisible ? "blur(0)" : "blur(3px)",
+          }}
+        >
+          <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+            Program Pathways
+          </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
+              One Method.{" "}
+              <em style={{ color: "#4D5E49" }}>Built Around Your Life.</em>
+            </h2>
+            <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
+              The Mama Launch Method currently focuses on one core pathway — with more on the horizon.
+            </p>
+          </div>
+        </div>
+
+        {/* Active pathway — prominent */}
+        <div
+          ref={activeRef}
+          className="rounded-3xl p-8 md:p-12 mb-6"
+          style={{
+            backgroundColor: "#F0EBE1",
+            border: "1px solid #4D5E4930",
+            boxShadow: "0 8px 48px rgba(77,94,73,0.1)",
+            transition: "all 0.8s ease",
+            opacity: activeVisible ? 1 : 0,
+            transform: activeVisible ? "translateY(0)" : "translateY(28px)",
+            filter: activeVisible ? "blur(0)" : "blur(3px)",
+          }}
+        >
+          <div className="flex flex-col md:flex-row md:gap-16 gap-8">
+            <div className="flex-1">
+              {/* Active badge */}
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
+                <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>Active Pathway — Now Enrolling</span>
+              </div>
+
+              <div className="w-10 h-1 rounded-full mb-5" style={{ backgroundColor: "#4D5E49" }} />
+              <h3 className="font-display mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
+                {activeModel.title}
+              </h3>
+              <p className="font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "1rem", maxWidth: "520px" }}>
+                {activeModel.description}
+              </p>
+              <button
+                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] focus-sage"
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.22)" }}
+              >
+                Join the Founding Member Waitlist
+              </button>
+            </div>
+
+            {/* Feature list */}
+            <div className="md:w-72 flex-none">
+              <p className="font-micro mb-4" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
+                Guided through the Mama Launch Method
+              </p>
+              <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A22" }} />
+              <ul className="flex flex-col gap-3.5">
+                {activeModel.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <span className="mt-1.5 flex-none w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
+                    <span className="font-body text-sm" style={{ color: "#5C5148" }}>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Coming soon pathways */}
+        <div className="grid md:grid-cols-2 gap-4">
+          {comingSoon.map((m, i) => (
+            <ComingSoonCard key={m.title} model={m} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ComingSoonCard({ model, index }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -64,103 +155,35 @@ function ModelCard({ model, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-8 md:p-10 flex flex-col"
+      className="rounded-3xl p-8 flex flex-col gap-4"
       style={{
-        backgroundColor: model.bg,
-        border: "1px solid #C4956A22",
-        transition: `all 0.8s ease ${index * 150}ms`,
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : `translateY(${32 + index * 8}px)`,
-        filter: visible ? "blur(0)" : "blur(3px)",
-        boxShadow: "0 4px 40px rgba(196,149,106,0.07)",
+        backgroundColor: "#FAF7F2",
+        border: "1px solid #C4956A1A",
+        opacity: visible ? 0.88 : 0,
+        transform: visible ? "translateY(0)" : `translateY(${20 + index * 6}px)`,
+        filter: visible ? "blur(0)" : "blur(2px)",
+        transition: `all 0.7s ease ${index * 120}ms`,
       }}
     >
-      <div className="w-10 h-1 rounded-full mb-7" style={{ backgroundColor: model.accent }} />
-      <p className="font-micro mb-2" style={{ color: model.accent, fontSize: "0.68rem" }}>
-        {model.subtitle}
-      </p>
-      <h3 className="font-display text-2xl md:text-3xl mb-4" style={{ color: "#2C2C2C" }}>
+      {/* Coming soon badge */}
+      <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22" }}>
+        <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem" }}>Coming Soon</span>
+      </div>
+
+      <div className="w-8 h-px" style={{ backgroundColor: "#C4956A44" }} />
+      <h3 className="font-display text-xl" style={{ color: "#2C2C2C", opacity: 0.75 }}>
         {model.title}
       </h3>
-      <p className="font-body text-sm leading-relaxed mb-8" style={{ color: "#5C5148" }}>
+      <p className="font-body text-sm leading-relaxed" style={{ color: "#8C7E75" }}>
         {model.description}
       </p>
-      <div className="mt-auto">
-        <p className="font-micro mb-4" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
-          Guided through the Mama Launch Method
-        </p>
-        <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A22" }} />
-        <ul className="flex flex-col gap-3">
-          {model.features.map((f) => (
-            <li key={f} className="flex items-start gap-3">
-              <span className="mt-1.5 flex-none w-2 h-2 rounded-full" style={{ backgroundColor: model.accent }} />
-              <span className="font-body text-sm" style={{ color: "#5C5148" }}>{f}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <button
+        onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+        className="font-micro self-start mt-2 px-5 py-2.5 rounded-full border transition-all min-h-[40px] focus-sage"
+        style={{ color: "#C4956A", borderColor: "#C4956A44", fontSize: "0.7rem", backgroundColor: "transparent" }}
+      >
+        Join the Waitlist
+      </button>
     </div>
-  );
-}
-
-export default function ModelsSection() {
-  const headerRef = useRef(null);
-  const [headerVisible, setHeaderVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setHeaderVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (headerRef.current) observer.observe(headerRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section id="models" className="py-24 md:py-36" style={{ backgroundColor: "#FAF7F2" }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div
-          ref={headerRef}
-          className="mb-16"
-          style={{
-            transition: "all 0.8s ease",
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(28px)",
-            filter: headerVisible ? "blur(0)" : "blur(3px)",
-          }}
-        >
-          <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.75rem" }}>
-            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-            Three Ways to Structure Your Program
-          </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.8rem)" }}>
-              One Method.
-              <br />
-              <em style={{ color: "#4D5E49" }}>Your Structure.</em>
-            </h2>
-            <p className="font-body md:max-w-sm leading-relaxed" style={{ color: "#5C5148", fontSize: "1rem" }}>
-              The Mama Launch Method is flexible by design. These are not separate businesses — they're three ways to structure a modern home childcare program that fits your life.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {models.map((model, i) => (
-            <ModelCard key={model.title} model={model} index={i} />
-          ))}
-        </div>
-
-        <div className="mt-14 text-center">
-          <button
-            onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-            className="font-micro text-white px-10 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] focus-sage"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.8rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}
-          >
-            Apply for Early Access
-          </button>
-        </div>
-      </div>
-    </section>
   );
 }

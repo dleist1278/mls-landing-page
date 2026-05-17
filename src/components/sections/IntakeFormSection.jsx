@@ -105,27 +105,40 @@ export default function IntakeFormSection() {
           }}
         >
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <p
               className="font-micro mb-4 inline-flex items-center gap-3"
-              style={{ color: "#C4956A", fontSize: "0.75rem" }}
+              style={{ color: "#C4956A", fontSize: "0.72rem" }}
             >
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-              Begin Your Journey
+              Join the Founding Member Waitlist
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             </p>
             <h2
               className="font-display leading-tight"
-              style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.5rem)" }}
+              style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.4rem)" }}
             >
               Start Your{" "}
               <em style={{ color: "#4D5E49" }}>Launch Path</em>
             </h2>
             <p
-              className="font-body mt-6 mx-auto leading-relaxed"
-              style={{ color: "#5C5148", maxWidth: "520px", fontSize: "1rem" }}
+              className="font-body mt-5 mx-auto leading-relaxed"
+              style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.97rem" }}
             >
-              Tell us a little about yourself and your dream. We'll use this to personalize your onboarding experience and connect you with the right resources.
+              Tell us a little about yourself and your vision. We'll use this to understand where you are and connect you with the right next step.
+            </p>
+          </div>
+
+          {/* What happens after you join */}
+          <div
+            className="mb-12 p-7 rounded-3xl"
+            style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}
+          >
+            <p className="font-micro mb-3" style={{ color: "#4D5E49", fontSize: "0.7rem" }}>
+              What happens after you join?
+            </p>
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem", maxWidth: "580px" }}>
+              Founding members will be the first invited into the Mama Launch experience as the platform opens. You'll receive updates, early access opportunities, and the chance to help shape the first version of the Mama Launch Method.
             </p>
           </div>
 

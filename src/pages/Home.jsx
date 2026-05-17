@@ -1,5 +1,8 @@
 import React from "react";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/sections/HeroSection";
+import WhatIsMamaLaunchSection from "@/components/sections/WhatIsMamaLaunchSection";
 import MethodSection from "@/components/sections/MethodSection";
 import WalkAwaySection from "@/components/sections/WalkAwaySection";
 import ModelsSection from "@/components/sections/ModelsSection";
@@ -7,8 +10,6 @@ import EcosystemSection from "@/components/sections/EcosystemSection";
 import FoundingMemberSection from "@/components/sections/FoundingMemberSection";
 import FounderSection from "@/components/sections/FounderSection";
 import IntakeFormSection from "@/components/sections/IntakeFormSection";
-import SiteNav from "@/components/SiteNav";
-import SiteFooter from "@/components/SiteFooter";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <SiteNav />
       <main>
         <HeroSection />
+        <WhatIsMamaLaunchSection />
         <MethodSection />
         <WalkAwaySection />
         <ModelsSection />

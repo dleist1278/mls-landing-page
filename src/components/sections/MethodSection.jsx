@@ -3,53 +3,38 @@ import React, { useRef, useEffect, useState } from "react";
 const phases = [
   {
     number: "01",
-    name: "Dream",
-    tagline: "Clarity Before Construction",
-    description:
-      "You'll define the type of caregiver you want to be, the families you want to serve, and the childcare environment you want to create — before a single form is filed or dollar is spent.",
-    emotional: "You'll move from scattered ideas to a clear, confident vision.",
-    operational: "You'll complete your Childcare Ecosystem Blueprint — your personalized program vision document.",
-    image: "https://images.unsplash.com/photo-1558618047-3d2e2c8e5be8?w=600&q=80",
+    name: "Dream & Align",
+    emotional: "Feel clear on what you're building and why it fits your life.",
+    deliverables: ["Childcare Ecosystem Blueprint", "Program Model Clarity", "Lifestyle Alignment Notes"],
+    color: "#4D5E49",
   },
   {
     number: "02",
     name: "Foundation",
-    tagline: "Licensing with Confidence",
-    description:
-      "We walk through your state's licensing requirements, home safety standards, insurance, and legal documentation — step by step, with organized checklists and clear action items.",
-    emotional: "You'll feel grounded and prepared instead of overwhelmed by the legal process.",
-    operational: "You'll complete your Licensing Organization System with every requirement documented and tracked.",
-    image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=600&q=80",
+    emotional: "Feel grounded and prepared — not overwhelmed by the legal process.",
+    deliverables: ["Licensing Organization Plan", "Home Safety Checklist", "State Requirements Tracker"],
+    color: "#6B7E67",
   },
   {
     number: "03",
-    name: "Ecosystem",
-    tagline: "Design Your Program",
-    description:
-      "You'll build your daily rhythms, room environments, toy rotations, sensory setups, curriculum philosophy, and operational routines — the living systems that make your program run beautifully.",
-    emotional: "You'll feel like a real provider — not someone playing house, but someone building something meaningful.",
-    operational: "You'll walk away with your Room Planning Worksheet, Daily Rhythm Framework, and Program Environment Guide.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80",
+    name: "Ecosystem Design",
+    emotional: "Feel like a real provider building something beautiful and meaningful.",
+    deliverables: ["Room Planning Worksheet", "Daily Rhythm Framework", "Curriculum Philosophy Guide"],
+    color: "#C4956A",
   },
   {
     number: "04",
-    name: "Launch",
-    tagline: "Open Your Doors",
-    description:
-      "Your enrollment workflow, parent handbook, waitlist system, pricing, and launch-ready messaging — all structured so your first families experience a calm, professional, memorable onboarding.",
-    emotional: "You'll feel ready — not perfect, but genuinely prepared.",
-    operational: "You'll complete your Waitlist & Enrollment System, Parent Handbook structure, and Tour Workflow.",
-    image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600&q=80",
+    name: "Launch Preparation",
+    emotional: "Feel genuinely ready — structured, confident, and calm.",
+    deliverables: ["Parent Handbook Structure", "Waitlist & Enrollment System", "Tour Workflow Guide"],
+    color: "#4D5E49",
   },
   {
     number: "05",
-    name: "Open",
-    tagline: "Sustain & Grow",
-    description:
-      "The launch is just the beginning. We help you refine your operations, manage the rhythm of a live program, deepen community roots, and grow with intention rather than urgency.",
-    emotional: "You'll feel sustainable — running a program that fits your life rather than consuming it.",
-    operational: "You'll build your Ongoing Operations Framework and Calm Growth System.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
+    name: "Open & Sustain",
+    emotional: "Feel sustainable — running a program that fits your life.",
+    deliverables: ["Ongoing Operations Framework", "Growth & Capacity Plan", "Calm Systems Checklist"],
+    color: "#6B7E67",
   },
 ];
 
@@ -60,7 +45,7 @@ function PhaseCard({ phase, index }) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -69,65 +54,64 @@ function PhaseCard({ phase, index }) {
   return (
     <div
       ref={ref}
-      className="flex-none w-80 md:w-[22rem]"
+      className="flex-none"
       style={{
-        transition: `all 0.7s ease ${index * 100}ms`,
+        width: "300px",
+        transition: `all 0.65s ease ${index * 90}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(32px)",
-        filter: visible ? "blur(0)" : "blur(4px)",
+        transform: visible ? "translateY(0)" : "translateY(28px)",
+        filter: visible ? "blur(0)" : "blur(3px)",
       }}
     >
       <div
-        className="relative rounded-3xl overflow-hidden flex flex-col h-full"
-        style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A33" }}
+        className="rounded-3xl flex flex-col h-full"
+        style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A2A" }}
       >
-        {/* Clay numeral watermark */}
-        <div className="absolute top-4 right-5 z-10 select-none pointer-events-none">
-          <span className="font-display font-bold" style={{ color: "#C4956A", opacity: 0.15, fontSize: "5rem", letterSpacing: "-0.04em", lineHeight: 1 }}>
-            {phase.number}
-          </span>
-        </div>
-
-        {/* Image */}
-        <div className="h-44 overflow-hidden flex-none">
-          <img
-            src={phase.image}
-            alt={phase.name}
-            className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.65) brightness(0.97)" }}
-          />
-        </div>
-
-        {/* Content */}
-        <div className="p-7 flex flex-col flex-1">
-          <p className="font-micro mb-2" style={{ color: "#C4956A", fontSize: "0.68rem" }}>
-            Phase {phase.number}
-          </p>
-          <h3 className="font-display text-2xl mb-1" style={{ color: "#2C2C2C" }}>
+        {/* Phase header band */}
+        <div
+          className="rounded-t-3xl px-7 pt-7 pb-5"
+          style={{ borderBottom: `1px solid ${phase.color}22` }}
+        >
+          <div className="flex items-start justify-between mb-4">
+            <span
+              className="font-display text-5xl select-none"
+              style={{ color: phase.color, opacity: 0.2, letterSpacing: "-0.04em", lineHeight: 1 }}
+            >
+              {phase.number}
+            </span>
+            <span
+              className="font-micro mt-1"
+              style={{ color: phase.color, fontSize: "0.62rem", backgroundColor: `${phase.color}12`, padding: "4px 10px", borderRadius: "100px" }}
+            >
+              Phase {phase.number}
+            </span>
+          </div>
+          <h3 className="font-display text-xl mb-3" style={{ color: "#2C2C2C" }}>
             {phase.name}
           </h3>
-          <p className="font-body text-sm italic mb-4" style={{ color: "#4D5E49" }}>
-            {phase.tagline}
+          <p className="font-body text-sm leading-relaxed italic" style={{ color: "#5C5148" }}>
+            "{phase.emotional}"
           </p>
-          <div className="w-8 h-px mb-4" style={{ backgroundColor: "#C4956A" }} />
-          <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#5C5148" }}>
-            {phase.description}
-          </p>
+        </div>
 
-          <div className="mt-auto space-y-3 pt-4" style={{ borderTop: "1px solid #C4956A22" }}>
-            <div className="flex items-start gap-2">
-              <span className="flex-none mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
-              <p className="font-body text-xs leading-relaxed" style={{ color: "#4D5E49" }}>
-                <strong style={{ fontWeight: 500 }}>Feel: </strong>{phase.emotional}
-              </p>
-            </div>
-            <div className="flex items-start gap-2">
-              <span className="flex-none mt-1 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#C4956A" }} />
-              <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>
-                <strong style={{ fontWeight: 500 }}>Walk away with: </strong>{phase.operational}
-              </p>
-            </div>
-          </div>
+        {/* Deliverables */}
+        <div className="px-7 py-6 flex-1">
+          <p className="font-micro mb-4" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>
+            You'll walk away with
+          </p>
+          <ul className="flex flex-col gap-3">
+            {phase.deliverables.map((d) => (
+              <li key={d} className="flex items-center gap-3">
+                <span
+                  className="flex-none w-5 h-5 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: `${phase.color}18`, border: `1px solid ${phase.color}30` }}
+                >
+                  <span style={{ color: phase.color, fontSize: "0.6rem" }}>✓</span>
+                </span>
+                <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{d}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
@@ -141,20 +125,19 @@ export default function MethodSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setHeaderVisible(true); },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     if (headerRef.current) observer.observe(headerRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="method" className="py-24 md:py-36 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="method" className="py-24 md:py-32 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
       <div className="w-full h-px mb-20" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
-      {/* Header */}
       <div
         ref={headerRef}
-        className="max-w-7xl mx-auto px-6 md:px-12 mb-14"
+        className="max-w-7xl mx-auto px-6 md:px-12 mb-12"
         style={{
           transition: "all 0.8s ease",
           opacity: headerVisible ? 1 : 0,
@@ -164,39 +147,39 @@ export default function MethodSection() {
       >
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
-            <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.75rem" }}>
+            <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               The Implementation Roadmap
             </p>
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.8rem)" }}>
+            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
               The Mama Launch Method
               <br />
-              <em style={{ color: "#4D5E49" }}>Five Phases. Real Outcomes.</em>
+              <em style={{ color: "#4D5E49" }}>Five Phases. Real Deliverables.</em>
             </h2>
           </div>
-          <p className="font-body md:max-w-sm leading-relaxed" style={{ color: "#5C5148", fontSize: "1rem" }}>
-            A guided implementation roadmap that takes you from vision to a live, operational home childcare program — with the systems, templates, and community support to do it right.
+          <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
+            A true implementation roadmap — each phase produces real operational assets, not just new knowledge.
           </p>
         </div>
       </div>
 
-      {/* Horizontal scroll */}
+      {/* Horizontal scroll track */}
       <div
-        className="flex gap-5 overflow-x-auto pb-6 px-6 md:px-12"
+        className="flex gap-4 overflow-x-auto pb-6 px-6 md:px-12"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {phases.map((phase, i) => (
           <PhaseCard key={phase.number} phase={phase} index={i} />
         ))}
-        <div className="flex-none w-6 md:w-12" />
+        <div className="flex-none w-8 md:w-12" />
       </div>
 
-      <div className="flex items-center justify-center gap-3 mt-5 px-6">
-        <div className="w-12 h-px" style={{ backgroundColor: "#C4956A33" }} />
-        <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem" }}>
+      <div className="flex items-center justify-center gap-3 mt-4 px-6">
+        <div className="w-10 h-px" style={{ backgroundColor: "#C4956A33" }} />
+        <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
           Drag to explore all phases
         </p>
-        <div className="w-12 h-px" style={{ backgroundColor: "#C4956A33" }} />
+        <div className="w-10 h-px" style={{ backgroundColor: "#C4956A33" }} />
       </div>
 
       <div className="w-full h-px mt-20" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
