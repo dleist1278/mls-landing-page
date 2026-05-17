@@ -9,9 +9,9 @@ const phases = [
     emotional: "Feel clear on who you are as a provider and what you're building.",
     deliverables: ["Program Vision Blueprint", "Ideal Program Summary", "Parent Experience Statement", "Brand Foundation Summary", "Lifestyle Alignment Summary"],
     color: "#4D5E49",
-    image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=80",
-    imageAlt: "Mother journaling her childcare vision at a calm desk",
-    imagePosition: "center 30%",
+    image: null, // TODO: replace with your image URL
+    imageAlt: "Phase 01 — Program Foundation",
+    imagePosition: "center center",
   },
   {
     number: "02",
@@ -20,9 +20,9 @@ const phases = [
     emotional: "Feel grounded and prepared — not overwhelmed by paperwork.",
     deliverables: ["Licensing & Compliance Tracker", "Document Checklist", "Policy & Procedure Outline", "Business Setup Summary", "Insurance & Safety Plan"],
     color: "#6B7E67",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
-    imageAlt: "Organized workspace with licensing documents and planning materials",
-    imagePosition: "center 40%",
+    image: null, // TODO: replace with your image URL
+    imageAlt: "Phase 02 — Licensing & Legal Setup",
+    imagePosition: "center center",
   },
   {
     number: "03",
@@ -31,9 +31,9 @@ const phases = [
     emotional: "Feel like a real provider building something beautiful and safe.",
     deliverables: ["Room Layouts & Floor Plans", "Environment & Material List", "Safety & Setup Checklist", "Outdoor Space Plan", "Aesthetic Vision Board"],
     color: "#C4956A",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-    imageAlt: "Calm, organized home childcare environment with natural light",
-    imagePosition: "center 35%",
+    image: null, // TODO: replace with your image URL
+    imageAlt: "Phase 03 — Environment & Space Plan",
+    imagePosition: "center center",
   },
   {
     number: "04",
@@ -42,9 +42,9 @@ const phases = [
     emotional: "Feel operationally confident — with systems that actually fit your life.",
     deliverables: ["Daily Schedule Template", "Curriculum Plan Outline", "Routine & Flow Guide", "Communication Plan", "Behavior Support Plan"],
     color: "#4D5E49",
-    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80",
-    imageAlt: "Children engaged in structured play activity with a calm provider",
-    imagePosition: "center 25%",
+    image: null, // TODO: replace with your image URL
+    imageAlt: "Phase 04 — Daily Operations Plan",
+    imagePosition: "center center",
   },
   {
     number: "05",
@@ -53,9 +53,9 @@ const phases = [
     emotional: "Feel ready to open your doors and welcome your first families.",
     deliverables: ["Brand Identity Guide", "Website & Marketing Copy", "Enrollment Process Map", "Parent Communication Templates", "Launch Plan Checklist"],
     color: "#6B7E67",
-    image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/03223e16e_8.jpg",
-    imageAlt: "Branding and online strategy setup for home childcare program",
-    imagePosition: "center 40%",
+    image: null, // TODO: replace with your image URL
+    imageAlt: "Phase 05 — Branding & Enrollment Plan",
+    imagePosition: "center center",
   },
 ];
 
@@ -88,12 +88,18 @@ function PhaseCard({ phase, index }) {
 
         {/* Phase image */}
         <div style={{ height: "160px", overflow: "hidden", position: "relative" }}>
-          <img
-            src={phase.image}
-            alt={phase.imageAlt}
-            className="w-full h-full object-cover"
-            style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)" }}
-          />
+          {phase.image ? (
+            <img
+              src={phase.image}
+              alt={phase.imageAlt}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)" }}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: `${phase.color}12` }}>
+              <span className="font-micro" style={{ color: phase.color, opacity: 0.4, fontSize: "0.65rem" }}>Your image here</span>
+            </div>
+          )}
           <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to bottom, transparent 30%, ${phase.color}40 100%)` }} />
           {/* Phase badge */}
           <div
