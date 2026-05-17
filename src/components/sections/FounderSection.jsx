@@ -94,17 +94,18 @@ export default function FounderSection() {
                 transform: credVisible ? "translateY(0)" : "translateY(12px)"
               }}>
               <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Background & experience</p>
-              <div className="grid grid-cols-1 gap-2">
+              <div
+                className="flex gap-2.5 overflow-x-auto snap-x snap-mandatory pb-1"
+                style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+              >
                 {credentials.map((c) => (
-                  <div key={c.label} className="flex items-start gap-3 p-2.5 rounded-xl text-left" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
-                    <span className="flex-none mt-0.5 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49", marginTop: "5px" }} />
-                    <div>
-                      <p className="font-body text-xs font-medium leading-snug" style={{ color: "#2C2C2C" }}>{c.label}</p>
-                      <p className="font-body text-xs leading-relaxed" style={{ color: "#7A6E65" }}>{c.note}</p>
-                    </div>
+                  <div key={c.label} className="flex-none snap-start flex flex-col justify-between p-3 rounded-2xl" style={{ width: "140px", height: "100px", backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
+                    <span className="w-1.5 h-1.5 rounded-full flex-none" style={{ backgroundColor: "#4D5E49" }} />
+                    <p className="font-body text-xs font-medium leading-snug mt-auto" style={{ color: "#2C2C2C" }}>{c.label}</p>
                   </div>
                 ))}
               </div>
+              <p className="text-center font-micro mt-1.5" style={{ color: "#C4956A", fontSize: "0.62rem", opacity: 0.7 }}>← scroll →</p>
             </div>
 
             <div className="space-y-3 mb-5">
