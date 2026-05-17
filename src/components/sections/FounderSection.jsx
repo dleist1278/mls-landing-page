@@ -51,7 +51,7 @@ export default function FounderSection() {
               style={{ aspectRatio: "4/5", boxShadow: "0 16px 60px rgba(196,149,106,0.14)" }}
             >
               <img
-                src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=800&q=85"
+                src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                 alt="Danielle, Founder of Mama Launch Studio"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: "center 15%", filter: "saturate(0.68) brightness(0.97)" }}

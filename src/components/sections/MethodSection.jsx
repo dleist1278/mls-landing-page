@@ -53,9 +53,9 @@ const phases = [
     emotional: "Feel ready to open your doors and welcome your first families.",
     deliverables: ["Brand Identity Guide", "Website & Marketing Copy", "Enrollment Process Map", "Parent Communication Templates", "Launch Plan Checklist"],
     color: "#6B7E67",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
-    imageAlt: "Warm family moment — parent and child arriving at a home program",
-    imagePosition: "center 20%",
+    image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/03223e16e_8.jpg",
+    imageAlt: "Branding and online strategy setup for home childcare program",
+    imagePosition: "center 40%",
   },
 ];
 
