@@ -84,7 +84,7 @@ export default function FounderSection() {
                 />
                 <div
                   className="relative rounded-[28px] overflow-hidden"
-                  style={{ aspectRatio: "4/5", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1, maxWidth: "60%", margin: "0 auto" }}
+                  style={{ aspectRatio: "4/5", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1, maxWidth: "88%", margin: "0 auto" }}
                 >
                   <img
                     src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
