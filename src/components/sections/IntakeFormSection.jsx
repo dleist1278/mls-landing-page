@@ -71,8 +71,8 @@ export default function IntakeFormSection() {
     <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden" }}>
 
       {/* Top image strip */}
-      <div style={{ height: "260px", overflow: "hidden" }}>
-        <div className="grid grid-cols-2 md:grid-cols-4 h-full">
+      <div style={{ height: "260px", overflow: "hidden" }} className="hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 h-full hidden">
           {[
           { src: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&q=80", pos: "center 30%", alt: "Mother and child floor play" },
           { src: "https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=500&q=80", pos: "center 20%", alt: "Organized childcare shelving" },
