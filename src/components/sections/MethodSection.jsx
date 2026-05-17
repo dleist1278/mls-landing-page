@@ -50,6 +50,7 @@ const phases = [
 function PhaseCard({ phase, index }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,8 +66,8 @@ function PhaseCard({ phase, index }) {
       ref={ref}
       className="flex-none"
       style={{
-        width: "calc(100vw - 48px)",
-        maxWidth: "300px",
+        width: "68vw",
+        maxWidth: "240px",
         scrollSnapAlign: "start",
         scrollSnapStop: "always",
         transition: `opacity 0.5s ease ${index * 60}ms, transform 0.5s ease ${index * 60}ms`,
@@ -74,43 +75,68 @@ function PhaseCard({ phase, index }) {
         transform: visible ? "translateY(0)" : "translateY(16px)",
       }}>
 
-      <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="w-full text-left rounded-2xl overflow-hidden focus:outline-none"
+        style={{
+          backgroundColor: "#F0EBE1",
+          border: `1px solid ${phase.color}28`,
+          boxShadow: expanded ? `0 4px 24px ${phase.color}18` : "none",
+          transition: "box-shadow 0.2s ease",
+        }}>
 
-        {/* Phase header */}
-        <div className="px-4 pt-4 pb-2.5" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
-          {/* Phase number */}
-          <div className="font-display mb-1.5" style={{ color: phase.color, fontSize: "1.6rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
-            {phase.number}
+        {/* Square top section */}
+        <div
+          style={{
+            aspectRatio: "1/1",
+            padding: "16px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            borderBottom: expanded ? `1px solid ${phase.color}1A` : "none",
+          }}>
+          <div>
+            <div className="font-display" style={{ color: phase.color, fontSize: "2rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
+              {phase.number}
+            </div>
           </div>
-          <h3 className="font-display text-base mb-1" style={{ color: "#2C2C2C", lineHeight: "1.25" }}>
-            {phase.name}
-          </h3>
-          <p className="font-body text-xs italic" style={{ color: "#7A6E65" }}>
-            {phase.tagline}
-          </p>
-          <p className="font-body text-xs mt-1.5 leading-relaxed" style={{ color: "#5C5148", fontStyle: "italic" }}>
-            "{phase.emotional}"
-          </p>
+          <div>
+            <h3 className="font-display text-sm leading-snug mb-1" style={{ color: "#2C2C2C" }}>
+              {phase.name}
+            </h3>
+            <p className="font-body text-xs italic leading-snug" style={{ color: "#7A6E65" }}>
+              {phase.tagline}
+            </p>
+          </div>
+          <div className="flex items-center justify-between mt-1">
+            <p className="font-micro" style={{ color: phase.color, fontSize: "0.58rem" }}>
+              {expanded ? "tap to close" : "tap to expand"}
+            </p>
+            <span style={{ color: phase.color, fontSize: "0.7rem", transition: "transform 0.2s", display: "inline-block", transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
+          </div>
         </div>
 
-        {/* Deliverables */}
-        <div className="px-4 py-3 flex-1">
-          <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>
-            You'll walk away with
-          </p>
-          <ul className="flex flex-col gap-1.5">
-            {phase.deliverables.map((d) =>
-            <li key={d} className="flex items-start gap-2.5">
-                <span className="flex-none mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: `${phase.color}14`, border: `1px solid ${phase.color}28` }}>
-                  <span style={{ color: phase.color, fontSize: "0.5rem" }}>✓</span>
-                </span>
-                <span className="font-body text-xs leading-snug" style={{ color: "#3A3330" }}>{d}</span>
-              </li>
-            )}
-          </ul>
-        </div>
-      </div>
+        {/* Expandable detail */}
+        {expanded && (
+          <div className="px-4 py-3">
+            <p className="font-body text-xs italic leading-relaxed mb-3" style={{ color: "#5C5148" }}>
+              "{phase.emotional}"
+            </p>
+            <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.6rem" }}>You'll walk away with</p>
+            <ul className="flex flex-col gap-1.5">
+              {phase.deliverables.map((d) =>
+              <li key={d} className="flex items-start gap-2">
+                  <span className="flex-none mt-0.5 w-3.5 h-3.5 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: `${phase.color}14`, border: `1px solid ${phase.color}28` }}>
+                    <span style={{ color: phase.color, fontSize: "0.45rem" }}>✓</span>
+                  </span>
+                  <span className="font-body text-xs leading-snug" style={{ color: "#3A3330" }}>{d}</span>
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
+      </button>
     </div>);
 }
 
@@ -156,13 +182,14 @@ export default function MethodSection() {
 
       {/* Horizontal scroll */}
       <div
-        className="flex gap-3 overflow-x-auto pb-5 px-5 md:px-12 max-w-6xl mx-auto"
+        className="flex gap-3 overflow-x-auto pb-4 px-5 md:px-12 max-w-6xl mx-auto"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
           WebkitOverflowScrolling: "touch",
           scrollSnapType: "x mandatory",
           scrollPaddingLeft: "20px",
+          alignItems: "flex-start",
         }}>
 
         {phases.map((phase, i) =>
