@@ -35,21 +35,13 @@ export default function FounderSection() {
             transform: visible ? "translateY(0)" : "translateY(16px)",
           }}>
           
-          {/* Image — with editorial depth system */}
-          <div className="flex flex-col items-center gap-4 md:gap-7">
+          {/* Image — desktop only (left column) */}
+          <div className="hidden md:flex flex-col items-center gap-4 md:gap-7">
             <div className="relative w-full">
-              {/* Level 1 — editorial backing shape */}
               <div
                 className="absolute rounded-[28px]"
-                style={{
-                  inset: 0,
-                  transform: "translate(10px, 10px)",
-                  backgroundColor: "#E8D5C0",
-                  opacity: 0.35,
-                  zIndex: 0,
-                }}
+                style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#E8D5C0", opacity: 0.35, zIndex: 0 }}
               />
-              {/* Level 2 — image surface */}
               <div
                 className="relative rounded-[28px] overflow-hidden"
                 style={{ aspectRatio: "4/5", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1, maxWidth: "92%", margin: "0 auto" }}
@@ -62,7 +54,6 @@ export default function FounderSection() {
                 />
               </div>
             </div>
-            {/* CTA under photo */}
             <button
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
               className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px] w-full"
@@ -83,6 +74,27 @@ export default function FounderSection() {
               I built this<br />
               <em style={{ color: "#4D5E49" }}>because I needed it.</em>
             </h2>
+
+            {/* Image — mobile only, shown after heading */}
+            <div className="md:hidden mb-5">
+              <div className="relative w-full">
+                <div
+                  className="absolute rounded-[28px]"
+                  style={{ inset: 0, transform: "translate(8px, 8px)", backgroundColor: "#E8D5C0", opacity: 0.35, zIndex: 0 }}
+                />
+                <div
+                  className="relative rounded-[28px] overflow-hidden"
+                  style={{ aspectRatio: "4/5", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1, maxWidth: "88%", margin: "0 auto" }}
+                >
+                  <img
+                    src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
+                    alt="Danielle, Founder of Mama Launch Studio"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: "center 15%", filter: "saturate(0.68) brightness(0.97)" }}
+                  />
+                </div>
+              </div>
+            </div>
 
             {/* Credibility grid — shown FIRST on mobile for immediate trust signals */}
             <div
