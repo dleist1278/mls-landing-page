@@ -60,7 +60,7 @@ export default function WhatIsMamaLaunchSection() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-12 md:py-20">
         <div
           ref={ref}
-          className="grid md:grid-cols-2 gap-10 md:gap-16 items-start"
+          className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
           style={{
             transition: "all 0.8s ease",
             opacity: visible ? 1 : 0,
@@ -71,7 +71,7 @@ export default function WhatIsMamaLaunchSection() {
           {/* Left — editorial imagery + differentiators */}
           <div className="flex flex-col gap-5">
             {/* Level 1 — editorial backing */}
-            <div className="relative" style={{ aspectRatio: "4/3", maxWidth: "75%" }}>
+            <div className="relative" style={{ aspectRatio: "4/3" }}>
               <div
                 className="absolute rounded-[24px]"
                 style={{
