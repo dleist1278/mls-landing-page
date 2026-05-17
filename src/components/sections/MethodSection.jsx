@@ -1,11 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { base44 } from "@/api/base44Client";
 
-/**
- * Phase images are editor-managed media assets stored in the SiteContent entity.
- * Each phase has its own record (key: phase_01_image through phase_05_image).
- * Images can be replaced at any time through the Base44 admin with zero code changes.
- */
 const phases = [
 {
   number: "01",
@@ -53,7 +47,7 @@ const phases = [
   imageKey: "phase_05_image"
 }];
 
-function PhaseCard({ phase, index, imageData }) {
+function PhaseCard({ phase, index }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -80,32 +74,12 @@ function PhaseCard({ phase, index, imageData }) {
 
       <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
 
-        {/* Phase image — editor-managed via SiteContent entity */}
-        <div style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px" }}>
-          {imageData?.image_url ?
-          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/0d8a2dc7b_6.jpg"
-
-          alt={imageData.alt_text || phase.name}
-          className="w-full h-full object-cover transition-transform duration-500"
-          style={{
-            objectPosition: imageData.focal_position || "center 30%",
-            filter: "saturate(0.65) brightness(0.94)"
-          }} /> :
-
-
-          <div className="w-full h-full" style={{ backgroundColor: `${phase.color}12` }} />
-          }
-
-          {/* Phase badge */}
-          <div
-            className="absolute top-4 left-4 font-micro"
-            style={{ color: "white", fontSize: "0.6rem", backgroundColor: `${phase.color}CC`, padding: "3px 10px", borderRadius: "100px" }}>
-            Phase {phase.number}
-          </div>
-        </div>
-
         {/* Phase header */}
-        <div className="px-6 pt-3 pb-4" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
+        <div className="px-6 pt-5 pb-4" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
+          {/* Phase number */}
+          <div className="font-display mb-2" style={{ color: phase.color, fontSize: "2rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
+            {phase.number}
+          </div>
           <h3 className="font-display text-lg mb-1" style={{ color: "#2C2C2C", lineHeight: "1.25" }}>
             {phase.name}
           </h3>
@@ -141,8 +115,6 @@ function PhaseCard({ phase, index, imageData }) {
 export default function MethodSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
-  const [phaseImages, setPhaseImages] = useState({});
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {if (entry.isIntersecting) setHeaderVisible(true);},
@@ -150,20 +122,6 @@ export default function MethodSection() {
     );
     if (headerRef.current) observer.observe(headerRef.current);
     return () => observer.disconnect();
-  }, []);
-
-  // Load all phase images from the editor-managed SiteContent entity
-  useEffect(() => {
-    const keys = phases.map((p) => p.imageKey);
-    Promise.all(
-      keys.map((key) => base44.entities.SiteContent.filter({ key }))
-    ).then((results) => {
-      const map = {};
-      results.forEach((r, i) => {
-        if (r?.length > 0) map[keys[i]] = r[0];
-      });
-      setPhaseImages(map);
-    });
   }, []);
 
   return (
@@ -208,8 +166,7 @@ export default function MethodSection() {
         <PhaseCard
           key={phase.number}
           phase={phase}
-          index={i}
-          imageData={phaseImages[phase.imageKey]} />
+          index={i} />
 
         )}
         <div className="flex-none w-6 md:w-10" />
