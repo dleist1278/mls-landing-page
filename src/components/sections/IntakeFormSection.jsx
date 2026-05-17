@@ -118,29 +118,7 @@ export default function IntakeFormSection() {
             </p>
           </div>
 
-          {/* Founder invitation + image */}
-          <div className="grid md:grid-cols-5 gap-6 mb-10">
-            <div className="md:col-span-3 rounded-3xl p-7" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A" }}>
-              <p className="font-micro mb-3" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>A personal note from Danielle</p>
-              <p className="font-body leading-relaxed mb-4" style={{ color: "#5C5148", fontSize: "0.93rem" }}>
-                "I built Mama Launch because I needed it myself — and I couldn't find anything that actually walked me through launching my program with confidence. If you're here, you're already brave enough. Let's build this together."
-              </p>
-              <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.68rem" }}>— Danielle, Founder</p>
-              <div className="mt-5 pt-4" style={{ borderTop: "1px solid #C4956A18" }}>
-                <p className="font-body text-xs leading-relaxed" style={{ color: "#7A6E65" }}>
-                  Founding members receive early access, priority onboarding, and the chance to shape the first version of the Mama Launch Method. Spots are limited — this is a collaborative, community-centered launch.
-                </p>
-              </div>
-            </div>
-            <div className="md:col-span-2 rounded-3xl overflow-hidden" style={{ minHeight: "180px" }}>
-              <img
-                src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&q=85"
-                alt="Danielle, founder of Mama Launch Studio"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 15%", filter: "saturate(0.68) brightness(0.97)", minHeight: "180px" }}
-              />
-            </div>
-          </div>
+
 
           {/* Form / Success */}
           {submitted ? (

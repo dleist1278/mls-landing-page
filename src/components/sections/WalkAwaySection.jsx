@@ -227,30 +227,7 @@ export default function WalkAwaySection() {
           ))}
         </div>
 
-        {/* REAL ASSET — Deliverables per phase */}
-        <div
-          ref={deliverablesRef}
-          className="mb-12"
-          style={{ transition: "all 0.9s ease", opacity: deliverablesVisible ? 1 : 0, transform: deliverablesVisible ? "translateY(0)" : "translateY(32px)", filter: deliverablesVisible ? "blur(0)" : "blur(3px)" }}
-        >
-          <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
-            <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A" }} />
-            What You Build in Each Phase
-          </p>
-          <div
-            className="rounded-3xl overflow-hidden"
-            style={{ boxShadow: "0 20px 64px rgba(196,149,106,0.12)", border: "1px solid #C4956A1A" }}
-          >
-            <img
-              src={DELIVERABLES_IMG}
-              alt="Mama Launch Method — deliverables and outputs for all six phases"
-              className="w-full h-auto block"
-            />
-          </div>
-          <p className="font-body mt-4 text-center" style={{ color: "#9a8f84", fontSize: "0.8rem" }}>
-            Real documents, real plans, real outputs — built phase by phase through the Mama Launch Method.
-          </p>
-        </div>
+
 
         {/* CTA */}
         <div className="text-center">

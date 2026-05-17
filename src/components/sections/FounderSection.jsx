@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 
 const credentials = [
-  { label: "Mother", note: "Building this from the inside out" },
-  { label: "Former Teacher", note: "Classroom systems, child development, learning environments" },
-  { label: "Former Assistant Principal", note: "School operations, staff coordination, program oversight" },
-  { label: "Home Daycare Owner", note: "Licensing, enrollment, daily operations, parent communication" },
-  { label: "Implementation Expert", note: "Built operational systems for programs from the ground up" },
+  { label: "Mother", note: "Mother of two boys, 1 and 3 years old. When I became a mom, I was looking for daycares and couldn't find one that gave me the right homey feeling I wanted my son to experience. I left my job to open my own." },
+  { label: "Former Teacher", note: "I spent years in education — first as a teacher, then as an assistant principal — before becoming a home daycare owner. I understood child development, parent communication, and systems deeply. What I didn't have was a real operational map for launching a home childcare program." },
+  { label: "Former Assistant Principal", note: "K & 2 lead, NYC Charter. School operations, staff coordination, program oversight." },
+  { label: "Home Daycare Owner", note: "Licensing, enrollment, daily operations, parent communication. My home daycare was max capacity in 8 months and I had two hired staff." },
+  { label: "App Product Development", note: "I helped build features teachers needed at ClassTag, then left teaching to work for the company, starting their implementation for a SaaS product." },
 ];
 
 const realTalkItems = [
