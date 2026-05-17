@@ -14,11 +14,7 @@ export default function FounderSection() {
   }, []);
 
   return (
-    <section
-      id="founder"
-      className="py-24 md:py-36"
-      style={{ backgroundColor: "#F0EBE1" }}
-    >
+    <section id="founder" className="py-24 md:py-36" style={{ backgroundColor: "#F0EBE1" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div
           ref={ref}
@@ -30,58 +26,38 @@ export default function FounderSection() {
             filter: visible ? "blur(0)" : "blur(3px)",
           }}
         >
-          {/* Image */}
+          {/* Image — warm, grounded, home-centered */}
           <div className="relative">
             <div
-              className="absolute -top-6 -left-6 w-32 h-32 rounded-full opacity-20"
+              className="absolute -top-5 -left-5 w-28 h-28 rounded-full opacity-15"
               style={{ backgroundColor: "#C4956A" }}
             />
             <div
               className="relative rounded-3xl overflow-hidden"
-              style={{
-                aspectRatio: "4/5",
-                boxShadow: "0 24px 80px rgba(196,149,106,0.2)",
-              }}
+              style={{ aspectRatio: "4/5", boxShadow: "0 24px 80px rgba(196,149,106,0.18)" }}
             >
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
-                alt="Danielle, Founder of Mama Launch Studio"
+                src="https://images.unsplash.com/photo-1609220136736-443140cfeaa8?w=800&q=85"
+                alt="Danielle, Founder of Mama Launch Studio — in a warm home environment"
                 className="w-full h-full object-cover"
-                style={{ filter: "saturate(0.75) brightness(0.97)" }}
+                style={{ objectPosition: "center 20%", filter: "saturate(0.7) brightness(0.96)" }}
               />
-              {/* Overlay quote */}
               <div
                 className="absolute bottom-0 left-0 right-0 p-8"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(44,44,44,0.85) 0%, transparent 100%)",
-                }}
+                style={{ background: "linear-gradient(to top, rgba(44,44,44,0.82) 0%, transparent 100%)" }}
               >
-                <p
-                  className="font-display text-lg italic"
-                  style={{ color: "#FAF7F2" }}
-                >
-                  "The living room is the most powerful boardroom."
+                <p className="font-display text-base italic" style={{ color: "#FAF7F2" }}>
+                  "The living room is the most intentional classroom."
                 </p>
               </div>
             </div>
-            {/* Clay accent line */}
-            <div
-              className="absolute -bottom-6 right-8 left-8 h-px"
-              style={{ backgroundColor: "#C4956A" }}
-            />
+            <div className="absolute -bottom-5 right-8 left-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </div>
 
           {/* Content */}
           <div>
-            <p
-              className="font-micro mb-6 flex items-center gap-3"
-              style={{ color: "#C4956A", fontSize: "0.75rem" }}
-            >
-              <span
-                className="inline-block w-8 h-px"
-                style={{ backgroundColor: "#C4956A" }}
-              />
+            <p className="font-micro mb-6 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.75rem" }}>
+              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               Meet Your Guide
             </p>
 
@@ -91,59 +67,28 @@ export default function FounderSection() {
             >
               Hi, I'm Danielle.
               <br />
-              <em style={{ color: "#4D5E49" }}>I built this for you.</em>
+              <em style={{ color: "#4D5E49" }}>I built this because I needed it.</em>
             </h2>
 
             <div className="space-y-5">
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1rem" }}>
-                I started my home daycare in 2016 with zero business experience, a dining room table, and a deep belief that mothers could create something extraordinary from the spaces they already occupied.
+                I started my home daycare at my own kitchen table — with children underfoot, licensing paperwork I didn't understand, and no real roadmap for what came next. The process was isolating. The systems were scattered. And the support for mothers trying to do this thing seriously was almost nonexistent.
               </p>
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1rem" }}>
-                What I didn't have was a roadmap. The licensing process felt like a labyrinth. The business decisions were paralyzing. And the isolation of working from home — especially in those early months — was something no one warned me about.
+                So I built what I wish had existed. Not a course. Not a coaching program. An actual implementation system — with real templates, organized licensing guidance, room planning support, community, and a method that walks you through every phase of launching a home childcare program with clarity and calm.
               </p>
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1rem" }}>
-                So I built the guide I wish I'd had. And then I built the community around it. Mama Launch Studio is the result of years of licensing, launching, failing forward, and learning — distilled into the most intentional, calm, and effective implementation system I could create.
+                Mama Launch Studio is a founding member experience right now. We are building this together — and I'd love for you to be part of shaping what it becomes.
               </p>
             </div>
 
-            <div
-              className="mt-10 pt-10"
-              style={{ borderTop: "1px solid #C4956A33" }}
-            >
-              <div className="flex flex-wrap gap-10">
-                {[
-                  { label: "Years in Childcare", value: "8+" },
-                  { label: "Mothers Guided", value: "200+" },
-                  { label: "States Covered", value: "32" },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <p
-                      className="font-display text-4xl"
-                      style={{ color: "#4D5E49", letterSpacing: "-0.02em" }}
-                    >
-                      {s.value}
-                    </p>
-                    <p className="font-micro mt-1" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
-                      {s.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-10">
+            <div className="mt-10 pt-8" style={{ borderTop: "1px solid #C4956A33" }}>
               <button
-                onClick={() =>
-                  document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })
-                }
+                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
                 className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] focus-sage"
-                style={{
-                  backgroundColor: "#4D5E49",
-                  fontSize: "0.8rem",
-                  boxShadow: "0 8px 32px rgba(77,94,73,0.2)",
-                }}
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.8rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}
               >
-                Start Your Launch Path
+                Join the Founding Member Waitlist
               </button>
             </div>
           </div>
