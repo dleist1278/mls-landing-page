@@ -63,7 +63,7 @@ export default function FounderSection() {
           </div>
 
           {/* Content */}
-          <div>
+          <div style={{ overflow: "hidden" }}>
             <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               Meet Your Guide
@@ -76,19 +76,23 @@ export default function FounderSection() {
             </h2>
 
             {/* Image — mobile only, shown after heading */}
-            <div className="md:hidden mb-4 px-6">
-              <div className="relative w-full">
-                <div
-                  className="relative rounded-[28px] overflow-hidden mx-auto"
-                  style={{ aspectRatio: "3/2", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", maxWidth: "100%" }}
-                >
-                  <img
-                    src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
-                    alt="Danielle, Founder of Mama Launch Studio"
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: "center 15%", filter: "saturate(0.68) brightness(0.97)" }}
-                  />
-                </div>
+            <div className="md:hidden mb-4" style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  width: "65vw",
+                  maxWidth: "260px",
+                  aspectRatio: "4/5",
+                  borderRadius: "28px",
+                  overflow: "hidden",
+                  boxShadow: "0 8px 40px rgba(196,149,106,0.12)",
+                  flexShrink: 0,
+                }}
+              >
+                <img
+                  src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
+                  alt="Danielle, Founder of Mama Launch Studio"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "30% 12%", filter: "saturate(0.68) brightness(0.97)", display: "block" }}
+                />
               </div>
             </div>
 
