@@ -121,11 +121,11 @@ export default function WhatIsMamaLaunchSection() {
           transform: imgVisible ? "scale(1)" : "scale(1.02)"
         }}>
         <div className="grid grid-cols-3 h-full gap-0">
-          <img
-            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
-            alt="Children exploring sensory play on the floor"
-            className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.95)" }} />
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/84aad1c89_Untitled_design__2__copy.jpg"
+
+          alt="Children exploring sensory play on the floor"
+          className="w-full h-full object-cover"
+          style={{ filter: "saturate(0.7) brightness(0.95)" }} />
           
           <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/fb6b687cd_4.jpg"
 
@@ -133,11 +133,11 @@ export default function WhatIsMamaLaunchSection() {
           className="w-full h-full object-cover"
           style={{ filter: "saturate(0.7) brightness(0.92)", objectPosition: "center 30%" }} />
           
-          <img
-            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/8edc2d80e_Untitled_design__1__copy.jpg"
-            alt="Child reading independently in a cozy reading corner"
-            className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.93)" }} />
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2d40427f3_Untitled_design__3_.jpg"
+
+          alt="Child reading independently in a cozy reading corner"
+          className="w-full h-full object-cover"
+          style={{ filter: "saturate(0.7) brightness(0.93)" }} />
           
         </div>
       </div>
