@@ -107,36 +107,36 @@ function PhaseCard({ phase, index }) {
           style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px", cursor: "pointer" }}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onClick={() => inputRef.current?.click()}
-        >
-          {activeSrc ? (
-            <img
-              src={activeSrc}
-              alt={phase.imageAlt}
-              className="w-full h-full object-cover transition-transform duration-500"
-              style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)", transform: hovered ? "scale(1.04)" : "scale(1)" }}
-            />
-          ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center gap-1" style={{ backgroundColor: `${phase.color}12` }}>
+          onClick={() => inputRef.current?.click()}>
+          
+          {activeSrc ?
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/03223e16e_8.jpg"
+
+          alt={phase.imageAlt}
+          className="w-full h-full object-cover transition-transform duration-500"
+          style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)", transform: hovered ? "scale(1.04)" : "scale(1)" }} /> :
+
+
+          <div className="w-full h-full flex flex-col items-center justify-center gap-1" style={{ backgroundColor: `${phase.color}12` }}>
               <span style={{ color: phase.color, opacity: 0.5, fontSize: "1.2rem" }}>+</span>
               <span className="font-micro" style={{ color: phase.color, opacity: 0.4, fontSize: "0.6rem" }}>Click to upload</span>
             </div>
-          )}
+          }
 
           {/* Hover overlay */}
-          {activeSrc && hovered && (
-            <div className="absolute inset-0 flex items-center justify-center transition-all"
-              style={{ background: "rgba(44,44,44,0.35)", backdropFilter: "blur(1px)" }}>
+          {activeSrc && hovered &&
+          <div className="absolute inset-0 flex items-center justify-center transition-all"
+          style={{ background: "rgba(44,44,44,0.35)", backdropFilter: "blur(1px)" }}>
               <span className="font-micro text-white" style={{ fontSize: "0.62rem" }}>Replace Image</span>
             </div>
-          )}
+          }
 
           {/* Uploading state */}
-          {uploading && (
-            <div className="absolute inset-0 flex items-center justify-center" style={{ background: "rgba(250,247,242,0.85)" }}>
+          {uploading &&
+          <div className="absolute inset-0 flex items-center justify-center" style={{ background: "rgba(250,247,242,0.85)" }}>
               <span className="font-micro" style={{ color: phase.color, fontSize: "0.62rem" }}>Uploading…</span>
             </div>
-          )}
+          }
 
           {/* Phase badge */}
           <div
