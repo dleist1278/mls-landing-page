@@ -4,12 +4,12 @@ export default function SiteFooter() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   const navLinks = [
-    { label: "The Method", id: "method" },
-    { label: "Program Pathways", id: "models" },
-    { label: "Community", id: "ecosystem" },
-    { label: "Meet Danielle", id: "founder" },
-    { label: "Join the Waitlist", id: "intake" },
-  ];
+  { label: "The Method", id: "method" },
+  { label: "Program Pathways", id: "models" },
+  { label: "Community", id: "ecosystem" },
+  { label: "Meet Danielle", id: "founder" },
+  { label: "Join the Waitlist", id: "intake" }];
+
 
   return (
     <footer style={{ backgroundColor: "#1E1E1E" }}>
@@ -41,32 +41,32 @@ export default function SiteFooter() {
               Navigate
             </p>
             <nav className="flex flex-col gap-1">
-              {navLinks.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollTo(item.id)}
-                  className="font-body text-sm text-left w-full transition-all duration-150 min-h-[36px] rounded-lg px-2 -mx-2 hover:text-white"
-                  style={{ color: "#7A6E65", background: "none", border: "none" }}
-                >
+              {navLinks.map((item) =>
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="font-body text-sm text-left w-full transition-all duration-150 min-h-[36px] rounded-lg px-2 -mx-2 hover:text-white"
+                style={{ color: "#7A6E65", background: "none", border: "none" }}>
+                
                   {item.label}
                 </button>
-              ))}
+              )}
             </nav>
           </div>
 
           {/* CTA column */}
           <div>
-            <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
+            <p className="font-micro mb-3 hidden" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
               Ready to Begin?
             </p>
-            <p className="font-body text-sm leading-relaxed mb-4" style={{ color: "#7A6E65" }}>
+            <p className="font-body text-sm leading-relaxed mb-4 hidden" style={{ color: "#7A6E65" }}>
               Join the founding member waitlist and get early access to the full Mama Launch Method when it opens.
             </p>
             <button
               onClick={() => scrollTo("intake")}
-              className="font-micro text-white w-full sm:w-auto px-7 py-3.5 rounded-full transition-all duration-200 min-h-[48px] hover:opacity-90"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 6px 24px rgba(77,94,73,0.28)" }}
-            >
+              className="font-micro text-white w-full sm:w-auto px-7 py-3.5 rounded-full transition-all duration-200 min-h-[48px] hover:opacity-90 hidden"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 6px 24px rgba(77,94,73,0.28)" }}>
+              
               Join the Founding Member Waitlist
             </button>
           </div>
@@ -82,6 +82,6 @@ export default function SiteFooter() {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
