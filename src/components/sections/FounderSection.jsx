@@ -107,7 +107,6 @@ export default function FounderSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {credentials.map((c) => (
                   <div key={c.label} className="flex items-start gap-2.5 p-3 rounded-2xl" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
-                    <span className="mt-1 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
                     <div>
                       <p className="font-body text-xs font-medium leading-snug" style={{ color: "#2C2C2C" }}>{c.label}</p>
                       <p className="font-body text-xs leading-relaxed" style={{ color: "#7A6E65" }}>{c.note}</p>
