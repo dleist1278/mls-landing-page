@@ -122,7 +122,7 @@ export default function FounderSection() {
                   <div
                     key={gi}
                     className="flex-none flex flex-col gap-2"
-                    style={{ width: "calc(100vw - 60px)", scrollSnapAlign: "start", scrollSnapStop: "always" }}
+                    style={{ width: "calc(100vw - 90px)", scrollSnapAlign: "start", scrollSnapStop: "always" }}
                   >
                     {pair.map((c) => (
                       <div key={c.label} className="flex items-start gap-3 p-2.5 rounded-xl text-left" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
