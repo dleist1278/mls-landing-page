@@ -42,14 +42,15 @@ function PillarCard({ pillar, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-4 pb-3.5 md:p-5 md:pb-4 flex flex-col"
+      className="rounded-3xl p-4 pb-3.5 md:p-5 md:pb-4 flex flex-col flex-none snap-start md:flex-auto"
       style={{
         backgroundColor: "#F0EBE1",
         border: "1px solid #C4956A1A",
         transition: `opacity 0.6s ease ${index * 100}ms, transform 0.6s ease ${index * 100}ms`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(16px)",
-        boxShadow: "0 4px 32px rgba(196,149,106,0.04)"
+        boxShadow: "0 4px 32px rgba(196,149,106,0.04)",
+        minWidth: "min(80vw, 320px)",
       }}>
 
       <h3 className="font-display text-lg md:text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
@@ -147,11 +148,19 @@ export default function EcosystemSection() {
               </div>
             </div>
           </div>
-          {/* Pillars */}
-          <div className="md:col-span-3 flex flex-col gap-4">
-            {pillars.slice(0, 2).map((pillar, i) =>
-            <PillarCard key={pillar.num} pillar={pillar} index={i} />
-            )}
+          {/* Pillars — horizontal scroll on mobile, vertical stack on desktop */}
+          <div className="md:col-span-3">
+            <div
+              className="flex md:flex-col gap-4 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 snap-x snap-mandatory"
+              style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+            >
+              {pillars.slice(0, 2).map((pillar, i) =>
+              <PillarCard key={pillar.num} pillar={pillar} index={i} />
+              )}
+            </div>
+            <p className="md:hidden text-center font-micro mt-2" style={{ color: "#C4956A", fontSize: "0.65rem", opacity: 0.7 }}>
+              ← scroll to explore →
+            </p>
           </div>
         </div>
 
