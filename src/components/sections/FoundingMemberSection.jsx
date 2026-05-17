@@ -232,24 +232,24 @@ export default function FoundingMemberSection() {
         </div>
 
         {/* Transparency note — centered editorial composition */}
-        <div className="p-5 md:p-7 rounded-3xl text-center mx-auto hidden" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A", maxWidth: "600px" }}>
-          <p className="font-micro mb-2.5" style={{ color: "#C4956A", fontSize: "0.7rem" }}>A Note on Transparency</p>
-          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.9rem", maxWidth: "480px", lineHeight: "1.6" }}>
-            Mama Launch Studio is in active development. Founding members receive early access, help shape the experience, and move through the Method as the platform evolves. We believe in building with our community, not before them.
-          </p>
-          <div className="mt-5 md:mt-7 flex flex-col items-center gap-3">
-            <button
-              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro text-white px-6 md:px-8 py-3.5 md:py-4 rounded-full transition-all min-h-[48px] focus-sage w-full sm:w-auto"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.76rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
-              <span className="sm:hidden">Join the Waitlist</span>
-              <span className="hidden sm:inline">Join the Founding Member Waitlist</span>
-            </button>
-            <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.83rem" }}>
-              Founding member spots are limited.
-            </p>
-          </div>
-        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
       </div>
     </section>);
 

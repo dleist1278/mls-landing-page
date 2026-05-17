@@ -100,19 +100,19 @@ export default function WhatIsMamaLaunchSection() {
               </div>
             </div>
 
-            <div className="rounded-3xl p-6 hidden" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A18" }}>
-              <p className="font-micro mb-4" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
-                How Mama Launch is different
-              </p>
-              <div className="flex flex-col gap-4">
-                {differentiators.map((d) =>
-                <div key={d.label} className="flex flex-col gap-1">
-                    <span className="font-body text-xs line-through" style={{ color: "#B8ADA6" }}>{d.label}</span>
-                    <span className="font-body text-sm" style={{ color: "#4D5E49" }}>✓ {d.contrast}</span>
-                  </div>
-                )}
-              </div>
-            </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+            
           </div>
 
           {/* Right — text content */}
