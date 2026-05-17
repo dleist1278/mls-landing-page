@@ -71,24 +71,24 @@ export default function IntakeFormSection() {
     <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden" }}>
 
       {/* Top image strip */}
-      <div style={{ height: "260px", overflow: "hidden" }} className="hidden">
-        <div className="grid grid-cols-2 md:grid-cols-4 h-full hidden">
-          {[
-          { src: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&q=80", pos: "center 30%", alt: "Mother and child floor play" },
-          { src: "https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=500&q=80", pos: "center 20%", alt: "Organized childcare shelving" },
-          { src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500&q=80", pos: "center 35%", alt: "Children at snack time" },
-          { src: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&q=80", pos: "center 15%", alt: "Outdoor exploration moment" }].
-          map((img, i) => null
+      
 
 
-          )}
-          {/* Mobile: show two */}
-          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&q=80" alt="Mother and child" className="w-full h-full object-cover md:hidden"
-          style={{ objectPosition: "center 30%", filter: "saturate(0.65) brightness(0.9)" }} />
-          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&q=80" alt="Outdoor play" className="w-full h-full object-cover md:hidden"
-          style={{ objectPosition: "center 15%", filter: "saturate(0.65) brightness(0.9)" }} />
-        </div>
-      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
 
       {/* Form container */}
       <div className="max-w-4xl mx-auto px-6 md:px-12 py-14 md:py-20">
