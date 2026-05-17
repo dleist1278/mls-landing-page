@@ -122,58 +122,61 @@ export default function WalkAwaySection() {
         {/* Header */}
         <div
           ref={headerRef}
-          className="mb-14"
+          className="mb-12 text-center"
           style={{ transition: "all 0.8s ease", opacity: headerVisible ? 1 : 0, transform: headerVisible ? "translateY(0)" : "translateY(28px)", filter: headerVisible ? "blur(0)" : "blur(3px)" }}>
-          
-          <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+
+          <p className="font-micro mb-5 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             Member Experience
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.6rem)" }}>
-              Move Through the Method With
-              <br />
-              <em style={{ color: "#4D5E49" }}>Structure + Support.</em>
-            </h2>
-            <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem" }}>
-              Move through the Mama Launch Method™ with guided implementation, milestone tracking, community support, and operational tools designed for real motherhood.
-            </p>
-          </div>
+          <h2 className="font-display leading-tight mb-5 mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.5vw, 3.1rem)", maxWidth: "34rem", lineHeight: "1.15" }}>
+            Move Through the Method With{" "}
+            <em style={{ color: "#4D5E49" }}>Structure + Support.</em>
+          </h2>
+          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.95rem", maxWidth: "36rem" }}>
+            Move through the Mama Launch Method™ with guided implementation, milestone tracking, community support, and operational tools designed for real motherhood.
+          </p>
         </div>
 
         {/* REAL ASSET — Portal mockup */}
         <div
           ref={portalRef}
-          className="mb-8 md:mb-16"
-          style={{ transition: "all 0.9s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(32px)", filter: portalVisible ? "blur(0)" : "blur(3px)" }}>
-          
-          <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#4D5E49", fontSize: "0.7rem" }}>
-            <span className="inline-block w-6 h-px" style={{ backgroundColor: "#4D5E49" }} />
+          className="mb-8 md:mb-12 mx-auto"
+          style={{ maxWidth: "820px", transition: "all 0.9s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(32px)", filter: portalVisible ? "blur(0)" : "blur(3px)" }}>
+
+          <p className="font-micro mb-5 flex items-center justify-center gap-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
+            <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
             Inside the Mama Launch Platform
+            <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
           </p>
-          {/* Level 1 — editorial backing */}
+
+          {/* Grounded image — one quiet backing layer */}
           <div className="relative">
+            {/* Level 1 — single tonal backing, barely visible */}
             <div
-              className="absolute rounded-[24px]"
+              className="absolute rounded-[20px]"
               style={{
                 inset: 0,
-                transform: "translate(0, 12px)",
-                backgroundColor: "#E8D5C0",
-                opacity: 0.35,
+                transform: "translate(6px, 10px)",
+                backgroundColor: "#D9C9B4",
+                opacity: 0.28,
                 zIndex: 0,
               }}
             />
             {/* Level 2 — image surface */}
             <div
-              className="relative rounded-[24px] overflow-hidden"
-              style={{ boxShadow: "0 12px 48px rgba(77,94,73,0.12)", border: "1px solid #4D5E4918", zIndex: 1 }}
+              className="relative rounded-[20px] overflow-hidden"
+              style={{ boxShadow: "0 6px 32px rgba(44,44,44,0.08)", border: "1px solid rgba(196,149,106,0.1)", zIndex: 1 }}
             >
-              <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/61484979d_ChatGPT_Image_May_17__2026__06_49_23_AM.png"
-              alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
-              className="w-full h-auto block" />
+              <img
+                src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/61484979d_ChatGPT_Image_May_17__2026__06_49_23_AM.png"
+                alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
+                className="w-full h-auto block"
+              />
             </div>
           </div>
-          <p className="font-body mt-4 text-center" style={{ color: "#9a8f84", fontSize: "0.8rem" }}>
+          <p className="font-body mt-5 text-center" style={{ color: "#b0a49a", fontSize: "0.78rem", letterSpacing: "0.01em" }}>
             Your guided implementation dashboard — track your progress through every phase.
           </p>
         </div>
