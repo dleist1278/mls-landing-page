@@ -103,7 +103,7 @@ export default function WhatIsMamaLaunchSection() {
             <button
               onClick={() => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" })}
               className="font-micro px-7 py-3.5 rounded-full border hover:opacity-80 transition-all min-h-[48px]"
-              style={{ color: "#4D5E49", borderColor: "#4D5E49", fontSize: "0.78rem", backgroundColor: "transparent" }}>
+              style={{ color: "white", borderColor: "#4D5E49", fontSize: "0.78rem", backgroundColor: "#4D5E49" }}>
               See the 5-Phase Method →
             </button>
           </div>
