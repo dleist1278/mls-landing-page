@@ -143,15 +143,14 @@ export default function IntakeFormSection() {
   };
 
   return (
-    <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden" }}>
-      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-16 md:py-20">
+    <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden", scrollMarginTop: "60px" }}>
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-12 md:py-20">
         <div
           ref={ref}
           style={{
-            transition: "all 0.9s ease",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(28px)",
-            filter: visible ? "blur(0)" : "blur(2px)",
+            transform: visible ? "translateY(0)" : "translateY(16px)",
           }}
         >
           {/* Header */}
@@ -204,11 +203,11 @@ export default function IntakeFormSection() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-9">
+            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-9">
               {/* Row 1 — Name + Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 <div>
-                  <label className="font-micro block mb-3" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
+                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
                     First Name
                   </label>
                   <input
@@ -221,7 +220,7 @@ export default function IntakeFormSection() {
                   />
                 </div>
                 <div>
-                  <label className="font-micro block mb-3" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
+                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
                     Email Address
                   </label>
                   <input
@@ -236,9 +235,9 @@ export default function IntakeFormSection() {
               </div>
 
               {/* Row 2 — Role + Interest */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 <div className="relative">
-                  <label className="font-micro block mb-3" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
+                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
                     Current Role
                   </label>
                   <select
@@ -253,7 +252,7 @@ export default function IntakeFormSection() {
                   <span className="absolute right-0 bottom-4 pointer-events-none" style={{ color: "#C4956A", fontSize: "0.75rem" }}>↓</span>
                 </div>
                 <div className="relative">
-                  <label className="font-micro block mb-3" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
+                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
                     Childcare Interest
                   </label>
                   <select
@@ -270,9 +269,9 @@ export default function IntakeFormSection() {
               </div>
 
               {/* Row 3 — State + Hesitation */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 <div className="relative">
-                  <label className="font-micro block mb-3" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
+                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
                     Your State
                   </label>
                   <select
@@ -287,7 +286,7 @@ export default function IntakeFormSection() {
                   <span className="absolute right-0 bottom-4 pointer-events-none" style={{ color: "#C4956A", fontSize: "0.75rem" }}>↓</span>
                 </div>
                 <div className="relative">
-                  <label className="font-micro block mb-3" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
+                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
                     Biggest Hesitation
                   </label>
                   <select
@@ -314,17 +313,17 @@ export default function IntakeFormSection() {
               )}
 
               {/* Submit */}
-              <div className="pt-2 flex flex-col items-center gap-4">
+              <div className="pt-1 flex flex-col items-center gap-3">
                 <button
                   type="submit"
                   disabled={submitting}
                   onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
-                  className="font-micro text-white w-full px-10 py-5 rounded-full hover:opacity-90 transition-all min-h-[56px] disabled:opacity-60"
+                  className="font-micro text-white w-full px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] disabled:opacity-60"
                   style={{
                     backgroundColor: "#4D5E49",
-                    fontSize: "0.82rem",
+                    fontSize: "0.78rem",
                     boxShadow: "0 12px 40px rgba(77,94,73,0.25)",
-                    letterSpacing: "0.1em",
+                    letterSpacing: "0.08em",
                   }}
                 >
                   {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}

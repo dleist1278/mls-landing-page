@@ -42,23 +42,22 @@ function PillarCard({ pillar, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-5 pb-4 flex flex-col"
+      className="rounded-3xl p-4 pb-3.5 md:p-5 md:pb-4 flex flex-col"
       style={{
         backgroundColor: "#F0EBE1",
         border: "1px solid #C4956A1A",
-        transition: `all 0.8s ease ${index * 140}ms`,
+        transition: `opacity 0.6s ease ${index * 100}ms, transform 0.6s ease ${index * 100}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(28px)",
-        filter: visible ? "blur(0)" : "blur(2px)",
+        transform: visible ? "translateY(0)" : "translateY(16px)",
         boxShadow: "0 4px 32px rgba(196,149,106,0.04)"
       }}>
 
-      <h3 className="font-display text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
+      <h3 className="font-display text-lg md:text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
       <p className="font-body text-sm leading-relaxed mb-3" style={{ color: "#5C5148" }}>{pillar.description}</p>
 
       <div className="w-full h-px mb-2" style={{ backgroundColor: "#C4956A22" }} />
 
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-2 flex-1">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1.5 flex-1">
         {pillar.items.map((item) =>
         <li key={item} className="flex items-start gap-2">
             <span className="mt-1.5 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
@@ -91,18 +90,17 @@ export default function EcosystemSection() {
   }, []);
 
   return (
-    <section id="ecosystem" className="md:py-16 py-14" style={{ backgroundColor: "#FAF7F2" }}>
-      <div className="w-full h-px mb-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+    <section id="ecosystem" className="md:py-16 py-10" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+      <div className="w-full h-px mb-8 md:mb-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div
           ref={headerRef}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
           style={{
-            transition: "all 0.8s ease",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(24px)",
-            filter: headerVisible ? "blur(0)" : "blur(2px)"
+            transform: headerVisible ? "translateY(0)" : "translateY(16px)",
           }}>
           
           <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -115,7 +113,7 @@ export default function EcosystemSection() {
             <br />
             <em style={{ color: "#4D5E49" }}>Not Just Inspiration.</em>
           </h2>
-          <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.95rem" }}>
+          <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.9rem", lineHeight: "1.6" }}>
             The Mama Launch community is operationally focused, uplifting, and milestone-driven — a village helping a village build something real.
           </p>
         </div>
@@ -162,15 +160,15 @@ export default function EcosystemSection() {
         {/* Quote */}
         <div
           ref={quoteRef}
-          className="mt-10 text-center mx-auto max-w-xl"
+          className="mt-7 md:mt-10 text-center mx-auto max-w-xl"
           style={{
-            transition: "all 0.8s ease",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: quoteVisible ? 1 : 0,
-            transform: quoteVisible ? "translateY(0)" : "translateY(20px)"
+            transform: quoteVisible ? "translateY(0)" : "translateY(16px)"
           }}>
           
-          <div className="w-8 h-px mx-auto mb-6" style={{ backgroundColor: "#C4956A" }} />
-          <blockquote className="font-display leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.1rem, 2vw, 1.35rem)", maxWidth: "560px", margin: "0 auto 1rem" }}>
+          <div className="w-8 h-px mx-auto mb-5" style={{ backgroundColor: "#C4956A" }} />
+          <blockquote className="font-display leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.05rem, 2vw, 1.35rem)", lineHeight: "1.5", maxWidth: "480px", margin: "0 auto 1rem" }}>
             "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
           </blockquote>
           <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>

@@ -65,35 +65,36 @@ function PhaseCard({ phase, index }) {
       ref={ref}
       className="flex-none"
       style={{
-        width: "clamp(272px, 80vw, 300px)",
+        width: "calc(100vw - 48px)",
+        maxWidth: "300px",
         scrollSnapAlign: "start",
-        transition: `all 0.65s ease ${index * 80}ms`,
+        scrollSnapStop: "always",
+        transition: `opacity 0.5s ease ${index * 60}ms, transform 0.5s ease ${index * 60}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(24px)",
-        filter: visible ? "blur(0)" : "blur(2px)"
+        transform: visible ? "translateY(0)" : "translateY(16px)",
       }}>
 
       <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
 
         {/* Phase header */}
-        <div className="px-5 pt-5 pb-3" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
+        <div className="px-4 pt-4 pb-2.5" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
           {/* Phase number */}
-          <div className="font-display mb-2" style={{ color: phase.color, fontSize: "2rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
+          <div className="font-display mb-1.5" style={{ color: phase.color, fontSize: "1.6rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
             {phase.number}
           </div>
-          <h3 className="font-display text-lg mb-1" style={{ color: "#2C2C2C", lineHeight: "1.25" }}>
+          <h3 className="font-display text-base mb-1" style={{ color: "#2C2C2C", lineHeight: "1.25" }}>
             {phase.name}
           </h3>
           <p className="font-body text-xs italic" style={{ color: "#7A6E65" }}>
             {phase.tagline}
           </p>
-          <p className="font-body text-xs mt-2 leading-relaxed" style={{ color: "#5C5148", fontStyle: "italic" }}>
+          <p className="font-body text-xs mt-1.5 leading-relaxed" style={{ color: "#5C5148", fontStyle: "italic" }}>
             "{phase.emotional}"
           </p>
         </div>
 
         {/* Deliverables */}
-        <div className="px-5 py-4 flex-1">
+        <div className="px-4 py-3 flex-1">
           <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>
             You'll walk away with
           </p>
@@ -126,17 +127,16 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-12 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
-      <div className="w-full h-px mb-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+      <div className="w-full h-px mb-6" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
         ref={headerRef}
-        className="max-w-6xl mx-auto px-6 md:px-12 mb-4"
+        className="max-w-6xl mx-auto px-5 md:px-12 mb-4"
         style={{
-          transition: "all 0.8s ease",
+          transition: "opacity 0.6s ease, transform 0.6s ease",
           opacity: headerVisible ? 1 : 0,
-          transform: headerVisible ? "translateY(0)" : "translateY(24px)",
-          filter: headerVisible ? "blur(0)" : "blur(2px)"
+          transform: headerVisible ? "translateY(0)" : "translateY(16px)",
         }}>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
@@ -145,25 +145,24 @@ export default function MethodSection() {
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               The Implementation Roadmap
             </p>
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.4rem)" }}>
+            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 4vw, 3.4rem)", lineHeight: "1.2" }}>
               The Mama Launch Method
               <br />
               <em style={{ color: "#4D5E49" }}>Five Phases. Real Deliverables.</em>
-
             </h2>
           </div>
-
         </div>
       </div>
 
       {/* Horizontal scroll */}
       <div
-        className="flex gap-4 overflow-x-auto pb-6 px-6 md:px-12 max-w-6xl mx-auto"
+        className="flex gap-3 overflow-x-auto pb-5 px-5 md:px-12 max-w-6xl mx-auto"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
           WebkitOverflowScrolling: "touch",
           scrollSnapType: "x mandatory",
+          scrollPaddingLeft: "20px",
         }}>
 
         {phases.map((phase, i) =>

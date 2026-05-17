@@ -17,14 +17,14 @@ export default function SiteNav() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      className="md:fixed md:top-0 md:left-0 md:right-0 md:z-50 transition-all duration-500 relative"
       style={{
         backgroundColor: scrolled ? "rgba(250,247,242,0.96)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid #C4956A33" : "none",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-7 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-7 flex items-center justify-between">
         {/* Logo */}
         <div
           className="cursor-pointer"

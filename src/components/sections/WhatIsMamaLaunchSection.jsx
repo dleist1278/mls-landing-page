@@ -59,14 +59,13 @@ export default function WhatIsMamaLaunchSection() {
       {/* Main two-column editorial block */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20">
         <div
-          ref={ref}
-          className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
-          style={{
-            transition: "all 0.8s ease",
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(24px)",
-            filter: visible ? "blur(0)" : "blur(2px)"
-          }}>
+        ref={ref}
+        className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
+        style={{
+          transition: "all 0.6s ease",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(16px)",
+        }}>
           
           {/* Left — editorial imagery + differentiators */}
           <div className="flex flex-col gap-5">
@@ -129,15 +128,16 @@ export default function WhatIsMamaLaunchSection() {
               What is the{" "}
               <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
             </h2>
-            <p className="font-body leading-relaxed mb-4" style={{ color: "#5C5148", fontSize: "1rem", maxWidth: "38rem" }}>
+            <p className="font-body leading-relaxed mb-3" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.65", maxWidth: "38rem" }}>
               Mama Launch is a guided implementation system helping mothers launch intentional home childcare programs through step-by-step phases, operational systems, templates, and community support.
             </p>
-            <p className="font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "0.96rem", maxWidth: "38rem" }}>
+            <p className="hidden md:block font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "38rem" }}>
               This is not a traditional business course or generic childcare training. Mama Launch helps mothers build calm, sustainable childcare ecosystems rooted in structure, emotional safety, and real family life.
             </p>
+            <div className="md:hidden mb-5" />
 
-            <p className="font-micro mb-4" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 mb-8">
+            <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 mb-6">
               {included.map((item) =>
               <div key={item} className="flex items-start gap-2">
                   <span className="mt-1 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
@@ -162,9 +162,9 @@ export default function WhatIsMamaLaunchSection() {
         ref={imgRef}
         className="w-full overflow-hidden"
         style={{
-          transition: "all 1s ease",
+          transition: "opacity 0.6s ease, transform 0.6s ease",
           opacity: imgVisible ? 1 : 0,
-          transform: imgVisible ? "scale(1)" : "scale(1.02)"
+          transform: imgVisible ? "scale(1)" : "scale(1.01)"
         }}>
         
         {/* Desktop: fixed height strip */}

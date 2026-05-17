@@ -45,21 +45,20 @@ function StepRow({ step, index }) {
   return (
     <div
       ref={ref}
-      className="flex gap-5 items-start"
+      className="flex gap-4 items-start"
       style={{
-        transition: `all 0.65s ease ${index * 90}ms`,
+        transition: `opacity 0.5s ease ${index * 70}ms, transform 0.5s ease ${index * 70}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateX(0)" : "translateX(-16px)",
-        filter: visible ? "blur(0)" : "blur(2px)"
+        transform: visible ? "translateX(0)" : "translateX(-12px)",
       }}>
       <div
-        className="flex-none w-[3.5rem] h-[3.5rem] rounded-full flex items-center justify-center z-10"
+        className="flex-none w-10 h-10 rounded-full flex items-center justify-center z-10"
         style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A44" }}>
-        <span className="font-display text-base" style={{ color: "#C4956A", letterSpacing: "-0.02em" }}>{step.step}</span>
+        <span className="font-display text-sm" style={{ color: "#C4956A", letterSpacing: "-0.02em" }}>{step.step}</span>
       </div>
-      <div className="pt-2 pb-3">
-        <h3 className="font-display text-lg mb-1.5" style={{ color: "#2C2C2C" }}>{step.title}</h3>
-        <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px" }}>{step.description}</p>
+      <div className="pt-1.5 pb-2">
+        <h3 className="font-display text-base mb-1" style={{ color: "#2C2C2C", lineHeight: "1.3" }}>{step.title}</h3>
+        <p className="font-body text-sm leading-snug" style={{ color: "#5C5148", maxWidth: "480px", lineHeight: "1.55" }}>{step.description}</p>
       </div>
     </div>);
 
@@ -187,18 +186,17 @@ export default function FoundingMemberSection() {
   }, []);
 
   return (
-    <section className="md:py-16 py-14" style={{ backgroundColor: "#F0EBE1" }}>
+    <section className="md:py-16 py-10" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         {/* Header */}
         <div
           ref={headerRef}
-          className="mb-12"
+          className="mb-8 md:mb-12"
           style={{
-            transition: "all 0.8s ease",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(24px)",
-            filter: headerVisible ? "blur(0)" : "blur(2px)"
+            transform: headerVisible ? "translateY(0)" : "translateY(16px)",
           }}>
           <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
@@ -220,7 +218,7 @@ export default function FoundingMemberSection() {
           {/* Steps timeline */}
           <div className="md:col-span-3 relative">
             <div className="hidden md:block absolute left-[2.1rem] top-10 bottom-10 w-px" style={{ backgroundColor: "#C4956A28" }} />
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-3.5 md:gap-5">
               {steps.map((step, i) =>
               <StepRow key={step.step} step={step} index={i} />
               )}
@@ -234,17 +232,18 @@ export default function FoundingMemberSection() {
         </div>
 
         {/* Transparency note — centered editorial composition */}
-        <div className="p-7 rounded-3xl text-center mx-auto" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A", maxWidth: "600px" }}>
-          <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.7rem" }}>A Note on Transparency</p>
-          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "580px" }}>
-            Mama Launch Studio is a guided implementation platform in active development. Founding members receive early access, help shape the experience, and move through the Mama Launch Method™ as the platform evolves. This is a collaborative, community-centered launch — not a fully finished product. We believe in building with our community, not before them.
+        <div className="p-5 md:p-7 rounded-3xl text-center mx-auto" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A", maxWidth: "600px" }}>
+          <p className="font-micro mb-2.5" style={{ color: "#C4956A", fontSize: "0.7rem" }}>A Note on Transparency</p>
+          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.9rem", maxWidth: "480px", lineHeight: "1.6" }}>
+            Mama Launch Studio is in active development. Founding members receive early access, help shape the experience, and move through the Method as the platform evolves. We believe in building with our community, not before them.
           </p>
-          <div className="mt-7 flex flex-col items-center gap-3">
+          <div className="mt-5 md:mt-7 flex flex-col items-center gap-3">
             <button
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px] focus-sage"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
-              Join the Founding Member Waitlist
+              className="font-micro text-white px-6 md:px-8 py-3.5 md:py-4 rounded-full transition-all min-h-[48px] focus-sage w-full sm:w-auto"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.76rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
+              <span className="sm:hidden">Join the Waitlist</span>
+              <span className="hidden sm:inline">Join the Founding Member Waitlist</span>
             </button>
             <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.83rem" }}>
               Founding member spots are limited.

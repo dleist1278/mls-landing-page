@@ -43,18 +43,17 @@ export default function ModelsSection() {
   }, []);
 
   return (
-    <section id="models" className="py-12 md:py-16" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="models" className="py-10 md:py-16" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
       <div className="max-w-5xl mx-auto px-6 md:px-12">
 
         {/* Header */}
         <div
           ref={headerRef}
-          className="mb-14"
+          className="mb-8 md:mb-14"
           style={{
-            transition: "all 0.8s ease",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(28px)",
-            filter: headerVisible ? "blur(0)" : "blur(3px)"
+            transform: headerVisible ? "translateY(0)" : "translateY(16px)",
           }}>
           
           <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -73,15 +72,14 @@ export default function ModelsSection() {
         {/* Active pathway — prominent */}
         <div
           ref={activeRef}
-          className="rounded-3xl p-6 md:p-10 mb-6"
+          className="rounded-3xl p-5 md:p-10 mb-5 md:mb-6"
           style={{
             backgroundColor: "#F0EBE1",
             border: "1px solid #4D5E4930",
             boxShadow: "0 6px 36px rgba(77,94,73,0.08)",
-            transition: "all 0.8s ease",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: activeVisible ? 1 : 0,
-            transform: activeVisible ? "translateY(0)" : "translateY(28px)",
-            filter: activeVisible ? "blur(0)" : "blur(3px)"
+            transform: activeVisible ? "translateY(0)" : "translateY(16px)",
           }}>
           
           <div className="flex flex-col md:flex-row md:gap-10 gap-6">
@@ -114,7 +112,7 @@ export default function ModelsSection() {
                 Guided through the Mama Launch Method
               </p>
               <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A22" }} />
-              <ul className="flex flex-col gap-3.5">
+              <ul className="flex flex-col gap-2 md:gap-3.5">
                 {activeModel.features.map((f) =>
                 <li key={f} className="flex items-start gap-3">
                     <span className="mt-1.5 flex-none w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
@@ -153,14 +151,13 @@ function ComingSoonCard({ model, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-6 flex flex-col gap-3"
+      className="rounded-3xl p-4 md:p-6 flex flex-col gap-2.5"
       style={{
         backgroundColor: "#FAF7F2",
         border: "1px solid #C4956A1A",
         opacity: visible ? 0.88 : 0,
-        transform: visible ? "translateY(0)" : `translateY(${20 + index * 6}px)`,
-        filter: visible ? "blur(0)" : "blur(2px)",
-        transition: `all 0.7s ease ${index * 120}ms`
+        transform: visible ? "translateY(0)" : `translateY(${16 + index * 4}px)`,
+        transition: `opacity 0.5s ease ${index * 100}ms, transform 0.5s ease ${index * 100}ms`
       }}>
       
       {/* Coming soon badge */}

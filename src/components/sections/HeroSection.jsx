@@ -50,7 +50,7 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
       {/* Constrained, overflow-safe content wrapper */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-28 pb-20 md:pb-16 overflow-x-hidden">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-8 md:pt-28 pb-10 md:pb-16 overflow-x-hidden">
         <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-12 lg:gap-20">
 
           {/* Text block — mobile-constrained */}
@@ -78,15 +78,15 @@ export default function HeroSection() {
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
-                className="font-body mb-7"
-                style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.75", maxWidth: "100%" }}
+                className="font-body mb-5"
+                style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "100%" }}
               >
                 Launch your home childcare program with guided systems, intentional structure, and a supportive community built around real family life.
               </p>
             </div>
 
-            {/* Tag line */}
-            <div className={`transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+            {/* Tag line — hidden on mobile */}
+            <div className={`hidden sm:block transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <p
                 className="font-micro mb-9"
                 style={{ color: "#C4956A", fontSize: "0.66rem", letterSpacing: "0.1em" }}
@@ -94,16 +94,17 @@ export default function HeroSection() {
                 Launch System · Templates · Community · Guided Implementation
               </p>
             </div>
+            <div className="sm:hidden mb-6" />
 
             {/* CTAs — stacked on mobile, row on sm+ */}
             <div
-              className={`transition-all duration-700 delay-500 flex flex-col sm:flex-row flex-wrap gap-4 ${
+              className={`transition-all duration-700 delay-500 flex flex-col sm:flex-row flex-wrap gap-3 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
               <button
                 onClick={scrollToIntake}
-                className="font-micro text-white px-7 py-4 rounded-full transition-all duration-200 min-h-[52px] focus-sage w-full sm:w-auto text-center"
+                className="font-micro text-white px-7 py-3.5 rounded-full transition-all duration-200 min-h-[48px] focus-sage w-full sm:w-auto text-center"
                 style={{
                   backgroundColor: "#4D5E49",
                   fontSize: "0.78rem",
@@ -114,7 +115,7 @@ export default function HeroSection() {
               </button>
               <button
                 onClick={scrollToMethod}
-                className="font-micro px-7 py-4 rounded-full border transition-all duration-200 min-h-[52px] focus-sage w-full sm:w-auto text-center"
+                className="font-micro px-7 py-3.5 rounded-full border transition-all duration-200 min-h-[48px] focus-sage w-full sm:w-auto text-center"
                 style={{
                   color: "#4D5E49",
                   borderColor: "#4D5E4928",

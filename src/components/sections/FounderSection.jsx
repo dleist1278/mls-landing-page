@@ -22,22 +22,21 @@ export default function FounderSection() {
   }, []);
 
   return (
-    <section id="founder" className="pt-14 md:pt-16 pb-6 md:pb-4" style={{ backgroundColor: "#F0EBE1" }}>
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+    <section id="founder" className="pt-10 md:pt-16 pb-6 md:pb-4" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
+      <div className="max-w-6xl mx-auto px-5 md:px-12">
 
         {/* Main two-col */}
         <div
           ref={ref}
-          className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-12"
+          className="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-10 md:mb-12"
           style={{
-            transition: "all 0.9s ease",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(28px)",
-            filter: visible ? "blur(0)" : "blur(2px)"
+            transform: visible ? "translateY(0)" : "translateY(16px)",
           }}>
           
           {/* Image — with editorial depth system */}
-          <div className="flex flex-col items-center gap-7">
+          <div className="flex flex-col items-center gap-4 md:gap-7">
             <div className="relative w-full">
               {/* Level 1 — editorial backing shape */}
               <div
@@ -85,23 +84,45 @@ export default function FounderSection() {
               <em style={{ color: "#4D5E49" }}>because I needed it.</em>
             </h2>
 
-            <div className="space-y-4 mb-7">
-              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.97rem" }}>
-                I spent years as a teacher, assistant principal, and implementation lead before becoming a licensed home daycare owner and mother of two. I know both sides of this — the professional systems and the real life you're building inside of.
+            {/* Credibility grid — shown FIRST on mobile for immediate trust signals */}
+            <div
+              ref={credRef}
+              className="mb-5 md:hidden"
+              style={{
+                transition: "opacity 0.6s ease, transform 0.6s ease",
+                opacity: credVisible ? 1 : 0,
+                transform: credVisible ? "translateY(0)" : "translateY(12px)"
+              }}>
+              <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Background & experience</p>
+              <div className="grid grid-cols-1 gap-2">
+                {credentials.map((c) => (
+                  <div key={c.label} className="flex items-start gap-3 p-2.5 rounded-xl text-left" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
+                    <span className="flex-none mt-0.5 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49", marginTop: "5px" }} />
+                    <div>
+                      <p className="font-body text-xs font-medium leading-snug" style={{ color: "#2C2C2C" }}>{c.label}</p>
+                      <p className="font-body text-xs leading-relaxed" style={{ color: "#7A6E65" }}>{c.note}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-3 mb-5">
+              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6" }}>
+                I spent years as a teacher, assistant principal, and implementation lead before becoming a licensed home daycare owner and mother of two. I know both sides — the professional systems and the real life you're building inside of.
               </p>
-              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.97rem" }}>
-                When I launched my own program, I found scattered information, no clear roadmap, and almost no support designed for serious home providers. So I built the system I needed. Mama Launch Studio is the guided method I wish had existed when I started.
+              <p className="hidden md:block font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6" }}>
+                When I launched my own program, I found scattered information, no clear roadmap, and almost no support designed for serious home providers. So I built the system I needed.
               </p>
             </div>
 
-            {/* Credibility grid */}
+            {/* Credibility grid — desktop only (mobile shown above) */}
             <div
-              ref={credRef}
-              className="mb-8"
+              className="hidden md:block mb-8"
               style={{
-                transition: "all 0.8s ease 0.2s",
+                transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s",
                 opacity: credVisible ? 1 : 0,
-                transform: credVisible ? "translateY(0)" : "translateY(16px)"
+                transform: credVisible ? "translateY(0)" : "translateY(12px)"
               }}>
               <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>Background & experience</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
