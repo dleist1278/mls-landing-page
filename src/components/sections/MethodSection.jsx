@@ -126,12 +126,12 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-12 md:py-16 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
       <div className="w-full h-px mb-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
         ref={headerRef}
-        className="max-w-7xl mx-auto px-6 md:px-12 mb-10"
+        className="max-w-6xl mx-auto px-6 md:px-12 mb-10"
         style={{
           transition: "all 0.8s ease",
           opacity: headerVisible ? 1 : 0,
@@ -160,7 +160,7 @@ export default function MethodSection() {
 
       {/* Horizontal scroll */}
       <div
-        className="flex gap-4 overflow-x-auto pb-6 px-6 md:px-12"
+        className="flex gap-4 overflow-x-auto pb-6 px-6 md:px-12 max-w-6xl mx-auto"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -185,6 +185,6 @@ export default function MethodSection() {
       <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
       </div>
 
-      <div className="w-full h-px mt-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      <div className="w-full h-px mt-6" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>);
 }

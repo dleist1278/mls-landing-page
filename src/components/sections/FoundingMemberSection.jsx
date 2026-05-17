@@ -81,11 +81,11 @@ function EditorialImagery({ img1, img2, visible }) {
         transform: visible ? "translateY(0)" : "translateY(32px)"
       }}>
 
-      {/* Background wash — warm editorial tone */}
+      {/* Background wash — warm editorial tone, Level 3 ambient */}
       <div
-        className="absolute inset-0 rounded-[40px]"
+        className="absolute inset-0 rounded-[32px]"
         style={{
-          background: "radial-gradient(ellipse at 60% 40%, #E8D5C040 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at 60% 40%, #E8D5C030 0%, transparent 65%)",
           zIndex: 0
         }}
       />
@@ -93,14 +93,14 @@ function EditorialImagery({ img1, img2, visible }) {
       {/* Primary image — large, anchored bottom-right */}
       {true && (
         <div
-          className="absolute rounded-[28px] overflow-hidden"
+          className="absolute rounded-[24px] overflow-hidden"
           style={{
             width: "72%",
             aspectRatio: "3/4",
             right: 0,
             bottom: 0,
             zIndex: 2,
-            boxShadow: "0 24px 80px rgba(44,44,44,0.13), 0 4px 20px rgba(196,149,106,0.12)",
+            boxShadow: "0 12px 48px rgba(44,44,44,0.1), 0 2px 12px rgba(196,149,106,0.1)",
             border: "1px solid #C4956A14"
           }}>
           <img
@@ -123,15 +123,15 @@ function EditorialImagery({ img1, img2, visible }) {
       {/* Secondary image — smaller, floated top-left, overlapping */}
       {img2?.image_url && (
         <div
-          className="absolute rounded-[22px] overflow-hidden"
+          className="absolute rounded-[20px] overflow-hidden"
           style={{
             width: "52%",
             aspectRatio: "4/3",
             left: 0,
             top: "6%",
             zIndex: 3,
-            boxShadow: "0 16px 56px rgba(44,44,44,0.16), 0 2px 12px rgba(196,149,106,0.1)",
-            border: "2px solid #FAF7F2"
+            boxShadow: "0 8px 32px rgba(44,44,44,0.12), 0 2px 8px rgba(196,149,106,0.08)",
+            border: "1px solid rgba(250,247,242,0.9)"
           }}>
           <img
             src={img2.image_url}
@@ -145,48 +145,19 @@ function EditorialImagery({ img1, img2, visible }) {
         </div>
       )}
 
-      {/* Decorative clay accent circle — bottom-left */}
+      {/* Level 1 — editorial backing shape behind primary image */}
       <div
-        className="absolute rounded-full"
+        className="absolute rounded-[24px]"
         style={{
-          width: "120px",
-          height: "120px",
-          bottom: "8%",
-          left: "2%",
+          width: "72%",
+          aspectRatio: "3/4",
+          right: "-8px",
+          bottom: "-10px",
           zIndex: 1,
-          background: "radial-gradient(circle, #E8D5C0 0%, #F0EBE1 70%)",
-          opacity: 0.55
+          backgroundColor: "#E8D5C0",
+          opacity: 0.36
         }}
       />
-
-      {/* Decorative sage dot cluster — top-right */}
-      <div
-        className="absolute"
-        style={{ top: "2%", right: "4%", zIndex: 1, opacity: 0.25 }}>
-        <div className="grid grid-cols-3 gap-1.5">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
-          ))}
-        </div>
-      </div>
-
-      {/* Floating quote card */}
-      <div
-        className="absolute rounded-2xl px-5 py-4"
-        style={{
-          bottom: "18%",
-          left: "-4%",
-          zIndex: 4,
-          backgroundColor: "#FAF7F2",
-          border: "1px solid #C4956A18",
-          boxShadow: "0 8px 32px rgba(44,44,44,0.09)",
-          maxWidth: "200px"
-        }}>
-        <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148", fontStyle: "italic" }}>
-          "You don't build alone. You build alongside."
-        </p>
-        <div className="mt-2 w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-      </div>
     </div>
   );
 }
@@ -216,8 +187,8 @@ export default function FoundingMemberSection() {
   }, []);
 
   return (
-    <section className="md:py-24 py-16" style={{ backgroundColor: "#F0EBE1" }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className="md:py-16 py-12" style={{ backgroundColor: "#F0EBE1" }}>
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         {/* Header */}
         <div
@@ -275,8 +246,8 @@ export default function FoundingMemberSection() {
         <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
           <button
             onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-            className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] focus-sage"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}>
+            className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px] focus-sage"
+            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
             Join the Founding Member Waitlist
           </button>
           <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.83rem" }}>

@@ -26,7 +26,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[70vh] flex items-center overflow-hidden"
+      className="relative min-h-[65vh] flex items-center overflow-hidden"
       style={{ backgroundColor: "#FAF7F2" }}
     >
       {/* Background image wash */}
@@ -50,7 +50,7 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
       {/* Constrained, overflow-safe content wrapper */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 pt-20 pb-12 overflow-x-hidden">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-16 pb-10 overflow-x-hidden">
         <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12 lg:gap-20">
 
           {/* Text block — mobile-constrained */}
@@ -114,23 +114,23 @@ export default function HeroSection() {
             >
               <button
                 onClick={scrollToIntake}
-                className="font-micro text-white px-7 py-4 rounded-full hover:opacity-90 transition-all duration-200 min-h-[52px] focus-sage w-full sm:w-auto text-center"
+                className="font-micro text-white px-7 py-4 rounded-full transition-all duration-200 min-h-[52px] focus-sage w-full sm:w-auto text-center"
                 style={{
                   backgroundColor: "#4D5E49",
                   fontSize: "0.78rem",
-                  boxShadow: "0 8px 32px rgba(77,94,73,0.28)",
+                  boxShadow: "0 4px 20px rgba(77,94,73,0.22)",
                 }}
               >
                 Join the Founding Member Waitlist
               </button>
               <button
                 onClick={scrollToMethod}
-                className="font-micro px-7 py-4 rounded-full border hover:bg-beige transition-all duration-200 min-h-[52px] focus-sage w-full sm:w-auto text-center"
+                className="font-micro px-7 py-4 rounded-full border transition-all duration-200 min-h-[52px] focus-sage w-full sm:w-auto text-center"
                 style={{
-                  color: "#2C2C2C",
-                  borderColor: "#C4956A",
+                  color: "#4D5E49",
+                  borderColor: "#4D5E4940",
                   fontSize: "0.78rem",
-                  backgroundColor: "transparent",
+                  backgroundColor: "rgba(77,94,73,0.04)",
                 }}
               >
                 Explore the Method

@@ -95,10 +95,10 @@ export default function EcosystemSection() {
   }, []);
 
   return (
-    <section id="ecosystem" className="md:py-24 py-16" style={{ backgroundColor: "#FAF7F2" }}>
-      <div className="w-full h-px mb-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+    <section id="ecosystem" className="md:py-16 py-12" style={{ backgroundColor: "#FAF7F2" }}>
+      <div className="w-full h-px mb-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div
           ref={headerRef}
           className="text-center mb-12"
@@ -125,14 +125,33 @@ export default function EcosystemSection() {
 
         {/* Community image + pillars */}
         <div className="grid md:grid-cols-5 gap-5 mb-10 items-start">
-          {/* Image — hidden on mobile to avoid awkward stacking */}
-          <div className="hidden md:block md:col-span-2 rounded-3xl overflow-hidden" style={{ height: "520px" }}>
-            <img
-              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
-              alt="Mothers in a warm, supportive community gathering"
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)" }}
-            />
+          {/* Image — hidden on mobile */}
+          <div className="hidden md:block md:col-span-2">
+            {/* Level 1 — editorial backing */}
+            <div className="relative" style={{ height: "480px" }}>
+              <div
+                className="absolute rounded-[24px]"
+                style={{
+                  inset: 0,
+                  transform: "translate(-10px, 10px)",
+                  backgroundColor: "#E8D5C0",
+                  opacity: 0.38,
+                  zIndex: 0,
+                }}
+              />
+              {/* Level 2 — image surface */}
+              <div
+                className="relative w-full h-full rounded-[24px] overflow-hidden"
+                style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}
+              >
+                <img
+                  src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
+                  alt="Mothers in a warm, supportive community gathering"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)" }}
+                />
+              </div>
+            </div>
           </div>
           {/* Pillars */}
           <div className="md:col-span-3 flex flex-col gap-4">
@@ -147,7 +166,7 @@ export default function EcosystemSection() {
         {/* Quote */}
         <div
           ref={quoteRef}
-          className="mt-14 text-center mx-auto max-w-xl"
+          className="mt-10 text-center mx-auto max-w-xl"
           style={{
             transition: "all 0.8s ease",
             opacity: quoteVisible ? 1 : 0,
@@ -164,7 +183,7 @@ export default function EcosystemSection() {
         </div>
       </div>
 
-      <div className="w-full h-px mt-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      <div className="w-full h-px mt-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>);
 
 }

@@ -57,7 +57,7 @@ export default function WhatIsMamaLaunchSection() {
   return (
     <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden" }}>
       {/* Main two-column editorial block */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-24">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-12 md:py-20">
         <div
           ref={ref}
           className="grid md:grid-cols-2 gap-10 md:gap-16 items-start"
@@ -70,21 +70,35 @@ export default function WhatIsMamaLaunchSection() {
           
           {/* Left — editorial imagery + differentiators */}
           <div className="flex flex-col gap-5">
-            <div
-              className="rounded-3xl overflow-hidden"
-              style={{ aspectRatio: "4/3", boxShadow: "0 12px 48px rgba(196,149,106,0.12)" }}>
-              
-              {primaryImage?.image_url ?
-              <img
-                src={primaryImage.image_url}
-                alt={primaryImage.alt_text || ""}
-                className="w-full h-full object-cover"
+            {/* Level 1 — editorial backing */}
+            <div className="relative" style={{ aspectRatio: "4/3" }}>
+              <div
+                className="absolute rounded-[24px]"
                 style={{
-                  objectPosition: primaryImage.focal_position || "center 40%",
-                  filter: "saturate(0.75) brightness(0.96)"
-                }} /> :
-              <div className="w-full h-full" style={{ backgroundColor: "#E8D5C0" }} />
-              }
+                  inset: 0,
+                  transform: "translate(10px, 10px)",
+                  backgroundColor: "#E8D5C0",
+                  opacity: 0.4,
+                  zIndex: 0,
+                }}
+              />
+              {/* Level 2 — image surface */}
+              <div
+                className="relative w-full h-full rounded-[24px] overflow-hidden"
+                style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}
+              >
+                {primaryImage?.image_url ?
+                <img
+                  src={primaryImage.image_url}
+                  alt={primaryImage.alt_text || ""}
+                  className="w-full h-full object-cover"
+                  style={{
+                    objectPosition: primaryImage.focal_position || "center 40%",
+                    filter: "saturate(0.75) brightness(0.96)"
+                  }} /> :
+                <div className="w-full h-full" style={{ backgroundColor: "#E8D5C0" }} />
+                }
+              </div>
             </div>
 
             <div className="rounded-3xl p-6" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A18" }}>
@@ -134,8 +148,8 @@ export default function WhatIsMamaLaunchSection() {
 
             <button
               onClick={() => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro px-7 py-3.5 rounded-full border hover:opacity-80 transition-all min-h-[48px]"
-              style={{ color: "white", borderColor: "#4D5E49", fontSize: "0.78rem", backgroundColor: "#4D5E49" }}>
+              className="font-micro px-7 py-3.5 rounded-full border transition-all min-h-[48px]"
+              style={{ color: "#4D5E49", borderColor: "#4D5E4940", fontSize: "0.78rem", backgroundColor: "rgba(77,94,73,0.06)" }}>
               
               See the 5-Phase Method →
             </button>

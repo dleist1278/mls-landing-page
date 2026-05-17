@@ -115,10 +115,9 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section id="walkaway" className="py-6 md:py-12" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="walkaway" className="py-8 md:py-14" style={{ backgroundColor: "#FAF7F2" }}>
 
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         {/* Header */}
         <div
@@ -150,15 +149,27 @@ export default function WalkAwaySection() {
             <span className="inline-block w-6 h-px" style={{ backgroundColor: "#4D5E49" }} />
             Inside the Mama Launch Platform
           </p>
-          <div
-            className="rounded-3xl overflow-hidden"
-            style={{ boxShadow: "0 24px 80px rgba(77,94,73,0.14)", border: "1px solid #4D5E4920" }}>
-            
-            <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/61484979d_ChatGPT_Image_May_17__2026__06_49_23_AM.png"
-
-            alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
-            className="w-full h-auto block" />
-            
+          {/* Level 1 — editorial backing */}
+          <div className="relative">
+            <div
+              className="absolute rounded-[24px]"
+              style={{
+                inset: 0,
+                transform: "translate(0, 12px)",
+                backgroundColor: "#E8D5C0",
+                opacity: 0.35,
+                zIndex: 0,
+              }}
+            />
+            {/* Level 2 — image surface */}
+            <div
+              className="relative rounded-[24px] overflow-hidden"
+              style={{ boxShadow: "0 12px 48px rgba(77,94,73,0.12)", border: "1px solid #4D5E4918", zIndex: 1 }}
+            >
+              <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/61484979d_ChatGPT_Image_May_17__2026__06_49_23_AM.png"
+              alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
+              className="w-full h-auto block" />
+            </div>
           </div>
           <p className="font-body mt-4 text-center" style={{ color: "#9a8f84", fontSize: "0.8rem" }}>
             Your guided implementation dashboard — track your progress through every phase.

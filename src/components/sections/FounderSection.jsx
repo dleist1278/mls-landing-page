@@ -22,8 +22,8 @@ export default function FounderSection() {
   }, []);
 
   return (
-    <section id="founder" className="py-16 md:py-24" style={{ backgroundColor: "#F0EBE1" }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="founder" className="py-12 md:py-16" style={{ backgroundColor: "#F0EBE1" }}>
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         {/* Main two-col */}
         <div
@@ -36,26 +36,30 @@ export default function FounderSection() {
             filter: visible ? "blur(0)" : "blur(2px)"
           }}>
           
-          {/* Image */}
+          {/* Image — with editorial depth system */}
           <div className="relative">
+            {/* Level 1 — editorial backing shape */}
             <div
-              className="rounded-3xl overflow-hidden"
-              style={{ aspectRatio: "4/5", boxShadow: "0 16px 60px rgba(196,149,106,0.14)" }}>
-              
+              className="absolute rounded-[28px]"
+              style={{
+                inset: 0,
+                transform: "translate(12px, 12px)",
+                backgroundColor: "#E8D5C0",
+                opacity: 0.4,
+                zIndex: 0,
+              }}
+            />
+            {/* Level 2 — image surface */}
+            <div
+              className="relative rounded-[28px] overflow-hidden"
+              style={{ aspectRatio: "4/5", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1 }}
+            >
               <img
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                 alt="Danielle, Founder of Mama Launch Studio"
                 className="w-full h-full object-cover"
-                style={{ objectPosition: "center 15%", filter: "saturate(0.68) brightness(0.97)" }} />
-              
-              <div
-                className="absolute bottom-0 left-0 right-0 p-6"
-                style={{ background: "linear-gradient(to top, rgba(44,44,44,0.82) 0%, transparent 100%)" }}>
-                
-                
-
-                
-              </div>
+                style={{ objectPosition: "center 15%", filter: "saturate(0.68) brightness(0.97)" }}
+              />
             </div>
           </div>
 
@@ -116,8 +120,8 @@ export default function FounderSection() {
 
             <button
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px]"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}>
+              className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px]"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
               
               Join the Founding Member Waitlist
             </button>

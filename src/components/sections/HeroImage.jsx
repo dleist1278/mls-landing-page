@@ -18,12 +18,25 @@ export default function HeroImage({ imageData, visible }) {
         }`}
         style={{ minHeight: "520px" }}
       >
-        <div className="relative w-full" style={{ maxWidth: "520px", aspectRatio: "4/5" }}>
+        <div className="relative w-full" style={{ maxWidth: "480px", aspectRatio: "4/5" }}>
+          {/* Level 1 — Editorial backing layer */}
           <div
-            className="w-full h-full rounded-[28px] overflow-hidden"
+            className="absolute rounded-[28px]"
             style={{
-              boxShadow: "0 32px 80px rgba(196,149,106,0.18), 0 8px 24px rgba(44,44,44,0.08)",
+              inset: 0,
+              transform: "translate(-12px, 12px)",
+              backgroundColor: "#E8D5C0",
+              opacity: 0.45,
+              zIndex: 0,
+            }}
+          />
+          {/* Level 2 — Image surface */}
+          <div
+            className="relative w-full h-full rounded-[28px] overflow-hidden"
+            style={{
+              boxShadow: "0 16px 48px rgba(196,149,106,0.14), 0 4px 16px rgba(44,44,44,0.06)",
               border: "1px solid #C4956A14",
+              zIndex: 1,
             }}
           >
             <img
@@ -33,15 +46,6 @@ export default function HeroImage({ imageData, visible }) {
               style={{ objectPosition: imageData.focal_position || "center 25%" }}
             />
           </div>
-          <div
-            className="absolute -bottom-6 -left-6 -z-10 rounded-[32px]"
-            style={{
-              width: "70%",
-              height: "70%",
-              background: "linear-gradient(135deg, #F0EBE1 0%, #E8D5C0 100%)",
-              opacity: 0.6,
-            }}
-          />
         </div>
       </div>
 
