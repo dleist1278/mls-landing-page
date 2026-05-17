@@ -132,7 +132,7 @@ export default function EcosystemSection() {
         <div className="grid md:grid-cols-5 gap-5 mb-10">
           {/* Image */}
           <div className="md:col-span-2 rounded-3xl overflow-hidden" style={{ minHeight: "280px" }}>
-            <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9d672eb4b_7.jpg"
+            <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/1eca1e669_Untitled_design__2_.jpg"
 
             alt="Mothers in a warm, supportive community gathering"
             className="w-full h-full object-cover"
