@@ -58,7 +58,7 @@ function PillarCard({ pillar, index }) {
 
       <div className="w-full h-px mb-2" style={{ backgroundColor: "#C4956A22" }} />
 
-      <ul className="flex flex-col gap-3 flex-1">
+      <ul className="flex flex-col gap-1.5 flex-1">
         {pillar.items.map((item) =>
         <li key={item} className="flex items-start gap-2.5">
             <span className="mt-1.5 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
