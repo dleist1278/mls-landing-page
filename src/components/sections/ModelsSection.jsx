@@ -43,7 +43,7 @@ export default function ModelsSection() {
   }, []);
 
   return (
-    <section id="models" className="py-16 md:py-22 mx-1" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="models" className="py-16 md:py-22" style={{ backgroundColor: "#FAF7F2" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Header */}
