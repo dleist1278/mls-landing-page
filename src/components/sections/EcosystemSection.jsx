@@ -112,6 +112,7 @@ export default function EcosystemSection() {
           </p>
           <h2 className="font-display leading-tight mx-auto mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(2.2rem, 4vw, 3.4rem)", maxWidth: "620px" }}>
             Implementation Support,{" "}
+            <br />
             <em style={{ color: "#4D5E49" }}>Not Just Inspiration.</em>
           </h2>
           <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.95rem" }}>
