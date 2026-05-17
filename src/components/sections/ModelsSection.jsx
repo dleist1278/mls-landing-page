@@ -124,12 +124,19 @@ export default function ModelsSection() {
           </div>
         </div>
 
-        {/* Coming soon pathways */}
-        <div className="grid md:grid-cols-2 gap-4">
+        {/* Coming soon pathways — horizontal scroll on mobile */}
+        <div
+          className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 snap-x snap-mandatory"
+          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+        >
           {comingSoon.map((m, i) =>
           <ComingSoonCard key={m.title} model={m} index={i} />
           )}
         </div>
+        {/* Scroll hint — mobile only */}
+        <p className="md:hidden text-center font-micro mt-2" style={{ color: "#C4956A", fontSize: "0.65rem", opacity: 0.7 }}>
+          ← scroll to explore →
+        </p>
       </div>
     </section>);
 
@@ -151,14 +158,17 @@ function ComingSoonCard({ model, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-4 md:p-6 flex flex-col gap-2.5"
+      className="rounded-3xl p-4 md:p-6 flex flex-col gap-2.5 flex-none snap-start"
       style={{
         backgroundColor: "#FAF7F2",
         border: "1px solid #C4956A1A",
         opacity: visible ? 0.88 : 0,
         transform: visible ? "translateY(0)" : `translateY(${16 + index * 4}px)`,
-        transition: `opacity 0.5s ease ${index * 100}ms, transform 0.5s ease ${index * 100}ms`
-      }}>
+        transition: `opacity 0.5s ease ${index * 100}ms, transform 0.5s ease ${index * 100}ms`,
+        width: "min(80vw, 320px)",
+        minWidth: "min(80vw, 320px)",
+      }}
+    >
       
       {/* Coming soon badge */}
       <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22" }}>
