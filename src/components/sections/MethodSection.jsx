@@ -173,11 +173,11 @@ export default function MethodSection() {
       </div>
 
       <div className="flex items-center justify-center gap-3 mt-3 px-6">
-        <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
-        <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
-          Drag to explore all five phases
-        </p>
-        <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
+      <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
+      <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
+        Scroll to explore all five phases
+      </p>
+      <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
       </div>
 
       <div className="w-full h-px mt-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />

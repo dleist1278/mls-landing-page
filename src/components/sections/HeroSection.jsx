@@ -66,10 +66,12 @@ export default function HeroSection() {
                 className="font-display mb-5 break-words"
                 style={{
                   color: "#2C2C2C",
-                  fontSize: "clamp(2rem, 6vw, 4.2rem)",
+                  fontSize: "clamp(1.75rem, 5vw, 4.2rem)",
                   letterSpacing: "-0.02em",
                   lineHeight: "1.18",
                   maxWidth: "100%",
+                  wordBreak: "break-word",
+                  overflowWrap: "break-word",
                 }}
               >
                 Reimagining Home Childcare{" "}

@@ -39,6 +39,8 @@ export default function IntakeFormSection() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({ firstName: "", email: "", role: "", interest: "", state: "", hesitation: "" });
 
   useEffect(() => {
@@ -52,9 +54,41 @@ export default function IntakeFormSection() {
 
   const handleChange = (field, value) => setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setTimeout(() => setSubmitted(true), 400);
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      // HubSpot Forms API v3 submission
+      const PORTAL_ID = "REPLACE_WITH_YOUR_PORTAL_ID";
+      const FORM_ID = "REPLACE_WITH_YOUR_FORM_ID";
+      const res = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fields: [
+              { name: "firstname", value: form.firstName },
+              { name: "email", value: form.email },
+              { name: "jobtitle", value: form.role },
+              { name: "hs_lead_status", value: "Founding Member Waitlist" },
+              { name: "childcare_interest", value: form.interest },
+              { name: "state", value: form.state },
+              { name: "biggest_hesitation", value: form.hesitation },
+              { name: "lead_source", value: "Mama Launch Studio Website" },
+            ],
+            context: { pageUri: window.location.href, pageName: "Mama Launch Studio" },
+          }),
+        }
+      );
+      if (!res.ok) throw new Error("Submission failed. Please try again.");
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputStyle = {
@@ -123,17 +157,16 @@ export default function IntakeFormSection() {
           {/* Form / Success */}
           {submitted ?
           <div className="text-center py-16" style={{ animation: "atmosphericEntrance 0.9s ease-out forwards" }}>
-              <div className="w-14 h-14 rounded-full mx-auto mb-7 flex items-center justify-center" style={{ backgroundColor: "#4D5E4915" }}>
-                <div className="w-6 h-6 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
+              <div className="w-14 h-14 rounded-full mx-auto mb-7 flex items-center justify-center" style={{ backgroundColor: "#4D5E4915", border: "1px solid #4D5E4930" }}>
+                <span style={{ color: "#4D5E49", fontSize: "1.4rem" }}>✓</span>
               </div>
               <h3 className="font-display text-3xl md:text-4xl mb-5" style={{ color: "#2C2C2C" }}>
-                Welcome to the Path,
-                <br />
+                You're on the waitlist,{" "}
                 <em style={{ color: "#4D5E49" }}>{form.firstName || "Mama"}.</em>
               </h3>
               <div className="w-10 h-px mx-auto my-6" style={{ backgroundColor: "#C4956A" }} />
               <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "420px", fontSize: "1rem" }}>
-                We've received your information and we're so glad you're here. Expect a warm, personal note in your inbox soon — along with your next steps.
+                We'll send next steps to your inbox soon.
               </p>
               <p className="font-micro mt-7" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
                 You are exactly where you're meant to be.
@@ -196,13 +229,18 @@ export default function IntakeFormSection() {
                 </div>
               </div>
 
+              {submitError && (
+                <div className="p-4 rounded-2xl" style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA" }}>
+                  <p className="font-body text-sm" style={{ color: "#DC2626" }}>{submitError}</p>
+                </div>
+              )}
               <div className="pt-2 flex flex-col items-center gap-4">
                 <button
-                type="submit"
-                className="font-micro text-white px-12 py-5 rounded-full hover:opacity-90 transition-all min-h-[56px]"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.82rem", boxShadow: "0 12px 40px rgba(77,94,73,0.25)", letterSpacing: "0.1em" }}>
-                
-                  Begin My Journey
+                  type="submit"
+                  disabled={submitting}
+                  className="font-micro text-white w-full sm:w-auto px-12 py-5 rounded-full hover:opacity-90 transition-all min-h-[56px] disabled:opacity-60"
+                  style={{ backgroundColor: "#4D5E49", fontSize: "0.82rem", boxShadow: "0 12px 40px rgba(77,94,73,0.25)", letterSpacing: "0.1em" }}>
+                  {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
                 </button>
                 <p className="font-body text-center" style={{ color: "#9a8f84", fontSize: "0.82rem" }}>
                   No spam, ever. Just a personal welcome and your next step.

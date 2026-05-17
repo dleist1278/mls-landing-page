@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 
 const credentials = [
-{ label: "Mother", note: "Mom to two boys, ages 1 and 3." },
-{ label: "Former Teacher", note: "Background in child development, learning, and parent communication." },
-{ label: "Former Assistant Principal", note: "Experienced in school leadership, operations, and team management." },
-{ label: "Home Daycare Owner", note: "Licensed home daycare owner with enrollment, staffing, and daily operations experience." },
-{ label: "Product Implementation", note: "Built educator-focused systems and implementation workflows for teachers and schools." }];
+{ label: "Former Teacher", note: "Deep background in child development, curriculum design, and parent communication." },
+{ label: "Former Elementary Assistant Principal", note: "School leadership, operations management, staff oversight, and systemic program building." },
+{ label: "Licensed Home Daycare Owner", note: "Opened, passed licensing inspection, enrolled families, hired staff, and scaled a home program." },
+{ label: "Education Technology & Implementation", note: "Built community adoption and implementation frameworks for an educator-facing communication platform." },
+{ label: "Mother of Two", note: "Mom to two boys — building this method inside the same real family life you're living." }];
 
 
 const realTalkItems = [
@@ -92,8 +92,26 @@ export default function FounderSection() {
               </p>
             </div>
 
-            {/* Real talk */}
-            
+            {/* Credibility grid */}
+            <div
+              ref={credRef}
+              className="grid grid-cols-1 gap-3 mb-8"
+              style={{
+                transition: "all 0.8s ease 0.2s",
+                opacity: credVisible ? 1 : 0,
+                transform: credVisible ? "translateY(0)" : "translateY(16px)"
+              }}>
+              <p className="font-micro mb-1" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>Why this method is credible</p>
+              {credentials.map((c) => (
+                <div key={c.label} className="flex items-start gap-3 p-3 rounded-2xl" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
+                  <span className="mt-0.5 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
+                  <div>
+                    <span className="font-body text-sm font-medium" style={{ color: "#2C2C2C" }}>{c.label}</span>
+                    <span className="font-body text-xs ml-2" style={{ color: "#7A6E65" }}>{c.note}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
 
 
 

@@ -16,69 +16,6 @@ const included = [
 "Community cohort support"];
 
 
-function ImageStrip({ images }) {
-  // Desktop: 3-column grid. Mobile: horizontal swipe carousel.
-  return (
-    <>
-      {/* Desktop grid */}
-      <div className="hidden md:grid grid-cols-3 h-full gap-0">
-        {images.map((img, i) =>
-        <img
-          key={i}
-          src={img.image_url}
-          alt={img.alt_text || ""}
-          className="w-full h-full object-cover"
-          style={{
-            objectPosition: img.focal_position || "center",
-            filter: "saturate(0.7) brightness(0.95)"
-          }} />
-
-        )}
-      </div>
-
-      {/* Mobile: swipe carousel — all 3 images, each ~80vw wide */}
-      <div
-        className="flex md:hidden overflow-x-auto gap-3 px-5 pb-2"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none", scrollSnapType: "x mandatory" }}>
-        
-        {images.map((img, i) =>
-        <div
-          key={i}
-          className="flex-none rounded-2xl overflow-hidden"
-          style={{
-            width: "78vw",
-            aspectRatio: "3/4",
-            scrollSnapAlign: "start",
-            boxShadow: "0 8px 32px rgba(196,149,106,0.13)",
-            border: "1px solid #C4956A14"
-          }}>
-          
-            <img
-            src={img.image_url}
-            alt={img.alt_text || ""}
-            className="w-full h-full object-cover"
-            style={{
-              objectPosition: img.focal_position || "center",
-              filter: "saturate(0.72) brightness(0.95)"
-            }} />
-          
-          </div>
-        )}
-        {/* trailing space */}
-        <div className="flex-none w-2" />
-      </div>
-
-      {/* Mobile swipe hint */}
-      <div className="flex md:hidden items-center justify-center gap-2 mt-3 px-5">
-        <div className="w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
-        <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.6rem" }}>
-          Swipe to explore
-        </p>
-        <div className="w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
-      </div>
-    </>);
-
-}
 
 export default function WhatIsMamaLaunchSection() {
   const ref = useRef(null);
@@ -138,16 +75,14 @@ export default function WhatIsMamaLaunchSection() {
               style={{ aspectRatio: "4/3", boxShadow: "0 12px 48px rgba(196,149,106,0.12)" }}>
               
               {primaryImage?.image_url ?
-              <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9d672eb4b_7.jpg"
-
-              alt={primaryImage.alt_text || ""}
-              className="w-full h-full object-cover"
-              style={{
-                objectPosition: primaryImage.focal_position || "center 40%",
-                filter: "saturate(0.75) brightness(0.96)"
-              }} /> :
-
-
+              <img
+                src={primaryImage.image_url}
+                alt={primaryImage.alt_text || ""}
+                className="w-full h-full object-cover"
+                style={{
+                  objectPosition: primaryImage.focal_position || "center 40%",
+                  filter: "saturate(0.75) brightness(0.96)"
+                }} /> :
               <div className="w-full h-full" style={{ backgroundColor: "#E8D5C0" }} />
               }
             </div>

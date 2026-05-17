@@ -22,14 +22,20 @@ export default function SiteFooter() {
                 Navigate
               </p>
               <div className="flex flex-col gap-3">
-                {["The Method", "Programs", "Community", "Meet Danielle"].map((item) => (
-                  <span
-                    key={item}
-                    className="font-body text-sm cursor-pointer hover:text-clay transition-colors"
-                    style={{ color: "#A09285" }}
+                {[
+                  { label: "The Method", id: "method" },
+                  { label: "Programs", id: "models" },
+                  { label: "Community", id: "ecosystem" },
+                  { label: "Meet Danielle", id: "founder" },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" })}
+                    className="font-body text-sm cursor-pointer hover:text-clay transition-colors text-left min-h-[36px]"
+                    style={{ color: "#A09285", background: "none", border: "none", padding: 0 }}
                   >
-                    {item}
-                  </span>
+                    {item.label}
+                  </button>
                 ))}
               </div>
             </div>
@@ -52,7 +58,7 @@ export default function SiteFooter() {
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-xs" style={{ color: "#6B5E56" }}>
-            © 2024 Mama Launch Studio. All rights reserved.
+            © 2026 Mama Launch Studio. All rights reserved.
           </p>
           <p className="font-body text-xs" style={{ color: "#6B5E56" }}>
             Designed with intention. Built with love.
