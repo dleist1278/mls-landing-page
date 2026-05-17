@@ -234,7 +234,7 @@ export default function FoundingMemberSection() {
         </div>
 
         {/* Transparency note — centered editorial composition */}
-        <div className="p-7 rounded-3xl text-center" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A" }}>
+        <div className="p-7 rounded-3xl text-center mx-auto" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A", maxWidth: "600px" }}>
           <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.7rem" }}>A Note on Transparency</p>
           <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "580px" }}>
             Mama Launch Studio is a guided implementation platform in active development. Founding members receive early access, help shape the experience, and move through the Mama Launch Method™ as the platform evolves. This is a collaborative, community-centered launch — not a fully finished product. We believe in building with our community, not before them.
