@@ -43,7 +43,7 @@ export default function FoundingMemberSection() {
   }, []);
 
   return (
-    <section className="md:py-24 py-16 my-6" style={{ backgroundColor: "#F0EBE1" }}>
+    <section className="md:py-24 py-16" style={{ backgroundColor: "#F0EBE1" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         <div
