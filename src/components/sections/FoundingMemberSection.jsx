@@ -1,32 +1,32 @@
 import React, { useRef, useEffect, useState } from "react";
 
 const steps = [
-  {
-    step: "01",
-    title: "Join the Waitlist",
-    description: "Share a little about your vision and readiness. We use this to understand where you are and what you need most.",
-  },
-  {
-    step: "02",
-    title: "Receive Your Welcome",
-    description: "Founding members receive a personal welcome, early access to Phase One materials, and an invitation to the founding community.",
-  },
-  {
-    step: "03",
-    title: "Begin Phase One Together",
-    description: "You'll move through the Mama Launch Method with a cohort of founding members — guided, supported, and never alone.",
-  },
-  {
-    step: "04",
-    title: "Shape the Platform",
-    description: "Your feedback and experience directly influence how the platform evolves. You're not just a user — you're a co-architect.",
-  },
-  {
-    step: "05",
-    title: "Open Your Doors",
-    description: "By the end of the method, you'll have a licensed, operational, enrollment-ready home childcare program — with a community standing beside you.",
-  },
-];
+{
+  step: "01",
+  title: "Join the Waitlist",
+  description: "Share a little about your vision and readiness. We use this to understand where you are and what you need most."
+},
+{
+  step: "02",
+  title: "Receive Your Welcome",
+  description: "Founding members receive a personal welcome, early access to Phase One materials, and an invitation to the founding community."
+},
+{
+  step: "03",
+  title: "Begin Phase One Together",
+  description: "You'll move through the Mama Launch Method with a cohort of founding members — guided, supported, and never alone."
+},
+{
+  step: "04",
+  title: "Shape the Platform",
+  description: "Your feedback and experience directly influence how the platform evolves. You're not just a user — you're a co-architect."
+},
+{
+  step: "05",
+  title: "Open Your Doors",
+  description: "By the end of the method, you'll have a licensed, operational, enrollment-ready home childcare program — with a community standing beside you."
+}];
+
 
 export default function FoundingMemberSection() {
   const headerRef = useRef(null);
@@ -35,22 +35,22 @@ export default function FoundingMemberSection() {
   const [imgVisible, setImgVisible] = useState(false);
 
   useEffect(() => {
-    const o1 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setHeaderVisible(true); }, { threshold: 0.08 });
-    const o2 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setImgVisible(true); }, { threshold: 0.06 });
+    const o1 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setHeaderVisible(true);}, { threshold: 0.08 });
+    const o2 = new IntersectionObserver(([e]) => {if (e.isIntersecting) setImgVisible(true);}, { threshold: 0.06 });
     if (headerRef.current) o1.observe(headerRef.current);
     if (imgRef.current) o2.observe(imgRef.current);
-    return () => { o1.disconnect(); o2.disconnect(); };
+    return () => {o1.disconnect();o2.disconnect();};
   }, []);
 
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: "#F0EBE1" }}>
+    <section className="md:py-24 py-16" style={{ backgroundColor: "#F0EBE1" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         <div
           ref={headerRef}
           className="mb-12"
-          style={{ transition: "all 0.8s ease", opacity: headerVisible ? 1 : 0, transform: headerVisible ? "translateY(0)" : "translateY(24px)", filter: headerVisible ? "blur(0)" : "blur(2px)" }}
-        >
+          style={{ transition: "all 0.8s ease", opacity: headerVisible ? 1 : 0, transform: headerVisible ? "translateY(0)" : "translateY(24px)", filter: headerVisible ? "blur(0)" : "blur(2px)" }}>
+          
           <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             The Founding Member Experience
@@ -73,9 +73,9 @@ export default function FoundingMemberSection() {
           <div className="md:col-span-3 relative">
             <div className="hidden md:block absolute left-[2.1rem] top-10 bottom-10 w-px" style={{ backgroundColor: "#C4956A28" }} />
             <div className="flex flex-col gap-6">
-              {steps.map((step, i) => (
-                <StepRow key={step.step} step={step} index={i} />
-              ))}
+              {steps.map((step, i) =>
+              <StepRow key={step.step} step={step} index={i} />
+              )}
             </div>
           </div>
 
@@ -83,23 +83,23 @@ export default function FoundingMemberSection() {
           <div
             ref={imgRef}
             className="md:col-span-2 flex flex-col gap-4"
-            style={{ transition: "all 0.8s ease 0.2s", opacity: imgVisible ? 1 : 0, transform: imgVisible ? "translateY(0)" : "translateY(24px)" }}
-          >
+            style={{ transition: "all 0.8s ease 0.2s", opacity: imgVisible ? 1 : 0, transform: imgVisible ? "translateY(0)" : "translateY(24px)" }}>
+            
             <div className="rounded-3xl overflow-hidden flex-1" style={{ minHeight: "200px" }}>
               <img
                 src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=85"
                 alt="Mother working through her childcare planning workbook"
                 className="w-full h-full object-cover"
-                style={{ objectPosition: "center 25%", filter: "saturate(0.68) brightness(0.95)", minHeight: "200px" }}
-              />
+                style={{ objectPosition: "center 25%", filter: "saturate(0.68) brightness(0.95)", minHeight: "200px" }} />
+              
             </div>
             <div className="rounded-3xl overflow-hidden" style={{ height: "180px" }}>
               <img
                 src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=85"
                 alt="Children engaged in calm floor play"
                 className="w-full h-full object-cover"
-                style={{ objectPosition: "center 40%", filter: "saturate(0.68) brightness(0.93)" }}
-              />
+                style={{ objectPosition: "center 40%", filter: "saturate(0.68) brightness(0.93)" }} />
+              
             </div>
           </div>
         </div>
@@ -116,8 +116,8 @@ export default function FoundingMemberSection() {
           <button
             onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
             className="font-micro text-white px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px]"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}
-          >
+            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.2)" }}>
+            
             Apply for Early Access
           </button>
           <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.83rem" }}>
@@ -125,8 +125,8 @@ export default function FoundingMemberSection() {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
 
 function StepRow({ step, index }) {
@@ -135,7 +135,7 @@ function StepRow({ step, index }) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      ([entry]) => {if (entry.isIntersecting) setVisible(true);},
       { threshold: 0.08 }
     );
     if (ref.current) observer.observe(ref.current);
@@ -150,17 +150,17 @@ function StepRow({ step, index }) {
         transition: `all 0.65s ease ${index * 90}ms`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateX(0)" : "translateX(-16px)",
-        filter: visible ? "blur(0)" : "blur(2px)",
-      }}
-    >
+        filter: visible ? "blur(0)" : "blur(2px)"
+      }}>
+      
       <div className="flex-none w-[4rem] h-[4rem] rounded-full flex items-center justify-center z-10"
-        style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A44" }}>
+      style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A44" }}>
         <span className="font-display text-base" style={{ color: "#C4956A", letterSpacing: "-0.02em" }}>{step.step}</span>
       </div>
       <div className="pt-2 pb-3">
         <h3 className="font-display text-lg mb-1.5" style={{ color: "#2C2C2C" }}>{step.title}</h3>
         <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px" }}>{step.description}</p>
       </div>
-    </div>
-  );
+    </div>);
+
 }
