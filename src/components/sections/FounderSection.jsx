@@ -22,7 +22,7 @@ export default function FounderSection() {
   }, []);
 
   return (
-    <section id="founder" className="py-12 md:py-16" style={{ backgroundColor: "#F0EBE1" }}>
+    <section id="founder" className="pt-12 md:pt-16 pb-4" style={{ backgroundColor: "#F0EBE1" }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         {/* Main two-col */}
