@@ -128,9 +128,9 @@ export default function HeroSection() {
                 className="font-micro px-7 py-4 rounded-full border transition-all duration-200 min-h-[52px] focus-sage w-full sm:w-auto text-center"
                 style={{
                   color: "#4D5E49",
-                  borderColor: "#4D5E4940",
+                  borderColor: "#4D5E4928",
                   fontSize: "0.78rem",
-                  backgroundColor: "rgba(77,94,73,0.04)",
+                  backgroundColor: "rgba(77,94,73,0.03)",
                 }}
               >
                 Explore the Method

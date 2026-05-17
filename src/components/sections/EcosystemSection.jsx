@@ -42,7 +42,7 @@ function PillarCard({ pillar, index }) {
   return (
     <div
       ref={ref}
-      className="rounded-3xl p-5 pb-4 flex flex-col"
+      className="rounded-3xl p-4 pb-3 flex flex-col"
       style={{
         backgroundColor: "#F0EBE1",
         border: "1px solid #C4956A1A",
@@ -54,9 +54,9 @@ function PillarCard({ pillar, index }) {
       }}>
 
       <h3 className="font-display text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
-      <p className="font-body text-sm leading-relaxed mb-4" style={{ color: "#5C5148" }}>{pillar.description}</p>
+      <p className="font-body text-sm leading-relaxed mb-3" style={{ color: "#5C5148" }}>{pillar.description}</p>
 
-      <div className="w-full h-px mb-3" style={{ backgroundColor: "#C4956A22" }} />
+      <div className="w-full h-px mb-2" style={{ backgroundColor: "#C4956A22" }} />
 
       <ul className="flex flex-col gap-2 flex-1">
         {pillar.items.map((item) =>

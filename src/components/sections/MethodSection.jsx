@@ -131,7 +131,7 @@ export default function MethodSection() {
 
       <div
         ref={headerRef}
-        className="max-w-6xl mx-auto px-6 md:px-12 mb-6"
+        className="max-w-6xl mx-auto px-6 md:px-12 mb-4"
         style={{
           transition: "all 0.8s ease",
           opacity: headerVisible ? 1 : 0,

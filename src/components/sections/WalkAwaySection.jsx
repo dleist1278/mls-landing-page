@@ -130,7 +130,7 @@ export default function WalkAwaySection() {
             Member Experience
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
-          <h2 className="font-display leading-tight mb-4 mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", maxWidth: "30rem", lineHeight: "1.15" }}>
+          <h2 className="font-display leading-tight mb-3 mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", maxWidth: "30rem", lineHeight: "1.15" }}>
             Move Through the Method With{" "}
             <em style={{ color: "#4D5E49" }}>Structure + Support.</em>
           </h2>
@@ -145,7 +145,7 @@ export default function WalkAwaySection() {
           className="mb-8 md:mb-12 mx-auto"
           style={{ maxWidth: "820px", transition: "all 0.9s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(32px)", filter: portalVisible ? "blur(0)" : "blur(3px)" }}>
 
-          <p className="font-micro mb-5 flex items-center justify-center gap-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
+          <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
             <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
             Inside the Mama Launch Platform
             <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
