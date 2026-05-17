@@ -126,7 +126,7 @@ export default function WhatIsMamaLaunchSection() {
         }}>
         
         <div className="grid grid-cols-3 h-full gap-0">
-          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/1eca1e669_Untitled_design__2_.jpg"
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
 
           alt="Children exploring sensory play on the floor"
           className="w-full h-full object-cover"
@@ -138,11 +138,11 @@ export default function WhatIsMamaLaunchSection() {
           className="w-full h-full object-cover"
           style={{ filter: "saturate(0.7) brightness(0.92)", objectPosition: "center 30%" }} />
           
-          <img
-            src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?w=700&q=80"
-            alt="Child reading independently in a cozy reading corner"
-            className="w-full h-full object-cover"
-            style={{ filter: "saturate(0.7) brightness(0.93)" }} />
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/8edc2d80e_Untitled_design__1__copy.jpg"
+
+          alt="Child reading independently in a cozy reading corner"
+          className="w-full h-full object-cover"
+          style={{ filter: "saturate(0.7) brightness(0.93)" }} />
           
         </div>
       </div>
