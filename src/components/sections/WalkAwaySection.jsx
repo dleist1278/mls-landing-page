@@ -167,12 +167,7 @@ export default function WalkAwaySection() {
           </p>
         </div>
 
-        {/* Four ecosystem pillars — alternating */}
-        <div className="flex flex-col gap-14 md:gap-18 mb-16">
-          {ecosystemPillars.map((pillar, i) =>
-          <PillarRow key={pillar.number} pillar={pillar} index={i} />
-          )}
-        </div>
+
 
 
 
