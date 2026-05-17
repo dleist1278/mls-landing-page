@@ -105,7 +105,7 @@ function EditorialImagery({ img1, img2, visible }) {
           }}>
           <img
             src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/3b7c88598_Untitleddesign2.jpg"
-            alt={img1.alt_text || "Mother and child playing together"}
+            alt="Mother and child playing together"
             className="w-full h-full object-cover"
             style={{
               objectPosition: "center 20%",
