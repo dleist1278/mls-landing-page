@@ -78,9 +78,9 @@ export default function IntakeFormSection() {
           { src: "https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=500&q=80", pos: "center 20%", alt: "Organized childcare shelving" },
           { src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500&q=80", pos: "center 35%", alt: "Children at snack time" },
           { src: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&q=80", pos: "center 15%", alt: "Outdoor exploration moment" }].
-          map((img, i) =>
-          <img key={i} src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/1a5b160ce_Untitleddesign2copy.jpg" alt={img.alt} className="w-full h-full object-cover hidden md:block"
-          style={{ objectPosition: img.pos, filter: "saturate(0.65) brightness(0.9)" }} />
+          map((img, i) => null
+
+
           )}
           {/* Mobile: show two */}
           <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&q=80" alt="Mother and child" className="w-full h-full object-cover md:hidden"
