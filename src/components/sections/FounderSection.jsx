@@ -115,33 +115,7 @@ export default function FounderSection() {
           </div>
         </div>
 
-        {/* Credentials — full width editorial strip */}
-        <div
-          ref={credRef}
-          className="grid md:grid-cols-5 gap-3"
-          style={{
-            transition: "all 0.8s ease",
-            opacity: credVisible ? 1 : 0,
-            transform: credVisible ? "translateY(0)" : "translateY(20px)",
-          }}
-        >
-          {credentials.map((c, i) => (
-            <div
-              key={c.label}
-              className="rounded-2xl p-5 flex flex-col gap-2"
-              style={{
-                backgroundColor: "#FAF7F2",
-                border: "1px solid #C4956A18",
-                transition: `all 0.6s ease ${i * 80}ms`,
-                opacity: credVisible ? 1 : 0,
-                transform: credVisible ? "translateY(0)" : "translateY(16px)",
-              }}
-            >
-              <span className="font-display text-base" style={{ color: "#2C2C2C" }}>{c.label}</span>
-              <span className="font-body text-xs leading-snug" style={{ color: "#9a8f84" }}>{c.note}</span>
-            </div>
-          ))}
-        </div>
+
       </div>
     </section>
   );
