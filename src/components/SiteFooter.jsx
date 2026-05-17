@@ -56,19 +56,19 @@ export default function SiteFooter() {
 
           {/* CTA column */}
           <div>
-            <p className="font-micro mb-3 hidden" style={{ color: "#C4956A", fontSize: "0.7rem" }}>
-              Ready to Begin?
-            </p>
-            <p className="font-body text-sm leading-relaxed mb-4 hidden" style={{ color: "#7A6E65" }}>
-              Join the founding member waitlist and get early access to the full Mama Launch Method when it opens.
-            </p>
-            <button
-              onClick={() => scrollTo("intake")}
-              className="font-micro text-white w-full sm:w-auto px-7 py-3.5 rounded-full transition-all duration-200 min-h-[48px] hover:opacity-90 hidden"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 6px 24px rgba(77,94,73,0.28)" }}>
-              
-              Join the Founding Member Waitlist
-            </button>
+            
+
+            
+            
+
+            
+            
+
+
+
+
+
+            
           </div>
         </div>
 
