@@ -49,7 +49,7 @@ function StepRow({ step, index }) {
       style={{
         transition: `opacity 0.5s ease ${index * 70}ms, transform 0.5s ease ${index * 70}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateX(0)" : "translateX(-12px)",
+        transform: visible ? "translateX(0)" : "translateX(-12px)"
       }}>
       <div
         className="flex-none w-10 h-10 rounded-full flex items-center justify-center z-10"
@@ -196,7 +196,7 @@ export default function FoundingMemberSection() {
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(16px)",
+            transform: headerVisible ? "translateY(0)" : "translateY(16px)"
           }}>
           <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
@@ -232,7 +232,7 @@ export default function FoundingMemberSection() {
         </div>
 
         {/* Transparency note — centered editorial composition */}
-        <div className="p-5 md:p-7 rounded-3xl text-center mx-auto" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A", maxWidth: "600px" }}>
+        <div className="p-5 md:p-7 rounded-3xl text-center mx-auto hidden" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A", maxWidth: "600px" }}>
           <p className="font-micro mb-2.5" style={{ color: "#C4956A", fontSize: "0.7rem" }}>A Note on Transparency</p>
           <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.9rem", maxWidth: "480px", lineHeight: "1.6" }}>
             Mama Launch Studio is in active development. Founding members receive early access, help shape the experience, and move through the Method as the platform evolves. We believe in building with our community, not before them.
