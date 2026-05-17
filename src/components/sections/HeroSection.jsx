@@ -13,7 +13,7 @@ export default function HeroSection() {
   const scrollToMethod = () => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
+    <section className="relative min-h-[70vh] flex items-center overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
       {/* Hero image — natural childcare environment */}
       <div className="absolute inset-0 z-0">
         <img
@@ -31,7 +31,7 @@ export default function HeroSection() {
 
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-16 w-full">
         <div className="flex items-center gap-12 lg:gap-20">
         <div style={{ maxWidth: "560px", flex: "0 0 auto" }}>
 

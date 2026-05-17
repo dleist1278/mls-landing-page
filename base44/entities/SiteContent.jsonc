@@ -1,0 +1,26 @@
+{
+  "name": "SiteContent",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unique identifier for this content block (e.g. hero_image, phase_01_image)"
+    },
+    "image_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Editor-managed image URL \u2014 replaceable at any time through the Base44 admin"
+    },
+    "alt_text": {
+      "type": "string",
+      "description": "Accessible alt text for the image"
+    },
+    "focal_position": {
+      "type": "string",
+      "description": "CSS object-position value to preserve editorial composition (e.g. center 35%)"
+    }
+  },
+  "required": [
+    "key"
+  ]
+}

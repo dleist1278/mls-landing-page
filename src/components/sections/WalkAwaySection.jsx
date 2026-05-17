@@ -115,7 +115,7 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: "#FAF7F2" }}>
+    <section className="py-12 md:py-16" style={{ backgroundColor: "#FAF7F2" }}>
 
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -171,23 +171,7 @@ export default function WalkAwaySection() {
 
 
 
-        {/* CTA */}
-        <div className="text-center">
-          <div className="w-10 h-px mx-auto mb-7" style={{ backgroundColor: "#C4956A44" }} />
-          <p className="font-body mb-6 mx-auto" style={{ color: "#5C5148", maxWidth: "440px", fontSize: "0.95rem", lineHeight: "1.75" }}>
-            These aren't separate downloads. They're the four pillars of a complete, calm, intentional childcare program — built step by step through the Mama Launch Method.
-          </p>
-          <button
-            onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-            className="font-micro text-white px-10 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] focus-sage"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 8px 32px rgba(77,94,73,0.22)" }}>
-            
-            Start Your Launch Path
-          </button>
-        </div>
       </div>
-
-      <div className="w-full h-px mt-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>);
 
 }

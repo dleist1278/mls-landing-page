@@ -1,7 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 
-// 5 phases only — Phase 06 (Growth/Expansion) removed per brand direction
+/**
+ * Phase images are editor-managed media assets stored in the SiteContent entity.
+ * Each phase has its own record (key: phase_01_image through phase_05_image).
+ * Images can be replaced at any time through the Base44 admin with zero code changes.
+ */
 const phases = [
 {
   number: "01",
@@ -10,9 +14,7 @@ const phases = [
   emotional: "Feel clear on who you are as a provider and what you're building.",
   deliverables: ["Program Vision Blueprint", "Ideal Program Summary", "Parent Experience Statement", "Brand Foundation Summary", "Lifestyle Alignment Summary"],
   color: "#4D5E49",
-  image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80",
-  imageAlt: "Phase 01 — Program Foundation",
-  imagePosition: "center 30%"
+  imageKey: "phase_01_image"
 },
 {
   number: "02",
@@ -21,9 +23,7 @@ const phases = [
   emotional: "Feel grounded and prepared — not overwhelmed by paperwork.",
   deliverables: ["Licensing & Compliance Tracker", "Document Checklist", "Policy & Procedure Outline", "Business Setup Summary", "Insurance & Safety Plan"],
   color: "#6B7E67",
-  image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
-  imageAlt: "Phase 02 — Licensing & Legal Setup",
-  imagePosition: "center 20%"
+  imageKey: "phase_02_image"
 },
 {
   number: "03",
@@ -32,9 +32,7 @@ const phases = [
   emotional: "Feel like a real provider building something beautiful and safe.",
   deliverables: ["Room Layouts & Floor Plans", "Environment & Material List", "Safety & Setup Checklist", "Outdoor Space Plan", "Aesthetic Vision Board"],
   color: "#C4956A",
-  image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-  imageAlt: "Phase 03 — Environment & Space Plan",
-  imagePosition: "center 35%"
+  imageKey: "phase_03_image"
 },
 {
   number: "04",
@@ -43,9 +41,7 @@ const phases = [
   emotional: "Feel operationally confident — with systems that actually fit your life.",
   deliverables: ["Daily Schedule Template", "Curriculum Plan Outline", "Routine & Flow Guide", "Communication Plan", "Behavior Support Plan"],
   color: "#4D5E49",
-  image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80",
-  imageAlt: "Phase 04 — Daily Operations Plan",
-  imagePosition: "center 20%"
+  imageKey: "phase_04_image"
 },
 {
   number: "05",
@@ -54,19 +50,12 @@ const phases = [
   emotional: "Feel ready to open your doors and welcome your first families.",
   deliverables: ["Brand Identity Guide", "Website & Marketing Copy", "Enrollment Process Map", "Parent Communication Templates", "Launch Plan Checklist"],
   color: "#6B7E67",
-  image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80",
-  imageAlt: "Phase 05 — Branding & Enrollment Plan",
-  imagePosition: "center 25%"
+  imageKey: "phase_05_image"
 }];
 
-
-function PhaseCard({ phase, index }) {
+function PhaseCard({ phase, index, imageData }) {
   const ref = useRef(null);
-  const inputRef = useRef(null);
   const [visible, setVisible] = useState(false);
-  const [customSrc, setCustomSrc] = useState(null);
-  const [uploading, setUploading] = useState(false);
-  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -76,17 +65,6 @@ function PhaseCard({ phase, index }) {
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-
-  const handleUpload = async (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setUploading(true);
-    const { file_url } = await base44.integrations.Core.UploadFile({ file });
-    setCustomSrc(file_url);
-    setUploading(false);
-  };
-
-  const activeSrc = customSrc || phase.image;
 
   return (
     <div
@@ -99,45 +77,24 @@ function PhaseCard({ phase, index }) {
         transform: visible ? "translateY(0)" : "translateY(24px)",
         filter: visible ? "blur(0)" : "blur(2px)"
       }}>
-      
+
       <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
 
-        {/* Phase image */}
-        <div
-          style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px", cursor: "pointer" }}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          onClick={() => inputRef.current?.click()}>
-          
-          {activeSrc ?
-          <img
-            src={activeSrc}
-            alt={phase.imageAlt}
-            className="w-full h-full object-cover transition-transform duration-500"
-            style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)", transform: hovered ? "scale(1.04)" : "scale(1)" }}
-          /> :
-
-
-          <div className="w-full h-full flex flex-col items-center justify-center gap-1" style={{ backgroundColor: `${phase.color}12` }}>
-              <span style={{ color: phase.color, opacity: 0.5, fontSize: "1.2rem" }}>+</span>
-              <span className="font-micro" style={{ color: phase.color, opacity: 0.4, fontSize: "0.6rem" }}>Click to upload</span>
-            </div>
-          }
-
-          {/* Hover overlay */}
-          {activeSrc && hovered &&
-          <div className="absolute inset-0 flex items-center justify-center transition-all"
-          style={{ background: "rgba(44,44,44,0.35)", backdropFilter: "blur(1px)" }}>
-              <span className="font-micro text-white" style={{ fontSize: "0.62rem" }}>Replace Image</span>
-            </div>
-          }
-
-          {/* Uploading state */}
-          {uploading &&
-          <div className="absolute inset-0 flex items-center justify-center" style={{ background: "rgba(250,247,242,0.85)" }}>
-              <span className="font-micro" style={{ color: phase.color, fontSize: "0.62rem" }}>Uploading…</span>
-            </div>
-          }
+        {/* Phase image — editor-managed via SiteContent entity */}
+        <div style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px" }}>
+          {imageData?.image_url ? (
+            <img
+              src={imageData.image_url}
+              alt={imageData.alt_text || phase.name}
+              className="w-full h-full object-cover transition-transform duration-500"
+              style={{
+                objectPosition: imageData.focal_position || "center 30%",
+                filter: "saturate(0.65) brightness(0.94)"
+              }}
+            />
+          ) : (
+            <div className="w-full h-full" style={{ backgroundColor: `${phase.color}12` }} />
+          )}
 
           {/* Phase badge */}
           <div
@@ -145,8 +102,6 @@ function PhaseCard({ phase, index }) {
             style={{ color: "white", fontSize: "0.6rem", backgroundColor: `${phase.color}CC`, padding: "3px 10px", borderRadius: "100px" }}>
             Phase {phase.number}
           </div>
-
-          <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleUpload} />
         </div>
 
         {/* Phase header */}
@@ -181,12 +136,12 @@ function PhaseCard({ phase, index }) {
         </div>
       </div>
     </div>);
-
 }
 
 export default function MethodSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
+  const [phaseImages, setPhaseImages] = useState({});
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -197,9 +152,23 @@ export default function MethodSection() {
     return () => observer.disconnect();
   }, []);
 
+  // Load all phase images from the editor-managed SiteContent entity
+  useEffect(() => {
+    const keys = phases.map(p => p.imageKey);
+    Promise.all(
+      keys.map(key => base44.entities.SiteContent.filter({ key }))
+    ).then(results => {
+      const map = {};
+      results.forEach((r, i) => {
+        if (r?.length > 0) map[keys[i]] = r[0];
+      });
+      setPhaseImages(map);
+    });
+  }, []);
+
   return (
-    <section id="method" className="py-16 md:py-24 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
-      <div className="w-full h-px mb-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+    <section id="method" className="py-12 md:py-16 overflow-hidden" style={{ backgroundColor: "#FAF7F2" }}>
+      <div className="w-full h-px mb-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
         ref={headerRef}
@@ -210,7 +179,7 @@ export default function MethodSection() {
           transform: headerVisible ? "translateY(0)" : "translateY(24px)",
           filter: headerVisible ? "blur(0)" : "blur(2px)"
         }}>
-        
+
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
           <div>
             <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -233,9 +202,14 @@ export default function MethodSection() {
       <div
         className="flex gap-4 overflow-x-auto pb-5 px-6 md:px-12"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-        
+
         {phases.map((phase, i) =>
-        <PhaseCard key={phase.number} phase={phase} index={i} />
+        <PhaseCard
+          key={phase.number}
+          phase={phase}
+          index={i}
+          imageData={phaseImages[phase.imageKey]}
+        />
         )}
         <div className="flex-none w-6 md:w-10" />
       </div>
@@ -248,7 +222,6 @@ export default function MethodSection() {
         <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
       </div>
 
-      <div className="w-full h-px mt-14" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      <div className="w-full h-px mt-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>);
-
 }
