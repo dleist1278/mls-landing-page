@@ -21,27 +21,27 @@ export default function HeroImage({ visible }) {
   return (
     <div
       className={`relative flex-1 transition-all duration-1000 delay-300 hidden md:flex items-center justify-end ${
-        visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-      }`}
-      style={{ minHeight: "520px" }}
-    >
+      visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`
+      }
+      style={{ minHeight: "520px" }}>
+      
       <div
         className="relative w-full"
-        style={{ maxWidth: "560px", aspectRatio: "4/5" }}
-      >
+        style={{ maxWidth: "560px", aspectRatio: "4/5" }}>
+        
         <div
           className="w-full h-full rounded-[28px] overflow-hidden"
           style={{
             boxShadow: "0 32px 80px rgba(196,149,106,0.18), 0 8px 24px rgba(44,44,44,0.08)",
-            border: "1px solid #C4956A14",
-          }}
-        >
-          <img
-            src={imageData.image_url}
-            alt={imageData.alt_text || "Hero — home childcare environment"}
-            className="w-full h-full object-cover"
-            style={{ objectPosition: imageData.focal_position || "center 35%" }}
-          />
+            border: "1px solid #C4956A14"
+          }}>
+          
+          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
+
+          alt={imageData.alt_text || "Hero — home childcare environment"}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: imageData.focal_position || "center 35%" }} />
+          
         </div>
 
         {/* Soft floating accent shape */}
@@ -51,10 +51,10 @@ export default function HeroImage({ visible }) {
             width: "70%",
             height: "70%",
             background: "linear-gradient(135deg, #F0EBE1 0%, #E8D5C0 100%)",
-            opacity: 0.6,
-          }}
-        />
+            opacity: 0.6
+          }} />
+        
       </div>
-    </div>
-  );
+    </div>);
+
 }
