@@ -53,7 +53,7 @@ export default function ModelsSection() {
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(16px)",
+            transform: headerVisible ? "translateY(0)" : "translateY(16px)"
           }}>
           
           <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -79,7 +79,7 @@ export default function ModelsSection() {
             boxShadow: "0 6px 36px rgba(77,94,73,0.08)",
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: activeVisible ? 1 : 0,
-            transform: activeVisible ? "translateY(0)" : "translateY(16px)",
+            transform: activeVisible ? "translateY(0)" : "translateY(16px)"
           }}>
           
           <div className="flex flex-col md:flex-row md:gap-10 gap-6">
@@ -99,7 +99,7 @@ export default function ModelsSection() {
                 </div>
               </div>
 
-              <div className="w-10 h-1 rounded-full mb-5" style={{ backgroundColor: "#4D5E49" }} />
+              <div className="w-10 h-1 rounded-full mb-5 hidden" style={{ backgroundColor: "#4D5E49" }} />
               <h3 className="font-display mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
                 {activeModel.title}
               </h3>
@@ -117,7 +117,7 @@ export default function ModelsSection() {
 
             {/* Feature list */}
             <div className="md:w-72 flex-none">
-              <p className="font-micro mb-4" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
+              <p className="font-micro mb-4 hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
                 Guided through the Mama Launch Method
               </p>
               <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A22" }} />
@@ -136,8 +136,8 @@ export default function ModelsSection() {
         {/* Coming soon pathways — horizontal scroll on mobile */}
         <div
           className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 snap-x snap-mandatory"
-          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
-        >
+          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
+          
           {comingSoon.map((m, i) =>
           <ComingSoonCard key={m.title} model={m} index={i} />
           )}
@@ -175,9 +175,9 @@ function ComingSoonCard({ model, index }) {
         transform: visible ? "translateY(0)" : `translateY(${16 + index * 4}px)`,
         transition: `opacity 0.5s ease ${index * 100}ms, transform 0.5s ease ${index * 100}ms`,
         width: "min(80vw, 320px)",
-        minWidth: "min(80vw, 320px)",
-      }}
-    >
+        minWidth: "min(80vw, 320px)"
+      }}>
+      
       
       {/* Coming soon badge */}
       <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22" }}>
