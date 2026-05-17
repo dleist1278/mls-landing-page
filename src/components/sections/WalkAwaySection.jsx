@@ -49,8 +49,6 @@ const ecosystemPillars = [
 function PillarRow({ pillar, index }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
-  const isEven = index % 2 === 0;
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {if (entry.isIntersecting) setVisible(true);},
@@ -63,34 +61,16 @@ function PillarRow({ pillar, index }) {
   return (
     <div
       ref={ref}
-      className={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${!isEven ? "md:[direction:rtl]" : ""}`}
+      className="max-w-2xl"
       style={{
         transition: `all 0.8s ease ${index * 80}ms`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(28px)",
         filter: visible ? "blur(0)" : "blur(3px)"
       }}>
-      
-      {/* Image */}
-      <div className={!isEven ? "md:[direction:ltr]" : ""}>
-        <div
-          className="rounded-2xl overflow-hidden"
-          style={{
-            aspectRatio: "3/2",
-            boxShadow: `0 12px 40px ${pillar.accent}18`,
-            border: `1px solid ${pillar.accent}18`
-          }}>
-          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/fb6b687cd_4.jpg"
-
-          alt={pillar.title}
-          className="w-full h-full object-cover"
-          style={{ objectPosition: pillar.imagePosition, filter: "saturate(0.7) brightness(0.95)" }} />
-          
-        </div>
-      </div>
 
       {/* Text */}
-      <div className={!isEven ? "md:[direction:ltr]" : ""}>
+      <div>
         <div className="flex items-center gap-3 mb-5">
           <span className="font-display select-none" style={{ color: pillar.accent, opacity: 0.18, fontSize: "3.5rem", letterSpacing: "-0.04em", lineHeight: 1 }}>
             {pillar.number}
