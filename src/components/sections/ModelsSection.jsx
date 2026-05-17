@@ -99,7 +99,7 @@ export default function ModelsSection() {
                 </div>
               </div>
 
-              <div className="w-10 h-1 rounded-full mb-5 hidden" style={{ backgroundColor: "#4D5E49" }} />
+              
               <h3 className="font-display mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
                 {activeModel.title}
               </h3>
@@ -116,20 +116,20 @@ export default function ModelsSection() {
             </div>
 
             {/* Feature list */}
-            <div className="md:w-72 flex-none hidden">
-              <p className="font-micro mb-4 hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
-                Guided through the Mama Launch Method
-              </p>
-              <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A22" }} />
-              <ul className="flex flex-col gap-2 md:gap-3.5">
-                {activeModel.features.map((f) =>
-                <li key={f} className="flex items-start gap-3">
-                    <span className="mt-1.5 flex-none w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
-                    <span className="font-body text-sm" style={{ color: "#5C5148" }}>{f}</span>
-                  </li>
-                )}
-              </ul>
-            </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+            
           </div>
         </div>
 
