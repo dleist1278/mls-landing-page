@@ -87,7 +87,7 @@ function PhaseCard({ phase, index }) {
       <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
 
         {/* Phase image */}
-        <div style={{ height: "160px", overflow: "hidden", position: "relative" }}>
+        <div style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px" }}>
           {phase.image ?
           <img
             src={phase.image}
@@ -100,7 +100,7 @@ function PhaseCard({ phase, index }) {
               <span className="font-micro" style={{ color: phase.color, opacity: 0.4, fontSize: "0.65rem" }}>Your image here</span>
             </div>
           }
-          
+          <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to bottom, transparent 30%, ${phase.color}40 100%)` }} className="hidden" />
           {/* Phase badge */}
           <div
             className="absolute top-4 left-4 font-micro"
@@ -111,7 +111,7 @@ function PhaseCard({ phase, index }) {
         </div>
 
         {/* Phase header */}
-        <div className="px-6 pt-5 pb-4" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
+        <div className="px-6 pt-3 pb-4" style={{ borderBottom: `1px solid ${phase.color}1A` }}>
           <h3 className="font-display text-lg mb-1" style={{ color: "#2C2C2C", lineHeight: "1.25" }}>
             {phase.name}
           </h3>
