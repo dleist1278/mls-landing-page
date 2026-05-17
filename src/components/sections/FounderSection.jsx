@@ -76,15 +76,11 @@ export default function FounderSection() {
             </h2>
 
             {/* Image — mobile only, shown after heading */}
-            <div className="md:hidden mb-4">
+            <div className="md:hidden mb-4 px-6">
               <div className="relative w-full">
                 <div
-                  className="absolute rounded-[28px]"
-                  style={{ inset: 0, transform: "translate(8px, 8px)", backgroundColor: "#E8D5C0", opacity: 0.35, zIndex: 0 }}
-                />
-                <div
-                  className="relative rounded-[28px] overflow-hidden"
-                  style={{ aspectRatio: "3/2", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1, maxWidth: "88%", margin: "0 auto" }}
+                  className="relative rounded-[28px] overflow-hidden mx-auto"
+                  style={{ aspectRatio: "3/2", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", maxWidth: "100%" }}
                 >
                   <img
                     src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
