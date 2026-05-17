@@ -178,7 +178,7 @@ function ComingSoonCard({ model, index }) {
       <button
         onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
         className="font-micro self-start mt-2 px-5 py-2.5 rounded-full border transition-all min-h-[40px] focus-sage"
-        style={{ color: "#C4956A", borderColor: "#C4956A40", fontSize: "0.7rem", backgroundColor: "rgba(196,149,106,0.04)" }}>
+        style={{ color: "#fff", borderColor: "#4D5E49", fontSize: "0.7rem", backgroundColor: "#4D5E49" }}>
         
         Join the Waitlist
       </button>
