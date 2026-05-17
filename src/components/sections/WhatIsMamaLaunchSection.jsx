@@ -87,7 +87,7 @@ export default function WhatIsMamaLaunchSection() {
                 style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}>
                 
                 {primaryImage?.image_url ?
-                <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/3b7c88598_Untitleddesign2.jpg"
+                <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bcd7fe44c_Untitled_design__1_.jpg"
 
                 alt={primaryImage.alt_text || ""}
                 className="w-full h-full object-cover"
