@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 
 const credentials = [
-  { label: "Mother", note: "Mother of two boys, 1 and 3 years old. When I became a mom, I was looking for daycares and couldn't find one that gave me the right homey feeling I wanted my son to experience. I left my job to open my own." },
-  { label: "Former Teacher", note: "I spent years in education — first as a teacher, then as an assistant principal — before becoming a home daycare owner. I understood child development, parent communication, and systems deeply. What I didn't have was a real operational map for launching a home childcare program." },
-  { label: "Former Assistant Principal", note: "K & 2 lead, NYC Charter. School operations, staff coordination, program oversight." },
-  { label: "Home Daycare Owner", note: "Licensing, enrollment, daily operations, parent communication. My home daycare was max capacity in 8 months and I had two hired staff." },
-  { label: "App Product Development", note: "I helped build features teachers needed at ClassTag, then left teaching to work for the company, starting their implementation for a SaaS product." },
+  { label: "Mother", note: "Mom to two boys, ages 1 and 3." },
+  { label: "Former Teacher", note: "Background in child development, learning, and parent communication." },
+  { label: "Former Assistant Principal", note: "Experienced in school leadership, operations, and team management." },
+  { label: "Home Daycare Owner", note: "Licensed home daycare owner with enrollment, staffing, and daily operations experience." },
+  { label: "Product Implementation", note: "Built educator-focused systems and implementation workflows for teachers and schools." },
 ];
 
 const realTalkItems = [
@@ -82,10 +82,13 @@ export default function FounderSection() {
 
             <div className="space-y-4 mb-7">
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.97rem" }}>
-                I spent years in education — first as a teacher, then as an assistant principal — before becoming a home daycare owner. I understood child development, parent communication, and systems deeply. What I didn't have was a real operational map for launching a home childcare program.
+                I spent years in education as a teacher and assistant principal before working in educator-focused app and systems implementation. Later, I became a licensed home daycare owner and mother to two boys.
               </p>
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.97rem" }}>
-                Mama Launch Studio is what I wish had existed: a real implementation system with templates, licensing guidance, room planning, community, and a method that actually walks you through it — phase by phase.
+                Through teaching, leadership, childcare operations, and implementation work, I developed a deep understanding of child development, parent communication, operational systems, and the real-life challenges providers face while building sustainable programs — but what I didn't have was a clear, modern roadmap for launching a home childcare program that felt calm, intentional, and aligned with real family life.
+              </p>
+              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.97rem" }}>
+                Mama Launch Studio is the system I wish existed: a guided implementation method helping mothers build home childcare programs with structure, support, and step-by-step guidance.
               </p>
             </div>
 
