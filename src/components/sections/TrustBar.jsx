@@ -19,7 +19,7 @@ export default function TrustBar() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 18s linear infinite;
+          animation: marquee 36s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
