@@ -26,8 +26,8 @@ const pillars = [
   "Phase-organized peer support groups"],
 
   offsetY: 20
-},
-];
+}];
+
 
 
 function PillarCard({ pillar, index }) {
@@ -132,11 +132,11 @@ export default function EcosystemSection() {
         <div className="grid md:grid-cols-5 gap-5 mb-10">
           {/* Image */}
           <div className="md:col-span-2 rounded-3xl overflow-hidden" style={{ minHeight: "280px" }}>
-            <img
-              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=85"
-              alt="Mothers in a warm, supportive community gathering"
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)", minHeight: "280px" }} />
+            <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9d672eb4b_7.jpg"
+
+            alt="Mothers in a warm, supportive community gathering"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)", minHeight: "280px" }} />
             
           </div>
           {/* Pillars */}
