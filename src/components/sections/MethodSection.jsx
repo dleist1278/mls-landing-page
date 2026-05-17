@@ -152,9 +152,7 @@ export default function MethodSection() {
 
             </h2>
           </div>
-          <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem" }}>
-            Each phase produces real operational documents — so by the end, you have a complete, launch-ready childcare program.
-          </p>
+
         </div>
       </div>
 
