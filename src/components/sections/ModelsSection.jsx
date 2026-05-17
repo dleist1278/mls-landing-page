@@ -85,9 +85,18 @@ export default function ModelsSection() {
           <div className="flex flex-col md:flex-row md:gap-10 gap-6">
             <div className="flex-1">
               {/* Active badge */}
-              <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
-                <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>Active Pathway — Now Enrolling</span>
+              <style>{`
+                @keyframes badgePulse {
+                  0%, 100% { opacity: 1; transform: scale(1); }
+                  50% { opacity: 0.55; transform: scale(1.04); }
+                }
+                .enrolling-badge { animation: badgePulse 1.6s ease-in-out infinite; }
+              `}</style>
+              <div className="flex justify-center mb-5">
+                <div className="enrolling-badge inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
+                  <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>Active Pathway — Now Enrolling</span>
+                </div>
               </div>
 
               <div className="w-10 h-1 rounded-full mb-5" style={{ backgroundColor: "#4D5E49" }} />
