@@ -91,15 +91,7 @@ export default function HeroSection() {
             </button>
           </div>
 
-          {/* Grounded philosophy — replaces fake metrics */}
-          <div
-            className={`transition-all duration-700 delay-700 mt-12 pt-8 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            style={{ borderTop: "1px solid #C4956A28" }}
-          >
-            <p className="font-body" style={{ color: "#8C7E75", fontSize: "0.92rem", lineHeight: "1.75", maxWidth: "400px" }}>
-              Built for mothers creating calm, intentional childcare environments rooted in community, structure, and real family life.
-            </p>
-          </div>
+
         </div>
         <HeroImage visible={visible} />
         </div>

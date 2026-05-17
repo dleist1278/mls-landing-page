@@ -91,7 +91,7 @@ function EditorialImagery({ img1, img2, visible }) {
       />
 
       {/* Primary image — large, anchored bottom-right */}
-      {img1?.image_url && (
+      {true && (
         <div
           className="absolute rounded-[28px] overflow-hidden"
           style={{
@@ -104,11 +104,11 @@ function EditorialImagery({ img1, img2, visible }) {
             border: "1px solid #C4956A14"
           }}>
           <img
-            src={img1.image_url}
-            alt={img1.alt_text || ""}
+            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/3b7c88598_Untitleddesign2.jpg"
+            alt={img1.alt_text || "Mother and child playing together"}
             className="w-full h-full object-cover"
             style={{
-              objectPosition: img1.focal_position || "center 30%",
+              objectPosition: "center 20%",
               filter: "saturate(0.72) brightness(0.96)"
             }}
           />
