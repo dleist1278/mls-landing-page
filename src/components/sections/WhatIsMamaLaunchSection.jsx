@@ -129,7 +129,7 @@ export default function WhatIsMamaLaunchSection() {
               <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
             </h2>
             <p className="font-body leading-relaxed mb-3" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "38rem" }}>
-              Mama Launch is a guided implementation system helping mothers launch intentional home childcare programs through step-by-step phases, operational systems, templates, and community support.
+              Mama Launch is a guided implementation system helping mothers launch intentional home childcare programs — with step-by-step phases, templates, and community support.
             </p>
             <p className="hidden md:block font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "38rem" }}>
               This is not a traditional business course or generic childcare training. Mama Launch helps mothers build calm, sustainable childcare ecosystems rooted in structure, emotional safety, and real family life.
