@@ -110,11 +110,12 @@ function PhaseCard({ phase, index }) {
           onClick={() => inputRef.current?.click()}>
           
           {activeSrc ?
-          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/03223e16e_8.jpg"
-
-          alt={phase.imageAlt}
-          className="w-full h-full object-cover transition-transform duration-500"
-          style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)", transform: hovered ? "scale(1.04)" : "scale(1)" }} /> :
+          <img
+            src={activeSrc}
+            alt={phase.imageAlt}
+            className="w-full h-full object-cover transition-transform duration-500"
+            style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)", transform: hovered ? "scale(1.04)" : "scale(1)" }}
+          /> :
 
 
           <div className="w-full h-full flex flex-col items-center justify-center gap-1" style={{ backgroundColor: `${phase.color}12` }}>
