@@ -94,17 +94,30 @@ export default function FounderSection() {
                 transform: credVisible ? "translateY(0)" : "translateY(12px)"
               }}>
               <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Background & experience</p>
-              <div className="grid grid-cols-1 gap-2">
-                {credentials.map((c) => (
-                  <div key={c.label} className="flex items-start gap-3 p-2.5 rounded-xl text-left" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
-                    <span className="flex-none mt-0.5 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49", marginTop: "5px" }} />
-                    <div>
-                      <p className="font-body text-xs font-medium leading-snug" style={{ color: "#2C2C2C" }}>{c.label}</p>
-                      <p className="font-body text-xs leading-relaxed" style={{ color: "#7A6E65" }}>{c.note}</p>
-                    </div>
+              {/* Horizontal scroll — 2 cards per "page" */}
+              <div
+                className="flex gap-2 overflow-x-auto pb-1"
+                style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", scrollSnapType: "x mandatory" }}
+              >
+                {[credentials.slice(0, 2), credentials.slice(2, 4)].map((pair, gi) => (
+                  <div
+                    key={gi}
+                    className="flex-none flex flex-col gap-2"
+                    style={{ width: "calc(100vw - 60px)", scrollSnapAlign: "start", scrollSnapStop: "always" }}
+                  >
+                    {pair.map((c) => (
+                      <div key={c.label} className="flex items-start gap-3 p-2.5 rounded-xl text-left" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
+                        <span className="flex-none mt-0.5 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49", marginTop: "5px" }} />
+                        <div>
+                          <p className="font-body text-xs font-medium leading-snug" style={{ color: "#2C2C2C" }}>{c.label}</p>
+                          <p className="font-body text-xs leading-relaxed" style={{ color: "#7A6E65" }}>{c.note}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
+              <p className="text-center font-micro mt-1.5" style={{ color: "#C4956A", fontSize: "0.6rem", opacity: 0.7 }}>← scroll to see more →</p>
             </div>
 
             <div className="space-y-3 mb-5">
