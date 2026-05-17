@@ -59,13 +59,13 @@ export default function WhatIsMamaLaunchSection() {
       {/* Main two-column editorial block */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20">
         <div
-        ref={ref}
-        className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
-        style={{
-          transition: "all 0.6s ease",
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(16px)",
-        }}>
+          ref={ref}
+          className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
+          style={{
+            transition: "all 0.6s ease",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(16px)"
+          }}>
           
           {/* Left — editorial imagery + differentiators */}
           <div className="flex flex-col gap-5">
@@ -78,14 +78,14 @@ export default function WhatIsMamaLaunchSection() {
                   transform: "translate(10px, 10px)",
                   backgroundColor: "#E8D5C0",
                   opacity: 0.4,
-                  zIndex: 0,
-                }}
-              />
+                  zIndex: 0
+                }} />
+              
               {/* Level 2 — image surface */}
               <div
                 className="relative w-full h-full rounded-[24px] overflow-hidden"
-                style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}
-              >
+                style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}>
+                
                 {primaryImage?.image_url ?
                 <img
                   src={primaryImage.image_url}
@@ -100,7 +100,7 @@ export default function WhatIsMamaLaunchSection() {
               </div>
             </div>
 
-            <div className="rounded-3xl p-6" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A18" }}>
+            <div className="rounded-3xl p-6 hidden" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A18" }}>
               <p className="font-micro mb-4" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
                 How Mama Launch is different
               </p>
@@ -191,22 +191,22 @@ export default function WhatIsMamaLaunchSection() {
         {mobileHeroImage &&
         <div className="block md:hidden px-5 py-6">
             <div
-              className="rounded-2xl overflow-hidden mx-auto"
-              style={{
-                maxWidth: "420px",
-                aspectRatio: "4/3",
-                boxShadow: "0 12px 48px rgba(196,149,106,0.16)",
-                border: "1px solid #C4956A18"
-              }}>
+            className="rounded-2xl overflow-hidden mx-auto"
+            style={{
+              maxWidth: "420px",
+              aspectRatio: "4/3",
+              boxShadow: "0 12px 48px rgba(196,149,106,0.16)",
+              border: "1px solid #C4956A18"
+            }}>
               <img
-                src={mobileHeroImage.image_url}
-                alt={mobileHeroImage.alt_text || ""}
-                className="w-full h-full object-cover"
-                style={{
-                  objectPosition: mobileHeroImage.focal_position || "35% 40%",
-                  filter: "saturate(0.72) brightness(0.95)"
-                }}
-              />
+              src={mobileHeroImage.image_url}
+              alt={mobileHeroImage.alt_text || ""}
+              className="w-full h-full object-cover"
+              style={{
+                objectPosition: mobileHeroImage.focal_position || "35% 40%",
+                filter: "saturate(0.72) brightness(0.95)"
+              }} />
+            
             </div>
           </div>
         }
