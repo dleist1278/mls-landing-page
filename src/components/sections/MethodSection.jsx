@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { base44 } from "@/api/base44Client";
 
 // 5 phases only — Phase 06 (Growth/Expansion) removed per brand direction
 const phases = [
@@ -61,7 +62,11 @@ const phases = [
 
 function PhaseCard({ phase, index }) {
   const ref = useRef(null);
+  const inputRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [customSrc, setCustomSrc] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -71,6 +76,17 @@ function PhaseCard({ phase, index }) {
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
+  const handleUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    const { file_url } = await base44.integrations.Core.UploadFile({ file });
+    setCustomSrc(file_url);
+    setUploading(false);
+  };
+
+  const activeSrc = customSrc || phase.image;
 
   return (
     <div
@@ -87,27 +103,49 @@ function PhaseCard({ phase, index }) {
       <div className="rounded-3xl flex flex-col h-full overflow-hidden" style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A1A" }}>
 
         {/* Phase image */}
-        <div style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px" }}>
-          {phase.image ?
-          <img
-            src={phase.image}
-            alt={phase.imageAlt}
-            className="w-full h-full object-cover"
-            style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)" }} /> :
-
-
-          <div className="w-full h-full flex items-center justify-center hidden" style={{ backgroundColor: `${phase.color}12` }}>
-              <span className="font-micro" style={{ color: phase.color, opacity: 0.4, fontSize: "0.65rem" }}>Your image here</span>
+        <div
+          style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px", cursor: "pointer" }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onClick={() => inputRef.current?.click()}
+        >
+          {activeSrc ? (
+            <img
+              src={activeSrc}
+              alt={phase.imageAlt}
+              className="w-full h-full object-cover transition-transform duration-500"
+              style={{ objectPosition: phase.imagePosition, filter: "saturate(0.65) brightness(0.94)", transform: hovered ? "scale(1.04)" : "scale(1)" }}
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center gap-1" style={{ backgroundColor: `${phase.color}12` }}>
+              <span style={{ color: phase.color, opacity: 0.5, fontSize: "1.2rem" }}>+</span>
+              <span className="font-micro" style={{ color: phase.color, opacity: 0.4, fontSize: "0.6rem" }}>Click to upload</span>
             </div>
-          }
-          <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to bottom, transparent 30%, ${phase.color}40 100%)` }} className="hidden" />
+          )}
+
+          {/* Hover overlay */}
+          {activeSrc && hovered && (
+            <div className="absolute inset-0 flex items-center justify-center transition-all"
+              style={{ background: "rgba(44,44,44,0.35)", backdropFilter: "blur(1px)" }}>
+              <span className="font-micro text-white" style={{ fontSize: "0.62rem" }}>Replace Image</span>
+            </div>
+          )}
+
+          {/* Uploading state */}
+          {uploading && (
+            <div className="absolute inset-0 flex items-center justify-center" style={{ background: "rgba(250,247,242,0.85)" }}>
+              <span className="font-micro" style={{ color: phase.color, fontSize: "0.62rem" }}>Uploading…</span>
+            </div>
+          )}
+
           {/* Phase badge */}
           <div
             className="absolute top-4 left-4 font-micro"
             style={{ color: "white", fontSize: "0.6rem", backgroundColor: `${phase.color}CC`, padding: "3px 10px", borderRadius: "100px" }}>
-            
             Phase {phase.number}
           </div>
+
+          <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleUpload} />
         </div>
 
         {/* Phase header */}
