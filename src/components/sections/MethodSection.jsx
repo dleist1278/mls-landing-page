@@ -82,19 +82,19 @@ function PhaseCard({ phase, index, imageData }) {
 
         {/* Phase image — editor-managed via SiteContent entity */}
         <div style={{ height: "160px", overflow: "hidden", position: "relative", marginBottom: "-1px" }}>
-          {imageData?.image_url ?
-          <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/0d8a2dc7b_6.jpg"
-
-          alt={imageData.alt_text || phase.name}
-          className="w-full h-full object-cover transition-transform duration-500"
-          style={{
-            objectPosition: imageData.focal_position || "center 30%",
-            filter: "saturate(0.65) brightness(0.94)"
-          }} /> :
-
-
-          <div className="w-full h-full" style={{ backgroundColor: `${phase.color}12` }} />
-          }
+          {imageData?.image_url ? (
+            <img
+              src={imageData.image_url}
+              alt={imageData.alt_text || phase.name}
+              className="w-full h-full object-cover transition-transform duration-500"
+              style={{
+                objectPosition: imageData.focal_position || "center 30%",
+                filter: "saturate(0.65) brightness(0.94)"
+              }}
+            />
+          ) : (
+            <div className="w-full h-full" style={{ backgroundColor: `${phase.color}12` }} />
+          )}
 
           {/* Phase badge */}
           <div
@@ -190,6 +190,7 @@ export default function MethodSection() {
               The Mama Launch Method
               <br />
               <em style={{ color: "#4D5E49" }}>Five Phases. Real Deliverables.</em>
+
             </h2>
           </div>
           <p className="font-body md:max-w-xs leading-relaxed" style={{ color: "#5C5148", fontSize: "0.93rem" }}>
