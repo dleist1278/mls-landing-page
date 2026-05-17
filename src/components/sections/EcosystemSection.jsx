@@ -50,11 +50,11 @@ function PillarCard({ pillar, index }) {
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(16px)",
         boxShadow: "0 4px 32px rgba(196,149,106,0.04)",
-        minWidth: "min(80vw, 320px)"
+        minWidth: "min(80vw, 320px)",
       }}>
 
       <h3 className="font-display text-lg md:text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
-      
+      <p className="font-body text-sm leading-relaxed mb-3" style={{ color: "#5C5148" }}>{pillar.description}</p>
 
       <div className="w-full h-px mb-2" style={{ backgroundColor: "#C4956A22" }} />
 
@@ -101,7 +101,7 @@ export default function EcosystemSection() {
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(16px)"
+            transform: headerVisible ? "translateY(0)" : "translateY(16px)",
           }}>
           
           <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -132,19 +132,19 @@ export default function EcosystemSection() {
                   transform: "translate(-8px, 8px)",
                   backgroundColor: "#E8D5C0",
                   opacity: 0.32,
-                  zIndex: 0
-                }} />
-              
+                  zIndex: 0,
+                }}
+              />
               <div
                 className="relative w-full h-full rounded-[24px] overflow-hidden"
-                style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}>
-                
+                style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}
+              >
                 <img
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
                   alt="Mothers in a warm, supportive community gathering"
                   className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)" }} />
-                
+                  style={{ objectPosition: "center 20%", filter: "saturate(0.68) brightness(0.93)" }}
+                />
               </div>
             </div>
           </div>
@@ -152,8 +152,8 @@ export default function EcosystemSection() {
           <div className="md:col-span-3">
             <div
               className="flex md:flex-col gap-4 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 snap-x snap-mandatory"
-              style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
-              
+              style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+            >
               {pillars.slice(0, 2).map((pillar, i) =>
               <PillarCard key={pillar.num} pillar={pillar} index={i} />
               )}
@@ -177,12 +177,12 @@ export default function EcosystemSection() {
           }}>
           
           <div className="w-8 h-px mx-auto mb-5" style={{ backgroundColor: "#C4956A" }} />
-          
-
-          
-          
-
-          
+          <blockquote className="font-display leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.05rem, 2vw, 1.35rem)", lineHeight: "1.5", maxWidth: "480px", margin: "0 auto 1rem" }}>
+            "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
+          </blockquote>
+          <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>
+            — Early Access Member, Mama Launch Studio
+          </p>
         </div>
       </div>
 
