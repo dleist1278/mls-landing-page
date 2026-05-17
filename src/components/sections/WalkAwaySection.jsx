@@ -10,7 +10,9 @@ const ecosystemPillars = [
   description:
   "Clarify your childcare philosophy, daily rhythm, licensing direction, family-aligned schedule, and the type of program you want to build — so every decision that follows has a clear foundation.",
   tags: ["Program philosophy", "Licensing direction", "Family-aligned schedule", "Program model clarity"],
-  accent: "#4D5E49"
+  accent: "#4D5E49",
+  image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=80",
+  imagePosition: "center 30%",
 },
 {
   number: "02",
@@ -18,7 +20,9 @@ const ecosystemPillars = [
   description:
   "Design calm, organized childcare spaces and daily routines that support movement, safety, independence, emotional regulation, and real family life — inside a home that works for everyone in it.",
   tags: ["Room planning", "Daily rhythm design", "Sensory & play environments", "Calm organizational systems"],
-  accent: "#C4956A"
+  accent: "#C4956A",
+  image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+  imagePosition: "center 35%",
 },
 {
   number: "03",
@@ -26,7 +30,9 @@ const ecosystemPillars = [
   description:
   "Build trust-centered communication systems — from the first tour to enrollment, onboarding, policies, and ongoing family connection — so parents feel held and your program feels professional.",
   tags: ["Home tour workflow", "Enrollment & onboarding", "Parent communication systems", "Policy guidance"],
-  accent: "#6B7E67"
+  accent: "#6B7E67",
+  image: "https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=600&q=80",
+  imagePosition: "center 20%",
 },
 {
   number: "04",
@@ -34,7 +40,9 @@ const ecosystemPillars = [
   description:
   "Create the operational rhythms, workflows, and organizational habits that keep your program calm, manageable, and sustainable — so your childcare ecosystem grows without consuming your life.",
   tags: ["Operational routines", "Capacity & growth planning", "Launch-ready messaging", "Calm systems framework"],
-  accent: "#4D5E49"
+  accent: "#4D5E49",
+  image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80",
+  imagePosition: "center 15%",
 }];
 
 
@@ -63,62 +71,21 @@ function PillarRow({ pillar, index }) {
         filter: visible ? "blur(0)" : "blur(3px)"
       }}>
       
-      {/* Placeholder image slot — ready for real asset */}
+      {/* Image */}
       <div className={!isEven ? "md:[direction:ltr]" : ""}>
         <div
-          className="relative rounded-3xl overflow-hidden"
+          className="rounded-2xl overflow-hidden"
           style={{
-            aspectRatio: "4/3",
-            backgroundColor: "#F0EBE1",
-            border: `1px solid ${pillar.accent}20`,
-            boxShadow: `0 16px 56px ${pillar.accent}10`
+            aspectRatio: "3/2",
+            boxShadow: `0 12px 40px ${pillar.accent}18`,
+            border: `1px solid ${pillar.accent}18`,
           }}>
-          
-          {/* Inner document mock */}
-          <div className="absolute inset-0 p-7 flex flex-col">
-            {/* Top bar */}
-            <div className="flex items-center justify-between mb-5">
-              <div className="flex gap-2 items-center">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: pillar.accent, opacity: 0.45 }} />
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: pillar.accent, opacity: 0.2 }} />
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: pillar.accent, opacity: 0.1 }} />
-              </div>
-              <span className="font-micro" style={{ color: pillar.accent, fontSize: "0.55rem", opacity: 0.55 }}>
-                Mama Launch Method · Phase {String(index + 1).padStart(2, "0")}
-              </span>
-            </div>
-
-            {/* Title area */}
-            <div className="mb-5">
-              <div className="h-2.5 rounded-full w-2/3 mb-2" style={{ backgroundColor: `${pillar.accent}2A` }} />
-              <div className="h-1.5 rounded-full w-full mb-1.5" style={{ backgroundColor: `${pillar.accent}12` }} />
-              <div className="h-1.5 rounded-full w-4/5" style={{ backgroundColor: `${pillar.accent}10` }} />
-            </div>
-
-            {/* Two-column content */}
-            <div className="grid grid-cols-2 gap-3 flex-1">
-              {[0, 1].map((col) =>
-              <div key={col} className="rounded-2xl p-4 flex flex-col gap-2" style={{ backgroundColor: `${pillar.accent}07`, border: `1px solid ${pillar.accent}14` }}>
-                  <div className="h-2 rounded-full w-4/5" style={{ backgroundColor: `${pillar.accent}20` }} />
-                  {[85, 70, 90, 60].map((w, i) =>
-                <div key={i} className="h-1.5 rounded-full" style={{ width: `${w}%`, backgroundColor: `${pillar.accent}10` }} />
-                )}
-                </div>
-              )}
-            </div>
-
-            {/* Checklist row */}
-            <div className="mt-4 space-y-2 pt-4" style={{ borderTop: `1px solid ${pillar.accent}12` }}>
-              {[1, 2, 3].map((i) =>
-              <div key={i} className="flex items-center gap-2.5">
-                  <div className="w-3.5 h-3.5 rounded flex-none flex items-center justify-center" style={{ backgroundColor: `${pillar.accent}12`, border: `1px solid ${pillar.accent}22` }}>
-                    <div className="w-1.5 h-1 rounded-sm" style={{ backgroundColor: pillar.accent, opacity: 0.45 }} />
-                  </div>
-                  <div className="h-1.5 rounded-full" style={{ width: `${[80, 65, 88][i - 1]}%`, backgroundColor: `${pillar.accent}10` }} />
-                </div>
-              )}
-            </div>
-          </div>
+          <img
+            src={pillar.image}
+            alt={pillar.title}
+            className="w-full h-full object-cover"
+            style={{ objectPosition: pillar.imagePosition, filter: "saturate(0.7) brightness(0.95)" }}
+          />
         </div>
       </div>
 
