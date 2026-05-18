@@ -70,9 +70,7 @@ export default function HeroSection() {
                   overflowWrap: "break-word",
                 }}
               >
-                Reimagining Home Childcare
-                <br />
-                for{" "}
+                Reimagining Home Childcare for
                 <br />
                 <em style={{ color: "#4D5E49" }}>Modern Motherhood.</em>
               </h1>
