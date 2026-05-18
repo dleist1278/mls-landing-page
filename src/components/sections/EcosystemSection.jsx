@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 const VILLAGE_FEATURE_IMAGE = "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9e428ba71_Screenshot2026-05-18at22025PM.png";
 const PHASE_TRACKING_FEATURE_IMAGE = "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/11ade100f_Screenshot2026-05-18at22131PM.png";
-const IMPLEMENTATION_TOOLS_FEATURE_IMAGE = "";
+const IMPLEMENTATION_TOOLS_FEATURE_IMAGE = "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/b0bf81438_Screenshot2026-05-18at25036PM.png";
 
 const CARD_IMAGES = {
   village_feature: VILLAGE_FEATURE_IMAGE,
