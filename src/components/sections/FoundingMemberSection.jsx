@@ -26,12 +26,13 @@ export default function FoundingMemberSection() {
   }, []);
 
   return (
-    <section className="md:py-16 py-7" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
+    <section className="py-7 lg:py-24" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
       <div className="max-w-[1120px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-start">
 
         {/* Left column: Header + Callout */}
         <div
           ref={headerRef}
+          className="lg:sticky lg:top-24 lg:pr-6"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
@@ -62,14 +63,14 @@ export default function FoundingMemberSection() {
 
         {/* Right column: Steps */}
         <div ref={imgRef}>
-          <div className="relative space-y-5">
+          <div className="relative space-y-5 max-w-[520px]">
             <div className="absolute left-[28px] top-10 h-[calc(100%-80px)] border-l border-dashed" style={{ borderColor: "#D8C6B2" }} />
             {steps.map((step) => (
               <div key={step.step} className="relative flex gap-4">
                 <div className="z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-lg font-semibold shadow-sm" style={{ color: "#C4956A", boxShadow: "0 1px 4px rgba(196,149,106,0.12)", outline: "1px solid #E8D8C7" }}>
                   {step.step}
                 </div>
-                <div className="flex flex-1 items-center gap-4 rounded-3xl p-5 shadow-sm" style={{ backgroundColor: "rgba(255,255,255,0.75)", outline: "1px solid #EDE3D8", backdropFilter: "blur(8px)" }}>
+                <div className="flex flex-1 items-center gap-4 rounded-3xl p-5 lg:p-4 shadow-sm" style={{ backgroundColor: "rgba(255,255,255,0.75)", outline: "1px solid #EDE3D8", backdropFilter: "blur(8px)" }}>
                   <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-3xl" style={{ backgroundColor: "#F3EEE6", color: "#4D5E49" }}>
                     {step.icon}
                   </div>
