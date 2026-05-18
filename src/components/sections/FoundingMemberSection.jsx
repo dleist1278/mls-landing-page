@@ -156,7 +156,7 @@ export default function FoundingMemberSection() {
 
           <h2
             className="font-display leading-tight mb-4 lg:mb-6"
-            style={{ color: "#2C2C2C", fontSize: "clamp(1.75rem, 4vw, 3.4rem)", lineHeight: "1.15" }}
+            style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3.5vw, 3.75rem)", lineHeight: "1.05" }}
           >
             What Happens After
             <br />
