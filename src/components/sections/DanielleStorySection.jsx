@@ -27,7 +27,7 @@ const drawers = [
 
 function AccordionDrawer({ drawer, isOpen, onToggle }) {
   return (
-    <div className="rounded-2xl border border-[#E8D8C7] bg-white/70 overflow-hidden">
+    <div className={`rounded-2xl border border-[#E8D8C7] overflow-hidden transition-colors duration-200 ${isOpen ? "bg-white" : "bg-white/70"}`}>
       <button
         type="button"
         onClick={onToggle}
@@ -63,34 +63,34 @@ export default function DanielleStorySection() {
   const leftColumn = (
     <>
       {/* Eyebrow */}
-      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C98F5D] mb-4">
+      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C98F5D] mb-1">
         Hi, I'm Danielle
       </p>
 
       {/* Headline */}
       <h2
-        className="font-display text-[38px] leading-[1.05] lg:text-6xl text-[#2B2B28] mb-5"
+        className="font-display text-[38px] leading-[1.05] lg:text-6xl text-[#2B2B28] mb-3"
       >
         I built this{" "}
         <em className="block not-italic italic text-[#566B4E]">because I needed it.</em>
       </h2>
 
       {/* Intro */}
-      <p className="text-[16px] leading-7 text-[#3A3A35] mb-6 max-w-prose">
+      <p className="text-[16px] leading-7 text-[#3A3A35] mb-4 max-w-prose">
         I'm a former educator, assistant principal, licensed home daycare owner, and mom of two.
         I know both the professional systems and the real life you're building inside of.
       </p>
 
       {/* Credentials */}
-      <div className="flex flex-col gap-2 mb-7">
+      <div className="flex flex-col gap-1 mb-7">
         {credentials.map((item) => {
           const Icon = item.icon;
           return (
             <div
               key={item.text}
-              className="flex items-center gap-3 rounded-full bg-white/60 px-4 py-3 text-sm text-[#2B2B28] ring-1 ring-[#E8D8C7] w-fit"
+              className="flex items-center gap-3 rounded-full bg-white/60 px-3 py-2 text-sm text-[#2B2B28] ring-1 ring-[#E8D8C7] w-fit"
             >
-              <Icon className="h-4 w-4 text-[#566B4E] flex-shrink-0" />
+              <Icon className="h-3.5 w-3.5 text-[#566B4E] flex-shrink-0" />
               <span>{item.text}</span>
             </div>
           );
@@ -100,7 +100,7 @@ export default function DanielleStorySection() {
       {/* CTA */}
       <a
         href="#waitlist"
-        className="inline-flex items-center justify-center rounded-full bg-[#566B4E] px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+        className="inline-flex items-center justify-center rounded-full bg-[#566B4E] px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:shadow-lg mx-auto lg:mx-0 block w-fit mt-2"
       >
         Join the Founding Member Waitlist
         <ArrowRight className="ml-2 h-4 w-4" />
@@ -111,17 +111,17 @@ export default function DanielleStorySection() {
   const rightColumn = (
     <>
       {/* Photo */}
-      <div className="rounded-2xl overflow-hidden p-2" style={{ boxShadow: "0 4px 20px rgba(196,149,106,0.10)" }}>
+      <div className="rounded-3xl overflow-hidden p-2" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.08)" }}>
         <img
           src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
           alt="Danielle, founder of Mama Launch Studio"
-          className="w-full object-cover object-center h-[360px] lg:h-[460px]"
+          className="w-full object-cover object-center h-[320px] lg:h-[420px]"
           style={{ filter: "saturate(0.68) brightness(0.97)", objectPosition: "center 12%", display: "block" }}
         />
       </div>
 
       {/* Accordion */}
-      <div className="mt-4 space-y-2">
+      <div className="mt-2 space-y-1">
         {drawers.map((drawer, index) => (
           <AccordionDrawer
             key={drawer.title}
