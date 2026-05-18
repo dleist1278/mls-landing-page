@@ -1,6 +1,14 @@
 import React, { useRef, useEffect, useState } from "react";
-import { base44 } from "@/api/base44Client";
-import { Upload } from "lucide-react";
+
+const VILLAGE_FEATURE_IMAGE = "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9e428ba71_Screenshot2026-05-18at22025PM.png";
+const PHASE_TRACKING_FEATURE_IMAGE = "";
+const IMPLEMENTATION_TOOLS_FEATURE_IMAGE = "";
+
+const CARD_IMAGES = {
+  village_feature: VILLAGE_FEATURE_IMAGE,
+  phase_tracking_feature: PHASE_TRACKING_FEATURE_IMAGE,
+  implementation_tools_feature: IMPLEMENTATION_TOOLS_FEATURE_IMAGE,
+};
 
 const MOBILE_CARD_META = [
   { key: "village_feature", title: "The Village", description: "Connect with other moms building alongside you." },
@@ -73,34 +81,7 @@ function PillarCard({ pillar, index }) {
 }
 
 function CardImage({ cardKey }) {
-  const [imageUrl, setImageUrl] = useState(null);
-  const [uploading, setUploading] = useState(false);
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    base44.entities.SiteContent.filter({ key: cardKey }).then((results) => {
-      if (results && results.length > 0 && results[0].image_url) {
-        setImageUrl(results[0].image_url);
-      }
-    });
-  }, [cardKey]);
-
-  const handleUpload = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    setUploading(true);
-    const { file_url } = await base44.integrations.Core.UploadFile({ file });
-    const existing = await base44.entities.SiteContent.filter({ key: cardKey });
-    if (existing && existing.length > 0) {
-      await base44.entities.SiteContent.update(existing[0].id, { image_url: file_url });
-    } else {
-      await base44.entities.SiteContent.create({ key: cardKey, image_url: file_url });
-    }
-    setImageUrl(file_url);
-    setUploading(false);
-  };
-
-  const triggerUpload = () => inputRef.current?.click();
+  const imageUrl = CARD_IMAGES[cardKey] || "";
 
   return (
     <div className="relative w-full h-[210px] rounded-2xl border border-[#E8D8C7] overflow-hidden">
@@ -113,21 +94,9 @@ function CardImage({ cardKey }) {
         />
       ) : (
         <div className="w-full h-full bg-[#F4EFE6] flex flex-col items-center justify-center gap-2">
-          <Upload size={20} style={{ color: "#C4956A" }} />
-          <span className="text-sm text-[#566B4E]">Tap to upload photo</span>
+          <span className="text-sm text-[#566B4E]">Upload platform screenshot</span>
         </div>
       )}
-      {/* Always-visible upload button overlay — works on touch */}
-      <button
-        onClick={triggerUpload}
-        disabled={uploading}
-        className="absolute bottom-2 right-2 bg-white/90 text-[#2C2C2C] text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow"
-        style={{ border: "1px solid #E8D8C7" }}
-      >
-        <Upload size={12} />
-        {uploading ? "Uploading…" : imageUrl ? "Replace" : "Upload"}
-      </button>
-      <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleUpload} />
     </div>
   );
 }
