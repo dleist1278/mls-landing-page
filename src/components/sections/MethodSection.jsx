@@ -66,13 +66,12 @@ function PhaseCard({ phase, index }) {
       ref={ref}
       className="flex-none"
       style={{
-        width: "62vw",
-        maxWidth: "220px",
+        width: "52vw",
+        maxWidth: "200px",
         scrollSnapAlign: "start",
         scrollSnapStop: "always",
-        transition: `opacity 0.5s ease ${index * 60}ms, transform 0.5s ease ${index * 60}ms`,
+        transition: `opacity 0.5s ease ${index * 60}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
       }}>
 
       <button

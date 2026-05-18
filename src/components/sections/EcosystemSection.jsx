@@ -46,9 +46,8 @@ function PillarCard({ pillar, index }) {
       style={{
         backgroundColor: "#F0EBE1",
         border: "1px solid #C4956A1A",
-        transition: `opacity 0.6s ease ${index * 100}ms, transform 0.6s ease ${index * 100}ms`,
+        transition: `opacity 0.6s ease ${index * 100}ms`,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
         boxShadow: "0 4px 32px rgba(196,149,106,0.04)",
       }}>
 
@@ -98,9 +97,8 @@ export default function EcosystemSection() {
           ref={headerRef}
           className="text-center mb-5 md:mb-12"
           style={{
-            transition: "opacity 0.6s ease, transform 0.6s ease",
+            transition: "opacity 0.6s ease",
             opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(16px)"
           }}>
           
           <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -150,17 +148,12 @@ export default function EcosystemSection() {
           {/* Pillars — horizontal scroll on mobile, vertical stack on desktop */}
           <div className="md:col-span-3">
             <div
-              className="flex md:flex-col gap-4 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory"
-              style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", overscrollBehaviorX: "contain" }}>
+              className="flex md:flex-col gap-3 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory px-1"
+              style={{ scrollbarWidth: "none", overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}>
               
               {pillars.slice(0, 2).map((pillar, i) =>
-              <div key={pillar.num} className="flex-none md:flex-auto snap-start" style={{ width: "min(80vw, 320px)", minWidth: "min(80vw, 320px)" }}>
+              <div key={pillar.num} className="flex-none md:flex-auto snap-start" style={{ width: "calc(100vw - 56px)", maxWidth: "300px" }}>
                 <PillarCard pillar={pillar} index={i} />
-                {i === 0 && (
-                  <p className="md:hidden text-center font-micro mt-2" style={{ color: "#C4956A", fontSize: "0.65rem", opacity: 0.7 }}>
-                    ← scroll to explore →
-                  </p>
-                )}
               </div>
               )}
             </div>
@@ -174,9 +167,8 @@ export default function EcosystemSection() {
           ref={quoteRef}
           className="mt-4 md:mt-10 text-center mx-auto max-w-xl"
           style={{
-            transition: "opacity 0.6s ease, transform 0.6s ease",
+            transition: "opacity 0.6s ease",
             opacity: quoteVisible ? 1 : 0,
-            transform: quoteVisible ? "translateY(0)" : "translateY(16px)"
           }}>
           
           <div className="w-8 h-px mx-auto mb-5" style={{ backgroundColor: "#C4956A" }} />

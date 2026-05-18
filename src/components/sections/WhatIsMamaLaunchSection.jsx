@@ -161,9 +161,8 @@ export default function WhatIsMamaLaunchSection() {
         ref={imgRef}
         className="w-full overflow-hidden"
         style={{
-          transition: "opacity 0.6s ease, transform 0.6s ease",
+          transition: "opacity 0.6s ease",
           opacity: imgVisible ? 1 : 0,
-          transform: imgVisible ? "scale(1)" : "scale(1.01)"
         }}>
         
         {/* Desktop: fixed height strip */}

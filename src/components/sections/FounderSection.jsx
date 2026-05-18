@@ -30,9 +30,8 @@ export default function FounderSection() {
           ref={ref}
           className="grid md:grid-cols-2 gap-6 md:gap-16 items-center mb-6 md:mb-12"
           style={{
-            transition: "opacity 0.6s ease, transform 0.6s ease",
+            transition: "opacity 0.6s ease",
             opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(16px)",
           }}>
           
           {/* Image — desktop only (left column) */}
@@ -108,21 +107,20 @@ export default function FounderSection() {
               ref={credRef}
               className="mb-4 md:hidden"
               style={{
-                transition: "opacity 0.6s ease, transform 0.6s ease",
+                transition: "opacity 0.6s ease",
                 opacity: credVisible ? 1 : 0,
-                transform: credVisible ? "translateY(0)" : "translateY(12px)"
               }}>
               <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Background & experience</p>
               {/* Horizontal scroll — 2 cards per "page" */}
               <div
-                className="flex gap-2 overflow-x-auto pb-1"
-                style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", scrollSnapType: "x mandatory", overscrollBehaviorX: "contain" }}
+                className="flex gap-3 overflow-x-auto pb-1 px-1"
+                style={{ scrollbarWidth: "none", scrollSnapType: "x mandatory", overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}
               >
                 {[credentials.slice(0, 2), credentials.slice(2, 4)].map((pair, gi) => (
                   <div
                     key={gi}
                     className="flex-none flex flex-col gap-2"
-                    style={{ width: "calc(100vw - 90px)", scrollSnapAlign: "start", scrollSnapStop: "always" }}
+                    style={{ width: "calc(100vw - 56px)", maxWidth: "300px", scrollSnapAlign: "start", scrollSnapStop: "always" }}
                   >
                     {pair.map((c) => (
                       <div key={c.label} className="flex items-start gap-3 p-2.5 rounded-xl text-left" style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A14" }}>
@@ -136,7 +134,7 @@ export default function FounderSection() {
                   </div>
                 ))}
               </div>
-              <p className="text-center font-micro mt-1.5" style={{ color: "#C4956A", fontSize: "0.6rem", opacity: 0.7 }}>← scroll to see more →</p>
+
             </div>
 
             {/* Bio text — desktop only */}
