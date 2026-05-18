@@ -99,7 +99,7 @@ export default function HeroSection() {
 
             {/* CTAs — stacked on mobile, row on sm+ */}
             <div
-              className={`transition-all duration-700 delay-500 flex flex-col sm:flex-row flex-wrap gap-3 ${
+              className={`transition-all duration-700 delay-500 flex flex-col sm:flex-row flex-wrap gap-3 mt-4 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
