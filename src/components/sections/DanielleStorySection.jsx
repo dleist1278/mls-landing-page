@@ -69,15 +69,14 @@ export default function DanielleStorySection() {
 
       {/* Headline */}
       <h2
-        className="font-display leading-tight text-[#2B2B28] mb-5"
-        style={{ fontSize: "clamp(2rem, 5vw, 3.4rem)", lineHeight: "1.1" }}
+        className="font-display text-[38px] leading-[1.05] lg:text-6xl text-[#2B2B28] mb-5"
       >
         I built this{" "}
         <em className="block not-italic italic text-[#566B4E]">because I needed it.</em>
       </h2>
 
       {/* Intro */}
-      <p className="text-[0.93rem] leading-relaxed text-[#3A3A35] mb-6 max-w-prose">
+      <p className="text-[16px] leading-7 text-[#3A3A35] mb-6 max-w-prose">
         I'm a former educator, assistant principal, licensed home daycare owner, and mom of two.
         I know both the professional systems and the real life you're building inside of.
       </p>
@@ -101,7 +100,7 @@ export default function DanielleStorySection() {
       {/* CTA */}
       <a
         href="#waitlist"
-        className="inline-flex items-center justify-center rounded-full bg-[#566B4E] px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+        className="inline-flex items-center justify-center rounded-full bg-[#566B4E] px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:shadow-lg"
       >
         Join the Founding Member Waitlist
         <ArrowRight className="ml-2 h-4 w-4" />
@@ -112,12 +111,12 @@ export default function DanielleStorySection() {
   const rightColumn = (
     <>
       {/* Photo */}
-      <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 4px 20px rgba(196,149,106,0.10)" }}>
+      <div className="rounded-2xl overflow-hidden p-2" style={{ boxShadow: "0 4px 20px rgba(196,149,106,0.10)" }}>
         <img
           src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
           alt="Danielle, founder of Mama Launch Studio"
-          className="w-full object-cover object-center"
-          style={{ maxHeight: "520px", filter: "saturate(0.68) brightness(0.97)", objectPosition: "center 12%", display: "block" }}
+          className="w-full object-cover object-center h-[360px] lg:h-[460px]"
+          style={{ filter: "saturate(0.68) brightness(0.97)", objectPosition: "center 12%", display: "block" }}
         />
       </div>
 
@@ -136,7 +135,7 @@ export default function DanielleStorySection() {
   );
 
   return (
-    <section className="px-5 py-14 lg:py-24" style={{ backgroundColor: "#F4EFE6" }}>
+    <section className="px-5 py-14 lg:px-8 lg:py-20" style={{ backgroundColor: "#F4EFE6" }}>
       <div className="mx-auto max-w-[1120px]">
 
         {/* MOBILE: single column, specific order */}
