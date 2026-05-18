@@ -84,7 +84,7 @@ function CardImage({ cardKey }) {
   const imageUrl = CARD_IMAGES[cardKey] || "";
 
   return (
-    <div className="relative w-full h-[210px] rounded-2xl border border-[#E8D8C7] overflow-hidden">
+    <div className="relative w-full h-[210px] rounded-2xl border border-[#DCCBB8] shadow-[0_4px_12px_rgba(0,0,0,0.04)] overflow-hidden">
       {imageUrl ? (
         <img
           src={imageUrl}
@@ -176,7 +176,7 @@ export default function EcosystemSection() {
             style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}
           >
             {MOBILE_CARD_META.map((card) => (
-              <div key={card.key} className="flex-none min-w-[86%] snap-center rounded-[28px] bg-white/75 border border-[#E8D8C7] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden">
+              <div key={card.key} className="flex-none min-w-[86%] snap-center rounded-[28px] bg-[#EFE7DB] border border-[#E8D8C7] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden">
                 <CardImage cardKey={card.key} />
                 <div className="px-2 pt-4 pb-2">
                   <h3 className="font-display text-2xl text-[#2B2B28]">{card.title}</h3>
