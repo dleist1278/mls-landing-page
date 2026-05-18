@@ -48,43 +48,49 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
       onClick={onClick}
       className="w-full text-left rounded-2xl overflow-hidden focus:outline-none"
       style={{
-        backgroundColor: isActive ? "#F0EBE1" : "#FAF7F2",
-        border: `1px solid ${isActive ? phase.color + "40" : "#C4956A18"}`,
-        boxShadow: isActive ? `0 6px 28px rgba(77,94,73,0.10)` : "none",
-        opacity: isActive ? 1 : 0.55,
-        padding: isActive ? "16px" : "12px 16px",
-        transition: "opacity 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease",
+        backgroundColor: isActive ? "#F0EBE1" : "#FDFCFA",
+        border: `1px solid ${isActive ? phase.color + "35" : "#C4956A10"}`,
+        boxShadow: isActive ? `0 4px 20px rgba(77,94,73,0.08)` : "none",
+        opacity: isActive ? 1 : 0.45,
+        padding: isActive ? "13px 14px" : "10px 14px",
+        transition: "opacity 0.25s ease, box-shadow 0.25s ease",
       }}>
 
       {/* Header row — always visible */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <span className="font-display" style={{ color: phase.color, fontSize: isActive ? "1.4rem" : "1rem", lineHeight: 1, transition: "font-size 0.2s ease" }}>
+        <div className="flex items-center gap-2.5">
+          <span className="font-display" style={{ color: phase.color, fontSize: isActive ? "1.2rem" : "0.95rem", lineHeight: 1 }}>
             {phase.number}
           </span>
-          <h3 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: isActive ? "0.95rem" : "0.85rem", transition: "font-size 0.2s ease" }}>
+          <h3 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: isActive ? "0.9rem" : "0.82rem" }}>
             {phase.name}
           </h3>
         </div>
-        <span style={{ color: phase.color, fontSize: "0.65rem", opacity: isActive ? 1 : 0, transition: "opacity 0.2s ease" }}>▾</span>
+        {/* Refinement 3: subtle sage accent line as active indicator */}
+        {isActive && (
+          <span className="flex-none w-1 h-5 rounded-full" style={{ backgroundColor: phase.color, opacity: 0.5 }} />
+        )}
       </div>
 
       {/* Expanded detail — only when active */}
       {isActive && (
-        <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${phase.color}1A` }}>
-          <p className="font-body text-xs leading-relaxed mb-3" style={{ color: "#5C5148" }}>
+        <div className="mt-2.5 pt-2.5" style={{ borderTop: `1px solid ${phase.color}18` }}>
+          {/* Refinement 1: reduced label spacing */}
+          <p className="font-body leading-snug mb-2" style={{ color: "#5C5148", fontSize: "0.78rem", maxWidth: "88%" }}>
             {phase.outcome}
           </p>
-          <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>What you'll do</p>
-          <p className="font-body text-xs leading-relaxed mb-3" style={{ color: "#7A6E65" }}>
+          <p className="font-micro mb-1" style={{ color: "#9a8f84", fontSize: "0.58rem" }}>What you'll do</p>
+          {/* Refinement 5: slightly narrower text, smaller size */}
+          <p className="font-body leading-snug mb-2.5" style={{ color: "#7A6E65", fontSize: "0.75rem", maxWidth: "86%" }}>
             {phase.detail}
           </p>
-          <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>Includes</p>
-          <ul className="flex flex-col gap-1">
+          <p className="font-micro mb-1.5" style={{ color: "#9a8f84", fontSize: "0.58rem" }}>Includes</p>
+          {/* Refinement 1: tighter chip spacing */}
+          <ul className="flex flex-col gap-0.5">
             {phase.includes.map((item) => (
-              <li key={item} className="flex items-center gap-2">
-                <span className="flex-none w-1 h-1 rounded-full" style={{ backgroundColor: phase.color }} />
-                <span className="font-body text-xs leading-snug" style={{ color: "#5C5148" }}>{item}</span>
+              <li key={item} className="flex items-center gap-1.5">
+                <span className="flex-none w-1 h-1 rounded-full" style={{ backgroundColor: phase.color, opacity: 0.7 }} />
+                <span className="font-body leading-snug" style={{ color: "#5C5148", fontSize: "0.75rem" }}>{item}</span>
               </li>
             ))}
           </ul>
@@ -154,7 +160,7 @@ export default function MethodSection() {
       <div
         id="method-roadmap"
         className="md:hidden px-5 max-w-full overflow-hidden"
-        style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        style={{ display: "flex", flexDirection: "column", gap: "7px", paddingTop: "8px" }}>
         {phases.map((phase) => (
           <MobilePhaseCard
             key={phase.number}
