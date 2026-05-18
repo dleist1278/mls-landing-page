@@ -19,7 +19,7 @@ export default function TrustBar() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 28s linear infinite;
+          animation: marquee 50s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
@@ -27,7 +27,7 @@ export default function TrustBar() {
       `}</style>
       <div className="marquee-track">
         {[...signals, ...signals, ...signals, ...signals].map((s, i) => (
-          <div key={i} className="flex items-center gap-2.5 flex-none px-6">
+          <div key={i} className="flex items-center gap-2 flex-none px-3">
             <span style={{ color: "#C4956A", fontSize: "0.5rem" }}>{s.icon}</span>
             <span className="font-micro whitespace-nowrap" style={{ color: "#E8D5C0", fontSize: "0.65rem" }}>
               {s.label}
