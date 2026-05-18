@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { ClipboardCheck, Target, Users } from "lucide-react";
 
 const pillars = [
 {
@@ -23,6 +24,24 @@ const pillars = [
   "Monthly live community calls",
   "Phase-organized peer support groups"]
 }];
+
+const mobileCards = [
+  {
+    title: "IMPLEMENTATION-FIRST",
+    description: "State-specific guidance, templates, and step-by-step roadmaps designed for home providers.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "MOMENTUM & ACCOUNTABILITY",
+    description: "Phase tracking, milestones, and weekly action steps to keep you moving forward.",
+    icon: Target,
+  },
+  {
+    title: "THE VILLAGE",
+    description: "A supportive community of women building, sharing, and growing alongside you.",
+    icon: Users,
+  },
+];
 
 
 
@@ -145,14 +164,11 @@ export default function EcosystemSection() {
               </div>
             </div>
           </div>
-          {/* Pillars — horizontal scroll on mobile, vertical stack on desktop */}
-          <div className="md:col-span-3">
-            <div
-              className="flex md:flex-col gap-3 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory px-1"
-              style={{ scrollbarWidth: "none", overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}>
-              
+          {/* Pillars — desktop only stacked */}
+          <div className="hidden md:block md:col-span-3">
+            <div className="flex flex-col gap-3">
               {pillars.slice(0, 2).map((pillar, i) =>
-              <div key={pillar.num} className="flex-none md:flex-auto snap-start" style={{ width: "calc(100vw - 56px)", maxWidth: "300px" }}>
+              <div key={pillar.num}>
                 <PillarCard pillar={pillar} index={i} />
               </div>
               )}
@@ -160,7 +176,28 @@ export default function EcosystemSection() {
           </div>
         </div>
 
-
+        {/* Mobile swipe cards */}
+        <div className="md:hidden -mx-6">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}>
+            {mobileCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <div key={card.title} className="flex-none min-w-[85%] snap-center rounded-2xl border border-[#E8D8C7] bg-white/70 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+                  <Icon size={22} style={{ color: "#4D5E49", marginBottom: "10px", strokeWidth: 1.6 }} />
+                  <h3 className="font-display text-[15px] font-semibold mb-2 leading-snug" style={{ color: "#2C2C2C" }}>{card.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#7A6E65" }}>{card.description}</p>
+                </div>
+              );
+            })}
+          </div>
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-3">
+            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: "#566B4E" }} />
+            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: "#D8C6B2" }} />
+            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: "#D8C6B2" }} />
+          </div>
+        </div>
 
         {/* Quote */}
         <div
