@@ -168,7 +168,7 @@ export default function WalkAwaySection() {
               className="relative rounded-[16px] overflow-hidden"
               style={{ boxShadow: "0 4px 24px rgba(196,149,106,0.1)", border: "1px solid rgba(196,149,106,0.08)", zIndex: 1 }}>
               
-              <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/e198a7edc_ChatGPT_Image_May_18__2026__08_11_33_AM.png"
+              <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5d4942da6_ChatGPT_Image_May_18__2026__09_38_47_AM.png"
 
               alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
               className="w-full h-auto block"
