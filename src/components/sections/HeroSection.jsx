@@ -62,7 +62,7 @@ export default function HeroSection() {
                 className="font-display mb-7 break-words"
                 style={{
                   color: "#2C2C2C",
-                  fontSize: "clamp(2.1rem, 6vw, 4.8rem)",
+                  fontSize: "clamp(2.5rem, 7vw, 5.6rem)",
                   letterSpacing: "-0.02em",
                   lineHeight: "1.22",
                   maxWidth: "100%",
@@ -71,7 +71,10 @@ export default function HeroSection() {
                 }}
               >
                 Reimagining Home Childcare{" "}
-                <em style={{ color: "#4D5E49" }}>for Modern Motherhood.</em>
+                <br />
+                <em style={{ color: "#4D5E49" }}>for Modern{" "}</em>
+                <br />
+                <em style={{ color: "#4D5E49" }}>Motherhood.</em>
               </h1>
             </div>
 
