@@ -127,6 +127,24 @@ export default function HeroSection() {
                 Explore the Method
               </button>
             </div>
+
+            {/* Mobile-only subtle launch path preview card */}
+            <div className="md:hidden mt-6 w-full max-w-full overflow-hidden rounded-2xl px-4 py-4"
+              style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.12)" }}>
+              <p className="font-micro mb-3" style={{ color: "#4D5E49", fontSize: "0.62rem", letterSpacing: "0.1em" }}>
+                Your Launch Path
+              </p>
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="font-body text-xs font-medium" style={{ color: "#2C2C2C" }}>Phase 1: Vision &amp; Lifestyle</span>
+                <span className="font-micro text-xs" style={{ color: "#C4956A", fontSize: "0.65rem" }}>Start here</span>
+              </div>
+              <div className="w-full h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(196,149,106,0.18)" }}>
+                <div className="h-full rounded-full" style={{ width: "18%", backgroundColor: "#4D5E49" }} />
+              </div>
+              <p className="mt-3 font-body text-xs" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
+                Next step: Choose your childcare model
+              </p>
+            </div>
           </div>
 
           {/* Hero image — stacks below on mobile, right column on desktop */}

@@ -130,6 +130,22 @@ export default function WhatIsMamaLaunchSection() {
             <p className="font-body leading-relaxed mb-3" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "38rem" }}>
               Mama Launch is a guided implementation system helping mothers launch intentional home childcare programs — with step-by-step phases, templates, and community support.
             </p>
+
+            {/* Mobile-only pacing cards */}
+            <div className="md:hidden flex flex-col gap-2 mb-5 w-full max-w-full overflow-hidden">
+              {[
+                { title: "Guided Roadmap", body: "Know what to do first, next, and later." },
+                { title: "Built-In Clarity", body: "Your templates, steps, and decisions live in one place." },
+                { title: "Launch Momentum", body: "Track progress so your idea becomes a real program." },
+              ].map((card) => (
+                <div key={card.title} className="w-full rounded-xl px-4 py-3 overflow-hidden"
+                  style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.10)" }}>
+                  <p className="font-display text-sm font-semibold mb-0.5" style={{ color: "#2C2C2C" }}>{card.title}</p>
+                  <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
+                </div>
+              ))}
+            </div>
+
             <p className="hidden md:block font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "38rem" }}>
               This is not a traditional business course or generic childcare training. Mama Launch helps mothers build calm, sustainable childcare ecosystems rooted in structure, emotional safety, and real family life.
             </p>
