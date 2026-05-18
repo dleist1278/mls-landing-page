@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GraduationCap, Home, Heart, ChevronDown, ArrowRight, LayoutDashboard } from "lucide-react";
+import { GraduationCap, Home, Heart, ChevronDown, ArrowRight, LayoutDashboard, Lightbulb, BookOpen, Gift } from "lucide-react";
 
 const credentials = [
   { icon: GraduationCap, text: "Former educator + school leader" },
@@ -10,16 +10,19 @@ const credentials = [
 
 const drawers = [
   {
+    icon: Lightbulb,
     title: "Why I built it",
     content:
       "When I opened my own program, I found scattered information, no clear roadmap, and very little support designed for serious home providers.",
   },
   {
+    icon: BookOpen,
     title: "What I understand",
     content:
       "I understand licensing, parent communication, daily systems, classroom flow, and the emotional reality of building a business while raising your own children.",
   },
   {
+    icon: Gift,
     title: "What this gives you",
     content:
       "Mama Launch gives you a guided path, practical tools, and a supportive village so you can move forward with clarity instead of overwhelm.",
@@ -27,6 +30,7 @@ const drawers = [
 ];
 
 function AccordionDrawer({ drawer, isOpen, onToggle }) {
+  const Icon = drawer.icon;
   return (
     <div className={`rounded-2xl border border-[#E8D8C7] overflow-hidden transition-colors duration-200 ${isOpen ? "bg-[#FFFDF9]" : "bg-white/70"}`}>
       <button
@@ -34,7 +38,10 @@ function AccordionDrawer({ drawer, isOpen, onToggle }) {
         onClick={onToggle}
         className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left"
       >
-        <span className="font-medium text-[#2B2B28] text-sm">{drawer.title}</span>
+        <span className="flex items-center gap-2.5 font-medium text-[#2B2B28] text-sm">
+          <Icon className="h-4 w-4 text-[#C98F5D] flex-shrink-0" />
+          {drawer.title}
+        </span>
         <ChevronDown
           className="h-4 w-4 flex-shrink-0 text-[#566B4E] transition-transform duration-300"
           style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
