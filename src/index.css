@@ -53,6 +53,11 @@
     overflow-x: hidden;
   }
 
+  /* Prevent horizontal swipe from triggering browser back/forward on iOS */
+  .overflow-x-auto {
+    overscroll-behavior-x: contain;
+  }
+
   h1, h2, h3, h4, h5 {
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.02em;

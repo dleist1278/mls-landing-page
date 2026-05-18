@@ -137,7 +137,7 @@ export default function ModelsSection() {
         {/* Coming soon pathways — horizontal scroll on mobile */}
         <div
           className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 snap-x snap-mandatory"
-          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
+          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", overscrollBehaviorX: "contain" }}>
           
           {comingSoon.map((m, i) =>
           <ComingSoonCard key={m.title} model={m} index={i} />

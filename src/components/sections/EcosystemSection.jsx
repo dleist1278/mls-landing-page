@@ -151,7 +151,7 @@ export default function EcosystemSection() {
           <div className="md:col-span-3">
             <div
               className="flex md:flex-col gap-4 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory"
-              style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
+              style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", overscrollBehaviorX: "contain" }}>
               
               {pillars.slice(0, 2).map((pillar, i) =>
               <div key={pillar.num} className="flex-none md:flex-auto snap-start" style={{ width: "min(80vw, 320px)", minWidth: "min(80vw, 320px)" }}>

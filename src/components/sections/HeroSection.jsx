@@ -27,7 +27,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative flex items-center overflow-hidden"
-      style={{ backgroundColor: "#FAF7F2" }}
+      style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "0px" }}
     >
       {/* Background image wash */}
       <div className="absolute inset-0 z-0">

@@ -116,7 +116,7 @@ export default function FounderSection() {
               {/* Horizontal scroll — 2 cards per "page" */}
               <div
                 className="flex gap-2 overflow-x-auto pb-1"
-                style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", scrollSnapType: "x mandatory" }}
+                style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch", scrollSnapType: "x mandatory", overscrollBehaviorX: "contain" }}
               >
                 {[credentials.slice(0, 2), credentials.slice(2, 4)].map((pair, gi) => (
                   <div
