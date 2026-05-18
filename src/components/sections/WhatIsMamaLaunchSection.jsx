@@ -66,8 +66,8 @@ export default function WhatIsMamaLaunchSection() {
             opacity: visible ? 1 : 0,
           }}>
           
-          {/* Left — editorial imagery + differentiators */}
-          <div className="flex flex-col gap-5">
+          {/* Left — editorial imagery + differentiators (hidden on mobile) */}
+          <div className="hidden md:flex flex-col gap-5">
             {/* Level 1 — editorial backing */}
             <div className="relative" style={{ aspectRatio: "4/3" }}>
               <div
@@ -127,32 +127,46 @@ export default function WhatIsMamaLaunchSection() {
               What is the<br />
               <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
             </h2>
-            <p className="font-body leading-relaxed mb-3" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "38rem" }}>
+            {/* Desktop summary paragraph */}
+            <p className="hidden md:block font-body leading-relaxed mb-3" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "38rem" }}>
               Mama Launch is a guided implementation system helping mothers launch intentional home childcare programs — with step-by-step phases, templates, and community support.
             </p>
 
-            {/* Mobile-only pacing cards */}
-            <div className="md:hidden flex flex-col gap-2 mb-5 w-full max-w-full overflow-hidden">
-              {[
-                { title: "Guided Roadmap", body: "Know what to do first, next, and later." },
-                { title: "Built-In Clarity", body: "Your templates, steps, and decisions live in one place." },
-                { title: "Launch Momentum", body: "Track progress so your idea becomes a real program." },
-              ].map((card) => (
-                <div key={card.title} className="w-full rounded-xl px-4 py-3 overflow-hidden"
-                  style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.10)" }}>
-                  <p className="font-display text-sm font-semibold mb-0.5" style={{ color: "#2C2C2C" }}>{card.title}</p>
-                  <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
-                </div>
-              ))}
+            {/* Mobile summary — concise */}
+            <p className="md:hidden font-body leading-relaxed mb-4" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
+              A guided opening path that helps you move from idea to real program with less guesswork.
+            </p>
+
+            {/* Mobile-only horizontal swipe proof cards */}
+            <div className="md:hidden -mx-5 mb-5 overflow-hidden">
+              <div
+                className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-3"
+                style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {[
+                  { title: "Guided Roadmap", body: "Know what to do first, next, and later." },
+                  { title: "Built-In Clarity", body: "Your templates, steps, and decisions live in one place." },
+                  { title: "Launch Momentum", body: "Track progress so your idea becomes a real program." },
+                ].map((card) => (
+                  <div key={card.title}
+                    className="flex-none w-[72vw] max-w-[260px] snap-center rounded-xl px-4 py-3 overflow-hidden"
+                    style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.10)" }}>
+                    <p className="font-display text-sm font-semibold mb-1" style={{ color: "#2C2C2C" }}>{card.title}</p>
+                    <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
+                  </div>
+                ))}
+                <div className="flex-none w-1" />
+              </div>
             </div>
 
             <p className="hidden md:block font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "38rem" }}>
               This is not a traditional business course or generic childcare training. Mama Launch helps mothers build calm, sustainable childcare ecosystems rooted in structure, emotional safety, and real family life.
             </p>
-            <div className="md:hidden mb-5" />
 
             <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 mb-5">
+
+            {/* Desktop: single-column list */}
+            <div className="hidden md:grid grid-cols-2 gap-x-6 gap-y-1 mb-5">
               {included.map((item) =>
               <div key={item} className="flex items-start gap-2">
                   <span className="mt-1 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
@@ -161,11 +175,32 @@ export default function WhatIsMamaLaunchSection() {
               )}
             </div>
 
+            {/* Mobile: compact 2-column grid */}
+            <div className="md:hidden grid grid-cols-2 gap-x-4 gap-y-2 mb-4 w-full max-w-full overflow-hidden">
+              {[
+                "Implementation phases",
+                "Licensing guidance",
+                "Home setup planning",
+                "Operational templates",
+                "Parent communication",
+                "Cohort support",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-1.5 overflow-hidden">
+                  <span className="mt-1 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
+                  <span className="font-body text-xs leading-snug" style={{ color: "#5C5148" }}>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile: founding member support line */}
+            <p className="md:hidden font-body text-xs mb-5" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
+              Founding members unlock the complete 5-phase path first.
+            </p>
+
             <button
-              onClick={() => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.getElementById("method-roadmap")?.scrollIntoView({ behavior: "smooth" })}
               className="font-micro px-7 py-3.5 rounded-full border transition-all min-h-[48px]"
               style={{ color: "#fff", borderColor: "#4D5E49", fontSize: "0.78rem", backgroundColor: "#4D5E49", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
-              
               See the 5-Phase Method →
             </button>
           </div>

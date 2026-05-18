@@ -114,9 +114,10 @@ export default function HeroSection() {
               >
                 Become a Founding Member
               </button>
+              {/* Ghost CTA — desktop/tablet only; replaced by text link on mobile */}
               <button
                 onClick={scrollToMethod}
-                className="font-micro px-7 py-3.5 rounded-full border transition-all duration-200 min-h-[48px] focus-sage w-full sm:w-auto text-center"
+                className="hidden sm:block font-micro px-7 py-3.5 rounded-full border transition-all duration-200 min-h-[48px] focus-sage text-center"
                 style={{
                   color: "#4D5E49",
                   borderColor: "#4D5E4928",
@@ -128,23 +129,48 @@ export default function HeroSection() {
               </button>
             </div>
 
-            {/* Mobile-only subtle launch path preview card */}
-            <div className="md:hidden mt-6 w-full max-w-full overflow-hidden rounded-2xl px-4 py-4"
+            {/* Mobile-only bridge copy */}
+            <p className="md:hidden mt-5 font-body text-xs leading-relaxed" style={{ color: "#7A6E65", maxWidth: "100%" }}>
+              You don't have to piece this together alone. Founding members get the step-by-step path from idea to opening day.
+            </p>
+
+            {/* Mobile-only: Your First Steps proof card */}
+            <div className="md:hidden mt-4 w-full max-w-full overflow-hidden rounded-2xl px-4 py-4"
               style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.12)" }}>
-              <p className="font-micro mb-3" style={{ color: "#4D5E49", fontSize: "0.62rem", letterSpacing: "0.1em" }}>
-                Your Launch Path
-              </p>
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="font-body text-xs font-medium" style={{ color: "#2C2C2C" }}>Phase 1: Vision &amp; Lifestyle</span>
-                <span className="font-micro text-xs" style={{ color: "#C4956A", fontSize: "0.65rem" }}>Start here</span>
+              <div className="flex items-center justify-between mb-3">
+                <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.1em" }}>
+                  YOUR FIRST STEPS
+                </p>
+                <span className="font-micro px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: "#C4956A", fontSize: "0.56rem", letterSpacing: "0.06em" }}>
+                  Founding member access
+                </span>
               </div>
-              <div className="w-full h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(196,149,106,0.18)" }}>
-                <div className="h-full rounded-full" style={{ width: "18%", backgroundColor: "#4D5E49" }} />
-              </div>
-              <p className="mt-3 font-body text-xs" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
-                Next step: Choose your childcare model
+              <ol className="flex flex-col gap-2 mb-3">
+                {[
+                  "Choose your childcare model",
+                  "Plan your home setup",
+                  "Understand your licensing path",
+                ].map((step, i) => (
+                  <li key={step} className="flex items-start gap-2">
+                    <span className="flex-none w-4 h-4 rounded-full flex items-center justify-center mt-0.5 text-white font-body"
+                      style={{ backgroundColor: "#4D5E49", fontSize: "0.5rem" }}>{i + 1}</span>
+                    <span className="font-body text-xs leading-snug" style={{ color: "#2C2C2C" }}>{step}</span>
+                  </li>
+                ))}
+              </ol>
+              <p className="font-body text-xs" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
+                Join now to unlock the full 5-phase opening plan.
               </p>
             </div>
+
+            {/* Mobile-only: secondary text link replacing the ghost button */}
+            <button
+              onClick={scrollToMethod}
+              className="md:hidden mt-4 font-body text-xs underline underline-offset-2 focus-sage"
+              style={{ color: "#4D5E49", background: "none", border: "none", padding: 0, cursor: "pointer" }}
+            >
+              Explore the method →
+            </button>
           </div>
 
           {/* Hero image — stacks below on mobile, right column on desktop */}

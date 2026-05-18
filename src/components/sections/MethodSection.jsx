@@ -181,6 +181,7 @@ export default function MethodSection() {
 
       {/* Horizontal scroll */}
       <div
+        id="method-roadmap"
         className="flex gap-3 overflow-x-auto pb-4 px-5 md:px-12 max-w-6xl mx-auto"
         style={{
           scrollbarWidth: "none",
