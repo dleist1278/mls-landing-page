@@ -58,7 +58,7 @@ function StepRow({ step, index }) {
       </div>
       <div className="pt-0.5 pb-1">
         <h3 className="font-display text-sm mb-0.5" style={{ color: "#2C2C2C", lineHeight: "1.3" }}>{step.title}</h3>
-        <p className="font-body text-xs leading-snug" style={{ color: "#5C5148", maxWidth: "480px", lineHeight: "1.5" }}>{step.description}</p>
+        <p className="font-body text-xs leading-snug hidden" style={{ color: "#5C5148", maxWidth: "480px", lineHeight: "1.5" }}>{step.description}</p>
       </div>
     </div>);
 
