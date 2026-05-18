@@ -34,25 +34,25 @@ const pillars = [
 }];
 
 const mobileCards = [
-  {
-    title: "The Village",
-    description: "Connect with other moms building alongside you.",
-    image: VILLAGE_FEATURE_IMAGE,
-    position: VILLAGE_FEATURE_POSITION,
-  },
-  {
-    title: "Phase Tracking",
-    description: "See exactly where you are and what to do next.",
-    image: PHASE_TRACKING_FEATURE_IMAGE,
-    position: PHASE_TRACKING_FEATURE_POSITION,
-  },
-  {
-    title: "Implementation Tools",
-    description: "Access templates, prompts, and guided action steps.",
-    image: IMPLEMENTATION_TOOLS_FEATURE_IMAGE,
-    position: IMPLEMENTATION_TOOLS_FEATURE_POSITION,
-  },
-];
+{
+  title: "The Village",
+  description: "Connect with other moms building alongside you.",
+  image: VILLAGE_FEATURE_IMAGE,
+  position: VILLAGE_FEATURE_POSITION
+},
+{
+  title: "Phase Tracking",
+  description: "See exactly where you are and what to do next.",
+  image: PHASE_TRACKING_FEATURE_IMAGE,
+  position: PHASE_TRACKING_FEATURE_POSITION
+},
+{
+  title: "Implementation Tools",
+  description: "Access templates, prompts, and guided action steps.",
+  image: IMPLEMENTATION_TOOLS_FEATURE_IMAGE,
+  position: IMPLEMENTATION_TOOLS_FEATURE_POSITION
+}];
+
 
 
 
@@ -78,7 +78,7 @@ function PillarCard({ pillar, index }) {
         border: "1px solid #C4956A1A",
         transition: `opacity 0.6s ease ${index * 100}ms`,
         opacity: visible ? 1 : 0,
-        boxShadow: "0 4px 32px rgba(196,149,106,0.04)",
+        boxShadow: "0 4px 32px rgba(196,149,106,0.04)"
       }}>
 
       <h3 className="font-display text-lg md:text-xl mb-2" style={{ color: "#2C2C2C" }}>{pillar.title}</h3>
@@ -128,7 +128,7 @@ export default function EcosystemSection() {
           className="text-center mb-5 md:mb-12"
           style={{
             transition: "opacity 0.6s ease",
-            opacity: headerVisible ? 1 : 0,
+            opacity: headerVisible ? 1 : 0
           }}>
           
           <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -190,29 +190,29 @@ export default function EcosystemSection() {
         {/* Mobile swipe cards */}
         <div className="md:hidden -mx-6">
           <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-            style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}>
-            {mobileCards.map((card) => (
-              <div key={card.title} className="flex-none min-w-[86%] snap-center rounded-[28px] bg-white/75 border border-[#E8D8C7] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden">
-                {card.image ? (
-                  <div className="w-full h-[210px] rounded-2xl border border-[#E8D8C7] overflow-hidden">
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-full object-cover"
-                      style={{ backgroundColor: "#F4EFE6", objectPosition: card.position }}
-                    />
-                  </div>
-                ) : (
-                  <div className="h-[210px] rounded-2xl border border-dashed border-[#D8C6B2] bg-[#F4EFE6] flex items-center justify-center">
+          style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}>
+            {mobileCards.map((card) =>
+            <div key={card.title} className="flex-none min-w-[86%] snap-center rounded-[28px] bg-white/75 border border-[#E8D8C7] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden">
+                {card.image ?
+              <div className="w-full h-[210px] rounded-2xl border border-[#E8D8C7] overflow-hidden">
+                    <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a82d704a3_ChatGPT_Image_May_18__2026__02_16_25_PM.png"
+
+                alt={card.title}
+                className="w-full h-full object-cover"
+                style={{ backgroundColor: "#F4EFE6", objectPosition: card.position }} />
+                
+                  </div> :
+
+              <div className="h-[210px] rounded-2xl border border-dashed border-[#D8C6B2] bg-[#F4EFE6] flex items-center justify-center">
                     <span className="text-sm text-[#566B4E]">Upload platform screenshot</span>
                   </div>
-                )}
+              }
                 <div className="px-2 pt-4 pb-2">
                   <h3 className="font-display text-2xl text-[#2B2B28]">{card.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-[#3A3A35]">{card.description}</p>
                 </div>
               </div>
-            ))}
+            )}
           </div>
           {/* Dot indicators */}
           <div className="flex justify-center gap-2 mt-4">
@@ -228,7 +228,7 @@ export default function EcosystemSection() {
           className="mt-4 md:mt-10 text-center mx-auto max-w-xl"
           style={{
             transition: "opacity 0.6s ease",
-            opacity: quoteVisible ? 1 : 0,
+            opacity: quoteVisible ? 1 : 0
           }}>
           
           <div className="w-8 h-px mx-auto mb-5" style={{ backgroundColor: "#C4956A" }} />
