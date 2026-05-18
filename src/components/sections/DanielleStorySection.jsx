@@ -5,7 +5,7 @@ const credentials = [
   { icon: GraduationCap, text: "Former educator + school leader" },
   { icon: Home, text: "Licensed home daycare owner" },
   { icon: Heart, text: "Mom of two" },
-  { icon: LayoutDashboard, text: "Built a childcare launch platform + app" },
+  { icon: LayoutDashboard, text: "Experience in app implementation" },
 ];
 
 const drawers = [
@@ -82,13 +82,13 @@ export default function DanielleStorySection() {
   );
 
   const Pills = (
-    <div className="flex flex-col gap-1 mb-7">
+    <div className="flex flex-wrap gap-2 mb-7 lg:flex-col lg:gap-1">
       {credentials.map((item) => {
         const Icon = item.icon;
         return (
           <div
             key={item.text}
-            className="flex items-center gap-3 rounded-full bg-white/40 px-3 py-2 text-[13px] text-[#2B2B28] ring-1 ring-[#E8D8C7] w-fit"
+            className="flex items-center gap-3 rounded-full bg-white/40 px-3 py-2 text-[13px] text-[#2B2B28] ring-1 ring-[#E8D8C7] w-fit basis-[48%] lg:basis-auto"
           >
             <Icon className="h-3.5 w-3.5 text-[#566B4E] flex-shrink-0" />
             <span>{item.text}</span>
