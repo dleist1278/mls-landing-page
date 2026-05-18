@@ -62,9 +62,8 @@ export default function WhatIsMamaLaunchSection() {
           ref={ref}
           className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
           style={{
-            transition: "all 0.6s ease",
+            transition: "opacity 0.6s ease",
             opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(16px)"
           }}>
           
           {/* Left — editorial imagery + differentiators */}
