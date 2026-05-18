@@ -189,6 +189,18 @@ export default function FoundingMemberSection() {
     <section className="md:py-16 py-7" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12">
 
+        {/* Village Community Image */}
+        <div className="mb-8 md:mb-14">
+          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden mx-auto" style={{ maxWidth: "820px", boxShadow: "0 12px 48px rgba(44,44,44,0.10), 0 2px 12px rgba(196,149,106,0.08)", border: "1px solid #C4956A18" }}>
+            <img
+              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9b9b7e4c8_ChatGPTImageMay18202609_40_41AM.png"
+              alt="The Village — community hub inside Mama Launch Studio"
+              className="w-full h-auto block"
+              style={{ filter: "saturate(0.9) brightness(0.98)" }}
+            />
+          </div>
+        </div>
+
         {/* Header */}
         <div
           ref={headerRef}
