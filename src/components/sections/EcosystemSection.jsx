@@ -84,16 +84,15 @@ function CardImage({ cardKey }) {
   const imageUrl = CARD_IMAGES[cardKey] || "";
 
   return (
-    <div className="relative w-full h-[210px] rounded-2xl border border-[#DCCBB8] shadow-[0_4px_12px_rgba(0,0,0,0.04)] overflow-hidden">
+    <div className="w-full rounded-2xl border border-[#DCCBB8] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.04)] overflow-hidden">
       {imageUrl ? (
         <img
           src={imageUrl}
           alt={cardKey}
-          className="w-full h-full object-cover"
-          style={{ backgroundColor: "#F4EFE6" }}
+          className="w-full h-auto object-contain object-top block"
         />
       ) : (
-        <div className="w-full h-full bg-[#F4EFE6] flex flex-col items-center justify-center gap-2">
+        <div className="w-full py-12 bg-[#F4EFE6] flex flex-col items-center justify-center gap-2">
           <span className="text-sm text-[#566B4E]">Upload platform screenshot</span>
         </div>
       )}
@@ -140,7 +139,7 @@ export default function EcosystemSection() {
           </p>
         </div>
 
-        {/* Community image + pillars */}
+        {/* Community image + pillars — desktop only */}
         <div className="grid md:grid-cols-5 gap-5 mb-10 items-center">
           <div className="hidden md:block md:col-span-2 self-stretch">
             <div className="relative h-full" style={{ minHeight: "360px" }}>
@@ -172,11 +171,14 @@ export default function EcosystemSection() {
         {/* Mobile swipe cards */}
         <div className="md:hidden -mx-6">
           <div
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-4 max-w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}
           >
             {MOBILE_CARD_META.map((card) => (
-              <div key={card.key} className="flex-none min-w-[86%] snap-center rounded-[28px] bg-[#EFE7DB] border border-[#E8D8C7] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden">
+              <div
+                key={card.key}
+                className="flex-none w-[82vw] max-w-[340px] snap-center rounded-[28px] bg-[#EFE7DB] border border-[#DCCBB8] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden"
+              >
                 <CardImage cardKey={card.key} />
                 <div className="px-2 pt-4 pb-2">
                   <h3 className="font-display text-2xl text-[#2B2B28]">{card.title}</h3>
