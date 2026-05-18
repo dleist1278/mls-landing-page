@@ -164,7 +164,8 @@ export default function MethodSection() {
           transform: headerVisible ? "translateY(0)" : "translateY(16px)",
         }}>
 
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+        {/* Desktop header */}
+        <div className="hidden md:flex flex-col md:flex-row md:items-end md:justify-between gap-5">
           <div>
             <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
@@ -176,6 +177,19 @@ export default function MethodSection() {
               <em style={{ color: "#4D5E49" }}>Five Phases. Real Deliverables.</em>
             </h2>
           </div>
+        </div>
+
+        {/* Mobile header */}
+        <div className="md:hidden">
+          <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            THE OPENING PATH
+          </p>
+          <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 7vw, 2.4rem)", lineHeight: "1.2" }}>
+            The 5 phases that guide you from idea to opening day.
+          </h2>
+          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
+            Move through each phase with guided prompts, practical tools, and clear next steps designed for real motherhood life.
+          </p>
         </div>
       </div>
 
