@@ -11,9 +11,9 @@ const CARD_IMAGES = {
 };
 
 const MOBILE_CARD_META = [
-  { key: "village_feature", title: "The Village", description: "Connect with other moms building alongside you." },
-  { key: "phase_tracking_feature", title: "Phase Tracking", description: "See exactly where you are and what to do next." },
-  { key: "implementation_tools_feature", title: "Implementation Tools", description: "Access templates, prompts, and guided action steps." },
+  { key: "village_feature", title: "The Village", description: "Connect with other moms building alongside you, sharing wins, questions, ideas, and real launch momentum." },
+  { key: "phase_tracking_feature", title: "Phase Tracking", description: "See where you are, what comes next, and which action steps move you closer to opening." },
+  { key: "implementation_tools_feature", title: "Implementation Tools", description: "Access templates, prompts, checklists, and guided tools that help you build with more clarity." },
 ];
 
 const pillars = [
@@ -84,15 +84,15 @@ function CardImage({ cardKey }) {
   const imageUrl = CARD_IMAGES[cardKey] || "";
 
   return (
-    <div className="w-full rounded-2xl border border-[#DCCBB8] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.04)] overflow-hidden">
+    <div className="w-full h-[240px] overflow-hidden rounded-2xl border border-[#DCCBB8] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
       {imageUrl ? (
         <img
           src={imageUrl}
           alt={cardKey}
-          className="w-full h-auto object-contain object-top block"
+          className="w-full h-full object-contain object-center block"
         />
       ) : (
-        <div className="w-full py-12 bg-[#F4EFE6] flex flex-col items-center justify-center gap-2">
+        <div className="w-full h-[240px] rounded-2xl border border-dashed border-[#D8C6B2] bg-[#F4EFE6] flex items-center justify-center">
           <span className="text-sm text-[#566B4E]">Upload platform screenshot</span>
         </div>
       )}
