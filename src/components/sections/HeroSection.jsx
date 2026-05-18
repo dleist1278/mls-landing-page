@@ -62,7 +62,7 @@ export default function HeroSection() {
                 className="font-display mb-7 break-words"
                 style={{
                   color: "#2C2C2C",
-                  fontSize: "clamp(1.75rem, 5vw, 4.2rem)",
+                  fontSize: "clamp(2.1rem, 6vw, 4.8rem)",
                   letterSpacing: "-0.02em",
                   lineHeight: "1.22",
                   maxWidth: "100%",
