@@ -1,5 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
-import { ClipboardCheck, Target, Users } from "lucide-react";
+
+const VILLAGE_FEATURE_IMAGE = "";
+const PHASE_TRACKING_FEATURE_IMAGE = "";
+const IMPLEMENTATION_TOOLS_FEATURE_IMAGE = "";
 
 const pillars = [
 {
@@ -27,19 +30,19 @@ const pillars = [
 
 const mobileCards = [
   {
-    title: "IMPLEMENTATION-FIRST",
-    description: "State-specific guidance, templates, and step-by-step roadmaps designed for home providers.",
-    icon: ClipboardCheck,
+    title: "The Village",
+    description: "Connect with other moms building alongside you.",
+    image: VILLAGE_FEATURE_IMAGE,
   },
   {
-    title: "MOMENTUM & ACCOUNTABILITY",
-    description: "Phase tracking, milestones, and weekly action steps to keep you moving forward.",
-    icon: Target,
+    title: "Phase Tracking",
+    description: "See exactly where you are and what to do next.",
+    image: PHASE_TRACKING_FEATURE_IMAGE,
   },
   {
-    title: "THE VILLAGE",
-    description: "A supportive community of women building, sharing, and growing alongside you.",
-    icon: Users,
+    title: "Implementation Tools",
+    description: "Access templates, prompts, and guided action steps.",
+    image: IMPLEMENTATION_TOOLS_FEATURE_IMAGE,
   },
 ];
 
@@ -178,24 +181,36 @@ export default function EcosystemSection() {
 
         {/* Mobile swipe cards */}
         <div className="md:hidden -mx-6">
-          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}>
-            {mobileCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                <div key={card.title} className="flex-none min-w-[85%] snap-center rounded-2xl border border-[#E8D8C7] bg-white/70 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-                  <Icon size={22} style={{ color: "#4D5E49", marginBottom: "10px", strokeWidth: 1.6 }} />
-                  <h3 className="font-display text-[15px] font-semibold mb-2 leading-snug" style={{ color: "#2C2C2C" }}>{card.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#7A6E65" }}>{card.description}</p>
+            {mobileCards.map((card) => (
+              <div key={card.title} className="flex-none min-w-[86%] snap-center rounded-[28px] bg-white/75 border border-[#E8D8C7] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden">
+                {card.image ? (
+                  <div className="w-full h-[210px] rounded-2xl border border-[#E8D8C7] overflow-hidden">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-full object-cover object-top"
+                      style={{ backgroundColor: "#F4EFE6" }}
+                    />
+                  </div>
+                ) : (
+                  <div className="h-[210px] rounded-2xl border border-dashed border-[#D8C6B2] bg-[#F4EFE6] flex items-center justify-center">
+                    <span className="text-sm text-[#566B4E]">Upload platform screenshot</span>
+                  </div>
+                )}
+                <div className="px-2 pt-4 pb-2">
+                  <h3 className="font-display text-2xl text-[#2B2B28]">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#3A3A35]">{card.description}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
           {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-3">
-            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: "#566B4E" }} />
-            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: "#D8C6B2" }} />
-            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: "#D8C6B2" }} />
+          <div className="flex justify-center gap-2 mt-4">
+            <span className="h-2 w-2 rounded-full bg-[#566B4E]" />
+            <span className="h-2 w-2 rounded-full bg-[#D8C6B2]" />
+            <span className="h-2 w-2 rounded-full bg-[#D8C6B2]" />
           </div>
         </div>
 
