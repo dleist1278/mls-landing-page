@@ -100,41 +100,33 @@ function CardImage({ cardKey }) {
     setUploading(false);
   };
 
-  if (imageUrl) {
-    return (
-      <div className="relative w-full h-[210px] rounded-2xl border border-[#E8D8C7] overflow-hidden group">
+  const triggerUpload = () => inputRef.current?.click();
+
+  return (
+    <div className="relative w-full h-[210px] rounded-2xl border border-[#E8D8C7] overflow-hidden">
+      {imageUrl ? (
         <img
           src={imageUrl}
           alt={cardKey}
           className="w-full h-full object-cover"
           style={{ backgroundColor: "#F4EFE6" }}
         />
-        <button
-          onClick={() => inputRef.current?.click()}
-          className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-        >
-          <span className="bg-white/90 text-[#2C2C2C] text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-            <Upload size={12} /> Replace photo
-          </span>
-        </button>
-        <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleUpload} />
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className="h-[210px] rounded-2xl border border-dashed border-[#D8C6B2] bg-[#F4EFE6] flex flex-col items-center justify-center gap-2 cursor-pointer"
-      onClick={() => inputRef.current?.click()}
-    >
-      {uploading ? (
-        <span className="text-sm text-[#566B4E]">Uploading…</span>
       ) : (
-        <>
+        <div className="w-full h-full bg-[#F4EFE6] flex flex-col items-center justify-center gap-2">
           <Upload size={20} style={{ color: "#C4956A" }} />
           <span className="text-sm text-[#566B4E]">Tap to upload photo</span>
-        </>
+        </div>
       )}
+      {/* Always-visible upload button overlay — works on touch */}
+      <button
+        onClick={triggerUpload}
+        disabled={uploading}
+        className="absolute bottom-2 right-2 bg-white/90 text-[#2C2C2C] text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow"
+        style={{ border: "1px solid #E8D8C7" }}
+      >
+        <Upload size={12} />
+        {uploading ? "Uploading…" : imageUrl ? "Replace" : "Upload"}
+      </button>
       <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleUpload} />
     </div>
   );
