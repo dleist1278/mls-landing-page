@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 
-const VILLAGE_FEATURE_IMAGE = "";
+const VILLAGE_FEATURE_IMAGE = "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9f2d05936_ChatGPTImageMay18202602_16_25PM.png";
 const PHASE_TRACKING_FEATURE_IMAGE = "";
 const IMPLEMENTATION_TOOLS_FEATURE_IMAGE = "";
 
