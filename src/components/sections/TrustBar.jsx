@@ -10,7 +10,7 @@ const signals = [
 
 export default function TrustBar() {
   return (
-    <div className="w-full py-2 overflow-hidden" style={{ backgroundColor: "#4D5E49" }}>
+    <div style={{ backgroundColor: "#4D5E49", width: "100%", maxWidth: "100vw", overflow: "hidden", position: "relative", paddingTop: "8px", paddingBottom: "8px" }}>
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -20,12 +20,13 @@ export default function TrustBar() {
           display: flex;
           width: max-content;
           animation: marquee 50s linear infinite;
+          will-change: transform;
         }
         .marquee-track:hover {
           animation-play-state: paused;
         }
       `}</style>
-      <div className="marquee-track">
+      <div className="marquee-track" style={{ position: "relative" }}>
         {[...signals, ...signals, ...signals, ...signals].map((s, i) => (
           <div key={i} className="flex items-center gap-2 flex-none px-3">
             <span style={{ color: "#C4956A", fontSize: "0.5rem" }}>{s.icon}</span>

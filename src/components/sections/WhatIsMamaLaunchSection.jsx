@@ -55,9 +55,9 @@ export default function WhatIsMamaLaunchSection() {
   }, []);
 
   return (
-    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden" }}>
+    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%" }}>
       {/* Main two-column editorial block */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20" style={{ overflow: "hidden" }}>
         <div
           ref={ref}
           className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
@@ -115,7 +115,7 @@ export default function WhatIsMamaLaunchSection() {
           </div>
 
           {/* Right — text content */}
-          <div>
+          <div style={{ overflow: "hidden", minWidth: 0 }}>
             <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               Understanding the Platform
