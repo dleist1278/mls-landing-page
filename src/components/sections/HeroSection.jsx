@@ -59,7 +59,7 @@ export default function HeroSection() {
             {/* Headline */}
             <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1
-                className="font-display mb-4 break-words"
+                className="font-display mb-7 break-words"
                 style={{
                   color: "#2C2C2C",
                   fontSize: "clamp(1.75rem, 5vw, 4.2rem)",
@@ -78,7 +78,7 @@ export default function HeroSection() {
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
-                className="font-body mb-4"
+                className="font-body mb-7"
                 style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.55", maxWidth: "100%" }}
               >
                 Launch your home childcare program with guided systems, intentional structure, and a supportive community built around real family life.
@@ -94,7 +94,7 @@ export default function HeroSection() {
                 Launch System · Templates · Community · Guided Implementation
               </p>
             </div>
-            <div className="sm:hidden mb-3" />
+            <div className="sm:hidden mb-6" />
 
             {/* CTAs — stacked on mobile, row on sm+ */}
             <div
