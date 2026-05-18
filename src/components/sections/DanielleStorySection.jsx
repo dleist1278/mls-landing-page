@@ -83,8 +83,7 @@ export default function DanielleStorySection() {
 
   const Bio = (
     <p className="text-[16px] leading-7 text-[#3A3A35] mb-4 max-w-prose">
-      I'm a former educator, assistant principal, licensed home daycare owner, and mom of two.
-      I know both the professional systems and the real life you're building inside of.
+      I've been the educator, the assistant principal, the licensed home daycare owner — and through all of it, I've been a mom of two. I know what it feels like to hold a vision for something meaningful and not know where to begin.
     </p>
   );
 
