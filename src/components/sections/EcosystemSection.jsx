@@ -195,7 +195,7 @@ export default function EcosystemSection() {
             <div key={card.title} className="flex-none min-w-[86%] snap-center rounded-[28px] bg-white/75 border border-[#E8D8C7] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden">
                 {card.image ?
               <div className="w-full h-[210px] rounded-2xl border border-[#E8D8C7] overflow-hidden">
-                    <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a82d704a3_ChatGPT_Image_May_18__2026__02_16_25_PM.png"
+                    <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/0163ef7f7_Screenshot_2026-05-18_at_22025_PM.png"
 
                 alt={card.title}
                 className="w-full h-full object-cover"
