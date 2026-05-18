@@ -27,24 +27,11 @@ export default function FoundingMemberSection() {
 
   return (
     <section className="md:py-16 py-7" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div className="max-w-[1120px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-start">
 
-        {/* Village Community Image */}
-        <div className="mb-8 md:mb-14">
-          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden mx-auto" style={{ maxWidth: "820px", boxShadow: "0 12px 48px rgba(44,44,44,0.10), 0 2px 12px rgba(196,149,106,0.08)", border: "1px solid #C4956A18" }}>
-            <img
-              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9b9b7e4c8_ChatGPTImageMay18202609_40_41AM.png"
-              alt="The Village — community hub inside Mama Launch Studio"
-              className="w-full h-auto block"
-              style={{ filter: "saturate(0.9) brightness(0.98)" }}
-            />
-          </div>
-        </div>
-
-        {/* Header */}
+        {/* Left column: Header + Callout */}
         <div
           ref={headerRef}
-          className="mb-5 md:mb-12"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
@@ -54,18 +41,27 @@ export default function FoundingMemberSection() {
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             The Founding Member Experience
           </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.2" }}>
-              What Happens After
-              <br />
-              <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
-            </h2>
+          <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.2" }}>
+            What Happens After
+            <br />
+            <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
+          </h2>
 
+          {/* Bottom callout */}
+          <div className="mt-10 rounded-3xl p-6 shadow-sm" style={{ backgroundColor: "#EEF1E7", outline: "1px solid #E1E6D8" }}>
+            <div className="flex items-center gap-5">
+              <div className="text-4xl" style={{ color: "#4D5E49" }}>✨</div>
+              <div className="flex-1">
+                <p className="font-display text-xl font-semibold" style={{ color: "#4D5E49" }}>You're not just joining.</p>
+                <p className="mt-1 text-lg" style={{ color: "#2C2C2C" }}>You're helping build the future.</p>
+              </div>
+              <div className="text-3xl" style={{ color: "#4D5E49" }}>♡</div>
+            </div>
           </div>
         </div>
 
-        {/* Steps */}
-        <div ref={imgRef} className="mx-auto max-w-md">
+        {/* Right column: Steps */}
+        <div ref={imgRef}>
           <div className="relative space-y-5">
             <div className="absolute left-[28px] top-10 h-[calc(100%-80px)] border-l border-dashed" style={{ borderColor: "#D8C6B2" }} />
             {steps.map((step) => (
@@ -85,18 +81,6 @@ export default function FoundingMemberSection() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Bottom callout */}
-          <div className="mt-10 rounded-3xl p-6 shadow-sm" style={{ backgroundColor: "#EEF1E7", outline: "1px solid #E1E6D8" }}>
-            <div className="flex items-center gap-5">
-              <div className="text-4xl" style={{ color: "#4D5E49" }}>✨</div>
-              <div className="flex-1">
-                <p className="font-display text-xl font-semibold" style={{ color: "#4D5E49" }}>You're not just joining.</p>
-                <p className="mt-1 text-lg" style={{ color: "#2C2C2C" }}>You're helping build the future.</p>
-              </div>
-              <div className="text-3xl" style={{ color: "#4D5E49" }}>♡</div>
-            </div>
           </div>
         </div>
 
