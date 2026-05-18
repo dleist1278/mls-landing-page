@@ -10,7 +10,7 @@ import WalkAwaySection from "@/components/sections/WalkAwaySection";
 import ModelsSection from "@/components/sections/ModelsSection";
 import EcosystemSection from "@/components/sections/EcosystemSection";
 import FoundingMemberSection from "@/components/sections/FoundingMemberSection";
-import FounderSection from "@/components/sections/FounderSection";
+import DanielleStorySection from "@/components/sections/DanielleStorySection";
 import IntakeFormSection from "@/components/sections/IntakeFormSection";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
         <ModelsSection />
         <EcosystemSection />
         <FoundingMemberSection />
-        <FounderSection />
+        <DanielleStorySection />
         <IntakeFormSection />
       </main>
       <SiteFooter />
