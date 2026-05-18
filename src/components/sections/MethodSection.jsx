@@ -3,145 +3,102 @@ import React, { useRef, useEffect, useState } from "react";
 const phases = [
 {
   number: "01",
-  name: "Program Foundation",
-  tagline: "Your why, your vision, your path.",
-  emotional: "Feel clear on who you are as a provider and what you're building.",
-  deliverables: ["Program Vision Blueprint", "Ideal Program Summary", "Parent Experience Statement", "Brand Foundation Summary", "Lifestyle Alignment Summary"],
+  name: "Vision, Lifestyle & Program Alignment",
+  outcome: "Choose the childcare model that fits your family, goals, capacity, and real-life schedule.",
+  detail: "Clarify your pathway, income goals, ideal schedule, space needs, and the type of program you want to build.",
+  includes: ["Lifestyle alignment prompts", "Program model decision guide", "Income + schedule clarity"],
   color: "#4D5E49",
-  imageKey: "phase_01_image"
 },
 {
   number: "02",
-  name: "Licensing & Legal Setup",
-  tagline: "Build on a strong and compliant foundation.",
-  emotional: "Feel grounded and prepared — not overwhelmed by paperwork.",
-  deliverables: ["Licensing & Compliance Tracker", "Document Checklist", "Policy & Procedure Outline", "Business Setup Summary", "Insurance & Safety Plan"],
+  name: "Licensing, Home Setup & Safety",
+  outcome: "Understand what you need to prepare legally, safely, and confidently before opening.",
+  detail: "Work through licensing requirements, home preparation, safety systems, inspection readiness, and setup decisions.",
+  includes: ["Licensing guidance", "Home setup checklist", "Inspection prep"],
   color: "#6B7E67",
-  imageKey: "phase_02_image"
 },
 {
   number: "03",
-  name: "Environment & Space Plan",
-  tagline: "Design a space that inspires learning.",
-  emotional: "Feel like a real provider building something beautiful and safe.",
-  deliverables: ["Room Layouts & Floor Plans", "Environment & Material List", "Safety & Setup Checklist", "Outdoor Space Plan", "Aesthetic Vision Board"],
+  name: "Program Design, Policies & Operations",
+  outcome: "Build a calm, professional childcare experience families can trust.",
+  detail: "Create your routines, policies, parent communication systems, daily flow, and operational structure.",
+  includes: ["Parent handbook", "Operational templates", "Communication systems"],
   color: "#C4956A",
-  imageKey: "phase_03_image"
 },
 {
   number: "04",
-  name: "Daily Operations Plan",
-  tagline: "Create calm, consistent, and meaningful days.",
-  emotional: "Feel operationally confident — with systems that actually fit your life.",
-  deliverables: ["Daily Schedule Template", "Curriculum Plan Outline", "Routine & Flow Guide", "Communication Plan", "Behavior Support Plan"],
+  name: "Enrollment, Marketing & Family Trust",
+  outcome: "Attract the right families and help them feel confident choosing your program.",
+  detail: "Build your messaging, inquiry process, enrollment materials, local outreach plan, and trust-building parent experience.",
+  includes: ["Enrollment tools", "Marketing prompts", "Parent inquiry systems"],
   color: "#4D5E49",
-  imageKey: "phase_04_image"
 },
 {
   number: "05",
-  name: "Branding & Enrollment Plan",
-  tagline: "Attract the right families and grow with ease.",
-  emotional: "Feel ready to open your doors and welcome your first families.",
-  deliverables: ["Brand Identity Guide", "Website & Marketing Copy", "Enrollment Process Map", "Parent Communication Templates", "Launch Plan Checklist"],
+  name: "Launch Readiness & Opening",
+  outcome: "Feel prepared, confident, and supported walking into opening week.",
+  detail: "Finalize your systems, prepare your environment, welcome families, and transition into your program with clarity and structure.",
+  includes: ["Opening week checklist", "Family welcome tools", "First-week preparation"],
   color: "#6B7E67",
-  imageKey: "phase_05_image"
 }];
 
-function PhaseCard({ phase, index }) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-  const [expanded, setExpanded] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {if (entry.isIntersecting) setVisible(true);},
-      { threshold: 0.05 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
+function MobilePhaseCard({ phase, isActive, onClick }) {
   return (
-    <div
-      ref={ref}
-      className="flex-none"
+    <button
+      onClick={onClick}
+      className="w-full text-left rounded-2xl overflow-hidden focus:outline-none"
       style={{
-        width: "52vw",
-        maxWidth: "200px",
-        scrollSnapAlign: "start",
-        scrollSnapStop: "always",
-        transition: `opacity 0.5s ease ${index * 60}ms`,
-        opacity: visible ? 1 : 0,
+        backgroundColor: isActive ? "#F0EBE1" : "#FAF7F2",
+        border: `1px solid ${isActive ? phase.color + "40" : "#C4956A18"}`,
+        boxShadow: isActive ? `0 6px 28px rgba(77,94,73,0.10)` : "none",
+        opacity: isActive ? 1 : 0.55,
+        padding: isActive ? "16px" : "12px 16px",
+        transition: "opacity 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease",
       }}>
 
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full text-left rounded-2xl overflow-hidden focus:outline-none"
-        style={{
-          backgroundColor: "#F0EBE1",
-          border: `1px solid ${phase.color}28`,
-          boxShadow: expanded ? `0 4px 24px ${phase.color}18` : "none",
-          transition: "box-shadow 0.2s ease",
-        }}>
-
-        {/* Square top section */}
-        <div
-          style={{
-            aspectRatio: "1/1",
-            padding: "16px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            borderBottom: expanded ? `1px solid ${phase.color}1A` : "none",
-          }}>
-          <div>
-            <div className="font-display" style={{ color: phase.color, fontSize: "2rem", lineHeight: 1, letterSpacing: "-0.02em" }}>
-              {phase.number}
-            </div>
-          </div>
-          <div>
-            <h3 className="font-display text-sm leading-snug mb-1" style={{ color: "#2C2C2C" }}>
-              {phase.name}
-            </h3>
-            <p className="font-body text-xs italic leading-snug" style={{ color: "#7A6E65" }}>
-              {phase.tagline}
-            </p>
-          </div>
-          <div className="flex items-center justify-between mt-1">
-            <p className="font-micro" style={{ color: phase.color, fontSize: "0.58rem" }}>
-              {expanded ? "tap to close" : "tap to expand"}
-            </p>
-            <span style={{ color: phase.color, fontSize: "0.7rem", transition: "transform 0.2s", display: "inline-block", transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
-          </div>
+      {/* Header row — always visible */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <span className="font-display" style={{ color: phase.color, fontSize: isActive ? "1.4rem" : "1rem", lineHeight: 1, transition: "font-size 0.2s ease" }}>
+            {phase.number}
+          </span>
+          <h3 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: isActive ? "0.95rem" : "0.85rem", transition: "font-size 0.2s ease" }}>
+            {phase.name}
+          </h3>
         </div>
+        <span style={{ color: phase.color, fontSize: "0.65rem", opacity: isActive ? 1 : 0, transition: "opacity 0.2s ease" }}>▾</span>
+      </div>
 
-        {/* Expandable detail */}
-        {expanded && (
-          <div className="px-4 py-3">
-            <p className="font-body text-xs italic leading-relaxed mb-3" style={{ color: "#5C5148" }}>
-              "{phase.emotional}"
-            </p>
-            <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.6rem" }}>You'll walk away with</p>
-            <ul className="flex flex-col gap-1.5">
-              {phase.deliverables.map((d) =>
-              <li key={d} className="flex items-start gap-2">
-                  <span className="flex-none mt-0.5 w-3.5 h-3.5 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: `${phase.color}14`, border: `1px solid ${phase.color}28` }}>
-                    <span style={{ color: phase.color, fontSize: "0.45rem" }}>✓</span>
-                  </span>
-                  <span className="font-body text-xs leading-snug" style={{ color: "#3A3330" }}>{d}</span>
-                </li>
-              )}
-            </ul>
-          </div>
-        )}
-      </button>
-    </div>);
+      {/* Expanded detail — only when active */}
+      {isActive && (
+        <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${phase.color}1A` }}>
+          <p className="font-body text-xs leading-relaxed mb-3" style={{ color: "#5C5148" }}>
+            {phase.outcome}
+          </p>
+          <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>What you'll do</p>
+          <p className="font-body text-xs leading-relaxed mb-3" style={{ color: "#7A6E65" }}>
+            {phase.detail}
+          </p>
+          <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>Includes</p>
+          <ul className="flex flex-col gap-1">
+            {phase.includes.map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <span className="flex-none w-1 h-1 rounded-full" style={{ backgroundColor: phase.color }} />
+                <span className="font-body text-xs leading-snug" style={{ color: "#5C5148" }}>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </button>
+  );
 }
 
 export default function MethodSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
+  const [activePhase, setActivePhase] = useState("01");
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {if (entry.isIntersecting) setHeaderVisible(true);},
@@ -152,19 +109,19 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-7 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+    <section id="method" className="py-7 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
       <div className="w-full h-px mb-6" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
         ref={headerRef}
-        className="max-w-6xl mx-auto px-5 md:px-12 mb-4"
+        className="max-w-6xl mx-auto px-5 md:px-12 mb-5"
         style={{
           transition: "opacity 0.6s ease, transform 0.6s ease",
           opacity: headerVisible ? 1 : 0,
           transform: headerVisible ? "translateY(0)" : "translateY(16px)",
         }}>
 
-        {/* Desktop header */}
+        {/* Desktop header — unchanged */}
         <div className="hidden md:flex flex-col md:flex-row md:items-end md:justify-between gap-5">
           <div>
             <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -193,10 +150,24 @@ export default function MethodSection() {
         </div>
       </div>
 
-      {/* Horizontal scroll */}
+      {/* Mobile: vertical active-step progression */}
       <div
         id="method-roadmap"
-        className="flex gap-3 overflow-x-auto pb-4 px-5 md:px-12 max-w-6xl mx-auto"
+        className="md:hidden px-5 max-w-full overflow-hidden"
+        style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        {phases.map((phase) => (
+          <MobilePhaseCard
+            key={phase.number}
+            phase={phase}
+            isActive={activePhase === phase.number}
+            onClick={() => setActivePhase(phase.number)}
+          />
+        ))}
+      </div>
+
+      {/* Desktop: original horizontal scroll — unchanged */}
+      <div
+        className="hidden md:flex gap-3 overflow-x-auto pb-4 px-5 md:px-12 max-w-6xl mx-auto"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -205,22 +176,31 @@ export default function MethodSection() {
           scrollPaddingLeft: "20px",
           alignItems: "flex-start",
         }}>
-
-        {phases.map((phase, i) =>
-        <PhaseCard
-          key={phase.number}
-          phase={phase}
-          index={i} />
-        )}
+        {phases.map((phase, i) => (
+          <div
+            key={phase.number}
+            className="flex-none"
+            style={{ width: "52vw", maxWidth: "200px", scrollSnapAlign: "start" }}>
+            <div
+              className="w-full text-left rounded-2xl overflow-hidden"
+              style={{
+                backgroundColor: "#F0EBE1",
+                border: `1px solid ${phase.color}28`,
+                padding: "16px",
+              }}>
+              <div className="font-display mb-3" style={{ color: phase.color, fontSize: "2rem", lineHeight: 1 }}>
+                {phase.number}
+              </div>
+              <h3 className="font-display text-sm leading-snug mb-1" style={{ color: "#2C2C2C" }}>
+                {phase.name}
+              </h3>
+              <p className="font-body text-xs leading-snug mt-2" style={{ color: "#7A6E65" }}>
+                {phase.outcome}
+              </p>
+            </div>
+          </div>
+        ))}
         <div className="flex-none w-2 md:w-8" />
-      </div>
-
-      <div className="flex items-center justify-center gap-3 mt-2 px-6 md:flex hidden">
-      <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
-      <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
-        Scroll to explore all five phases
-      </p>
-      <div className="w-8 h-px" style={{ backgroundColor: "#C4956A33" }} />
       </div>
 
       <div className="w-full h-px mt-6" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
