@@ -1,8 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 
 const VILLAGE_FEATURE_IMAGE = "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/9f2d05936_ChatGPTImageMay18202602_16_25PM.png";
+const VILLAGE_FEATURE_POSITION = "center top";
+
 const PHASE_TRACKING_FEATURE_IMAGE = "";
+const PHASE_TRACKING_FEATURE_POSITION = "center top";
+
 const IMPLEMENTATION_TOOLS_FEATURE_IMAGE = "";
+const IMPLEMENTATION_TOOLS_FEATURE_POSITION = "center top";
 
 const pillars = [
 {
@@ -33,16 +38,19 @@ const mobileCards = [
     title: "The Village",
     description: "Connect with other moms building alongside you.",
     image: VILLAGE_FEATURE_IMAGE,
+    position: VILLAGE_FEATURE_POSITION,
   },
   {
     title: "Phase Tracking",
     description: "See exactly where you are and what to do next.",
     image: PHASE_TRACKING_FEATURE_IMAGE,
+    position: PHASE_TRACKING_FEATURE_POSITION,
   },
   {
     title: "Implementation Tools",
     description: "Access templates, prompts, and guided action steps.",
     image: IMPLEMENTATION_TOOLS_FEATURE_IMAGE,
+    position: IMPLEMENTATION_TOOLS_FEATURE_POSITION,
   },
 ];
 
@@ -190,8 +198,8 @@ export default function EcosystemSection() {
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="w-full h-full object-cover object-top"
-                      style={{ backgroundColor: "#F4EFE6" }}
+                      className="w-full h-full object-cover"
+                      style={{ backgroundColor: "#F4EFE6", objectPosition: card.position }}
                     />
                   </div>
                 ) : (
