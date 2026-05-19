@@ -217,7 +217,7 @@ export default function EcosystemSection() {
             "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
           </blockquote>
           <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>
-            — Early Access Member, Mama Launch Studio
+            — Early Access Member
           </p>
         </div>
       </div>
