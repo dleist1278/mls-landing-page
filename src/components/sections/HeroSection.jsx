@@ -144,7 +144,7 @@ export default function HeroSection() {
             </div>
 
             {/* Mobile-only bridge copy */}
-            <p className="md:hidden mt-5 font-body text-xs leading-relaxed" style={{ color: "#7A6E65", maxWidth: "34ch" }}>
+            <p className="md:hidden mt-5 font-body text-xs leading-relaxed text-center w-full" style={{ color: "#7A6E65" }}>
               You don't have to piece this together alone. Founding members get the step-by-step path from idea to opening day.
             </p>
 
