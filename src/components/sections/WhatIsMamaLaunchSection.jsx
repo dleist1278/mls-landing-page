@@ -199,7 +199,7 @@ export default function WhatIsMamaLaunchSection() {
                 "Licensing guidance",
                 "Home setup planning",
                 "Operational templates",
-                "Cohort support",
+                "Implementation phases",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-1.5 overflow-hidden">
                   <span className="mt-1 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
