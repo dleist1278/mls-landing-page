@@ -213,7 +213,6 @@ export default function EcosystemSection() {
           className="mt-4 md:mt-10 mb-8 text-center mx-auto max-w-xl"
           style={{ transition: "opacity 0.6s ease", opacity: quoteVisible ? 1 : 0 }}>
           
-          <div className="w-8 h-px mx-auto mb-5" style={{ backgroundColor: "#C4956A" }} />
           <blockquote className="font-display leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.05rem, 2vw, 1.35rem)", lineHeight: "1.5", maxWidth: "480px", margin: "0 auto 1rem" }}>
             "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
           </blockquote>
@@ -223,7 +222,6 @@ export default function EcosystemSection() {
         </div>
       </div>
 
-      <div className="w-full h-px mt-6 md:mt-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>);
 
 }
