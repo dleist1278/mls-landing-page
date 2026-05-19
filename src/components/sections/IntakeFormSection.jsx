@@ -358,9 +358,9 @@ export default function IntakeFormSection() {
                 
                   {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
                 </button>
-                <p className="font-body text-center mx-auto hidden" style={{ color: "#C5BAB4", fontSize: "0.64rem", lineHeight: "1.5", maxWidth: "22ch", opacity: 0.85 }}>
-                  Founding members receive early access, founding pricing, and first entry into the Mama Launch platform.
-                </p>
+                
+
+              
               </div>
             </form>
           }
