@@ -8,6 +8,7 @@ import WhatIsMamaLaunchSection from "@/components/sections/WhatIsMamaLaunchSecti
 import MethodSection from "@/components/sections/MethodSection";
 import WalkAwaySection from "@/components/sections/WalkAwaySection";
 import ModelsSection from "@/components/sections/ModelsSection";
+import InsideTheStudioSection from "@/components/sections/InsideTheStudioSection";
 import EcosystemSection from "@/components/sections/EcosystemSection";
 import FoundingMemberSection from "@/components/sections/FoundingMemberSection";
 import DanielleStorySection from "@/components/sections/DanielleStorySection";
@@ -25,6 +26,7 @@ export default function Home() {
         <MethodSection />
         <WalkAwaySection />
         <ModelsSection />
+        <InsideTheStudioSection />
         <EcosystemSection />
         <FoundingMemberSection />
         <DanielleStorySection />
