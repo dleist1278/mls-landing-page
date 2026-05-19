@@ -115,7 +115,7 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section id="walkaway" className="py-6 md:py-14" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+    <section id="walkaway" className="pt-14 md:pt-20 pb-6 md:pb-14" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
 
       <div className="max-w-6xl mx-auto px-6 md:px-12">
 
@@ -127,7 +127,7 @@ export default function WalkAwaySection() {
 
           <p className="font-micro mb-5 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-            Member Experience
+            Inside the Mama Launch Platform
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
           <h2 className="font-display leading-tight mb-3 mx-auto text-lg" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", maxWidth: "52rem", lineHeight: "1.18" }}>
