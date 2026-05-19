@@ -87,15 +87,6 @@ export default function ModelsSection() {
                 <br />
                 <em style={{ color: "#4D5E49" }}>Built Around Your Life.</em>
               </h2>
-              {/* Cohort date — desktop */}
-              <div className="flex-none flex items-center gap-2.5 px-4 py-2.5 rounded-2xl self-end mb-1"
-                style={{ backgroundColor: "#4D5E4910", border: "1px solid #4D5E4922" }}>
-                <span style={{ fontSize: "1rem" }}>🌿</span>
-                <div>
-                  <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.58rem", letterSpacing: "0.14em" }}>FOUNDING COHORT BEGINS</p>
-                  <p className="font-display" style={{ color: "#2C2C2C", fontSize: "1rem", lineHeight: 1.2 }}>July 6th</p>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -113,17 +104,7 @@ export default function ModelsSection() {
               Choose the path that <em style={{ color: "#4D5E49" }}>fits your motherhood life.</em>
             </h2>
 
-            {/* Cohort date — mobile */}
-            <div className="flex justify-center mt-4 mb-1">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl"
-                style={{ backgroundColor: "#4D5E4910", border: "1px solid #4D5E4922" }}>
-                <span style={{ fontSize: "0.9rem" }}>🌿</span>
-                <div className="text-left">
-                  <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.55rem", letterSpacing: "0.14em" }}>FOUNDING COHORT BEGINS</p>
-                  <p className="font-display" style={{ color: "#2C2C2C", fontSize: "0.95rem", lineHeight: 1.2 }}>July 6th</p>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
 
@@ -330,6 +311,23 @@ export default function ModelsSection() {
             )}
           </div>
         </div>
+      </div>
+
+      {/* Cohort date — full width, below all cards */}
+      <div className="max-w-5xl mx-auto px-6 md:px-12 mt-8 md:mt-10 pb-10 md:pb-14">
+        <div className="flex items-center gap-4">
+          <div className="flex-1 h-px" style={{ backgroundColor: "#C4956A", opacity: 0.25 }} />
+          <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem", letterSpacing: "0.16em", whiteSpace: "nowrap" }}>
+            FOUNDING COHORT BEGINS
+          </p>
+          <div className="flex-1 h-px" style={{ backgroundColor: "#C4956A", opacity: 0.25 }} />
+        </div>
+        <p className="font-display text-center mt-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.5rem, 4vw, 2.2rem)", lineHeight: 1.2 }}>
+          <em style={{ color: "#4D5E49" }}>July 6th.</em>
+        </p>
+        <p className="font-body text-center mt-2" style={{ color: "#9a8f84", fontSize: "0.82rem" }}>
+          A small cohort. A supported start.
+        </p>
       </div>
 
       {/* BUILD IN MOTION — mobile only */}
