@@ -179,7 +179,7 @@ export default function WhatIsMamaLaunchSection() {
               This is not a traditional business course or generic childcare training. Mama Launch helps mothers build calm, sustainable childcare ecosystems rooted in structure, emotional safety, and real family life.
             </p>
 
-            <p className="font-micro mb-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
+            <p className="font-micro mb-3 text-center" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
 
             {/* Desktop: single-column list */}
             <div className="hidden md:grid grid-cols-2 gap-x-6 gap-y-1 mb-5">
