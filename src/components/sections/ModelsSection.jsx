@@ -103,9 +103,9 @@ export default function ModelsSection() {
               
               Choose the path that <em style={{ color: "#4D5E49" }}>fits your motherhood life.</em>
             </h2>
-            <p className="font-body leading-relaxed text-center mx-auto hidden" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}>
-              Chip away at your business while living real motherhood life — during nap time, laundry, dinner prep, school pickup, or quiet moments throughout the day.
-            </p>
+            
+
+            
           </div>
         </div>
 
@@ -293,26 +293,26 @@ export default function ModelsSection() {
         className="md:hidden w-full max-w-full overflow-hidden"
         style={{ marginTop: "48px", paddingLeft: "24px", paddingRight: "24px" }}>
         
-        <div style={{ borderTop: "1px solid #C4956A20", paddingTop: "36px" }} className="hidden">
-          <p
-            className="font-micro mb-3"
-            style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
-            
-            BUILD IN MOTION
-          </p>
-          <p
-            className="font-display leading-snug mb-3"
-            style={{ color: "#2C2C2C", fontSize: "1.1rem", lineHeight: "1.3" }}>
-            
-            You do not need uninterrupted hours to make progress.
-          </p>
-          <p
-            className="font-body leading-relaxed"
-            style={{ color: "#8C7E75", fontSize: "0.85rem", lineHeight: "1.7", maxWidth: "34ch" }}>
-            
-            Chip away at your business while living real motherhood life — during nap time, laundry, dinner prep, school pickup, or quiet moments throughout the day.
-          </p>
-        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         </div>
     </section>);
 
