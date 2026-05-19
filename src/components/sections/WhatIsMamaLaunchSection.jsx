@@ -116,14 +116,14 @@ export default function WhatIsMamaLaunchSection() {
 
           {/* Right — text content */}
           <div style={{ overflow: "hidden", minWidth: 0 }}>
-            <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            <p className="font-micro mb-4 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               Understanding the Platform
+              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             </p>
             <h2
-              className="font-display leading-tight mb-6"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3.5vw, 3rem)", lineHeight: "1.2" }}>
-              
+              className="font-display leading-tight mb-6 text-center"
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.18" }}>
               What is the<br />
               <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
             </h2>
