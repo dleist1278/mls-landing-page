@@ -266,7 +266,7 @@ export default function WhatIsMamaLaunchSection() {
             <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.12, zIndex: 1 }} />
             {/* Photo */}
             <div
-              className="relative rounded-2xl overflow-hidden"
+              className="relative rounded-2xl overflow-hidden hidden"
               style={{
                 aspectRatio: "4/3",
                 boxShadow: "0 12px 36px rgba(196,149,106,0.18)",
@@ -276,7 +276,7 @@ export default function WhatIsMamaLaunchSection() {
               <img
                 src={mobileHeroImage.image_url}
                 alt={mobileHeroImage.alt_text || ""}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hidden"
                 style={{
                   objectPosition: mobileHeroImage.focal_position || "35% 40%",
                   filter: "saturate(0.72) brightness(0.95)"
