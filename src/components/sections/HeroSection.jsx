@@ -76,6 +76,20 @@ export default function HeroSection() {
               </h1>
             </div>
 
+            {/* Mobile photo below headline */}
+            {(() => {
+              const HERO_BELOW_TITLE_PHOTO = ""; // ← paste your photo URL here
+              return HERO_BELOW_TITLE_PHOTO ? (
+                <div className="md:hidden w-full rounded-2xl overflow-hidden mb-5" style={{ boxShadow: "0 8px 32px rgba(196,149,106,0.12)" }}>
+                  <img src={HERO_BELOW_TITLE_PHOTO} alt="Mama Launch" className="w-full object-cover" style={{ maxHeight: "260px", objectPosition: "center 20%" }} />
+                </div>
+              ) : (
+                <div className="md:hidden w-full rounded-2xl mb-5 flex items-center justify-center" style={{ height: "180px", backgroundColor: "rgba(77,94,73,0.06)", border: "1px dashed rgba(77,94,73,0.2)" }}>
+                  <span className="font-micro" style={{ color: "#9a8f84", fontSize: "0.62rem" }}>Photo coming — paste URL in HeroSection</span>
+                </div>
+              );
+            })()}
+
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
