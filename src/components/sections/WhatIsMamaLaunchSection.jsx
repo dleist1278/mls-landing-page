@@ -216,12 +216,14 @@ export default function WhatIsMamaLaunchSection() {
               Founding members unlock the complete 5-phase path first.
             </p>
 
-            <button
-              onClick={() => document.getElementById("method-roadmap")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro px-7 py-3.5 rounded-full border transition-all min-h-[48px]"
-              style={{ color: "#fff", borderColor: "#4D5E49", fontSize: "0.78rem", backgroundColor: "#4D5E49", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
-              See the 5-Phase Method →
-            </button>
+            <div className="flex justify-center">
+              <button
+                onClick={() => document.getElementById("method-roadmap")?.scrollIntoView({ behavior: "smooth" })}
+                className="font-micro px-7 py-3.5 rounded-full border transition-all min-h-[48px]"
+                style={{ color: "#fff", borderColor: "#4D5E49", fontSize: "0.78rem", backgroundColor: "#4D5E49", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
+                See the 5-Phase Method →
+              </button>
+            </div>
           </div>
         </div>
       </div>
