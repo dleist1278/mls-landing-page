@@ -131,15 +131,15 @@ export default function DanielleStorySection() {
               I've been the educator, the assistant principal, the licensed home daycare owner — and through all of it, I've been a mom of two. I know what it feels like to hold a vision for something meaningful and not know where to begin.
             </p>
 
-            {/* Credential pills */}
-            <div className="flex flex-col gap-2 mb-8">
+            {/* Credential list */}
+            <div className="flex flex-col mb-8" style={{ borderLeft: "2px solid #C4956A28" }}>
               {credentials.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <div key={item.text} className="flex items-center gap-3 w-fit rounded-full px-4 py-2.5"
-                    style={{ backgroundColor: "rgba(77,94,73,0.07)", border: "1px solid rgba(77,94,73,0.12)", color: "#2C2C2C" }}>
-                    <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#4D5E49" }} />
-                    <span className="font-body" style={{ fontSize: "0.88rem" }}>{item.text}</span>
+                  <div key={item.text} className="flex items-center gap-3 py-2.5 px-4"
+                    style={{ borderBottom: "1px solid rgba(77,94,73,0.07)" }}>
+                    <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#C4956A" }} />
+                    <span className="font-body" style={{ fontSize: "0.88rem", color: "#3A3530" }}>{item.text}</span>
                   </div>
                 );
               })}
@@ -204,15 +204,15 @@ export default function DanielleStorySection() {
             </div>
           </div>
 
-          {/* Credential pills — 2 col grid */}
-          <div className="grid grid-cols-2 gap-2">
+          {/* Credential list — mobile */}
+          <div className="flex flex-col" style={{ borderLeft: "2px solid #C4956A28" }}>
             {credentials.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.text} className="flex items-center gap-2 rounded-full px-3 py-2"
-                  style={{ backgroundColor: "rgba(77,94,73,0.07)", border: "1px solid rgba(77,94,73,0.12)", color: "#2C2C2C" }}>
-                  <Icon className="h-3 w-3 flex-shrink-0" style={{ color: "#4D5E49" }} />
-                  <span className="font-body" style={{ fontSize: "0.72rem" }}>{item.text}</span>
+                <div key={item.text} className="flex items-center gap-3 py-2.5 px-4"
+                  style={{ borderBottom: "1px solid rgba(77,94,73,0.07)" }}>
+                  <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#C4956A" }} />
+                  <span className="font-body" style={{ fontSize: "0.82rem", color: "#3A3530" }}>{item.text}</span>
                 </div>
               );
             })}
