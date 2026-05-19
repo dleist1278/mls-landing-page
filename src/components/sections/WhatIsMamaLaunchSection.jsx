@@ -196,11 +196,9 @@ export default function WhatIsMamaLaunchSection() {
             {/* Mobile: compact 2-column grid */}
             <div className="md:hidden grid grid-cols-2 gap-x-4 gap-y-2 mb-4 w-full max-w-full overflow-hidden">
               {[
-                "Implementation phases",
                 "Licensing guidance",
                 "Home setup planning",
                 "Operational templates",
-                "Parent communication",
                 "Cohort support",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-1.5 overflow-hidden">
