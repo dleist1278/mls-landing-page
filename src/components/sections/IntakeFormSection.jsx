@@ -176,7 +176,7 @@ export default function IntakeFormSection() {
           {/* Elevated form card */}
           <div className="relative overflow-hidden rounded-3xl"
             style={{
-              background: "linear-gradient(145deg, #FFFDF9 0%, #F7F2EA 100%)",
+              background: "linear-gradient(145deg, #F0EBE1 0%, #E8DDD0 100%)",
               border: "1px solid rgba(196,149,106,0.12)",
               boxShadow: "0 8px 40px rgba(44,44,44,0.04), 0 2px 8px rgba(196,149,106,0.06)"
             }}>
