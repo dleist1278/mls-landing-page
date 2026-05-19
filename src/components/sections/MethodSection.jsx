@@ -7,7 +7,7 @@ const phases = [
   outcome: "Choose the childcare model that fits your family, goals, and real-life schedule.",
   detail: "Clarify your pathway, income goals, and the type of program you want to build.",
   includes: ["Lifestyle alignment prompts", "Program model decision guide", "Income + schedule clarity"],
-  color: "#4D5E49",
+  color: "#4D5E49"
 },
 {
   number: "02",
@@ -15,7 +15,7 @@ const phases = [
   outcome: "Understand what you need to prepare legally and safely before opening.",
   detail: "Work through licensing requirements, home preparation, and inspection readiness.",
   includes: ["Licensing guidance", "Home setup checklist", "Inspection prep"],
-  color: "#6B7E67",
+  color: "#6B7E67"
 },
 {
   number: "03",
@@ -23,7 +23,7 @@ const phases = [
   outcome: "Build a calm, professional childcare experience families can trust.",
   detail: "Create your routines, policies, and parent communication systems.",
   includes: ["Parent handbook", "Operational templates", "Communication systems"],
-  color: "#C4956A",
+  color: "#C4956A"
 },
 {
   number: "04",
@@ -31,7 +31,7 @@ const phases = [
   outcome: "Attract the right families and help them feel confident choosing your program.",
   detail: "Build your messaging, enrollment materials, and inquiry process.",
   includes: ["Enrollment tools", "Marketing prompts", "Parent inquiry systems"],
-  color: "#4D5E49",
+  color: "#4D5E49"
 },
 {
   number: "05",
@@ -39,7 +39,7 @@ const phases = [
   outcome: "Feel prepared and supported walking into opening week.",
   detail: "Finalize your systems, welcome families, and transition into your program.",
   includes: ["Opening week checklist", "Family welcome tools", "First-week preparation"],
-  color: "#6B7E67",
+  color: "#6B7E67"
 }];
 
 function MobilePhaseCard({ phase, isActive, onClick }) {
@@ -55,7 +55,7 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
         padding: isActive ? "13px 14px" : "10px 14px",
         transition: "opacity 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease",
         WebkitTransform: "translateZ(0)",
-        transform: "translateZ(0)",
+        transform: "translateZ(0)"
       }}>
 
       {/* Header row — always visible */}
@@ -69,16 +69,16 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
           </h3>
         </div>
         {/* Refinement 3: subtle sage accent line as active indicator */}
-        {isActive && (
-          <span className="flex-none w-1 h-5 rounded-full" style={{ backgroundColor: phase.color, opacity: 0.5 }} />
-        )}
+        {isActive &&
+        <span className="flex-none w-1 h-5 rounded-full" style={{ backgroundColor: phase.color, opacity: 0.5 }} />
+        }
       </div>
 
       {/* Expanded detail — only when active */}
-      {isActive && (
-        <div className="mt-2.5 pt-2.5" style={{ borderTop: `1px solid ${phase.color}18` }}>
+      {isActive &&
+      <div className="mt-2.5 pt-2.5" style={{ borderTop: `1px solid ${phase.color}18` }}>
           {/* Refinement 1: reduced label spacing */}
-          <p className="font-body leading-snug mb-2" style={{ color: "#5C5148", fontSize: "0.78rem", maxWidth: "88%" }}>
+          <p className="font-body leading-snug mb-2 hidden" style={{ color: "#5C5148", fontSize: "0.78rem", maxWidth: "88%" }}>
             {phase.outcome}
           </p>
           <p className="font-micro mb-1" style={{ color: "#9a8f84", fontSize: "0.58rem" }}>What you'll do</p>
@@ -89,17 +89,17 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
           <p className="font-micro mb-1.5" style={{ color: "#9a8f84", fontSize: "0.58rem" }}>Includes</p>
           {/* Refinement 1: tighter chip spacing */}
           <ul className="flex flex-col gap-0.5">
-            {phase.includes.map((item) => (
-              <li key={item} className="flex items-center gap-1.5">
+            {phase.includes.map((item) =>
+          <li key={item} className="flex items-center gap-1.5">
                 <span className="flex-none w-1 h-1 rounded-full" style={{ backgroundColor: phase.color, opacity: 0.7 }} />
                 <span className="font-body leading-snug" style={{ color: "#5C5148", fontSize: "0.75rem" }}>{item}</span>
               </li>
-            ))}
+          )}
           </ul>
         </div>
-      )}
-    </button>
-  );
+      }
+    </button>);
+
 }
 
 export default function MethodSection() {
@@ -126,7 +126,7 @@ export default function MethodSection() {
         style={{
           transition: "opacity 0.6s ease, transform 0.6s ease",
           opacity: headerVisible ? 1 : 0,
-          transform: headerVisible ? "translateY(0)" : "translateY(16px)",
+          transform: headerVisible ? "translateY(0)" : "translateY(16px)"
         }}>
 
         {/* Desktop header — unchanged */}
@@ -166,14 +166,14 @@ export default function MethodSection() {
         id="method-roadmap"
         className="md:hidden px-5 max-w-full overflow-hidden"
         style={{ display: "flex", flexDirection: "column", gap: "6px", paddingTop: "12px" }}>
-        {phases.map((phase) => (
-          <MobilePhaseCard
-            key={phase.number}
-            phase={phase}
-            isActive={activePhase === phase.number}
-            onClick={() => setActivePhase(phase.number)}
-          />
-        ))}
+        {phases.map((phase) =>
+        <MobilePhaseCard
+          key={phase.number}
+          phase={phase}
+          isActive={activePhase === phase.number}
+          onClick={() => setActivePhase(phase.number)} />
+
+        )}
       </div>
 
       {/* Desktop: original horizontal scroll — unchanged */}
@@ -185,20 +185,20 @@ export default function MethodSection() {
           WebkitOverflowScrolling: "touch",
           scrollSnapType: "x mandatory",
           scrollPaddingLeft: "20px",
-          alignItems: "flex-start",
+          alignItems: "flex-start"
         }}>
-        {phases.map((phase, i) => (
-          <div
-            key={phase.number}
-            className="flex-none"
-            style={{ width: "52vw", maxWidth: "200px", scrollSnapAlign: "start" }}>
+        {phases.map((phase, i) =>
+        <div
+          key={phase.number}
+          className="flex-none"
+          style={{ width: "52vw", maxWidth: "200px", scrollSnapAlign: "start" }}>
             <div
-              className="w-full text-left rounded-2xl overflow-hidden"
-              style={{
-                backgroundColor: "#F0EBE1",
-                border: `1px solid ${phase.color}28`,
-                padding: "16px",
-              }}>
+            className="w-full text-left rounded-2xl overflow-hidden"
+            style={{
+              backgroundColor: "#F0EBE1",
+              border: `1px solid ${phase.color}28`,
+              padding: "16px"
+            }}>
               <div className="font-display mb-3" style={{ color: phase.color, fontSize: "2rem", lineHeight: 1 }}>
                 {phase.number}
               </div>
@@ -210,7 +210,7 @@ export default function MethodSection() {
               </p>
             </div>
           </div>
-        ))}
+        )}
         <div className="flex-none w-2 md:w-8" />
       </div>
 
