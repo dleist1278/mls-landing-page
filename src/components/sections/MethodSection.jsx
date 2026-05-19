@@ -115,8 +115,8 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-7 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
-      <div className="w-full h-px mb-6" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
+      <div className="w-full h-px mb-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
         ref={headerRef}
@@ -144,13 +144,13 @@ export default function MethodSection() {
 
         {/* Mobile header */}
         <div className="md:hidden">
-          <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+          <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
             THE OPENING PATH
           </p>
-          <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 7vw, 2.4rem)", lineHeight: "1.2" }}>
+          <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
             The 5 phases that guide you from idea to opening day.
           </h2>
-          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
+          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
             Move through each phase with guided prompts, practical tools, and clear next steps designed for real motherhood life.
           </p>
         </div>
@@ -160,7 +160,7 @@ export default function MethodSection() {
       <div
         id="method-roadmap"
         className="md:hidden px-5 max-w-full overflow-hidden"
-        style={{ display: "flex", flexDirection: "column", gap: "7px", paddingTop: "8px" }}>
+        style={{ display: "flex", flexDirection: "column", gap: "6px", paddingTop: "12px" }}>
         {phases.map((phase) => (
           <MobilePhaseCard
             key={phase.number}
@@ -209,6 +209,6 @@ export default function MethodSection() {
         <div className="flex-none w-2 md:w-8" />
       </div>
 
-      <div className="w-full h-px mt-6" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      <div className="w-full h-px mt-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>);
 }

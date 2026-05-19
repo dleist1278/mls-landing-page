@@ -172,19 +172,19 @@ export default function DanielleStorySection() {
   );
 
   return (
-    <section className="px-5 py-14 lg:px-8 lg:py-20" style={{ backgroundColor: "#F4EFE6" }}>
+    <section className="px-5 py-16 lg:px-8 lg:py-20" style={{ backgroundColor: "#F4EFE6" }}>
       <div className="mx-auto max-w-[1120px]">
 
         {/* MOBILE: Specific content order */}
-        <div className="flex flex-col gap-4 lg:hidden">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em]" style={{ color: "#C4956A" }}>
+        <div className="flex flex-col gap-5 lg:hidden">
+          <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
             BUILT FROM REAL EXPERIENCE
           </p>
           <h2 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
             Created by someone who understands both the systems and the real life.
           </h2>
           {MobilePhoto}
-          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}>
+          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
             Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
           </p>
           <div className="flex flex-wrap gap-1.5">

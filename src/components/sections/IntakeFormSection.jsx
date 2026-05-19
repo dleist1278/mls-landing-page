@@ -145,26 +145,26 @@ export default function IntakeFormSection() {
   return (
     <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden", scrollMarginTop: "60px" }}>
       {/* Mobile-only header — softer editorial entry */}
-      <div className="md:hidden px-5 pt-12 pb-0">
+      <div className="md:hidden px-5 pt-14 pb-0">
         <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
           FOUNDING MEMBER WAITLIST
         </p>
         <h2
-          className="font-display leading-snug mb-3"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}
+          className="font-display leading-snug mb-4"
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.18" }}
         >
           Come build this{" "}
           <em style={{ color: "#4D5E49" }}>with us.</em>
         </h2>
         <p
           className="font-body leading-relaxed"
-          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "32ch" }}
         >
           Mama Launch was designed to help mothers move from idea to opening day with more clarity, structure, and support — without needing to figure everything out alone first.
         </p>
       </div>
 
-      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-10 md:py-20">
         <div
           ref={ref}
           style={{
@@ -198,8 +198,8 @@ export default function IntakeFormSection() {
           {/* Mobile editorial micro-line above form */}
           {!submitted && (
             <p
-              className="md:hidden font-body mb-7 mt-8"
-              style={{ color: "#9a8f84", fontSize: "0.78rem", fontStyle: "italic", lineHeight: "1.6" }}
+              className="md:hidden font-body mb-8 mt-6"
+              style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6", maxWidth: "30ch" }}
             >
               You do not need to have everything figured out before starting.
             </p>
@@ -233,7 +233,7 @@ export default function IntakeFormSection() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-9">
+            <form onSubmit={handleSubmit} className="space-y-5 md:space-y-9">
               {/* Row 1 — Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 <div>

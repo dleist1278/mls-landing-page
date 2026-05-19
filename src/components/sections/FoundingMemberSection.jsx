@@ -196,7 +196,7 @@ export default function FoundingMemberSection() {
   }, []);
 
   return (
-    <section className="py-8 lg:py-24" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
+    <section className="py-14 lg:py-24" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
 
       {/* ── MOBILE layout ────────────────────────────────────────────────── */}
       <div className="lg:hidden w-full max-w-full overflow-hidden px-5">
@@ -216,8 +216,8 @@ export default function FoundingMemberSection() {
 
         {/* Support copy */}
         <p
-          className="font-body leading-relaxed mb-6"
-          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}
+          className="font-body leading-relaxed mb-7"
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}
         >
           You do not need to figure everything out before starting. Mama Launch guides you step by step with structure, support, and implementation tools designed for real motherhood life.
         </p>
@@ -238,8 +238,8 @@ export default function FoundingMemberSection() {
 
         {/* Micro-moment editorial line */}
         <p
-          className="font-body mt-9 mb-5"
-          style={{ color: "#9a8f84", fontSize: "0.78rem", fontStyle: "italic", lineHeight: "1.6" }}
+          className="font-body mt-10 mb-5"
+          style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6", maxWidth: "30ch" }}
         >
           Built around real motherhood rhythms, not uninterrupted workdays.
         </p>

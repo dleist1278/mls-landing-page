@@ -25,12 +25,12 @@ export default function InsideTheStudioSection() {
   return (
     <section
       className="md:hidden w-full max-w-full overflow-hidden"
-      style={{ backgroundColor: "#FAF7F2", padding: "40px 20px 48px" }}
+      style={{ backgroundColor: "#FAF7F2", padding: "44px 20px 56px" }}
     >
       {/* Eyebrow */}
       <p
         className="font-micro mb-3"
-        style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.14em" }}
+        style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}
       >
         INSIDE THE STUDIO
       </p>
@@ -38,7 +38,7 @@ export default function InsideTheStudioSection() {
       {/* Headline */}
       <h2
         className="font-display leading-tight mb-3"
-        style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 7vw, 2.4rem)", lineHeight: "1.2" }}
+        style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}
       >
         Everything works together to help you{" "}
         <em style={{ color: "#4D5E49" }}>keep moving forward.</em>
@@ -46,8 +46,8 @@ export default function InsideTheStudioSection() {
 
       {/* Support copy */}
       <p
-        className="font-body leading-relaxed mb-8"
-        style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65", maxWidth: "92%" }}
+        className="font-body leading-relaxed mb-7"
+        style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}
       >
         Instead of overwhelming courses and scattered information, Mama Launch gives you guided implementation, done-for-you tools, and real support in one place.
       </p>

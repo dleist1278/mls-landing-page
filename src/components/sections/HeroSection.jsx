@@ -50,7 +50,7 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
       {/* Constrained, overflow-safe content wrapper */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-6 md:pt-28 pb-7 md:pb-16 overflow-x-hidden">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-8 md:pt-28 pb-10 md:pb-16 overflow-x-hidden">
         <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-12 lg:gap-20">
 
           {/* Text block — mobile-constrained */}
@@ -59,12 +59,12 @@ export default function HeroSection() {
             {/* Headline */}
             <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1
-                className="font-display mb-7 break-words"
+                className="font-display mb-5 break-words"
                 style={{
                   color: "#2C2C2C",
-                  fontSize: "clamp(2.5rem, 7vw, 5.6rem)",
+                  fontSize: "clamp(2.4rem, 7vw, 5.6rem)",
                   letterSpacing: "-0.02em",
-                  lineHeight: "1.22",
+                  lineHeight: "1.18",
                   maxWidth: "100%",
                   wordBreak: "break-word",
                   overflowWrap: "break-word",
@@ -79,8 +79,8 @@ export default function HeroSection() {
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
-                className="font-body mb-7"
-                style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.55", maxWidth: "100%" }}
+                className="font-body mb-6"
+                style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6", maxWidth: "36ch" }}
               >
                 Launch your home childcare program with guided systems, intentional structure, and a supportive community built around real family life.
               </p>
@@ -130,7 +130,7 @@ export default function HeroSection() {
             </div>
 
             {/* Mobile-only bridge copy */}
-            <p className="md:hidden mt-5 font-body text-xs leading-relaxed" style={{ color: "#7A6E65", maxWidth: "100%" }}>
+            <p className="md:hidden mt-5 font-body text-xs leading-relaxed" style={{ color: "#7A6E65", maxWidth: "34ch" }}>
               You don't have to piece this together alone. Founding members get the step-by-step path from idea to opening day.
             </p>
 

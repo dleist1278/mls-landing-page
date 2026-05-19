@@ -60,7 +60,7 @@ export default function ModelsSection() {
   return (
     <section
       id="models"
-      className="py-7 md:py-16 overflow-hidden"
+      className="py-10 md:py-16 overflow-hidden"
       style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}
     >
       <div className="max-w-5xl mx-auto px-6 md:px-12">
@@ -92,16 +92,16 @@ export default function ModelsSection() {
 
           {/* Mobile header */}
           <div className="md:hidden">
-            <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
               NOW ENROLLING
             </p>
             <h2
               className="font-display leading-tight mb-3"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 7vw, 2.4rem)", lineHeight: "1.2" }}
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}
             >
               Choose the path that fits your motherhood life.
             </h2>
-            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.6" }}>
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}>
               Every pathway is designed to help you build steadily with guided support, flexible structure, and real implementation tools.
             </p>
           </div>
@@ -285,29 +285,29 @@ export default function ModelsSection() {
       {/* BUILD IN MOTION — mobile only */}
       <div
         className="md:hidden w-full max-w-full overflow-hidden"
-        style={{ marginTop: "40px", paddingLeft: "28px", paddingRight: "28px" }}
-      >
-        <div style={{ borderTop: "1px solid #C4956A22", paddingTop: "32px" }}>
+        style={{ marginTop: "48px", paddingLeft: "24px", paddingRight: "24px" }}
+        >
+        <div style={{ borderTop: "1px solid #C4956A20", paddingTop: "36px" }}>
           <p
-            className="font-micro mb-4"
-            style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.14em" }}
+            className="font-micro mb-3"
+            style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}
           >
             BUILD IN MOTION
           </p>
           <p
-            className="font-display leading-snug mb-4"
-            style={{ color: "#2C2C2C", fontSize: "1.15rem", lineHeight: "1.35" }}
+            className="font-display leading-snug mb-3"
+            style={{ color: "#2C2C2C", fontSize: "1.1rem", lineHeight: "1.3" }}
           >
             You do not need uninterrupted hours to make progress.
           </p>
           <p
             className="font-body leading-relaxed"
-            style={{ color: "#8C7E75", fontSize: "0.875rem", lineHeight: "1.75" }}
+            style={{ color: "#8C7E75", fontSize: "0.85rem", lineHeight: "1.7", maxWidth: "34ch" }}
           >
             Chip away at your business while living real motherhood life — during nap time, laundry, dinner prep, school pickup, or quiet moments throughout the day.
           </p>
         </div>
-      </div>
+        </div>
     </section>
   );
 }
