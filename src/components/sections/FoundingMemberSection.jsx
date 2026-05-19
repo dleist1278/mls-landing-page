@@ -238,7 +238,7 @@ export default function FoundingMemberSection() {
 
         {/* Micro-moment editorial line */}
         <p
-          className="font-body mt-6 mb-5"
+          className="font-body mt-9 mb-5"
           style={{ color: "#9a8f84", fontSize: "0.78rem", fontStyle: "italic", lineHeight: "1.6" }}
         >
           Built around real motherhood rhythms, not uninterrupted workdays.
@@ -246,12 +246,12 @@ export default function FoundingMemberSection() {
 
         {/* Founding member support line */}
         <div
-          className="rounded-xl px-3 py-2.5 w-full"
-          style={{ backgroundColor: "#F2F5EE", border: "1px solid #E8EDE2" }}
+          className="rounded-xl px-3 py-2 w-full"
+          style={{ backgroundColor: "#F4F6F1", border: "1px solid #ECF0E8" }}
         >
           <div className="flex items-start gap-2">
-            <Heart size={12} style={{ color: "#4D5E49", flexShrink: 0, marginTop: "2px", strokeWidth: 1.6, opacity: 0.75 }} />
-            <p className="font-body leading-relaxed" style={{ color: "#6B7B68", fontSize: "0.75rem" }}>
+            <Heart size={11} style={{ color: "#4D5E49", flexShrink: 0, marginTop: "2px", strokeWidth: 1.5, opacity: 0.55 }} />
+            <p className="font-body leading-relaxed" style={{ color: "#7A8877", fontSize: "0.73rem" }}>
               Founding members receive first access, early pricing, and the opportunity to help shape the platform from the beginning.
             </p>
           </div>
