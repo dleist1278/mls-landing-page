@@ -192,15 +192,20 @@ export default function ModelsSection() {
                     scrollSnapAlign: "start",
                     flex: "0 0 calc(100% - 20px)",
                     maxWidth: "calc(100% - 20px)",
+                    minHeight: "260px",
                     borderRadius: "20px",
-                    padding: isActive ? "16px" : "14px 16px",
+                    padding: "24px 20px",
                     backgroundColor: isActive ? "#F0EBE1" : "#FDFCFA",
                     border: `1px solid ${isActive ? "#4D5E4928" : "#C4956A10"}`,
                     boxShadow: isActive ? "0 4px 20px rgba(77,94,73,0.07)" : "none",
                     opacity: isActive ? 1 : 0.42,
                     transition: "opacity 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease",
                     WebkitTransform: "translateZ(0)",
-                    transform: "translateZ(0)"
+                    transform: "translateZ(0)",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center"
                   }}>
                   
                   <div className="mb-2.5">
@@ -211,7 +216,6 @@ export default function ModelsSection() {
                         fontSize: "0.6rem",
                         letterSpacing: "0.1em"
                       }}>
-                      
                       {pathway.tag}
                     </span>
                   </div>
@@ -219,19 +223,17 @@ export default function ModelsSection() {
                   <h3
                     className="font-display leading-snug mb-2"
                     style={{ color: "#2C2C2C", fontSize: "1.05rem" }}>
-                    
                     {pathway.title}
                   </h3>
 
                   <p
                     className="font-body leading-snug mb-3"
                     style={{ color: "#5C5148", fontSize: "0.82rem", lineHeight: "1.55" }}>
-                    
                     {pathway.description}
                   </p>
 
-                  {isActive && pathway.features.length > 0 &&
-                  <div className="flex flex-wrap gap-1 mb-3">
+                  {pathway.features.length > 0 &&
+                  <div className="flex flex-wrap gap-1 mb-3 justify-center">
                       {pathway.features.map((f) =>
                     <span
                       key={f}
@@ -242,28 +244,30 @@ export default function ModelsSection() {
                         fontSize: "0.6rem",
                         letterSpacing: "0.06em"
                       }}>
-                      
                           {f}
                         </span>
                     )}
                     </div>
                   }
 
-                  {isActive && pathway.cta &&
-                  <button
-                    onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-                    className="font-micro px-5 py-2 rounded-full min-h-[44px]"
-                    style={{
-                      backgroundColor: "#4D5E49",
-                      color: "#fff",
-                      fontSize: "0.7rem",
-                      border: "none",
-                      boxShadow: "0 3px 14px rgba(77,94,73,0.13)"
-                    }}>
-                    
-                      {pathway.cta}
-                    </button>
-                  }
+                  <div className="mt-auto">
+                    {pathway.cta ?
+                    <button
+                      onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                      className="font-micro px-5 py-2 rounded-full min-h-[44px]"
+                      style={{
+                        backgroundColor: "#4D5E49",
+                        color: "#fff",
+                        fontSize: "0.7rem",
+                        border: "none",
+                        boxShadow: "0 3px 14px rgba(77,94,73,0.13)"
+                      }}>
+                        {pathway.cta}
+                      </button>
+                    :
+                    <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem", letterSpacing: "0.08em" }}>Coming Soon</span>
+                    }
+                  </div>
                 </div>);
 
             })}
