@@ -11,21 +11,21 @@ const credentials = [
 const drawers = [
   {
     icon: Lightbulb,
-    title: "Why I built it",
+    title: "WHY I BUILT THIS",
     content:
-      "When I opened my own program, I found scattered information, no clear roadmap, and very little support designed for serious home providers.",
+      "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers.",
   },
   {
     icon: BookOpen,
-    title: "What I understand",
+    title: "WHAT I UNDERSTAND",
     content:
-      "I understand licensing, parent communication, daily systems, classroom flow, and the emotional reality of building a business while raising your own children.",
+      "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children.",
   },
   {
     icon: Gift,
-    title: "What this gives you",
+    title: "WHAT THIS GIVES YOU",
     content:
-      "Mama Launch gives you a guided path, practical tools, and a supportive village so you can move forward with clarity instead of overwhelm.",
+      "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone.",
   },
 ];
 
@@ -38,8 +38,8 @@ function AccordionDrawer({ drawer, isOpen, onToggle }) {
         onClick={onToggle}
         className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left"
       >
-        <span className="flex items-center gap-2.5 font-medium text-[#2B2B28] text-sm">
-          <Icon className="h-4 w-4 text-[#C98F5D] flex-shrink-0" />
+        <span className="flex items-center gap-2.5 text-[#2B2B28]" style={{ fontSize: "0.68rem", letterSpacing: "0.12em", fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
+          <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#C4956A" }} />
           {drawer.title}
         </span>
         <ChevronDown
@@ -160,14 +160,34 @@ export default function DanielleStorySection() {
       <div className="mx-auto max-w-[1120px]">
 
         {/* MOBILE: Specific content order */}
-        <div className="flex flex-col gap-5 lg:hidden">
-          {Eyebrow}
-          {Title}
+        <div className="flex flex-col gap-4 lg:hidden">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em]" style={{ color: "#C4956A" }}>
+            BUILT FROM REAL EXPERIENCE
+          </p>
+          <h2 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
+            Created by someone who understands both the systems and the real life.
+          </h2>
           {Photo}
-          {Bio}
-          {Pills}
-          {CTA}
+          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}>
+            Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {credentials.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.text}
+                  className="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs"
+                  style={{ backgroundColor: "rgba(77,94,73,0.06)", color: "#4D5E49", border: "1px solid #4D5E4918" }}
+                >
+                  <Icon className="h-3 w-3 flex-shrink-0" style={{ color: "#4D5E49" }} />
+                  <span>{item.text}</span>
+                </div>
+              );
+            })}
+          </div>
           {Accordion}
+          {CTA}
         </div>
 
         {/* DESKTOP: Original two-column grid */}
