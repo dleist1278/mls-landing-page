@@ -80,8 +80,13 @@ export default function HeroSection() {
             {(() => {
               const HERO_BELOW_TITLE_PHOTO = "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/6a41827ad_4.jpg"; // ← paste your photo URL here
               return HERO_BELOW_TITLE_PHOTO ?
-              <div className="md:hidden w-full rounded-2xl overflow-hidden mb-5" style={{ boxShadow: "0 8px 32px rgba(196,149,106,0.12)" }}>
-                  <img src={HERO_BELOW_TITLE_PHOTO} alt="Mama Launch" className="w-full object-cover" style={{ maxHeight: "260px", objectPosition: "center 20%" }} />
+              <div className="md:hidden relative mb-5 mx-4">
+                  {/* Depth layers */}
+                  <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.18, zIndex: 0 }} />
+                  <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.12, zIndex: 1 }} />
+                  <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: "0 8px 32px rgba(196,149,106,0.18)", zIndex: 2 }}>
+                    <img src={HERO_BELOW_TITLE_PHOTO} alt="Mama Launch" className="w-full object-cover" style={{ maxHeight: "260px", objectPosition: "center 20%" }} />
+                  </div>
                 </div> :
 
               <div className="md:hidden w-full rounded-2xl mb-5 flex items-center justify-center" style={{ height: "180px", backgroundColor: "rgba(77,94,73,0.06)", border: "1px dashed rgba(77,94,73,0.2)" }}>
