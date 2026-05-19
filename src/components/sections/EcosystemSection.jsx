@@ -86,10 +86,10 @@ function CardImage({ cardKey }) {
   return (
     <div className="w-full h-[210px] overflow-hidden rounded-xl border border-[#EAD9C8] bg-white shadow-[0_2px_8px_rgba(196,149,106,0.05)]">
       {imageUrl ?
-      <img
-        src={imageUrl}
-        alt={cardKey}
-        className="w-full h-full object-contain object-center block" /> :
+      <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png"
+
+      alt={cardKey}
+      className="w-full h-full object-contain object-center block" /> :
 
 
       <div className="w-full h-[240px] rounded-2xl border border-dashed border-[#D8C6B2] bg-[#F4EFE6] flex items-center justify-center">
