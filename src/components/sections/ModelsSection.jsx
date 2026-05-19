@@ -102,7 +102,7 @@ export default function ModelsSection() {
               Choose the path that fits your motherhood life.
             </h2>
             <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}>
-              Every pathway is designed to help you build steadily with guided support, flexible structure, and real implementation tools.
+              Chip away at your business while living real motherhood life — during nap time, laundry, dinner prep, school pickup, or quiet moments throughout the day.
             </p>
           </div>
         </div>
