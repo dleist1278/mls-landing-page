@@ -29,6 +29,35 @@ const drawers = [
 function DrawerTabs({ drawers, openDrawer, onToggle }) {
   return (
     <div className="flex flex-col gap-0">
+      <style>{`
+        @keyframes tabNudge {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-3px); }
+        }
+        @keyframes tabGlow {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+      `}</style>
+
+      {/* Hint label — only visible before any tab is opened */}
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "6px",
+        marginBottom: "8px",
+        opacity: openDrawer >= 0 ? 0 : 1,
+        transition: "opacity 0.3s ease",
+        pointerEvents: "none"
+      }}>
+        <span style={{ width: "16px", height: "1px", backgroundColor: "#C4956A66" }} />
+        <span className="font-micro" style={{ color: "#C4956A99", fontSize: "0.56rem", letterSpacing: "0.16em", animation: "tabGlow 2s ease-in-out infinite" }}>
+          TAP TO EXPLORE
+        </span>
+        <span style={{ width: "16px", height: "1px", backgroundColor: "#C4956A66" }} />
+      </div>
+
       {/* Tab row */}
       <div className="flex gap-2">
         {drawers.map((drawer, index) => {
@@ -50,6 +79,7 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
                 zIndex: isOpen ? 2 : 1,
                 marginBottom: isOpen ? "-1px" : "0",
                 cursor: "pointer",
+                animation: !isOpen && openDrawer < 0 ? `tabNudge 2.4s ease-in-out ${index * 0.3}s infinite` : "none",
               }}>
               <Icon className="h-4 w-4" style={{ color: isOpen ? "#C4956A" : "#9a8f84", transition: "color 0.2s" }} />
               <span className="font-micro" style={{ fontSize: "0.6rem", letterSpacing: "0.16em", color: isOpen ? "#2B2B28" : "#9a8f84", transition: "color 0.2s" }}>
@@ -58,6 +88,10 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
               {/* Active bottom accent */}
               {isOpen && (
                 <div style={{ position: "absolute", bottom: 0, left: "20%", right: "20%", height: "2px", backgroundColor: "#C4956A", borderRadius: "2px 2px 0 0" }} />
+              )}
+              {/* Tap indicator dot — inactive only */}
+              {!isOpen && openDrawer < 0 && (
+                <div style={{ position: "absolute", top: "8px", right: "10px", width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "#C4956A", animation: `tabGlow 2.4s ease-in-out ${index * 0.3}s infinite` }} />
               )}
             </button>
           );
