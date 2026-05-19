@@ -170,7 +170,7 @@ export default function WhatIsMamaLaunchSection() {
                     style={{ objectPosition: "center", transform: "scale(1.18)", transformOrigin: "center", filter: "saturate(0.82) brightness(0.97)" }} />
                       </div>
                   }
-                    <div className="px-4 pt-2 pb-3">
+                    <div className="px-4 pt-2 pb-3 text-center">
                       <p className="font-display text-sm font-semibold mb-1" style={{ color: card.accent }}>{card.title}</p>
                       <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
                     </div>
