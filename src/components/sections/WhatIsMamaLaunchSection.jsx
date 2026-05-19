@@ -165,12 +165,12 @@ export default function WhatIsMamaLaunchSection() {
                     {/* Accent top bar */}
                     <div style={{ height: "3px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}88)` }} />
                     {card.image && (
-                      <div className="w-full overflow-hidden" style={{ height: "155px" }}>
+                      <div className="w-full overflow-hidden" style={{ height: "110px" }}>
                         <img src={card.image} alt={card.title} className="w-full h-full object-cover"
                           style={{ objectPosition: "center", transform: "scale(1.18)", transformOrigin: "center", filter: "saturate(0.82) brightness(0.97)" }} />
                       </div>
                     )}
-                    <div className="px-4 pt-3 pb-4">
+                    <div className="px-4 pt-2 pb-3">
                       <p className="font-display text-sm font-semibold mb-1" style={{ color: card.accent }}>{card.title}</p>
                       <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
                     </div>
