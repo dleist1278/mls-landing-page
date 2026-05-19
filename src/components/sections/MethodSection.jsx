@@ -151,7 +151,7 @@ export default function MethodSection() {
             THE OPENING PATH
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
-          <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
+          <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 6.5vw, 3.4rem)", lineHeight: "1.2" }}>
             The 5 Phases<br />
             <em style={{ color: "#4D5E49" }}>That Guide You</em>
           </h2>
