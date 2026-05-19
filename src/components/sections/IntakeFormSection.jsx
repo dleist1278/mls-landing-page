@@ -144,6 +144,15 @@ export default function IntakeFormSection() {
 
   return (
     <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden", scrollMarginTop: "60px" }}>
+      <div className="md:hidden px-6 pt-8 pb-0 text-center">
+        <p
+          className="font-display"
+          style={{ color: "#5C5148", fontSize: "1.05rem", lineHeight: "1.6", fontStyle: "italic" }}
+        >
+          You do not need to figure this out alone anymore.
+        </p>
+        <div className="w-6 h-px mx-auto mt-5" style={{ backgroundColor: "#C4956A", opacity: 0.5 }} />
+      </div>
       <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20">
         <div
           ref={ref}

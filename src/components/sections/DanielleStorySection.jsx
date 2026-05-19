@@ -115,12 +115,12 @@ export default function DanielleStorySection() {
   );
 
   const Photo = (
-    <div className="rounded-3xl overflow-hidden p-2" style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.08)" }}>
+    <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 6px 24px rgba(0,0,0,0.06)", maxHeight: "220px" }}>
       <img
         src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
         alt="Danielle, founder of Mama Launch Studio"
-        className="w-full object-cover object-center h-[240px] lg:h-[420px]"
-        style={{ filter: "saturate(0.82) brightness(0.99)", objectPosition: "center 12%", display: "block" }}
+        className="w-full object-cover object-center h-[220px] lg:h-[420px]"
+        style={{ filter: "saturate(0.82) brightness(0.99)", objectPosition: "center 8%", display: "block", objectFit: "contain" }}
       />
     </div>
   );
