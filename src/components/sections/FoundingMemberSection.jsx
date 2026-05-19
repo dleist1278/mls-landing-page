@@ -213,7 +213,7 @@ export default function FoundingMemberSection() {
 
         {/* Headline */}
         <h2
-          className="font-display leading-tight mb-3"
+          className="font-display leading-tight mb-3 text-center"
           style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.18" }}
         >
           What Happens After<br />
