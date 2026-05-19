@@ -93,7 +93,7 @@ export default function HeroSection() {
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
-                className="font-body mb-6"
+                className="font-body mb-6 mx-auto text-center"
                 style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "36ch" }}
               >
                 Build a <strong style={{ color: "#2C2C2C", fontWeight: 500 }}>flexible childcare business</strong> shaped around your life, your kids, and your goals — with guided systems, real structure, and a community that gets it.
