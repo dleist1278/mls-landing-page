@@ -111,7 +111,7 @@ export default function DanielleStorySection() {
       href="#waitlist"
       className="mx-auto lg:mx-0 inline-flex items-center justify-center rounded-full bg-[#566B4E] px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:shadow-lg w-fit mt-2"
     >
-      Join the Founding<br />Member Waitlist
+      Join Now
       <ArrowRight className="ml-2 h-4 w-4" />
     </a>
   );
