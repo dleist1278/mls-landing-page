@@ -138,7 +138,7 @@ export default function WhatIsMamaLaunchSection() {
             </p>
 
             {/* Mobile-only horizontal swipe proof cards */}
-            <div className="md:hidden -mx-5 mb-5 overflow-hidden">
+            <div className="md:hidden -mx-5 mb-5 overflow-hidden" style={{ clipPath: "inset(0)" }}>
               <div
                 className="flex gap-3 overflow-x-auto px-5 pb-3"
                 style={{
