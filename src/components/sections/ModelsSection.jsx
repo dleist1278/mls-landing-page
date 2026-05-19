@@ -99,7 +99,7 @@ export default function ModelsSection() {
               className="font-display leading-tight mb-3"
               style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}
             >
-              Choose the path that fits your motherhood life.
+              Choose the path that <em style={{ color: "#4D5E49" }}>fits your motherhood life.</em>
             </h2>
             <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}>
               Chip away at your business while living real motherhood life — during nap time, laundry, dinner prep, school pickup, or quiet moments throughout the day.
