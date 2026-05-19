@@ -150,7 +150,7 @@ export default function WhatIsMamaLaunchSection() {
                 }}>
                 
                 {[
-                { title: "Guided Roadmap", body: "Know what to do first, next, and later — no guesswork.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png", accent: "#4D5E49" },
+                { title: "Guided Interactive Roadmap", body: "Know what to do first, next, and later — no guesswork.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png", accent: "#4D5E49" },
                 { title: "Built-In Clarity", body: "Your templates, steps, and decisions — all in one place.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png", accent: "#C4956A" },
                 { title: "Launch Momentum", body: "Track your progress so your idea becomes a real program.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" }].
                 map((card) =>
