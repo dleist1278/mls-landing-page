@@ -64,7 +64,7 @@ function AccordionDrawer({ drawer, isOpen, onToggle }) {
 }
 
 export default function DanielleStorySection() {
-  const [openDrawer, setOpenDrawer] = useState(0);
+  const [openDrawer, setOpenDrawer] = useState(-1);
 
   const handleToggle = (index) => {
     setOpenDrawer(openDrawer === index ? -1 : index);
