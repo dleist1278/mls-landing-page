@@ -184,7 +184,7 @@ export default function FoundingMemberSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [activeStep, setActiveStep] = useState("01");
-  const [activeStage, setActiveStage] = useState(1); // default: JOIN (stage 1)
+  const [activeStage, setActiveStage] = useState(mobileStages[0].id);
 
   useEffect(() => {
     const o1 = new IntersectionObserver(
@@ -229,7 +229,7 @@ export default function FoundingMemberSection() {
               key={stage.id}
               stage={stage}
               isActive={activeStage === stage.id}
-              onTap={() => setActiveStage(activeStage === stage.id ? stage.id : stage.id)}
+              onTap={() => setActiveStage(stage.id)}
               stageIndex={i}
               totalStages={mobileStages.length}
             />

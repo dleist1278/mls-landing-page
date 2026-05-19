@@ -28,8 +28,8 @@ export default function Home() {
         <ModelsSection />
         <InsideTheStudioSection />
         <EcosystemSection />
-        <FoundingMemberSection />
         <DanielleStorySection />
+        <FoundingMemberSection />
         <IntakeFormSection />
       </main>
       <SiteFooter />
