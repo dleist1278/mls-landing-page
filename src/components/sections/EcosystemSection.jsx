@@ -183,13 +183,19 @@ export default function EcosystemSection() {
             {MOBILE_CARD_META.map((card) =>
             <div
               key={card.key}
-              className="flex-none w-[82vw] max-w-[340px] rounded-[24px] bg-[#FDFCFA] border border-[#EAD9C8] p-2.5 overflow-hidden"
+              className="flex-none w-[68vw] max-w-[260px] rounded-[18px] bg-[#FDFCFA] border border-[#EAD9C8] p-2 overflow-hidden"
               style={{ scrollSnapAlign: "start", boxShadow: "0 4px 18px rgba(196,149,106,0.07)" }}>
               
-                <CardImage cardKey={card.key} />
-                <div className="px-2 pt-3 pb-1.5">
-                  <h3 className="font-display text-2xl text-[#2B2B28]">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#3A3A35]">{card.description}</p>
+                <div className="w-full h-[130px] overflow-hidden rounded-xl border border-[#EAD9C8] bg-white">
+                  {CARD_IMAGES[card.key] ? <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png" alt={card.key} className="w-full h-full object-contain object-center block" /> : null}
+                </div>
+                <div className="px-1.5 pt-2 pb-1">
+                  <h3
+                    className="font-body text-xs font-bold mb-1"
+                    style={{ color: "#4D5E49" }}>
+                    {card.title}
+                  </h3>
+                  <p className="text-xs leading-[1.5] text-[#3A3A35] line-clamp-3">{card.description}</p>
                 </div>
               </div>
             )}
