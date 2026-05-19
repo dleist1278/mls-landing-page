@@ -146,8 +146,10 @@ export default function IntakeFormSection() {
     <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden", scrollMarginTop: "60px" }}>
       {/* Mobile-only header — softer editorial entry */}
       <div className="md:hidden px-5 pt-14 pb-0">
-        <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+        <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+          <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           FOUNDING MEMBER WAITLIST
+          <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
         </p>
         <h2
           className="font-display leading-snug mb-3 text-center"
