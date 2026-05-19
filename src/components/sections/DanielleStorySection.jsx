@@ -119,21 +119,24 @@ export default function DanielleStorySection() {
       <img
         src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
         alt="Danielle, founder of Mama Launch Studio"
-        className="w-full object-cover object-center h-[320px] lg:h-[420px]"
+        className="w-full object-cover object-center h-[240px] lg:h-[420px]"
         style={{ filter: "saturate(0.82) brightness(0.99)", objectPosition: "center 12%", display: "block" }}
       />
     </div>
   );
 
+  const drawerGaps = ["mb-1", "mb-2", ""];
+
   const Accordion = (
-    <div className="mt-2 space-y-1">
+    <div className="mt-2">
       {drawers.map((drawer, index) => (
-        <AccordionDrawer
-          key={drawer.title}
-          drawer={drawer}
-          isOpen={openDrawer === index}
-          onToggle={() => handleToggle(index)}
-        />
+        <div key={drawer.title} className={drawerGaps[index]}>
+          <AccordionDrawer
+            drawer={drawer}
+            isOpen={openDrawer === index}
+            onToggle={() => handleToggle(index)}
+          />
+        </div>
       ))}
     </div>
   );
