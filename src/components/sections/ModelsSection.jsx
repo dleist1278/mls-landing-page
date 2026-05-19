@@ -221,7 +221,7 @@ export default function ModelsSection() {
                   </div>
 
                   <h3
-                    className="font-display leading-snug mb-2"
+                    className="font-display leading-snug mb-2 font-bold"
                     style={{ color: "#2C2C2C", fontSize: "1.05rem" }}>
                     {pathway.title}
                   </h3>
