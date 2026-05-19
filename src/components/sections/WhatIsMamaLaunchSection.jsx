@@ -151,24 +151,28 @@ export default function WhatIsMamaLaunchSection() {
                 }}
               >
                 {[
-                  { title: "Guided Roadmap", body: "Know what to do first, next, and later — no guesswork.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png" },
-                  { title: "Built-In Clarity", body: "Your templates, steps, and decisions — all in one place.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png" },
-                  { title: "Launch Momentum", body: "Track your progress so your idea becomes a real program.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png" },
+                  { title: "Guided Roadmap", body: "Know what to do first, next, and later — no guesswork.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png", accent: "#4D5E49" },
+                  { title: "Built-In Clarity", body: "Your templates, steps, and decisions — all in one place.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png", accent: "#C4956A" },
+                  { title: "Launch Momentum", body: "Track your progress so your idea becomes a real program.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" },
                 ].map((card) => (
                   <div key={card.title}
-                    className="flex-none w-[72vw] max-w-[260px] rounded-xl overflow-hidden"
-                    style={{ scrollSnapAlign: "start", backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.10)" }}>
-                    {card.image ? (
-                      <div className="w-full h-[160px] overflow-hidden">
-                        <img src={card.image} alt={card.title} className="w-full h-full object-cover" style={{ objectPosition: "center", transform: "scale(1.25)", transformOrigin: "center" }} />
-                      </div>
-                    ) : (
-                      <div className="w-full h-[140px] flex items-center justify-center" style={{ backgroundColor: "rgba(77,94,73,0.08)", borderBottom: "1px dashed rgba(77,94,73,0.18)" }}>
-                        <span className="font-micro text-center" style={{ color: "#9a8f84", fontSize: "0.6rem" }}>Add image URL</span>
+                    className="flex-none w-[72vw] max-w-[252px] rounded-2xl overflow-hidden"
+                    style={{
+                      scrollSnapAlign: "start",
+                      background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)",
+                      border: "1px solid #E4D5C0",
+                      boxShadow: "0 8px 28px rgba(196,149,106,0.12), 0 1px 4px rgba(0,0,0,0.04)"
+                    }}>
+                    {/* Accent top bar */}
+                    <div style={{ height: "3px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}88)` }} />
+                    {card.image && (
+                      <div className="w-full overflow-hidden" style={{ height: "155px" }}>
+                        <img src={card.image} alt={card.title} className="w-full h-full object-cover"
+                          style={{ objectPosition: "center", transform: "scale(1.18)", transformOrigin: "center", filter: "saturate(0.82) brightness(0.97)" }} />
                       </div>
                     )}
-                    <div className="px-4 py-3">
-                      <p className="font-display text-sm font-semibold mb-1" style={{ color: "#2C2C2C" }}>{card.title}</p>
+                    <div className="px-4 pt-3 pb-4">
+                      <p className="font-display text-sm font-semibold mb-1" style={{ color: card.accent }}>{card.title}</p>
                       <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
                     </div>
                   </div>
