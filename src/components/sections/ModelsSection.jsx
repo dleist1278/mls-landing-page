@@ -49,7 +49,6 @@ export default function ModelsSection() {
     return () => obs.disconnect();
   }, []);
 
-  // Sync active index with scroll position on mobile
   const handleScroll = () => {
     if (!trackRef.current) return;
     const el = trackRef.current;
@@ -66,7 +65,7 @@ export default function ModelsSection() {
     >
       <div className="max-w-5xl mx-auto px-6 md:px-12">
 
-        {/* Header — desktop unchanged, mobile updated copy */}
+        {/* Header */}
         <div
           ref={headerRef}
           className="mb-5 md:mb-14"
@@ -91,7 +90,7 @@ export default function ModelsSection() {
             </div>
           </div>
 
-          {/* Mobile header — updated copy */}
+          {/* Mobile header */}
           <div className="md:hidden">
             <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               NOW ENROLLING
@@ -110,7 +109,6 @@ export default function ModelsSection() {
 
         {/* Desktop: original layout unchanged */}
         <div className="hidden md:block">
-          {/* Active pathway */}
           <div
             className="rounded-3xl p-10 mb-6"
             style={{
@@ -144,7 +142,6 @@ export default function ModelsSection() {
             </div>
           </div>
 
-          {/* Coming soon — desktop grid */}
           <div className="grid grid-cols-2 gap-4">
             {[
               { title: "Drop-In Childcare", description: "Flexible short-format care models built around specific time blocks, rhythms, or caregiver schedules. Ideal for mothers who want to start smaller or offer need-based care." },
@@ -166,9 +163,8 @@ export default function ModelsSection() {
           </div>
         </div>
 
-        {/* Mobile: subtle swipeable pathway chooser */}
+        {/* Mobile: swipeable pathway chooser */}
         <div className="md:hidden w-full max-w-full overflow-hidden">
-          {/* Swipe track */}
           <div
             ref={trackRef}
             onScroll={handleScroll}
@@ -180,7 +176,7 @@ export default function ModelsSection() {
               WebkitOverflowScrolling: "touch",
               overscrollBehaviorX: "contain",
               gap: "10px",
-              paddingRight: "40px", // peek
+              paddingRight: "20px",
             }}
           >
             {pathways.map((pathway, i) => {
@@ -190,8 +186,8 @@ export default function ModelsSection() {
                   key={pathway.id}
                   style={{
                     scrollSnapAlign: "start",
-                    flex: "0 0 calc(100% - 40px)",
-                    maxWidth: "calc(100% - 40px)",
+                    flex: "0 0 calc(100% - 20px)",
+                    maxWidth: "calc(100% - 20px)",
                     borderRadius: "20px",
                     padding: isActive ? "16px" : "14px 16px",
                     backgroundColor: isActive ? "#F0EBE1" : "#FDFCFA",
@@ -201,7 +197,6 @@ export default function ModelsSection() {
                     transition: "opacity 0.25s ease, box-shadow 0.25s ease",
                   }}
                 >
-                  {/* Tag */}
                   <div className="mb-2.5">
                     <span
                       className="font-micro"
@@ -215,7 +210,6 @@ export default function ModelsSection() {
                     </span>
                   </div>
 
-                  {/* Title */}
                   <h3
                     className="font-display leading-snug mb-2"
                     style={{ color: "#2C2C2C", fontSize: "1.05rem" }}
@@ -223,7 +217,6 @@ export default function ModelsSection() {
                     {pathway.title}
                   </h3>
 
-                  {/* Description */}
                   <p
                     className="font-body leading-snug mb-3"
                     style={{ color: "#5C5148", fontSize: "0.82rem", lineHeight: "1.55" }}
@@ -231,7 +224,6 @@ export default function ModelsSection() {
                     {pathway.description}
                   </p>
 
-                  {/* Features — active only */}
                   {isActive && pathway.features.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 mb-4">
                       {pathway.features.map((f) => (
@@ -251,7 +243,6 @@ export default function ModelsSection() {
                     </div>
                   )}
 
-                  {/* CTA — active only */}
                   {isActive && pathway.cta && (
                     <button
                       onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
@@ -291,17 +282,12 @@ export default function ModelsSection() {
         </div>
       </div>
 
-      {/* BUILD IN MOTION — emotional reset block, outside main container, mobile only */}
+      {/* BUILD IN MOTION — mobile only */}
       <div
         className="md:hidden w-full max-w-full overflow-hidden"
         style={{ marginTop: "40px", paddingLeft: "28px", paddingRight: "28px" }}
       >
-        <div
-          style={{
-            borderTop: "1px solid #C4956A22",
-            paddingTop: "32px",
-          }}
-        >
+        <div style={{ borderTop: "1px solid #C4956A22", paddingTop: "32px" }}>
           <p
             className="font-micro mb-4"
             style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.14em" }}
