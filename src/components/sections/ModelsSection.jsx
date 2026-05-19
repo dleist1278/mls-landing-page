@@ -112,19 +112,31 @@ export default function ModelsSection() {
         {/* Desktop: original layout unchanged */}
         <div className="hidden md:block">
           <div
-            className="rounded-3xl p-10 mb-6"
+            className="rounded-3xl p-10 mb-6 relative overflow-hidden"
             style={{
               backgroundColor: "#F0EBE1",
               border: "1px solid #4D5E4930",
               boxShadow: "0 6px 36px rgba(77,94,73,0.08)"
             }}>
+
+            {/* Corner ribbon — Spots Limited */}
+            <div style={{ position: "absolute", top: "18px", left: "-28px", zIndex: 10, transform: "rotate(-45deg)", width: "120px", textAlign: "center", backgroundColor: "#C4956A", padding: "5px 0", boxShadow: "0 2px 8px rgba(196,149,106,0.3)" }}>
+              <span className="font-micro" style={{ color: "#fff", fontSize: "0.55rem", letterSpacing: "0.1em" }}>SPOTS LIMITED</span>
+            </div>
+
+            <style>{`
+              @keyframes enrollPulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.3; }
+              }
+            `}</style>
             
             <div className="flex flex-col md:flex-row md:gap-10 gap-6">
               <div className="flex-1">
                 <div className="flex justify-center mb-5">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
-                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
-                    <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>Now Enrolling</span>
+                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49", animation: "enrollPulse 1.6s ease-in-out infinite" }} />
+                    <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem", animation: "enrollPulse 1.6s ease-in-out infinite" }}>Now Enrolling</span>
                   </div>
                 </div>
                 <h3 className="font-display mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
@@ -205,8 +217,17 @@ export default function ModelsSection() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    textAlign: "center"
+                    textAlign: "center",
+                    position: "relative",
+                    overflow: "hidden"
                   }}>
+
+                  {/* Corner ribbon — only on first (home-daycare) card */}
+                  {pathway.tagActive && (
+                    <div style={{ position: "absolute", top: "14px", left: "-22px", zIndex: 10, transform: "rotate(-45deg)", width: "100px", textAlign: "center", backgroundColor: "#C4956A", padding: "4px 0", boxShadow: "0 2px 6px rgba(196,149,106,0.3)" }}>
+                      <span className="font-micro" style={{ color: "#fff", fontSize: "0.48rem", letterSpacing: "0.1em" }}>SPOTS LIMITED</span>
+                    </div>
+                  )}
                   
                   <div className="mb-2.5">
                     <span
@@ -214,7 +235,8 @@ export default function ModelsSection() {
                       style={{
                         color: pathway.tagActive ? "#4D5E49" : "#C4956A",
                         fontSize: "0.6rem",
-                        letterSpacing: "0.1em"
+                        letterSpacing: "0.1em",
+                        animation: pathway.tagActive ? "enrollPulse 1.6s ease-in-out infinite" : "none"
                       }}>
                       {pathway.tag}
                     </span>
