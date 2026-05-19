@@ -87,6 +87,15 @@ export default function ModelsSection() {
                 <br />
                 <em style={{ color: "#4D5E49" }}>Built Around Your Life.</em>
               </h2>
+              {/* Cohort date — desktop */}
+              <div className="flex-none flex items-center gap-2.5 px-4 py-2.5 rounded-2xl self-end mb-1"
+                style={{ backgroundColor: "#4D5E4910", border: "1px solid #4D5E4922" }}>
+                <span style={{ fontSize: "1rem" }}>🌿</span>
+                <div>
+                  <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.58rem", letterSpacing: "0.14em" }}>FOUNDING COHORT BEGINS</p>
+                  <p className="font-display" style={{ color: "#2C2C2C", fontSize: "1rem", lineHeight: 1.2 }}>July 6th</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -103,9 +112,18 @@ export default function ModelsSection() {
               
               Choose the path that <em style={{ color: "#4D5E49" }}>fits your motherhood life.</em>
             </h2>
-            
 
-            
+            {/* Cohort date — mobile */}
+            <div className="flex justify-center mt-4 mb-1">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl"
+                style={{ backgroundColor: "#4D5E4910", border: "1px solid #4D5E4922" }}>
+                <span style={{ fontSize: "0.9rem" }}>🌿</span>
+                <div className="text-left">
+                  <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.55rem", letterSpacing: "0.14em" }}>FOUNDING COHORT BEGINS</p>
+                  <p className="font-display" style={{ color: "#2C2C2C", fontSize: "0.95rem", lineHeight: 1.2 }}>July 6th</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
