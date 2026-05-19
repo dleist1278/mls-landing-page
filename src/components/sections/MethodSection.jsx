@@ -145,7 +145,7 @@ export default function MethodSection() {
         </div>
 
         {/* Mobile header */}
-        <div className="md:hidden">
+        <div className="md:hidden text-center">
           <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             THE OPENING PATH
