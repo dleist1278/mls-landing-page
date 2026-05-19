@@ -142,7 +142,7 @@ export default function IntakeFormSection() {
   };
 
   return (
-    <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden", scrollMarginTop: "60px" }}>
+    <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden", scrollMarginTop: "60px", paddingBottom: "40px" }}>
       {/* Mobile-only header — softer editorial entry */}
       <div className="md:hidden px-5 pt-14 pb-0">
         <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
@@ -177,8 +177,8 @@ export default function IntakeFormSection() {
           <div className="relative overflow-hidden rounded-3xl"
             style={{
               background: "linear-gradient(145deg, #FFFDF9 0%, #F7F2EA 100%)",
-              border: "1px solid #E4D5C0",
-              boxShadow: "0 20px 60px rgba(196,149,106,0.14), 0 4px 16px rgba(77,94,73,0.06)"
+              border: "1px solid rgba(196,149,106,0.12)",
+              boxShadow: "0 8px 40px rgba(44,44,44,0.04), 0 2px 8px rgba(196,149,106,0.06)"
             }}>
 
             {/* Decorative top accent bar */}

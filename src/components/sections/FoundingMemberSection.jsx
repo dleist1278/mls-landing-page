@@ -97,9 +97,9 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
       <div
         className="w-full rounded-2xl overflow-hidden"
         style={{
-          backgroundColor: isActive ? "#FFFCF8" : "#FAF7F2",
-          border: `1px solid ${isActive ? "#D4BDA8" : "#E8DDD3"}`,
-          boxShadow: isActive ? "0 3px 14px rgba(196,149,106,0.09)" : "none",
+          backgroundColor: isActive ? "#FDFAF6" : "transparent",
+          border: `1px solid ${isActive ? "#D4BDA888" : "#E8DDD344"}`,
+          boxShadow: "none",
           transition: "background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease",
           WebkitTransform: "translateZ(0)",
           transform: "translateZ(0)"
@@ -247,7 +247,7 @@ export default function FoundingMemberSection() {
         {/* Founding member support line */}
         <div
           className="rounded-xl px-3 py-2 w-full mt-5"
-          style={{ backgroundColor: "#FAF7F2", border: "1px solid #E8DDD3" }}>
+          style={{ backgroundColor: "transparent", border: "1px solid #E8DDD344" }}>
           
           <div className="flex items-start gap-2">
             <Heart size={11} style={{ color: "#e53935", flexShrink: 0, marginTop: "2px", strokeWidth: 1.5, fill: "#e53935" }} />

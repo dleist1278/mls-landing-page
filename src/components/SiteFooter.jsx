@@ -13,10 +13,10 @@ export default function SiteFooter() {
 
   return (
     <footer style={{ backgroundColor: "#1E1E1E" }}>
-      {/* Top clay accent line */}
-      <div className="w-full h-px" style={{ backgroundColor: "#C4956A", opacity: 0.35 }} />
+      {/* Soft tonal transition buffer */}
+      <div className="w-full" style={{ height: "32px", background: "linear-gradient(to bottom, #F0EBE1, #1E1E1E)" }} />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-8 md:pt-14 pb-7 md:pb-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-6 md:pt-12 pb-7 md:pb-10">
 
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 pb-12 mb-10 border-b" style={{ borderColor: "#C4956A28" }}>

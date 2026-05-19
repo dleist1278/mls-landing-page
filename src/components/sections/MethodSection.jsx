@@ -48,13 +48,13 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
       onClick={onClick}
       className="w-full text-left overflow-hidden focus:outline-none relative"
       style={{
-        borderRadius: "18px",
-        backgroundColor: isActive ? "#FFFDF9" : "#FAF7F2",
-        border: `1px solid ${isActive ? phase.color + "40" : "#C4956A0E"}`,
+        borderRadius: "14px",
+        backgroundColor: isActive ? "#FFFDF9" : "#EDE5D8",
+        border: `1px solid ${isActive ? phase.color + "28" : "#C4956A14"}`,
         boxShadow: isActive
-          ? `0 6px 28px rgba(77,94,73,0.10), 0 1px 4px rgba(44,44,44,0.05), inset 0 1px 0 rgba(255,255,255,0.7)`
+          ? `0 3px 14px rgba(44,44,44,0.05)`
           : "none",
-        opacity: isActive ? 1 : 0.42,
+        opacity: isActive ? 1 : 0.55,
         transition: "opacity 0.2s ease, box-shadow 0.22s ease, background-color 0.2s ease",
         WebkitTransform: "translateZ(0)",
         transform: "translateZ(0)"
