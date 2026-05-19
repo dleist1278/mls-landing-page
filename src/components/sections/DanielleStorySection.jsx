@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { GraduationCap, Home, Heart, ChevronDown, ArrowRight, LayoutDashboard, Lightbulb, BookOpen, Gift } from "lucide-react";
 
 const credentials = [
@@ -12,50 +12,45 @@ const drawers = [
   {
     icon: Lightbulb,
     title: "WHY I BUILT THIS",
-    content:
-      "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers.",
+    content: "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers.",
   },
   {
     icon: BookOpen,
     title: "WHAT I UNDERSTAND",
-    content:
-      "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children.",
+    content: "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children.",
   },
   {
     icon: Gift,
     title: "WHAT THIS GIVES YOU",
-    content:
-      "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone.",
+    content: "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone.",
   },
 ];
 
 function AccordionDrawer({ drawer, isOpen, onToggle }) {
   const Icon = drawer.icon;
   return (
-    <div className={`rounded-2xl border border-[#E8D8C7] overflow-hidden transition-colors duration-200 ${isOpen ? "bg-[#FFFDF9]" : "bg-white/70"}`}>
+    <div
+      className="rounded-2xl overflow-hidden transition-all duration-200"
+      style={{
+        backgroundColor: isOpen ? "#FFFDF9" : "rgba(255,255,255,0.5)",
+        border: `1px solid ${isOpen ? "#C4956A30" : "#E8D8C7"}`,
+        boxShadow: isOpen ? "0 2px 12px rgba(196,149,106,0.08)" : "none",
+      }}>
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left"
-      >
-        <span className="flex items-center gap-2.5 text-[#2B2B28]" style={{ fontSize: "0.68rem", letterSpacing: "0.12em", fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
+        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left">
+        <span className="flex items-center gap-2.5" style={{ fontSize: "0.66rem", letterSpacing: "0.14em", fontFamily: "'Inter', sans-serif", fontWeight: 600, color: "#2B2B28" }}>
           <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#C4956A" }} />
           {drawer.title}
         </span>
         <ChevronDown
-          className="h-4 w-4 flex-shrink-0 text-[#566B4E] transition-transform duration-300"
-          style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+          className="h-4 w-4 flex-shrink-0 transition-transform duration-300"
+          style={{ color: "#4D5E49", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
         />
       </button>
-      <div
-        style={{
-          maxHeight: isOpen ? "160px" : "0px",
-          overflow: "hidden",
-          opacity: isOpen ? 1 : 0,
-          transition: "max-height 0.25s ease, opacity 0.2s ease",
-        }}
-      >
-        <p className="px-4 pb-4 text-sm leading-relaxed text-[#3A3A35]">
+      <div style={{ maxHeight: isOpen ? "160px" : "0px", overflow: "hidden", opacity: isOpen ? 1 : 0, transition: "max-height 0.28s ease, opacity 0.22s ease" }}>
+        <p className="px-5 pb-5 font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.88rem" }}>
           {drawer.content}
         </p>
       </div>
@@ -65,158 +60,153 @@ function AccordionDrawer({ drawer, isOpen, onToggle }) {
 
 export default function DanielleStorySection() {
   const [openDrawer, setOpenDrawer] = useState(-1);
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
-  const handleToggle = (index) => {
-    setOpenDrawer(openDrawer === index ? -1 : index);
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.06 });
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
-  const Eyebrow = (
-    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C98F5D] mb-1">
-      Hi, I'm Danielle
-    </p>
-  );
-
-  const Title = (
-    <h2 className="font-display text-[38px] leading-[1.05] lg:text-6xl text-[#2B2B28] mb-3">
-      I built this{" "}
-      <em className="block italic text-[#566B4E]">because I needed it.</em>
-    </h2>
-  );
-
-  const Bio = (
-    <p className="text-[16px] leading-7 text-[#3A3A35] mb-4 max-w-prose">
-      I've been the educator, the assistant principal, the licensed home daycare owner — and through all of it, I've been a mom of two. I know what it feels like to hold a vision for something meaningful and not know where to begin.
-    </p>
-  );
-
-  const Pills = (
-    <div className="flex flex-wrap gap-2 mb-7 lg:flex-col lg:gap-1">
-      {credentials.map((item) => {
-        const Icon = item.icon;
-        return (
-          <div
-            key={item.text}
-            className="flex items-center gap-3 rounded-full bg-white/40 px-3 py-2 text-[13px] text-[#2B2B28] ring-1 ring-[#E8D8C7] w-fit basis-[48%] lg:basis-auto"
-          >
-            <Icon className="h-3.5 w-3.5 text-[#566B4E] flex-shrink-0" />
-            <span>{item.text}</span>
-          </div>
-        );
-      })}
-    </div>
-  );
-
-  const CTA = (
-    <a
-      href="#waitlist"
-      className="mx-auto lg:mx-0 inline-flex items-center justify-center rounded-full bg-[#566B4E] px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5 hover:shadow-lg w-fit mt-2"
-    >
-      Join Now
-      <ArrowRight className="ml-2 h-4 w-4" />
-    </a>
-  );
-
-  // Desktop photo — used in right column
-  const Photo = (
-    <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 6px 24px rgba(0,0,0,0.06)" }}>
-      <img
-        src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
-        alt="Danielle, founder of Mama Launch Studio"
-        className="w-full h-[420px]"
-        style={{ objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.85) brightness(1.0)", display: "block" }}
-      />
-    </div>
-  );
-
-  // Mobile photo — full-width editorial portrait, no gutter
-  const MobilePhoto = (
-    <div className="overflow-hidden rounded-xl" style={{ margin: "0 -4px" }}>
-      <img
-        src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
-        alt="Danielle, founder of Mama Launch Studio"
-        className="w-full"
-        style={{ objectFit: "cover", objectPosition: "center 12%", display: "block", maxHeight: "280px" }}
-      />
-    </div>
-  );
-
-  const drawerGaps = ["mb-1", "mb-2", ""];
-
-  const Accordion = (
-    <div className="mt-2">
-      {drawers.map((drawer, index) => (
-        <div key={drawer.title} className={drawerGaps[index]}>
-          <AccordionDrawer
-            drawer={drawer}
-            isOpen={openDrawer === index}
-            onToggle={() => handleToggle(index)}
-          />
-        </div>
-      ))}
-    </div>
-  );
-
-  const leftColumn = (
-    <>
-      {Eyebrow}
-      {Title}
-      {Bio}
-      {Pills}
-      {CTA}
-    </>
-  );
-
-  const rightColumn = (
-    <>
-      {Photo}
-      {Accordion}
-    </>
-  );
+  const handleToggle = (index) => setOpenDrawer(openDrawer === index ? -1 : index);
 
   return (
-    <section className="px-5 py-16 lg:px-8 lg:py-20" style={{ backgroundColor: "#F4EFE6" }}>
-      <div className="mx-auto max-w-[1120px]">
+    <section style={{ backgroundColor: "#FAF7F2", overflow: "hidden" }}>
+      <div className="w-full h-px" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
-        {/* MOBILE: Specific content order */}
-        <div className="flex flex-col gap-5 lg:hidden">
-          <p className="font-micro flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
-            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-            BUILT FROM REAL EXPERIENCE
-            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-          </p>
-          <h2 className="font-display leading-snug mb-4 text-center mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "18ch" }}>
+      <div
+        ref={sectionRef}
+        className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20"
+        style={{ transition: "opacity 0.7s ease, transform 0.7s ease", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)" }}>
+
+        {/* Section eyebrow — shared mobile + desktop */}
+        <p className="font-micro mb-5 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+          <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+          Built From Real Experience
+          <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+        </p>
+
+        {/* ── DESKTOP two-column ── */}
+        <div className="hidden md:grid grid-cols-[1fr_1fr] gap-14 items-start">
+
+          {/* Left — text content */}
+          <div>
+            <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.5vw, 3rem)", lineHeight: "1.15" }}>
+              I built this{" "}
+              <em className="block" style={{ color: "#4D5E49" }}>because I needed it.</em>
+            </h2>
+            <p className="font-body leading-relaxed mb-6" style={{ color: "#5C5148", fontSize: "0.97rem", lineHeight: "1.72" }}>
+              I've been the educator, the assistant principal, the licensed home daycare owner — and through all of it, I've been a mom of two. I know what it feels like to hold a vision for something meaningful and not know where to begin.
+            </p>
+
+            {/* Credential pills */}
+            <div className="flex flex-col gap-2 mb-8">
+              {credentials.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.text} className="flex items-center gap-3 w-fit rounded-full px-4 py-2.5"
+                    style={{ backgroundColor: "rgba(77,94,73,0.07)", border: "1px solid rgba(77,94,73,0.12)", color: "#2C2C2C" }}>
+                    <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#4D5E49" }} />
+                    <span className="font-body" style={{ fontSize: "0.88rem" }}>{item.text}</span>
+                  </div>
+                );
+              })}
+            </div>
+
+            <button
+              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+              className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", boxShadow: "0 4px 20px rgba(77,94,73,0.22)" }}>
+              Join the Founding Member Waitlist
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
+
+          {/* Right — photo + accordion */}
+          <div className="flex flex-col gap-5">
+            {/* Photo with depth layers */}
+            <div className="relative">
+              <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.13, zIndex: 0 }} />
+              <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.09, zIndex: 1 }} />
+              <div className="relative rounded-[20px] overflow-hidden" style={{ zIndex: 2, boxShadow: "0 8px 36px rgba(196,149,106,0.14)", border: "1px solid rgba(196,149,106,0.1)" }}>
+                <img
+                  src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
+                  alt="Danielle, founder of Mama Launch Studio"
+                  className="w-full"
+                  style={{ height: "400px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }}
+                />
+                {/* Subtle gradient overlay at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-20" style={{ background: "linear-gradient(to top, rgba(250,247,242,0.4), transparent)" }} />
+              </div>
+            </div>
+
+            {/* Accordion */}
+            <div className="flex flex-col gap-2">
+              {drawers.map((drawer, index) => (
+                <AccordionDrawer key={drawer.title} drawer={drawer} isOpen={openDrawer === index} onToggle={() => handleToggle(index)} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── MOBILE single-column ── */}
+        <div className="md:hidden flex flex-col gap-6">
+          <h2 className="font-display leading-snug text-center mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 6vw, 2.8rem)", lineHeight: "1.18", maxWidth: "20ch" }}>
             Created by Someone<br /><em style={{ color: "#4D5E49" }}>Who Understands</em>
           </h2>
-          <p className="font-body leading-relaxed mb-7 text-center mx-auto" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
+          <p className="font-body leading-relaxed text-center mx-auto" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65", maxWidth: "36ch" }}>
             Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
           </p>
-          {MobilePhoto}
-          <div className="grid grid-cols-2 gap-1.5">
+
+          {/* Mobile photo with depth */}
+          <div className="relative mx-4">
+            <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(8px, 8px)", backgroundColor: "#C4956A", opacity: 0.15, zIndex: 0 }} />
+            <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(4px, 4px)", backgroundColor: "#4D5E49", opacity: 0.1, zIndex: 1 }} />
+            <div className="relative rounded-2xl overflow-hidden" style={{ zIndex: 2, boxShadow: "0 6px 28px rgba(196,149,106,0.16)" }}>
+              <img
+                src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
+                alt="Danielle, founder of Mama Launch Studio"
+                className="w-full"
+                style={{ maxHeight: "280px", objectFit: "cover", objectPosition: "center 12%", filter: "saturate(0.82) brightness(0.98)", display: "block" }}
+              />
+            </div>
+          </div>
+
+          {/* Credential pills — 2 col grid */}
+          <div className="grid grid-cols-2 gap-2">
             {credentials.map((item) => {
               const Icon = item.icon;
               return (
-                <div
-                  key={item.text}
-                  className="flex items-center gap-2 rounded-full px-3 py-1.5 text-xs"
-                  style={{ backgroundColor: "rgba(77,94,73,0.06)", color: "#4D5E49", border: "1px solid #4D5E4918" }}
-                >
+                <div key={item.text} className="flex items-center gap-2 rounded-full px-3 py-2"
+                  style={{ backgroundColor: "rgba(77,94,73,0.07)", border: "1px solid rgba(77,94,73,0.12)", color: "#2C2C2C" }}>
                   <Icon className="h-3 w-3 flex-shrink-0" style={{ color: "#4D5E49" }} />
-                  <span>{item.text}</span>
+                  <span className="font-body" style={{ fontSize: "0.72rem" }}>{item.text}</span>
                 </div>
               );
             })}
           </div>
-          {Accordion}
-          {CTA}
-        </div>
 
-        {/* DESKTOP: Original two-column grid */}
-        <div className="hidden lg:grid grid-cols-[0.9fr_1.1fr] gap-14 items-start">
-          <div>{leftColumn}</div>
-          <div>{rightColumn}</div>
+          {/* Accordion */}
+          <div className="flex flex-col gap-2">
+            {drawers.map((drawer, index) => (
+              <AccordionDrawer key={drawer.title} drawer={drawer} isOpen={openDrawer === index} onToggle={() => handleToggle(index)} />
+            ))}
+          </div>
+
+          <div className="flex justify-center">
+            <button
+              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+              className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px]"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", boxShadow: "0 4px 20px rgba(77,94,73,0.22)" }}>
+              Join the Founding Member Waitlist
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
         </div>
 
       </div>
+      <div className="w-full h-px" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>
   );
 }
