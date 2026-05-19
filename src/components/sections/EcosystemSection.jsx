@@ -168,7 +168,7 @@ export default function EcosystemSection() {
         </div>
 
         {/* Mobile swipe cards */}
-        <div className="md:hidden -mx-6 overflow-hidden">
+        <div className="md:hidden -mx-6 overflow-hidden -mt-6">
           <div
             className="flex gap-3 overflow-x-auto px-5 pb-4 max-w-full"
             style={{
