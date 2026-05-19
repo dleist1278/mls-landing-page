@@ -225,7 +225,7 @@ export default function FoundingMemberSection() {
           className="font-body leading-relaxed mb-7 text-center"
           style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch", margin: "0 auto 1.75rem" }}
         >
-          Start before you have all the answers. Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
+          Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
         </p>
 
         {/* 3-stage progression */}
