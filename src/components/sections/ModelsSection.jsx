@@ -96,8 +96,8 @@ export default function ModelsSection() {
               NOW ENROLLING
             </p>
             <h2
-              className="font-display leading-tight mb-3"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}
+              className="font-display leading-snug mb-3"
+              style={{ color: "#2C2C2C", fontSize: "1.1rem", lineHeight: "1.3" }}
             >
               Choose the path that <em style={{ color: "#4D5E49" }}>fits your motherhood life.</em>
             </h2>
