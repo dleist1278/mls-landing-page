@@ -259,26 +259,31 @@ export default function WhatIsMamaLaunchSection() {
 
         {/* Mobile: single centered editorial image */}
         {mobileHeroImage &&
-        <div className="block md:hidden px-5 py-6">
+        <div className="block md:hidden px-8 py-6">
+          <div className="relative mx-auto" style={{ maxWidth: "300px" }}>
+            {/* Depth layers behind */}
+            <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.18, zIndex: 0 }} />
+            <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.12, zIndex: 1 }} />
+            {/* Photo */}
             <div
-            className="rounded-2xl overflow-hidden mx-auto"
-            style={{
-              maxWidth: "420px",
-              aspectRatio: "4/3",
-              boxShadow: "0 12px 48px rgba(196,149,106,0.16)",
-              border: "1px solid #C4956A18"
-            }}>
-              <img
-              src={mobileHeroImage.image_url}
-              alt={mobileHeroImage.alt_text || ""}
-              className="w-full h-full object-cover"
+              className="relative rounded-2xl overflow-hidden"
               style={{
-                objectPosition: mobileHeroImage.focal_position || "35% 40%",
-                filter: "saturate(0.72) brightness(0.95)"
-              }} />
-            
+                aspectRatio: "4/3",
+                boxShadow: "0 12px 36px rgba(196,149,106,0.18)",
+                border: "1px solid #C4956A22",
+                zIndex: 2
+              }}>
+              <img
+                src={mobileHeroImage.image_url}
+                alt={mobileHeroImage.alt_text || ""}
+                className="w-full h-full object-cover"
+                style={{
+                  objectPosition: mobileHeroImage.focal_position || "35% 40%",
+                  filter: "saturate(0.72) brightness(0.95)"
+                }} />
             </div>
           </div>
+        </div>
         }
       </div>
     </section>);
