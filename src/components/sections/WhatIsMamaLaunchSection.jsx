@@ -63,7 +63,7 @@ export default function WhatIsMamaLaunchSection() {
           className="grid md:grid-cols-2 gap-10 md:gap-16 items-end"
           style={{
             transition: "opacity 0.6s ease",
-            opacity: visible ? 1 : 0,
+            opacity: visible ? 1 : 0
           }}>
           
           {/* Left — editorial imagery + differentiators (hidden on mobile) */}
@@ -146,36 +146,36 @@ export default function WhatIsMamaLaunchSection() {
                   overscrollBehaviorX: "contain",
                   WebkitOverflowScrolling: "touch",
                   scrollbarWidth: "none",
-                  msOverflowStyle: "none",
-                }}
-              >
+                  msOverflowStyle: "none"
+                }}>
+                
                 {[
-                  { title: "Guided Roadmap", body: "Know what to do first, next, and later — no guesswork.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png", accent: "#4D5E49" },
-                  { title: "Built-In Clarity", body: "Your templates, steps, and decisions — all in one place.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png", accent: "#C4956A" },
-                  { title: "Launch Momentum", body: "Track your progress so your idea becomes a real program.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" },
-                ].map((card) => (
-                  <div key={card.title}
-                    className="flex-none w-[72vw] max-w-[252px] rounded-2xl overflow-hidden"
-                    style={{
-                      scrollSnapAlign: "start",
-                      background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)",
-                      border: "1px solid #E4D5C0",
-                      boxShadow: "0 8px 28px rgba(196,149,106,0.12), 0 1px 4px rgba(0,0,0,0.04)"
-                    }}>
+                { title: "Guided Roadmap", body: "Know what to do first, next, and later — no guesswork.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png", accent: "#4D5E49" },
+                { title: "Built-In Clarity", body: "Your templates, steps, and decisions — all in one place.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png", accent: "#C4956A" },
+                { title: "Launch Momentum", body: "Track your progress so your idea becomes a real program.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" }].
+                map((card) =>
+                <div key={card.title}
+                className="flex-none w-[72vw] max-w-[252px] rounded-2xl overflow-hidden"
+                style={{
+                  scrollSnapAlign: "start",
+                  background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)",
+                  border: "1px solid #E4D5C0",
+                  boxShadow: "0 8px 28px rgba(196,149,106,0.12), 0 1px 4px rgba(0,0,0,0.04)"
+                }}>
                     {/* Accent top bar */}
                     <div style={{ height: "3px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}88)` }} />
-                    {card.image && (
-                      <div className="w-full overflow-hidden" style={{ height: "110px" }}>
+                    {card.image &&
+                  <div className="w-full overflow-hidden" style={{ height: "110px" }}>
                         <img src={card.image} alt={card.title} className="w-full h-full object-cover"
-                          style={{ objectPosition: "center", transform: "scale(1.18)", transformOrigin: "center", filter: "saturate(0.82) brightness(0.97)" }} />
+                    style={{ objectPosition: "center", transform: "scale(1.18)", transformOrigin: "center", filter: "saturate(0.82) brightness(0.97)" }} />
                       </div>
-                    )}
+                  }
                     <div className="px-4 pt-2 pb-3">
                       <p className="font-display text-sm font-semibold mb-1" style={{ color: card.accent }}>{card.title}</p>
                       <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
                     </div>
                   </div>
-                ))}
+                )}
                 <div className="flex-none w-1" />
               </div>
             </div>
@@ -184,7 +184,7 @@ export default function WhatIsMamaLaunchSection() {
               This is not a traditional business course or generic childcare training. Mama Launch helps mothers build calm, sustainable childcare ecosystems rooted in structure, emotional safety, and real family life.
             </p>
 
-            <p className="font-micro mb-3 text-center" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
+            <p className="font-micro mb-3 text-center hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
 
             {/* Desktop: single-column list */}
             <div className="hidden md:grid grid-cols-2 gap-x-6 gap-y-1 mb-5">
@@ -197,18 +197,18 @@ export default function WhatIsMamaLaunchSection() {
             </div>
 
             {/* Mobile: compact 2-column grid */}
-            <div className="md:hidden grid grid-cols-2 gap-x-4 gap-y-2 mb-4 w-full max-w-full overflow-hidden">
+            <div className="md:hidden grid grid-cols-2 gap-x-4 gap-y-2 mb-4 w-full max-w-full overflow-hidden hidden">
               {[
-                "Licensing guidance",
-                "Home setup planning",
-                "Operational templates",
-                "Implementation phases",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-1.5 overflow-hidden">
+              "Licensing guidance",
+              "Home setup planning",
+              "Operational templates",
+              "Implementation phases"].
+              map((item) =>
+              <div key={item} className="flex items-start gap-1.5 overflow-hidden">
                   <span className="mt-1 flex-none w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49" }} />
-                  <span className="font-body text-xs leading-snug" style={{ color: "#5C5148" }}>{item}</span>
+                  <span className="font-body text-xs leading-snug hidden" style={{ color: "#5C5148" }}>{item}</span>
                 </div>
-              ))}
+              )}
             </div>
 
             {/* Mobile: founding member support line */}
@@ -234,7 +234,7 @@ export default function WhatIsMamaLaunchSection() {
         className="w-full overflow-hidden"
         style={{
           transition: "opacity 0.6s ease",
-          opacity: imgVisible ? 1 : 0,
+          opacity: imgVisible ? 1 : 0
         }}>
         
         {/* Desktop: fixed height strip */}
