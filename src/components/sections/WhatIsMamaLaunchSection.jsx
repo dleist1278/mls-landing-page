@@ -133,7 +133,7 @@ export default function WhatIsMamaLaunchSection() {
             </p>
 
             {/* Mobile summary — concise */}
-            <p className="md:hidden font-body leading-relaxed mb-4" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
+            <p className="md:hidden font-body leading-relaxed mb-4 text-center" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
               A guided opening path that helps you move from idea to real program with less guesswork.
             </p>
 
