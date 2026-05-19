@@ -134,7 +134,8 @@ export default function WalkAwaySection() {
             Move Through the Method With <em style={{ color: "#4D5E49" }}>Structure + Support.</em>
           </h2>
           <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.94rem", maxWidth: "44rem" }}>
-            Move through the Mama Launch Method™ with guided implementation, milestone tracking, community support, and operational tools designed for real motherhood.
+            Move through every phase with step-by-step guidance, built-in tools,
+            and a community that understands real motherhood.
           </p>
         </div>
 
