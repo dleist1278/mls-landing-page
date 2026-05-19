@@ -92,16 +92,18 @@ export default function ModelsSection() {
 
           {/* Mobile header */}
           <div className="md:hidden">
-            <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+            <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               NOW ENROLLING
+              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             </p>
             <h2
-              className="font-display leading-snug mb-3"
-              style={{ color: "#2C2C2C", fontSize: "1.1rem", lineHeight: "1.3" }}
+              className="font-display leading-tight mb-3 text-center"
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 6.5vw, 3.4rem)", lineHeight: "1.2" }}
             >
               Choose the path that <em style={{ color: "#4D5E49" }}>fits your motherhood life.</em>
             </h2>
-            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}>
+            <p className="font-body leading-relaxed text-center mx-auto" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}>
               Chip away at your business while living real motherhood life — during nap time, laundry, dinner prep, school pickup, or quiet moments throughout the day.
             </p>
           </div>
