@@ -119,13 +119,19 @@ export default function HeroSection() {
               
               <button
                 onClick={scrollToIntake}
-                className="font-micro text-white px-7 py-3.5 rounded-full transition-all duration-200 min-h-[48px] focus-sage w-full sm:w-auto text-center"
+                className="font-micro text-white px-7 py-3.5 rounded-full min-h-[48px] focus-sage w-full sm:w-auto text-center relative overflow-hidden"
                 style={{
                   backgroundColor: "#4D5E49",
                   fontSize: "0.78rem",
-                  boxShadow: "0 4px 20px rgba(77,94,73,0.22)"
+                  boxShadow: "0 4px 20px rgba(77,94,73,0.22)",
+                  animation: "heroPulse 2.8s ease-in-out infinite"
                 }}>
-                
+                <style>{`
+                  @keyframes heroPulse {
+                    0%, 100% { box-shadow: 0 4px 20px rgba(77,94,73,0.22); transform: scale(1); }
+                    50% { box-shadow: 0 6px 32px rgba(77,94,73,0.42), 0 0 0 6px rgba(77,94,73,0.08); transform: scale(1.015); }
+                  }
+                `}</style>
                 Become a Founding Member
               </button>
               {/* Ghost CTA — desktop/tablet only; replaced by text link on mobile */}
