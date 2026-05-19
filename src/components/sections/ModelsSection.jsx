@@ -225,15 +225,15 @@ export default function ModelsSection() {
                   </p>
 
                   {isActive && pathway.features.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mb-4">
+                    <div className="flex flex-wrap gap-1 mb-3">
                       {pathway.features.map((f) => (
                         <span
                           key={f}
-                          className="font-micro px-2.5 py-1 rounded-full"
+                          className="font-micro px-2 py-0.5 rounded-full"
                           style={{
-                            backgroundColor: "rgba(77,94,73,0.07)",
+                            backgroundColor: "rgba(77,94,73,0.06)",
                             color: "#4D5E49",
-                            fontSize: "0.62rem",
+                            fontSize: "0.6rem",
                             letterSpacing: "0.06em",
                           }}
                         >
@@ -246,13 +246,13 @@ export default function ModelsSection() {
                   {isActive && pathway.cta && (
                     <button
                       onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-                      className="font-micro px-5 py-2.5 rounded-full min-h-[44px]"
+                      className="font-micro px-5 py-2 rounded-full min-h-[44px]"
                       style={{
                         backgroundColor: "#4D5E49",
                         color: "#fff",
                         fontSize: "0.7rem",
                         border: "none",
-                        boxShadow: "0 3px 14px rgba(77,94,73,0.16)",
+                        boxShadow: "0 3px 14px rgba(77,94,73,0.13)",
                       }}
                     >
                       {pathway.cta}
@@ -264,15 +264,15 @@ export default function ModelsSection() {
           </div>
 
           {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-4">
+          <div className="flex justify-center gap-1.5 mt-3">
             {pathways.map((_, i) => (
               <span
                 key={i}
                 style={{
-                  width: i === activeIndex ? "16px" : "6px",
-                  height: "6px",
+                  width: i === activeIndex ? "12px" : "5px",
+                  height: "5px",
                   borderRadius: "3px",
-                  backgroundColor: i === activeIndex ? "#4D5E49" : "#C4956A40",
+                  backgroundColor: i === activeIndex ? "#4D5E4960" : "#C4956A28",
                   transition: "width 0.25s ease, background-color 0.25s ease",
                   display: "inline-block",
                 }}
@@ -296,13 +296,13 @@ export default function ModelsSection() {
           </p>
           <p
             className="font-display leading-snug mb-4"
-            style={{ color: "#2C2C2C", fontSize: "1.3rem", lineHeight: "1.25" }}
+            style={{ color: "#2C2C2C", fontSize: "1.15rem", lineHeight: "1.35" }}
           >
             You do not need uninterrupted hours to make progress.
           </p>
           <p
             className="font-body leading-relaxed"
-            style={{ color: "#7A6E65", fontSize: "0.875rem", lineHeight: "1.7" }}
+            style={{ color: "#8C7E75", fontSize: "0.875rem", lineHeight: "1.75" }}
           >
             Chip away at your business while living real motherhood life — during nap time, laundry, dinner prep, school pickup, or quiet moments throughout the day.
           </p>
