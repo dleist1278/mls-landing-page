@@ -191,8 +191,8 @@ export default function EcosystemSection() {
                 </div>
                 <div className="px-1.5 pt-2 pb-1">
                   <h3
-                    className="font-body text-xs font-bold mb-1"
-                    style={{ color: "#4D5E49" }}>
+                  className="font-body text-xs font-bold mb-1"
+                  style={{ color: "#4D5E49" }}>
                     {card.title}
                   </h3>
                   <p className="text-xs leading-[1.5] text-[#3A3A35] line-clamp-3">{card.description}</p>
@@ -216,8 +216,8 @@ export default function EcosystemSection() {
           <blockquote className="font-display leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.05rem, 2vw, 1.35rem)", lineHeight: "1.5", maxWidth: "480px", margin: "0 auto 1rem" }}>
             "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
           </blockquote>
-          <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>
-            — Early Access Member
+          <p className="font-micro hidden" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>
+            — Early Access Member, Mama Launch Studio
           </p>
         </div>
       </div>
