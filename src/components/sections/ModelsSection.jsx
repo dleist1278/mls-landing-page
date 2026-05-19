@@ -92,7 +92,7 @@ export default function ModelsSection() {
 
           {/* Mobile header */}
           <div className="md:hidden">
-            <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            <p className="font-micro mb-3 inline-flex items-center gap-3 w-full justify-center" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               NOW ENROLLING
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
