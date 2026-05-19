@@ -337,7 +337,7 @@ export default function ModelsSection() {
             </span>
             <span className="font-micro" style={{ color: "#C4956A44", fontSize: "0.6rem" }}>·</span>
             <span className="font-body" style={{ color: "#9a8f84", fontSize: "0.78rem" }}>
-              Saving a monthly membership — sign up by <em style={{ color: "#2C2C2C" }}>June 30th</em>
+              Saving <span style={{ color: "#2C2C2C", textDecoration: "line-through", opacity: 0.5 }}>$47/mo</span> — sign up by <em style={{ color: "#2C2C2C" }}>June 30th</em>
             </span>
           </div>
         </div>
