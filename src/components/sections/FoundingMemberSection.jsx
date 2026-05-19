@@ -13,12 +13,6 @@ const steps = [
 // ── Mobile journey stages ─────────────────────────────────────────────────────
 const mobileStages = [
   {
-    id: 1,
-    title: "JOIN",
-    label: "Immediate access + onboarding",
-    copy: "Reserve your founding member spot and receive your welcome roadmap.",
-  },
-  {
     id: 2,
     title: "GET ORIENTED",
     label: "Choose your launch path",
@@ -187,7 +181,7 @@ export default function FoundingMemberSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [activeStep, setActiveStep] = useState("01");
-  const [activeStage, setActiveStage] = useState(mobileStages[0].id);
+  const [activeStage, setActiveStage] = useState(2);
 
   useEffect(() => {
     const o1 = new IntersectionObserver(
