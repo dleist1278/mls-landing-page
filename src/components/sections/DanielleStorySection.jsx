@@ -126,14 +126,14 @@ export default function DanielleStorySection() {
     </div>
   );
 
-  // Mobile photo — natural proportions, no forced crop
+  // Mobile photo — full-width editorial portrait, no gutter
   const MobilePhoto = (
-    <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 4px 18px rgba(0,0,0,0.07)" }}>
+    <div className="overflow-hidden rounded-xl" style={{ margin: "0 -4px" }}>
       <img
         src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
         alt="Danielle, founder of Mama Launch Studio"
         className="w-full"
-        style={{ objectFit: "contain", display: "block", maxHeight: "320px", backgroundColor: "#F4EFE6" }}
+        style={{ objectFit: "cover", objectPosition: "center 12%", display: "block", maxHeight: "280px" }}
       />
     </div>
   );
