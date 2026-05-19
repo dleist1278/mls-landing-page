@@ -30,29 +30,60 @@ function AccordionDrawer({ drawer, isOpen, onToggle }) {
   const Icon = drawer.icon;
   return (
     <div
-      className="rounded-2xl overflow-hidden transition-all duration-200"
+      className="rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        backgroundColor: isOpen ? "#FFFDF9" : "rgba(255,255,255,0.5)",
-        border: `1px solid ${isOpen ? "#C4956A30" : "#E8D8C7"}`,
-        boxShadow: isOpen ? "0 2px 12px rgba(196,149,106,0.08)" : "none",
+        background: isOpen
+          ? "linear-gradient(135deg, #FFFDF9 0%, #FDF6EE 100%)"
+          : "rgba(255,255,255,0.55)",
+        border: `1px solid ${isOpen ? "#C4956A28" : "#EAD9C8"}`,
+        boxShadow: isOpen
+          ? "0 6px 28px rgba(196,149,106,0.13), 0 1px 4px rgba(44,44,44,0.04)"
+          : "0 1px 4px rgba(196,149,106,0.04)",
+        position: "relative",
       }}>
+
+      {/* Left accent bar — visible when open */}
+      <div style={{
+        position: "absolute", left: 0, top: 0, bottom: 0, width: "3px",
+        borderRadius: "12px 0 0 12px",
+        background: isOpen ? "linear-gradient(180deg, #C4956A, #C4956A88)" : "transparent",
+        transition: "background 0.25s ease"
+      }} />
+
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left">
-        <span className="flex items-center gap-2.5" style={{ fontSize: "0.66rem", letterSpacing: "0.14em", fontFamily: "'Inter', sans-serif", fontWeight: 600, color: "#2B2B28" }}>
-          <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#C4956A" }} />
+        className="flex w-full items-center gap-4 px-5 py-4 text-left"
+        style={{ paddingLeft: "20px" }}>
+
+        {/* Icon badge */}
+        <div className="flex-none flex items-center justify-center rounded-xl transition-all duration-200"
+          style={{
+            width: "36px", height: "36px",
+            backgroundColor: isOpen ? "#C4956A15" : "rgba(77,94,73,0.07)",
+            border: `1px solid ${isOpen ? "#C4956A28" : "rgba(77,94,73,0.12)"}`,
+          }}>
+          <Icon className="h-4 w-4" style={{ color: isOpen ? "#C4956A" : "#4D5E49" }} />
+        </div>
+
+        <span className="flex-1 font-micro" style={{ fontSize: "0.66rem", letterSpacing: "0.14em", color: isOpen ? "#2B2B28" : "#5C5148" }}>
           {drawer.title}
         </span>
+
         <ChevronDown
           className="h-4 w-4 flex-shrink-0 transition-transform duration-300"
-          style={{ color: "#4D5E49", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+          style={{ color: isOpen ? "#C4956A" : "#9a8f84", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
         />
       </button>
-      <div style={{ maxHeight: isOpen ? "160px" : "0px", overflow: "hidden", opacity: isOpen ? 1 : 0, transition: "max-height 0.28s ease, opacity 0.22s ease" }}>
-        <p className="px-5 pb-5 font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.88rem" }}>
-          {drawer.content}
-        </p>
+
+      <div style={{ maxHeight: isOpen ? "180px" : "0px", overflow: "hidden", opacity: isOpen ? 1 : 0, transition: "max-height 0.32s ease, opacity 0.25s ease" }}>
+        <div className="px-5 pb-5" style={{ paddingLeft: "20px" }}>
+          <div className="pl-[52px]">
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
+              {drawer.content}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
