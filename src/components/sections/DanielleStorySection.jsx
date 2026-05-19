@@ -179,8 +179,10 @@ export default function DanielleStorySection() {
 
         {/* MOBILE: Specific content order */}
         <div className="flex flex-col gap-5 lg:hidden">
-          <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+          <p className="font-micro flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             BUILT FROM REAL EXPERIENCE
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
           <h2 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
             Created by Someone<br />Who Understands
