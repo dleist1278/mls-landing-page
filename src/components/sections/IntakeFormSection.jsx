@@ -123,11 +123,11 @@ export default function IntakeFormSection() {
   const inputStyle = {
     background: "transparent",
     border: "none",
-    borderBottom: "1px solid #D9C9BA",
+    borderBottom: "1px solid #E2D5C8",
     borderRadius: 0,
-    padding: "9px 0",
+    padding: "7px 0",
     fontFamily: "'Inter', sans-serif",
-    fontSize: "0.95rem",
+    fontSize: "0.88rem",
     color: "#2C2C2C",
     width: "100%",
     outline: "none",
@@ -158,7 +158,7 @@ export default function IntakeFormSection() {
         </h2>
         <p
           className="font-body leading-relaxed"
-          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}
         >
           Mama Launch was designed to help mothers move from idea to opening day with more clarity, structure, and support — without needing to figure everything out alone first.
         </p>
@@ -233,7 +233,7 @@ export default function IntakeFormSection() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5 md:space-y-9">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-9">
               {/* Row 1 — Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 <div>
@@ -279,11 +279,11 @@ export default function IntakeFormSection() {
                     <option value="" disabled>Select your current role</option>
                     {roles.map((r) => <option key={r} value={r} style={{ color: "#2C2C2C" }}>{r}</option>)}
                   </select>
-                  <span className="absolute right-0 bottom-4 pointer-events-none" style={{ color: "#C4956A", fontSize: "0.75rem" }}>↓</span>
-                </div>
-                <div className="relative">
-                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
-                    Childcare Interest
+                  <span className="absolute right-0 bottom-3 pointer-events-none" style={{ color: "#C4956A55", fontSize: "0.65rem" }}>↓</span>
+                       </div>
+                       <div className="relative">
+                         <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
+                           Childcare Interest
                   </label>
                   <select
                     required
@@ -294,7 +294,7 @@ export default function IntakeFormSection() {
                     <option value="" disabled>What type interests you?</option>
                     {interests.map((i) => <option key={i} value={i} style={{ color: "#2C2C2C" }}>{i}</option>)}
                   </select>
-                  <span className="absolute right-0 bottom-4 pointer-events-none" style={{ color: "#C4956A", fontSize: "0.75rem" }}>↓</span>
+                  <span className="absolute right-0 bottom-3 pointer-events-none" style={{ color: "#C4956A66", fontSize: "0.65rem" }}>↓</span>
                 </div>
               </div>
 
@@ -313,7 +313,7 @@ export default function IntakeFormSection() {
                     <option value="" disabled>Select your state</option>
                     {states.map((s) => <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>)}
                   </select>
-                  <span className="absolute right-0 bottom-4 pointer-events-none" style={{ color: "#C4956A", fontSize: "0.75rem" }}>↓</span>
+                  <span className="absolute right-0 bottom-3 pointer-events-none" style={{ color: "#C4956A66", fontSize: "0.65rem" }}>↓</span>
                 </div>
                 <div className="relative">
                   <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
@@ -328,7 +328,7 @@ export default function IntakeFormSection() {
                     <option value="" disabled>What holds you back most?</option>
                     {hesitations.map((h) => <option key={h} value={h} style={{ color: "#2C2C2C" }}>{h}</option>)}
                   </select>
-                  <span className="absolute right-0 bottom-4 pointer-events-none" style={{ color: "#C4956A", fontSize: "0.75rem" }}>↓</span>
+                  <span className="absolute right-0 bottom-3 pointer-events-none" style={{ color: "#C4956A66", fontSize: "0.65rem" }}>↓</span>
                 </div>
               </div>
 
@@ -348,17 +348,17 @@ export default function IntakeFormSection() {
                   type="submit"
                   disabled={submitting}
                   onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
-                  className="font-micro text-white w-full px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[48px] disabled:opacity-60"
+                  className="font-micro text-white w-full px-8 py-3 rounded-full hover:opacity-90 transition-all min-h-[44px] disabled:opacity-60"
                   style={{
                     backgroundColor: "#4D5E49",
                     fontSize: "0.75rem",
-                    boxShadow: "0 4px 16px rgba(77,94,73,0.12)",
+                    boxShadow: "0 3px 10px rgba(77,94,73,0.10)",
                     letterSpacing: "0.08em",
                   }}
                 >
                   {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
                 </button>
-                <p className="font-body text-center mx-auto" style={{ color: "#B5A99F", fontSize: "0.68rem", lineHeight: "1.55", maxWidth: "26ch" }}>
+                <p className="font-body text-center mx-auto" style={{ color: "#C5BAB4", fontSize: "0.64rem", lineHeight: "1.5", maxWidth: "22ch", opacity: 0.85 }}>
                   Founding members receive early access, founding pricing, and first entry into the Mama Launch platform.
                 </p>
               </div>
