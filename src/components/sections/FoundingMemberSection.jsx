@@ -205,8 +205,10 @@ export default function FoundingMemberSection() {
       <div className="lg:hidden w-full max-w-full overflow-hidden px-5">
 
         {/* Eyebrow */}
-        <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+        <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+          <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           YOUR FOUNDING MEMBER JOURNEY
+          <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
         </p>
 
         {/* Headline */}
