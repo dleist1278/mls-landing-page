@@ -80,9 +80,9 @@ export default function HeroSection() {
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
                 className="font-body mb-6"
-                style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6", maxWidth: "36ch" }}
+                style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "36ch" }}
               >
-                Launch your home childcare program with guided systems, intentional structure, and a supportive community built around real family life.
+                Build a <strong style={{ color: "#2C2C2C", fontWeight: 500 }}>flexible childcare business</strong> shaped around your life, your kids, and your goals — with guided systems, real structure, and a community that gets it.
               </p>
             </div>
 
