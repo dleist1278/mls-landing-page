@@ -159,7 +159,7 @@ export default function WhatIsMamaLaunchSection() {
                     className="flex-none w-[72vw] max-w-[260px] rounded-xl overflow-hidden"
                     style={{ scrollSnapAlign: "start", backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.10)" }}>
                     {card.image ? (
-                      <img src={card.image} alt={card.title} className="w-full h-[140px] object-cover" />
+                      <img src={card.image} alt={card.title} className="w-full h-[160px] object-contain p-3" style={{ backgroundColor: "rgba(77,94,73,0.03)" }} />
                     ) : (
                       <div className="w-full h-[140px] flex items-center justify-center" style={{ backgroundColor: "rgba(77,94,73,0.08)", borderBottom: "1px dashed rgba(77,94,73,0.18)" }}>
                         <span className="font-micro text-center" style={{ color: "#9a8f84", fontSize: "0.6rem" }}>Add image URL</span>
