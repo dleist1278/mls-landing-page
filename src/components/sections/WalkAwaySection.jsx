@@ -102,6 +102,7 @@ export default function WalkAwaySection() {
   const [headerVisible, setHeaderVisible] = useState(false);
   const [portalVisible, setPortalVisible] = useState(false);
   const [deliverablesVisible, setDeliverablesVisible] = useState(false);
+  const [parallaxY, setParallaxY] = useState(0);
 
   useEffect(() => {
     const makeObs = (setter) => new IntersectionObserver(([e]) => {if (e.isIntersecting) setter(true);}, { threshold: 0.06 });
@@ -112,6 +113,21 @@ export default function WalkAwaySection() {
     if (portalRef.current) o2.observe(portalRef.current);
     if (deliverablesRef.current) o3.observe(deliverablesRef.current);
     return () => {o1.disconnect();o2.disconnect();o3.disconnect();};
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!portalRef.current) return;
+      const rect = portalRef.current.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      // How far through the viewport the element has traveled (−1 to 1)
+      const progress = (windowH - rect.top) / (windowH + rect.height);
+      const offset = (progress - 0.5) * 60; // max ±30px parallax
+      setParallaxY(offset);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -152,7 +168,7 @@ export default function WalkAwaySection() {
           </p>
 
           {/* Grounded image — warm tonal integration */}
-          <div className="relative">
+          <div className="relative" style={{ willChange: "transform", transform: `translateY(${parallaxY}px)`, transition: "transform 0.05s linear" }}>
             {/* Single warm tonal wash beneath — blends into cream page */}
             <div
               className="absolute rounded-[16px]"
@@ -170,7 +186,6 @@ export default function WalkAwaySection() {
               style={{ boxShadow: "0 4px 24px rgba(196,149,106,0.1)", border: "1px solid rgba(196,149,106,0.08)", zIndex: 1 }}>
               
               <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5d4942da6_ChatGPT_Image_May_18__2026__09_38_47_AM.png"
-
               alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
               className="w-full h-auto block"
               style={{ filter: "saturate(0.9) brightness(0.98)" }} />
