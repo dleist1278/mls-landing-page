@@ -114,13 +114,26 @@ export default function DanielleStorySection() {
     </a>
   );
 
+  // Desktop photo — used in right column
   const Photo = (
-    <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 6px 24px rgba(0,0,0,0.06)", maxHeight: "220px" }}>
+    <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 6px 24px rgba(0,0,0,0.06)" }}>
       <img
         src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
         alt="Danielle, founder of Mama Launch Studio"
-        className="w-full object-cover object-center h-[220px] lg:h-[420px]"
-        style={{ filter: "saturate(0.82) brightness(0.99)", objectPosition: "center 8%", display: "block", objectFit: "contain" }}
+        className="w-full h-[420px]"
+        style={{ objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.85) brightness(1.0)", display: "block" }}
+      />
+    </div>
+  );
+
+  // Mobile photo — natural proportions, no forced crop
+  const MobilePhoto = (
+    <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 4px 18px rgba(0,0,0,0.07)" }}>
+      <img
+        src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
+        alt="Danielle, founder of Mama Launch Studio"
+        className="w-full"
+        style={{ objectFit: "contain", display: "block", maxHeight: "320px", backgroundColor: "#F4EFE6" }}
       />
     </div>
   );
@@ -170,7 +183,7 @@ export default function DanielleStorySection() {
           <h2 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
             Created by someone who understands both the systems and the real life.
           </h2>
-          {Photo}
+          {MobilePhoto}
           <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}>
             Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
           </p>
