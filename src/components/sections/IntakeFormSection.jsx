@@ -155,7 +155,7 @@ export default function IntakeFormSection() {
           className="font-display leading-snug mb-3 text-center"
           style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "16ch", marginLeft: "auto", marginRight: "auto" }}>
           
-          Come build this{" "}
+          Come build this<br />
           <em style={{ color: "#4D5E49" }}>with us.</em>
         </h2>
         <p
