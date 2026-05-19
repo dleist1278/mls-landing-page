@@ -328,6 +328,19 @@ export default function ModelsSection() {
         <p className="font-body text-center mt-2" style={{ color: "#9a8f84", fontSize: "0.82rem" }}>
           A small cohort. A supported start.
         </p>
+
+        {/* Founding member value line */}
+        <div className="flex flex-col items-center gap-2 mt-5">
+          <div className="flex items-center gap-3 flex-wrap justify-center">
+            <span className="font-micro px-3 py-1 rounded-full" style={{ backgroundColor: "#4D5E4912", border: "1px solid #4D5E4928", color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
+              FOUNDING MEMBERSHIP FREE
+            </span>
+            <span className="font-micro" style={{ color: "#C4956A44", fontSize: "0.6rem" }}>·</span>
+            <span className="font-body" style={{ color: "#9a8f84", fontSize: "0.78rem" }}>
+              Saving <span style={{ color: "#2C2C2C", textDecoration: "line-through", opacity: 0.5 }}>$47</span> when we launch for the <em>2026 school year</em>
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* BUILD IN MOTION — mobile only */}
