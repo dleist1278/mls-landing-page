@@ -55,7 +55,7 @@ export default function WhatIsMamaLaunchSection() {
   }, []);
 
   return (
-    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%" }}>
+    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%", position: "relative" }}>
       {/* Main two-column editorial block */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20" style={{ overflow: "hidden" }}>
         <div
@@ -140,8 +140,15 @@ export default function WhatIsMamaLaunchSection() {
             {/* Mobile-only horizontal swipe proof cards */}
             <div className="md:hidden -mx-5 mb-5 overflow-hidden">
               <div
-                className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-3"
-                style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none" }}
+                className="flex gap-3 overflow-x-auto px-5 pb-3"
+                style={{
+                  scrollSnapType: "x mandatory",
+                  WebkitScrollSnapType: "x mandatory",
+                  overscrollBehaviorX: "contain",
+                  WebkitOverflowScrolling: "touch",
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                }}
               >
                 {[
                   { title: "Guided Roadmap", body: "Know what to do first, next, and later." },
@@ -149,7 +156,8 @@ export default function WhatIsMamaLaunchSection() {
                   { title: "Launch Momentum", body: "Track progress so your idea becomes a real program." },
                 ].map((card) => (
                   <div key={card.title}
-                    className="flex-none w-[72vw] max-w-[260px] snap-center rounded-xl px-4 py-3 overflow-hidden"
+                    className="flex-none w-[72vw] max-w-[260px] rounded-xl px-4 py-3 overflow-hidden"
+                    style={{ scrollSnapAlign: "start" }}
                     style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.10)" }}>
                     <p className="font-display text-sm font-semibold mb-1" style={{ color: "#2C2C2C" }}>{card.title}</p>
                     <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>

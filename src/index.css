@@ -68,6 +68,19 @@
     overflow-x: hidden;
   }
 
+  /* GPU compositing for smooth scroll containers on iOS */
+  [data-scroll-container] {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: scroll-position;
+  }
+
+  /* Prevent touch callout / selection flash on interactive cards */
+  button, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
   h1, h2, h3, h4, h5 {
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.02em;

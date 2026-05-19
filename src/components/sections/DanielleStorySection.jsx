@@ -48,14 +48,16 @@ function AccordionDrawer({ drawer, isOpen, onToggle }) {
         />
       </button>
       <div
-        className="grid transition-all duration-300 ease-in-out"
-        style={{ gridTemplateRows: isOpen ? "1fr" : "0fr", opacity: isOpen ? 1 : 0 }}
+        style={{
+          maxHeight: isOpen ? "160px" : "0px",
+          overflow: "hidden",
+          opacity: isOpen ? 1 : 0,
+          transition: "max-height 0.25s ease, opacity 0.2s ease",
+        }}
       >
-        <div className="overflow-hidden">
-          <p className="px-4 pb-4 text-sm leading-relaxed text-[#3A3A35]">
-            {drawer.content}
-          </p>
-        </div>
+        <p className="px-4 pb-4 text-sm leading-relaxed text-[#3A3A35]">
+          {drawer.content}
+        </p>
       </div>
     </div>
   );

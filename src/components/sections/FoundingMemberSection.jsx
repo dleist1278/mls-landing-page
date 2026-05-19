@@ -101,11 +101,14 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
     >
       {/* Stage row */}
       <div
-        className="w-full rounded-2xl overflow-hidden transition-all duration-250"
+        className="w-full rounded-2xl overflow-hidden"
         style={{
           backgroundColor: isActive ? "#FFFCF8" : "transparent",
           border: `1px solid ${isActive ? "#D4BDA8" : "#E8DDD3"}`,
           boxShadow: isActive ? "0 3px 14px rgba(196,149,106,0.09)" : "none",
+          transition: "background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease",
+          WebkitTransform: "translateZ(0)",
+          transform: "translateZ(0)",
         }}
       >
         {/* Header */}
@@ -157,7 +160,7 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
           style={{
             maxHeight: isActive ? "120px" : "0px",
             overflow: "hidden",
-            transition: "max-height 0.3s ease",
+            transition: "max-height 0.22s ease",
           }}
         >
           <p

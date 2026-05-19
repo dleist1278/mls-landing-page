@@ -115,7 +115,7 @@ export default function EcosystemSection() {
   }, []);
 
   return (
-    <section id="ecosystem" className="md:py-16 py-7" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+    <section id="ecosystem" className="md:py-16 py-10 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
       <div className="w-full h-px mb-5 md:mb-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div className="max-w-6xl mx-auto px-6 md:px-12">
@@ -169,15 +169,23 @@ export default function EcosystemSection() {
         </div>
 
         {/* Mobile swipe cards */}
-        <div className="md:hidden -mx-6">
+        <div className="md:hidden -mx-6 overflow-hidden">
           <div
-            className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-3 max-w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-            style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}
+            className="flex gap-3 overflow-x-auto px-5 pb-4 max-w-full"
+            style={{
+              scrollSnapType: "x mandatory",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+              overscrollBehaviorX: "contain",
+              WebkitScrollSnapType: "x mandatory",
+            }}
           >
             {MOBILE_CARD_META.map((card) => (
               <div
                 key={card.key}
-                className="flex-none w-[82vw] max-w-[340px] snap-center rounded-[24px] bg-[#FDFCFA] border border-[#EAD9C8] p-2.5 shadow-[0_4px_18px_rgba(196,149,106,0.07)] overflow-hidden"
+                className="flex-none w-[82vw] max-w-[340px] rounded-[24px] bg-[#FDFCFA] border border-[#EAD9C8] p-2.5 overflow-hidden"
+                style={{ scrollSnapAlign: "start", boxShadow: "0 4px 18px rgba(196,149,106,0.07)" }}
               >
                 <CardImage cardKey={card.key} />
                 <div className="px-2 pt-3 pb-1.5">

@@ -53,7 +53,9 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
         boxShadow: isActive ? `0 4px 20px rgba(77,94,73,0.08)` : "none",
         opacity: isActive ? 1 : 0.45,
         padding: isActive ? "13px 14px" : "10px 14px",
-        transition: "opacity 0.25s ease, box-shadow 0.25s ease",
+        transition: "opacity 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease",
+        WebkitTransform: "translateZ(0)",
+        transform: "translateZ(0)",
       }}>
 
       {/* Header row — always visible */}

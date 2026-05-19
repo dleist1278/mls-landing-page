@@ -171,12 +171,14 @@ export default function ModelsSection() {
             className="flex overflow-x-auto w-full"
             style={{
               scrollSnapType: "x mandatory",
+              WebkitScrollSnapType: "x mandatory",
               scrollbarWidth: "none",
               msOverflowStyle: "none",
               WebkitOverflowScrolling: "touch",
               overscrollBehaviorX: "contain",
               gap: "10px",
               paddingRight: "20px",
+              willChange: "scroll-position",
             }}
           >
             {pathways.map((pathway, i) => {
@@ -194,7 +196,9 @@ export default function ModelsSection() {
                     border: `1px solid ${isActive ? "#4D5E4928" : "#C4956A10"}`,
                     boxShadow: isActive ? "0 4px 20px rgba(77,94,73,0.07)" : "none",
                     opacity: isActive ? 1 : 0.42,
-                    transition: "opacity 0.25s ease, box-shadow 0.25s ease",
+                    transition: "opacity 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease",
+                    WebkitTransform: "translateZ(0)",
+                    transform: "translateZ(0)",
                   }}
                 >
                   <div className="mb-2.5">
