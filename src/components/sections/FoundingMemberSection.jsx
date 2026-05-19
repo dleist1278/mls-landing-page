@@ -237,20 +237,20 @@ export default function FoundingMemberSection() {
         </div>
 
         {/* Micro-moment editorial line */}
-        
-
-
-
-
-        
+        <p
+          className="font-body mt-10 mb-5 hidden"
+          style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6", maxWidth: "30ch" }}>
+          
+          Built around real motherhood rhythms, not uninterrupted workdays.
+        </p>
 
         {/* Founding member support line */}
         <div
-          className="rounded-xl px-3 py-2 w-full"
+          className="rounded-xl px-3 py-2 w-full mt-5"
           style={{ backgroundColor: "#F4F6F1", border: "1px solid #ECF0E8" }}>
           
           <div className="flex items-start gap-2">
-            <Heart size={11} style={{ color: "#4D5E49", flexShrink: 0, marginTop: "2px", strokeWidth: 1.5, opacity: 0.55 }} />
+            <Heart size={11} style={{ color: "#e53935", flexShrink: 0, marginTop: "2px", strokeWidth: 1.5, fill: "#e53935" }} />
             <p className="font-body leading-relaxed" style={{ color: "#7A8877", fontSize: "0.73rem" }}>
               Founding members receive first access, early pricing, and the opportunity to help shape the platform from the beginning.
             </p>
