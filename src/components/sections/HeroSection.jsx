@@ -96,7 +96,7 @@ export default function HeroSection() {
                 className="font-body mb-6 mx-auto text-center"
                 style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "36ch", marginBottom: "1rem" }}>
                 
-                Build a <strong style={{ color: "#2C2C2C", fontWeight: 500 }}>flexible childcare business</strong> around your life and goals.
+                Build a <strong style={{ color: "#2C2C2C", fontWeight: 500 }}>flexible childcare business</strong><br />around your life, your family, and your goals.
               </p>
             </div>
 
