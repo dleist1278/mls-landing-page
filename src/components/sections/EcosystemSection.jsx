@@ -130,13 +130,12 @@ export default function EcosystemSection() {
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
           <h2 className="font-display leading-tight mx-auto mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", maxWidth: "620px", lineHeight: "1.2" }}>
-            Implementation Support,{" "}
-            <br />
-            <em style={{ color: "#4D5E49" }}>Not Just Inspiration.</em>
+            Everything works together to help you{" "}
+            <em style={{ color: "#4D5E49" }}>keep moving forward.</em>
           </h2>
-          
-
-          
+          <p className="font-body mx-auto leading-relaxed hidden" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.9rem", lineHeight: "1.6" }}>
+            The Mama Launch community is operationally focused, uplifting, and milestone-driven — a village helping a village build something real.
+          </p>
         </div>
 
         {/* Community image + pillars — desktop only */}
