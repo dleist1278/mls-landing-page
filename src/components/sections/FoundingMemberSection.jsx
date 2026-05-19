@@ -237,12 +237,12 @@ export default function FoundingMemberSection() {
         </div>
 
         {/* Micro-moment editorial line */}
-        <p
-          className="font-body mt-10 mb-5 hidden"
-          style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6", maxWidth: "30ch" }}>
-          
-          Built around real motherhood rhythms, not uninterrupted workdays.
-        </p>
+        
+
+
+
+
+        
 
         {/* Founding member support line */}
         <div
