@@ -123,11 +123,11 @@ export default function IntakeFormSection() {
   const inputStyle = {
     background: "transparent",
     border: "none",
-    borderBottom: "1px solid #C4956A",
+    borderBottom: "1px solid #D9C9BA",
     borderRadius: 0,
-    padding: "11px 0",
+    padding: "9px 0",
     fontFamily: "'Inter', sans-serif",
-    fontSize: "1rem",
+    fontSize: "0.95rem",
     color: "#2C2C2C",
     width: "100%",
     outline: "none",
@@ -144,15 +144,26 @@ export default function IntakeFormSection() {
 
   return (
     <section id="intake" style={{ backgroundColor: "#F0EBE1", overflow: "hidden", scrollMarginTop: "60px" }}>
-      <div className="md:hidden px-6 pt-12 pb-0 text-center">
-        <p
-          className="font-display"
-          style={{ color: "#5C5148", fontSize: "1.05rem", lineHeight: "1.6", fontStyle: "italic" }}
-        >
-          You do not need to figure this out alone anymore.
+      {/* Mobile-only header — softer editorial entry */}
+      <div className="md:hidden px-5 pt-12 pb-0">
+        <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+          FOUNDING MEMBER WAITLIST
         </p>
-        <div className="w-6 h-px mx-auto mt-5" style={{ backgroundColor: "#C4956A", opacity: 0.5 }} />
+        <h2
+          className="font-display leading-snug mb-3"
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}
+        >
+          Come build this{" "}
+          <em style={{ color: "#4D5E49" }}>with us.</em>
+        </h2>
+        <p
+          className="font-body leading-relaxed"
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}
+        >
+          Mama Launch was designed to help mothers move from idea to opening day with more clarity, structure, and support — without needing to figure everything out alone first.
+        </p>
       </div>
+
       <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20">
         <div
           ref={ref}
@@ -162,8 +173,8 @@ export default function IntakeFormSection() {
             transform: visible ? "translateY(0)" : "translateY(16px)",
           }}
         >
-          {/* Header */}
-          <div className="text-center mb-7">
+          {/* Desktop-only header (unchanged) */}
+          <div className="hidden md:block text-center mb-7">
             <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               Founding Member Waitlist
@@ -183,6 +194,16 @@ export default function IntakeFormSection() {
               Tell us a little about yourself and your vision. This is the beginning of your launch path — and we're honored to walk it with you.
             </p>
           </div>
+
+          {/* Mobile editorial micro-line above form */}
+          {!submitted && (
+            <p
+              className="md:hidden font-body mb-5 mt-6"
+              style={{ color: "#9a8f84", fontSize: "0.78rem", fontStyle: "italic", lineHeight: "1.6" }}
+            >
+              You do not need to have everything figured out before starting.
+            </p>
+          )}
 
           {/* Form / Success state */}
           {submitted ? (
@@ -327,18 +348,18 @@ export default function IntakeFormSection() {
                   type="submit"
                   disabled={submitting}
                   onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
-                  className="font-micro text-white w-full px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[52px] disabled:opacity-60"
+                  className="font-micro text-white w-full px-8 py-4 rounded-full hover:opacity-90 transition-all min-h-[48px] disabled:opacity-60"
                   style={{
                     backgroundColor: "#4D5E49",
-                    fontSize: "0.78rem",
-                    boxShadow: "0 12px 40px rgba(77,94,73,0.25)",
+                    fontSize: "0.75rem",
+                    boxShadow: "0 8px 28px rgba(77,94,73,0.18)",
                     letterSpacing: "0.08em",
                   }}
                 >
                   {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
                 </button>
-                <p className="font-body text-center" style={{ color: "#9a8f84", fontSize: "0.82rem" }}>
-                  No spam, ever. Just a personal welcome and your next step.
+                <p className="font-body text-center" style={{ color: "#9a8f84", fontSize: "0.73rem", lineHeight: "1.55" }}>
+                  Founding members receive early access, founding pricing, and first entry into the Mama Launch platform.
                 </p>
               </div>
             </form>
