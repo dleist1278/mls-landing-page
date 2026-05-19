@@ -11,9 +11,9 @@ const CARD_IMAGES = {
 };
 
 const MOBILE_CARD_META = [
-  { key: "village_feature", title: "The Village", description: "Connect with other moms building alongside you, sharing wins, questions, ideas, and real launch momentum." },
-  { key: "phase_tracking_feature", title: "Phase Tracking", description: "See where you are, what comes next, and which action steps move you closer to opening." },
-  { key: "implementation_tools_feature", title: "Implementation Tools", description: "Access templates, prompts, checklists, and guided tools that help you build with more clarity." },
+  { key: "village_feature", title: "A Village That Understands", description: "Connect with mothers building alongside you, asking questions, sharing wins, and navigating real motherhood life together." },
+  { key: "phase_tracking_feature", title: "Built to Keep You Moving", description: "Mama Launch helps you continue making progress with guided accountability, milestone momentum, and support woven into every phase." },
+  { key: "implementation_tools_feature", title: "Support Beyond Motivation", description: "This is not just inspiration. It is structure, encouragement, implementation support, and steady guidance when things feel overwhelming." },
 ];
 
 const pillars = [
@@ -84,7 +84,7 @@ function CardImage({ cardKey }) {
   const imageUrl = CARD_IMAGES[cardKey] || "";
 
   return (
-    <div className="w-full h-[240px] overflow-hidden rounded-2xl border border-[#DCCBB8] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+    <div className="w-full h-[210px] overflow-hidden rounded-xl border border-[#EAD9C8] bg-white shadow-[0_2px_8px_rgba(196,149,106,0.05)]">
       {imageUrl ? (
         <img
           src={imageUrl}
@@ -171,16 +171,16 @@ export default function EcosystemSection() {
         {/* Mobile swipe cards */}
         <div className="md:hidden -mx-6">
           <div
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-4 max-w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth px-5 pb-3 max-w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             style={{ overscrollBehaviorX: "contain", WebkitOverflowScrolling: "touch" }}
           >
             {MOBILE_CARD_META.map((card) => (
               <div
                 key={card.key}
-                className="flex-none w-[82vw] max-w-[340px] snap-center rounded-[28px] bg-[#EFE7DB] border border-[#DCCBB8] p-3 shadow-[0_10px_35px_rgba(0,0,0,0.06)] overflow-hidden"
+                className="flex-none w-[82vw] max-w-[340px] snap-center rounded-[24px] bg-[#FDFCFA] border border-[#EAD9C8] p-2.5 shadow-[0_4px_18px_rgba(196,149,106,0.07)] overflow-hidden"
               >
                 <CardImage cardKey={card.key} />
-                <div className="px-2 pt-4 pb-2">
+                <div className="px-2 pt-3 pb-1.5">
                   <h3 className="font-display text-2xl text-[#2B2B28]">{card.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-[#3A3A35]">{card.description}</p>
                 </div>
