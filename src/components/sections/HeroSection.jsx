@@ -149,42 +149,42 @@ export default function HeroSection() {
             </p>
 
             {/* Mobile-only: Your First Steps proof card */}
-            <div className="md:hidden mt-4 w-full max-w-full overflow-hidden rounded-2xl px-4 py-4 hidden"
-            style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.12)" }}>
-              <div className="flex items-center justify-between mb-3">
-                <p className="font-micro" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.1em" }}>
-                  YOUR FIRST STEPS
-                </p>
-                <span className="font-micro px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: "#C4956A", fontSize: "0.56rem", letterSpacing: "0.06em" }}>
-                  Founding member access
-                </span>
-              </div>
-              <ol className="flex flex-col gap-2 mb-3">
-                {[
-                "Define your childcare vision",
-                "Build a program around your real life",
-                "Move forward with guided support"].
-                map((step, i) =>
-                <li key={step} className="flex items-start gap-2">
-                    <span className="flex-none w-4 h-4 rounded-full flex items-center justify-center mt-0.5 text-white font-body"
-                  style={{ backgroundColor: "#4D5E49", fontSize: "0.5rem" }}>{i + 1}</span>
-                    <span className="font-body text-xs leading-snug" style={{ color: "#2C2C2C" }}>{step}</span>
-                  </li>
-                )}
-              </ol>
-              <p className="font-body text-xs" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
-                Follow the step-by-step path from idea to opening day.
-              </p>
-            </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
 
             {/* Mobile-only: secondary text link replacing the ghost button */}
-            <button
-              onClick={scrollToMethod}
-              className="md:hidden mt-4 font-body text-xs underline underline-offset-2 focus-sage hidden"
-              style={{ color: "#4D5E49", background: "none", border: "none", padding: 0, cursor: "pointer" }}>
-              
-              Explore the method →
-            </button>
+            
+
+
+
+
+
+            
           </div>
 
           {/* Hero image — stacks below on mobile, right column on desktop */}
