@@ -95,13 +95,25 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
               {phase.name}
             </h3>
           </div>
-          {isActive &&
+          {isActive ? (
             <div
               className="flex-none rounded-full"
               style={{ width: "20px", height: "20px", backgroundColor: phase.color + "15", border: `1px solid ${phase.color}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span style={{ color: phase.color, fontSize: "0.6rem", lineHeight: 1 }}>▾</span>
             </div>
-          }
+          ) : (
+            <div
+              className="flex-none rounded-full"
+              style={{
+                width: "18px", height: "18px",
+                backgroundColor: "#C4956A10",
+                border: "1px solid #C4956A28",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                animation: "chevronBounce 2s ease-in-out infinite"
+              }}>
+              <span style={{ color: "#C4956A", fontSize: "0.55rem", lineHeight: 1 }}>▾</span>
+            </div>
+          )}
         </div>
 
         {/* Expanded detail — only when active */}
@@ -129,6 +141,17 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
       </div>
     </button>);
 }
+
+const phaseCardStyles = `
+  @keyframes chevronBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(3px); opacity: 1; }
+  }
+  @keyframes phaseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(196,149,106,0); }
+    50% { box-shadow: 0 0 0 4px rgba(196,149,106,0.12); }
+  }
+`;
 
 export default function MethodSection() {
   const headerRef = useRef(null);
@@ -190,6 +213,7 @@ export default function MethodSection() {
       </div>
 
       {/* Mobile: vertical active-step progression */}
+      <style>{phaseCardStyles}</style>
       <div
         id="method-roadmap"
         className="md:hidden px-5 max-w-full overflow-hidden"
