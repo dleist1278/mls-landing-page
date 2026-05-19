@@ -211,10 +211,11 @@ export default function FoundingMemberSection() {
 
         {/* Headline */}
         <h2
-          className="font-display leading-snug mb-3"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}
+          className="font-display leading-tight mb-3"
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.18" }}
         >
-          Here's what happens after you join.
+          What Happens After<br />
+          <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
         </h2>
 
         {/* Support copy */}
@@ -281,10 +282,9 @@ export default function FoundingMemberSection() {
             </p>
             <h2
               className="font-display leading-tight mb-6"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3.5vw, 3.75rem)", lineHeight: "1.05" }}
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.18" }}
             >
-              What Happens After
-              <br />
+              What Happens After<br />
               <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
             </h2>
             <p className="text-sm leading-relaxed mb-8" style={{ color: "#7A6E65", maxWidth: "26ch", lineHeight: "1.7" }}>

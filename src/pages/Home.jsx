@@ -25,11 +25,11 @@ export default function Home() {
         <WhatIsMamaLaunchSection />
         <ModelsSection />
         <WalkAwaySection />
-        <FoundingMemberSection />
         <MethodSection />
         <InsideTheStudioSection />
         <EcosystemSection />
         <DanielleStorySection />
+        <FoundingMemberSection />
         <IntakeFormSection />
       </main>
       <SiteFooter />
