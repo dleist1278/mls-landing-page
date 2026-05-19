@@ -128,7 +128,7 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
           <span
             className="flex-1 font-micro"
             style={{
-              color: isActive ? "#2C2C2C" : "#9a8f84",
+              color: isActive ? "#2C2C2C" : "#6B6259",
               fontSize: "0.72rem",
               letterSpacing: "0.14em",
               fontWeight: isActive ? 700 : 500,
@@ -142,9 +142,9 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
           <span
             className="font-body"
             style={{
-              color: isActive ? "#C4956A" : "#C4B09A",
+              color: isActive ? "#C4956A" : "#A8917A",
               fontSize: "0.62rem",
-              opacity: isActive ? 1 : 0.6,
+              opacity: isActive ? 1 : 0.8,
               transition: "opacity 0.2s ease",
             }}
           >
@@ -161,8 +161,8 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
           }}
         >
           <p
-            className="font-body px-4 pb-4"
-            style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}
+            className="font-body px-4 pb-3"
+            style={{ color: "#5C5148", fontSize: "0.82rem", lineHeight: "1.55" }}
           >
             {stage.copy}
           </p>
@@ -184,7 +184,7 @@ export default function FoundingMemberSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [activeStep, setActiveStep] = useState("01");
-  const [activeStage, setActiveStage] = useState(1);
+  const [activeStage, setActiveStage] = useState(1); // default: JOIN (stage 1)
 
   useEffect(() => {
     const o1 = new IntersectionObserver(
@@ -246,12 +246,12 @@ export default function FoundingMemberSection() {
 
         {/* Founding member support line */}
         <div
-          className="rounded-xl px-4 py-3 w-full"
-          style={{ backgroundColor: "#EEF1E7", border: "1px solid #E1E6D8" }}
+          className="rounded-xl px-3 py-2.5 w-full"
+          style={{ backgroundColor: "#F2F5EE", border: "1px solid #E8EDE2" }}
         >
-          <div className="flex items-start gap-2.5">
-            <Heart size={14} style={{ color: "#4D5E49", flexShrink: 0, marginTop: "2px", strokeWidth: 1.6 }} />
-            <p className="font-body text-xs leading-relaxed" style={{ color: "#4D5E49" }}>
+          <div className="flex items-start gap-2">
+            <Heart size={12} style={{ color: "#4D5E49", flexShrink: 0, marginTop: "2px", strokeWidth: 1.6, opacity: 0.75 }} />
+            <p className="font-body leading-relaxed" style={{ color: "#6B7B68", fontSize: "0.75rem" }}>
               Founding members receive first access, early pricing, and the opportunity to help shape the platform from the beginning.
             </p>
           </div>
