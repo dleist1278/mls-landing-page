@@ -151,16 +151,24 @@ export default function WhatIsMamaLaunchSection() {
                 }}
               >
                 {[
-                  { title: "Guided Roadmap", body: "Know what to do first, next, and later." },
-                  { title: "Built-In Clarity", body: "Your templates, steps, and decisions live in one place." },
-                  { title: "Launch Momentum", body: "Track progress so your idea becomes a real program." },
+                  { title: "Guided Roadmap", body: "Know what to do first, next, and later.", image: "" },
+                  { title: "Built-In Clarity", body: "Your templates, steps, and decisions live in one place.", image: "" },
+                  { title: "Launch Momentum", body: "Track progress so your idea becomes a real program.", image: "" },
                 ].map((card) => (
                   <div key={card.title}
-                    className="flex-none w-[72vw] max-w-[260px] rounded-xl px-4 py-3 overflow-hidden"
-                    style={{ scrollSnapAlign: "start" }}
-                    style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.10)" }}>
-                    <p className="font-display text-sm font-semibold mb-1" style={{ color: "#2C2C2C" }}>{card.title}</p>
-                    <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
+                    className="flex-none w-[72vw] max-w-[260px] rounded-xl overflow-hidden"
+                    style={{ scrollSnapAlign: "start", backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.10)" }}>
+                    {card.image ? (
+                      <img src={card.image} alt={card.title} className="w-full h-[140px] object-cover" />
+                    ) : (
+                      <div className="w-full h-[140px] flex items-center justify-center" style={{ backgroundColor: "rgba(77,94,73,0.08)", borderBottom: "1px dashed rgba(77,94,73,0.18)" }}>
+                        <span className="font-micro text-center" style={{ color: "#9a8f84", fontSize: "0.6rem" }}>Add image URL</span>
+                      </div>
+                    )}
+                    <div className="px-4 py-3">
+                      <p className="font-display text-sm font-semibold mb-1" style={{ color: "#2C2C2C" }}>{card.title}</p>
+                      <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
+                    </div>
                   </div>
                 ))}
                 <div className="flex-none w-1" />
