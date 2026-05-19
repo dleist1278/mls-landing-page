@@ -145,7 +145,7 @@ export default function WalkAwaySection() {
           className="mb-3 md:mb-12 mx-auto"
           style={{ maxWidth: "820px", transition: "opacity 0.6s ease, transform 0.6s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(16px)" }}>
 
-          <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
+          <p className="font-micro mb-3 flex items-center justify-center gap-3 hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
             <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
             Inside the Mama Launch Platform
             <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
