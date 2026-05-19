@@ -78,9 +78,9 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
       {isActive &&
       <div className="mt-2.5 pt-2.5" style={{ borderTop: `1px solid ${phase.color}18` }}>
           {/* Refinement 1: reduced label spacing */}
-          <p className="font-body leading-snug mb-2 hidden" style={{ color: "#5C5148", fontSize: "0.78rem", maxWidth: "88%" }}>
-            {phase.outcome}
-          </p>
+          
+
+        
           <p className="font-micro mb-1" style={{ color: "#9a8f84", fontSize: "0.58rem" }}>What you'll do</p>
           {/* Refinement 5: slightly narrower text, smaller size */}
           <p className="font-body leading-snug mb-2.5" style={{ color: "#7A6E65", fontSize: "0.75rem", maxWidth: "86%" }}>
