@@ -161,9 +161,9 @@ export default function HeroSection() {
               </div>
               <ol className="flex flex-col gap-2 mb-3">
                 {[
-                  "Choose your childcare model",
-                  "Plan your home setup",
-                  "Understand your licensing path",
+                  "Define your childcare vision",
+                  "Build a program around your real life",
+                  "Move forward with guided support",
                 ].map((step, i) => (
                   <li key={step} className="flex items-start gap-2">
                     <span className="flex-none w-4 h-4 rounded-full flex items-center justify-center mt-0.5 text-white font-body"
@@ -173,7 +173,7 @@ export default function HeroSection() {
                 ))}
               </ol>
               <p className="font-body text-xs" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
-                Join now to unlock the full 5-phase opening plan.
+                Follow the step-by-step path from idea to opening day.
               </p>
             </div>
 
