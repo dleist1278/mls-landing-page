@@ -155,7 +155,7 @@ export default function MethodSection() {
             The 5 Phases<br />
             <em style={{ color: "#4D5E49" }}>That Guide You</em>
           </h2>
-          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
+          <p className="font-body leading-relaxed mx-auto text-center" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
             Move through each phase with guided prompts, practical tools, and clear next steps designed for real motherhood life.
           </p>
         </div>
