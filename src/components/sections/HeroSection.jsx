@@ -78,7 +78,7 @@ export default function HeroSection() {
 
             {/* Mobile photo below headline */}
             {(() => {
-              const HERO_BELOW_TITLE_PHOTO = ""; // ← paste your photo URL here
+              const HERO_BELOW_TITLE_PHOTO = "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/6a41827ad_4.jpg"; // ← paste your photo URL here
               return HERO_BELOW_TITLE_PHOTO ? (
                 <div className="md:hidden w-full rounded-2xl overflow-hidden mb-5" style={{ boxShadow: "0 8px 32px rgba(196,149,106,0.12)" }}>
                   <img src={HERO_BELOW_TITLE_PHOTO} alt="Mama Launch" className="w-full object-cover" style={{ maxHeight: "260px", objectPosition: "center 20%" }} />
