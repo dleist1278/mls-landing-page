@@ -60,7 +60,7 @@ export default function ModelsSection() {
   return (
     <section
       id="models"
-      className="py-10 md:py-16 overflow-hidden"
+      className="py-10 md:py-16 pb-0 md:pb-0 overflow-hidden"
       style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
       
       <div className="max-w-5xl mx-auto px-6 md:px-12">
@@ -293,13 +293,7 @@ export default function ModelsSection() {
       </div>
 
       {/* BUILD IN MOTION — mobile only */}
-      <div
-        className="md:hidden w-full max-w-full overflow-hidden"
-        style={{ marginTop: "48px", paddingLeft: "24px", paddingRight: "24px" }}>
-        
-        
-
-
+      <div className="md:hidden">
 
 
 
