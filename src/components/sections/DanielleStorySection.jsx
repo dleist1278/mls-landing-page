@@ -191,7 +191,7 @@ export default function DanielleStorySection() {
             Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
           </p>
           {MobilePhoto}
-          <div className="flex flex-wrap gap-1.5">
+          <div className="grid grid-cols-2 gap-1.5">
             {credentials.map((item) => {
               const Icon = item.icon;
               return (
