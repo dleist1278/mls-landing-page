@@ -216,7 +216,7 @@ export default function WhatIsMamaLaunchSection() {
               Founding members unlock the complete 5-phase path first.
             </p>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center my-6">
               <button
                 onClick={() => document.getElementById("method-roadmap")?.scrollIntoView({ behavior: "smooth" })}
                 className="font-micro px-7 py-3.5 rounded-full border transition-all min-h-[48px]"
