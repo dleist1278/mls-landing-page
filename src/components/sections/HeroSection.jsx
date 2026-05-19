@@ -6,11 +6,15 @@ import { trackCTAClick } from "@/lib/analytics";
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
   const [heroImageData, setHeroImageData] = useState(null);
+  const [subImage, setSubImage] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 100);
     base44.entities.SiteContent.filter({ key: "hero_image" }).then((r) => {
       if (r?.length > 0) setHeroImageData(r[0]);
+    });
+    base44.entities.SiteContent.filter({ key: "hero_sub_image" }).then((r) => {
+      if (r?.length > 0) setSubImage(r[0]);
     });
     return () => clearTimeout(timer);
   }, []);
@@ -75,6 +79,18 @@ export default function HeroSection() {
                 <em style={{ color: "#4D5E49" }}>Modern Motherhood.</em>
               </h1>
             </div>
+
+            {/* Uploadable image above subheadline */}
+            {subImage?.image_url && (
+              <div className="mb-4">
+                <img
+                  src={subImage.image_url}
+                  alt={subImage.alt_text || ""}
+                  className="rounded-2xl object-cover"
+                  style={{ maxHeight: "180px", width: "100%", objectPosition: subImage.focal_position || "center" }}
+                />
+              </div>
+            )}
 
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
