@@ -23,10 +23,10 @@ export default function Home() {
         <HeroSection />
         <TrustBar />
         <WhatIsMamaLaunchSection />
+        <ModelsSection />
         <WalkAwaySection />
         <FoundingMemberSection />
         <MethodSection />
-        <ModelsSection />
         <InsideTheStudioSection />
         <EcosystemSection />
         <DanielleStorySection />
