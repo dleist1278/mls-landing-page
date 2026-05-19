@@ -23,9 +23,9 @@ export default function Home() {
         <HeroSection />
         <TrustBar />
         <WhatIsMamaLaunchSection />
+        <WalkAwaySection />
         <FoundingMemberSection />
         <MethodSection />
-        <WalkAwaySection />
         <ModelsSection />
         <InsideTheStudioSection />
         <EcosystemSection />
