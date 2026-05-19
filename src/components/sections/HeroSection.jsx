@@ -59,7 +59,7 @@ export default function HeroSection() {
             {/* Headline */}
             <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1
-                className="font-display mb-5 break-words"
+              className="font-display mb-5 break-words text-center"
                 style={{
                   color: "#2C2C2C",
                   fontSize: "clamp(2.4rem, 7vw, 5.6rem)",
