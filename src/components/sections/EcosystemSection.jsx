@@ -115,7 +115,7 @@ export default function EcosystemSection() {
   }, []);
 
   return (
-    <section id="ecosystem" className="md:py-16 py-10 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
+    <section id="ecosystem" className="md:py-16 py-4 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
 
 
       <div className="max-w-6xl mx-auto px-6 md:px-12">
