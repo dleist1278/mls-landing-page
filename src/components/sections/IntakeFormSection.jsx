@@ -2,39 +2,39 @@ import React, { useRef, useEffect, useState } from "react";
 import { trackWaitlistSubmit, trackPathwaySelect, trackCTAClick } from "@/lib/analytics";
 
 const roles = [
-  "Stay-at-home mother",
-  "Working mother seeking transition",
-  "Currently providing informal childcare",
-  "Early childhood educator",
-  "Other",
-];
+"Stay-at-home mother",
+"Working mother seeking transition",
+"Currently providing informal childcare",
+"Early childhood educator",
+"Other"];
+
 
 const interests = [
-  "Home Daycare & Nursery (Full-Time)",
-  "Drop-In Care (Part-Time / Flexible)",
-  "Small-Group Caregiver Co-op",
-  "I'm not sure yet — help me decide",
-];
+"Home Daycare & Nursery (Full-Time)",
+"Drop-In Care (Part-Time / Flexible)",
+"Small-Group Caregiver Co-op",
+"I'm not sure yet — help me decide"];
+
 
 const hesitations = [
-  "Understanding the licensing process",
-  "Financial planning and pricing",
-  "Finding my first families",
-  "Balancing with my own children",
-  "Feeling qualified enough",
-  "The time commitment required",
-];
+"Understanding the licensing process",
+"Financial planning and pricing",
+"Finding my first families",
+"Balancing with my own children",
+"Feeling qualified enough",
+"The time commitment required"];
+
 
 const states = [
-  "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
-  "Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa",
-  "Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan",
-  "Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire",
-  "New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio",
-  "Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota",
-  "Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia",
-  "Wisconsin","Wyoming",
-];
+"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
+"Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+"Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan",
+"Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+"New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+"Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+"Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
+"Wisconsin", "Wyoming"];
+
 
 export default function IntakeFormSection() {
   const ref = useRef(null);
@@ -43,12 +43,12 @@ export default function IntakeFormSection() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({
-    firstName: "", email: "", role: "", interest: "", state: "", hesitation: "",
+    firstName: "", email: "", role: "", interest: "", state: "", hesitation: ""
   });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      ([entry]) => {if (entry.isIntersecting) setVisible(true);},
       { threshold: 0.06 }
     );
     if (ref.current) observer.observe(ref.current);
@@ -69,7 +69,7 @@ export default function IntakeFormSection() {
     // Form ID:   HubSpot → Marketing → Forms → open your form → GUID in the URL
     // ──────────────────────────────────────────────────────────────
     const PORTAL_ID = "REPLACE_WITH_YOUR_PORTAL_ID";
-    const FORM_ID   = "REPLACE_WITH_YOUR_FORM_ID";
+    const FORM_ID = "REPLACE_WITH_YOUR_FORM_ID";
 
     if (PORTAL_ID.startsWith("REPLACE") || FORM_ID.startsWith("REPLACE")) {
       setSubmitError("Form not yet configured. Please contact the site owner.");
@@ -85,19 +85,19 @@ export default function IntakeFormSection() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             fields: [
-              { name: "firstname", value: form.firstName },
-              { name: "email", value: form.email },
-              { name: "jobtitle", value: form.role },
-              { name: "childcare_interest", value: form.interest },
-              { name: "state", value: form.state },
-              { name: "biggest_hesitation", value: form.hesitation },
-              { name: "lead_source", value: "Mama Launch Studio — Founding Member Waitlist" },
-            ],
+            { name: "firstname", value: form.firstName },
+            { name: "email", value: form.email },
+            { name: "jobtitle", value: form.role },
+            { name: "childcare_interest", value: form.interest },
+            { name: "state", value: form.state },
+            { name: "biggest_hesitation", value: form.hesitation },
+            { name: "lead_source", value: "Mama Launch Studio — Founding Member Waitlist" }],
+
             context: {
               pageUri: window.location.href,
-              pageName: "Mama Launch Studio",
-            },
-          }),
+              pageName: "Mama Launch Studio"
+            }
+          })
         }
       );
 
@@ -132,14 +132,14 @@ export default function IntakeFormSection() {
     width: "100%",
     outline: "none",
     WebkitAppearance: "none",
-    appearance: "none",
+    appearance: "none"
   };
 
   const selectStyle = {
     ...inputStyle,
     cursor: "pointer",
     WebkitAppearance: "none",
-    appearance: "none",
+    appearance: "none"
   };
 
   return (
@@ -151,15 +151,15 @@ export default function IntakeFormSection() {
         </p>
         <h2
           className="font-display leading-snug mb-4"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.18" }}
-        >
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.18" }}>
+          
           Come build this{" "}
           <em style={{ color: "#4D5E49" }}>with us.</em>
         </h2>
         <p
           className="font-body leading-relaxed"
-          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "32ch" }}
-        >
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "32ch" }}>
+          
           Mama Launch was designed to help mothers move from idea to opening day with more clarity, structure, and support — without needing to figure everything out alone first.
         </p>
       </div>
@@ -170,9 +170,9 @@ export default function IntakeFormSection() {
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(16px)",
-          }}
-        >
+            transform: visible ? "translateY(0)" : "translateY(16px)"
+          }}>
+          
           {/* Desktop-only header (unchanged) */}
           <div className="hidden md:block text-center mb-7">
             <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
@@ -182,39 +182,39 @@ export default function IntakeFormSection() {
             </p>
             <h2
               className="font-display leading-tight mb-4 break-words"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.4rem)", overflowWrap: "break-word" }}
-            >
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.4rem)", overflowWrap: "break-word" }}>
+              
               Come Build This{" "}
               <em style={{ color: "#4D5E49" }}>With Us.</em>
             </h2>
             <p
               className="font-body mx-auto leading-relaxed"
-              style={{ color: "#5C5148", maxWidth: "460px", fontSize: "0.97rem" }}
-            >
+              style={{ color: "#5C5148", maxWidth: "460px", fontSize: "0.97rem" }}>
+              
               Tell us a little about yourself and your vision. This is the beginning of your launch path — and we're honored to walk it with you.
             </p>
           </div>
 
           {/* Mobile editorial micro-line above form */}
-          {!submitted && (
-            <p
-              className="md:hidden font-body mb-8 mt-6"
-              style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6", maxWidth: "30ch" }}
-            >
+          {!submitted &&
+          <p
+            className="md:hidden font-body mb-8 mt-6"
+            style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6", maxWidth: "30ch" }}>
+            
               You do not need to have everything figured out before starting.
             </p>
-          )}
+          }
 
           {/* Form / Success state */}
-          {submitted ? (
-            <div
-              className="text-center py-16"
-              style={{ animation: "atmosphericEntrance 0.9s ease-out forwards" }}
-            >
+          {submitted ?
+          <div
+            className="text-center py-16"
+            style={{ animation: "atmosphericEntrance 0.9s ease-out forwards" }}>
+            
               <div
-                className="w-14 h-14 rounded-full mx-auto mb-7 flex items-center justify-center"
-                style={{ backgroundColor: "#4D5E4915", border: "1px solid #4D5E4930" }}
-              >
+              className="w-14 h-14 rounded-full mx-auto mb-7 flex items-center justify-center"
+              style={{ backgroundColor: "#4D5E4915", border: "1px solid #4D5E4930" }}>
+              
                 <span style={{ color: "#4D5E49", fontSize: "1.4rem" }}>✓</span>
               </div>
               <h3 className="font-display text-3xl md:text-4xl mb-5" style={{ color: "#2C2C2C" }}>
@@ -223,17 +223,17 @@ export default function IntakeFormSection() {
               </h3>
               <div className="w-10 h-px mx-auto my-6" style={{ backgroundColor: "#C4956A" }} />
               <p
-                className="font-body mx-auto leading-relaxed"
-                style={{ color: "#5C5148", maxWidth: "420px", fontSize: "1rem" }}
-              >
+              className="font-body mx-auto leading-relaxed"
+              style={{ color: "#5C5148", maxWidth: "420px", fontSize: "1rem" }}>
+              
                 We'll send next steps to your inbox soon.
               </p>
               <p className="font-micro mt-7" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
                 You are exactly where you're meant to be.
               </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5 md:space-y-9">
+            </div> :
+
+          <form onSubmit={handleSubmit} className="space-y-5 md:space-y-9">
               {/* Row 1 — Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 <div>
@@ -241,26 +241,26 @@ export default function IntakeFormSection() {
                     First Name
                   </label>
                   <input
-                    type="text"
-                    required
-                    placeholder="Your first name"
-                    value={form.firstName}
-                    onChange={(e) => handleChange("firstName", e.target.value)}
-                    style={inputStyle}
-                  />
+                  type="text"
+                  required
+                  placeholder="Your first name"
+                  value={form.firstName}
+                  onChange={(e) => handleChange("firstName", e.target.value)}
+                  style={inputStyle} />
+                
                 </div>
                 <div>
                   <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
                     Email Address
                   </label>
                   <input
-                    type="email"
-                    required
-                    placeholder="your@email.com"
-                    value={form.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    style={inputStyle}
-                  />
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={form.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                  style={inputStyle} />
+                
                 </div>
               </div>
 
@@ -271,11 +271,11 @@ export default function IntakeFormSection() {
                     Current Role
                   </label>
                   <select
-                    required
-                    value={form.role}
-                    onChange={(e) => handleChange("role", e.target.value)}
-                    style={{ ...selectStyle, color: form.role ? "#2C2C2C" : "#9a8f84" }}
-                  >
+                  required
+                  value={form.role}
+                  onChange={(e) => handleChange("role", e.target.value)}
+                  style={{ ...selectStyle, color: form.role ? "#2C2C2C" : "#9a8f84" }}>
+                  
                     <option value="" disabled>Select your current role</option>
                     {roles.map((r) => <option key={r} value={r} style={{ color: "#2C2C2C" }}>{r}</option>)}
                   </select>
@@ -286,11 +286,11 @@ export default function IntakeFormSection() {
                            Childcare Interest
                   </label>
                   <select
-                    required
-                    value={form.interest}
-                    onChange={(e) => { handleChange("interest", e.target.value); trackPathwaySelect(e.target.value); }}
-                    style={{ ...selectStyle, color: form.interest ? "#2C2C2C" : "#9a8f84" }}
-                  >
+                  required
+                  value={form.interest}
+                  onChange={(e) => {handleChange("interest", e.target.value);trackPathwaySelect(e.target.value);}}
+                  style={{ ...selectStyle, color: form.interest ? "#2C2C2C" : "#9a8f84" }}>
+                  
                     <option value="" disabled>What type interests you?</option>
                     {interests.map((i) => <option key={i} value={i} style={{ color: "#2C2C2C" }}>{i}</option>)}
                   </select>
@@ -305,11 +305,11 @@ export default function IntakeFormSection() {
                     Your State
                   </label>
                   <select
-                    required
-                    value={form.state}
-                    onChange={(e) => handleChange("state", e.target.value)}
-                    style={{ ...selectStyle, color: form.state ? "#2C2C2C" : "#9a8f84" }}
-                  >
+                  required
+                  value={form.state}
+                  onChange={(e) => handleChange("state", e.target.value)}
+                  style={{ ...selectStyle, color: form.state ? "#2C2C2C" : "#9a8f84" }}>
+                  
                     <option value="" disabled>Select your state</option>
                     {states.map((s) => <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>)}
                   </select>
@@ -320,11 +320,11 @@ export default function IntakeFormSection() {
                     Biggest Hesitation
                   </label>
                   <select
-                    required
-                    value={form.hesitation}
-                    onChange={(e) => handleChange("hesitation", e.target.value)}
-                    style={{ ...selectStyle, color: form.hesitation ? "#2C2C2C" : "#9a8f84" }}
-                  >
+                  required
+                  value={form.hesitation}
+                  onChange={(e) => handleChange("hesitation", e.target.value)}
+                  style={{ ...selectStyle, color: form.hesitation ? "#2C2C2C" : "#9a8f84" }}>
+                  
                     <option value="" disabled>What holds you back most?</option>
                     {hesitations.map((h) => <option key={h} value={h} style={{ color: "#2C2C2C" }}>{h}</option>)}
                   </select>
@@ -333,39 +333,39 @@ export default function IntakeFormSection() {
               </div>
 
               {/* Error state */}
-              {submitError && (
-                <div
-                  className="p-4 rounded-2xl"
-                  style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA" }}
-                >
+              {submitError &&
+            <div
+              className="p-4 rounded-2xl"
+              style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA" }}>
+              
                   <p className="font-body text-sm" style={{ color: "#DC2626" }}>{submitError}</p>
                 </div>
-              )}
+            }
 
               {/* Submit */}
               <div className="pt-1 flex flex-col items-center gap-3">
                 <button
-                  type="submit"
-                  disabled={submitting}
-                  onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
-                  className="font-micro text-white w-full px-8 py-3 rounded-full hover:opacity-90 transition-all min-h-[44px] disabled:opacity-60"
-                  style={{
-                    backgroundColor: "#4D5E49",
-                    fontSize: "0.75rem",
-                    boxShadow: "0 3px 10px rgba(77,94,73,0.10)",
-                    letterSpacing: "0.08em",
-                  }}
-                >
+                type="submit"
+                disabled={submitting}
+                onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
+                className="font-micro text-white w-full px-8 py-3 rounded-full hover:opacity-90 transition-all min-h-[44px] disabled:opacity-60"
+                style={{
+                  backgroundColor: "#4D5E49",
+                  fontSize: "0.75rem",
+                  boxShadow: "0 3px 10px rgba(77,94,73,0.10)",
+                  letterSpacing: "0.08em"
+                }}>
+                
                   {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
                 </button>
-                <p className="font-body text-center mx-auto" style={{ color: "#C5BAB4", fontSize: "0.64rem", lineHeight: "1.5", maxWidth: "22ch", opacity: 0.85 }}>
+                <p className="font-body text-center mx-auto hidden" style={{ color: "#C5BAB4", fontSize: "0.64rem", lineHeight: "1.5", maxWidth: "22ch", opacity: 0.85 }}>
                   Founding members receive early access, founding pricing, and first entry into the Mama Launch platform.
                 </p>
               </div>
             </form>
-          )}
+          }
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
