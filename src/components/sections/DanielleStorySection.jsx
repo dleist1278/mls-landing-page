@@ -184,11 +184,11 @@ export default function DanielleStorySection() {
             BUILT FROM REAL EXPERIENCE
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
-          <h2 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
+          <h2 className="font-display leading-snug mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "18ch" }}>
             Created by Someone<br />Who Understands
           </h2>
           {MobilePhoto}
-          <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
+          <p className="font-body leading-relaxed mb-7" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
             Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
           </p>
           <div className="flex flex-wrap gap-1.5">

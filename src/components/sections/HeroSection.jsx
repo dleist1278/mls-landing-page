@@ -62,9 +62,9 @@ export default function HeroSection() {
               className="font-display mb-5 break-words text-center"
                 style={{
                   color: "#2C2C2C",
-                  fontSize: "clamp(2.4rem, 7vw, 5.6rem)",
+                  fontSize: "clamp(2.4rem, 7vw, 4.2rem)",
                   letterSpacing: "-0.02em",
-                  lineHeight: "1.18",
+                  lineHeight: "1.15",
                   maxWidth: "100%",
                   wordBreak: "break-word",
                   overflowWrap: "break-word"
@@ -94,7 +94,7 @@ export default function HeroSection() {
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
                 className="font-body mb-6 mx-auto text-center"
-                style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "36ch" }}>
+                style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "36ch", marginBottom: "1rem" }}>
                 
                 Build a <strong style={{ color: "#2C2C2C", fontWeight: 500 }}>flexible childcare business</strong> around your life and goals.
               </p>

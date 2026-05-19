@@ -207,8 +207,8 @@ export default function FoundingMemberSection() {
 
         {/* Headline */}
         <h2
-          className="font-display leading-tight mb-3 text-center"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.2" }}
+          className="font-display leading-tight mb-4 text-center"
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "22ch", marginLeft: "auto", marginRight: "auto" }}
         >
           What Happens After<br />
           <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
@@ -217,7 +217,7 @@ export default function FoundingMemberSection() {
         {/* Support copy */}
         <p
           className="font-body leading-relaxed mb-7 text-center"
-          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch", margin: "0 auto 1.75rem" }}
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "38ch", margin: "0 auto 1.75rem" }}
         >
           Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
         </p>

@@ -99,7 +99,7 @@ export default function ModelsSection() {
             </p>
             <h2
               className="font-display leading-tight mb-3 text-center"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 6.5vw, 3.4rem)", lineHeight: "1.2" }}>
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "22ch", margin: "0 auto 0.75rem" }}>
               
               Choose the path that <em style={{ color: "#4D5E49" }}>fits your motherhood life.</em>
             </h2>

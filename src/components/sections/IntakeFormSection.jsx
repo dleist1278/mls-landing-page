@@ -150,15 +150,15 @@ export default function IntakeFormSection() {
           FOUNDING MEMBER WAITLIST
         </p>
         <h2
-          className="font-display leading-snug mb-4"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.18" }}>
+          className="font-display leading-snug mb-3"
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "16ch" }}>
           
           Come build this{" "}
           <em style={{ color: "#4D5E49" }}>with us.</em>
         </h2>
         <p
-          className="font-body leading-relaxed"
-          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "32ch" }}>
+          className="font-body leading-relaxed mb-7"
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}>
           
           Mama Launch was designed to help mothers move from idea to opening day with more clarity, structure, and support — without needing to figure everything out alone first.
         </p>

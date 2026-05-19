@@ -116,14 +116,14 @@ export default function WhatIsMamaLaunchSection() {
 
           {/* Right — text content */}
           <div style={{ overflow: "hidden", minWidth: 0 }}>
-            <p className="font-micro mb-4 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               Understanding the Platform
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             </p>
             <h2
-              className="font-display leading-tight mb-6 text-center"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.18" }}>
+              className="font-display leading-tight mb-4 text-center"
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "20ch", marginLeft: "auto", marginRight: "auto" }}>
               What is the<br />
               <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
             </h2>
@@ -133,7 +133,7 @@ export default function WhatIsMamaLaunchSection() {
             </p>
 
             {/* Mobile summary — concise */}
-            <p className="md:hidden font-body leading-relaxed mb-4 text-center" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
+            <p className="md:hidden font-body leading-relaxed mb-7 text-center" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
               A guided opening path that helps you move from idea to real program with less guesswork.
             </p>
 
