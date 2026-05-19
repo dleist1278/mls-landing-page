@@ -259,55 +259,15 @@ export default function IntakeFormSection() {
                     </div>
                   </div>
 
-                  {/* Section divider label */}
-                  <div className="flex items-center gap-3">
-                    <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
-                    <span className="font-micro text-[0.6rem] tracking-widest" style={{ color: "#C4956A80" }}>YOUR VISION</span>
-                    <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
-                  </div>
-
-                  {/* Row 2 — Role + Interest */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div className="relative">
-                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Current Role</label>
-                      <select required value={form.role} onChange={(e) => handleChange("role", e.target.value)}
-                        style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.role ? "#2C2C2C" : "#9a8f84" }}>
-                        <option value="" disabled>Select your current role</option>
-                        {roles.map((r) => <option key={r} value={r} style={{ color: "#2C2C2C" }}>{r}</option>)}
-                      </select>
-                      <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
-                    </div>
-                    <div className="relative">
-                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Childcare Interest</label>
-                      <select required value={form.interest} onChange={(e) => { handleChange("interest", e.target.value); trackPathwaySelect(e.target.value); }}
-                        style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.interest ? "#2C2C2C" : "#9a8f84" }}>
-                        <option value="" disabled>What type interests you?</option>
-                        {interests.map((i) => <option key={i} value={i} style={{ color: "#2C2C2C" }}>{i}</option>)}
-                      </select>
-                      <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
-                    </div>
-                  </div>
-
-                  {/* Row 3 — State + Hesitation */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div className="relative">
-                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Your State</label>
-                      <select required value={form.state} onChange={(e) => handleChange("state", e.target.value)}
-                        style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.state ? "#2C2C2C" : "#9a8f84" }}>
-                        <option value="" disabled>Select your state</option>
-                        {states.map((s) => <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>)}
-                      </select>
-                      <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
-                    </div>
-                    <div className="relative">
-                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Biggest Hesitation</label>
-                      <select required value={form.hesitation} onChange={(e) => handleChange("hesitation", e.target.value)}
-                        style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.hesitation ? "#2C2C2C" : "#9a8f84" }}>
-                        <option value="" disabled>What holds you back most?</option>
-                        {hesitations.map((h) => <option key={h} value={h} style={{ color: "#2C2C2C" }}>{h}</option>)}
-                      </select>
-                      <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
-                    </div>
+                  {/* Row 2 — State only */}
+                  <div className="relative">
+                    <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Your State</label>
+                    <select required value={form.state} onChange={(e) => handleChange("state", e.target.value)}
+                      style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.state ? "#2C2C2C" : "#9a8f84" }}>
+                      <option value="" disabled>Select your state</option>
+                      {states.map((s) => <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>)}
+                    </select>
+                    <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
                   </div>
 
                   {/* Error */}
