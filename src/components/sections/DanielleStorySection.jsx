@@ -187,10 +187,10 @@ export default function DanielleStorySection() {
           <h2 className="font-display leading-snug mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "18ch" }}>
             Created by Someone<br />Who Understands
           </h2>
-          {MobilePhoto}
           <p className="font-body leading-relaxed mb-7" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
             Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
           </p>
+          {MobilePhoto}
           <div className="flex flex-wrap gap-1.5">
             {credentials.map((item) => {
               const Icon = item.icon;
