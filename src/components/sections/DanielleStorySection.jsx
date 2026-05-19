@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { GraduationCap, Home, Heart, ChevronDown, ArrowRight, LayoutDashboard, Lightbulb, BookOpen, Gift } from "lucide-react";
+import { GraduationCap, Home, Heart, ArrowRight, LayoutDashboard, Lightbulb, Gift } from "lucide-react";
 
 const credentials = [
   { icon: GraduationCap, text: "Former educator + school leader" },
@@ -10,80 +10,82 @@ const credentials = [
 
 const drawers = [
   {
+    icon: Heart,
+    title: "WHO",
+    content: "I'm Danielle — former educator, assistant principal, licensed home daycare owner, and mom of two. I built this from the inside out.",
+  },
+  {
     icon: Lightbulb,
-    title: "WHY I BUILT THIS",
+    title: "WHY",
     content: "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers.",
   },
   {
-    icon: BookOpen,
-    title: "WHAT I UNDERSTAND",
-    content: "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children.",
-  },
-  {
     icon: Gift,
-    title: "WHAT THIS GIVES YOU",
+    title: "WHAT",
     content: "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone.",
   },
 ];
 
-function AccordionDrawer({ drawer, isOpen, onToggle }) {
-  const Icon = drawer.icon;
+function DrawerTabs({ drawers, openDrawer, onToggle }) {
   return (
-    <div
-      className="rounded-2xl overflow-hidden transition-all duration-300"
-      style={{
-        background: isOpen
-          ? "linear-gradient(135deg, #FFFDF9 0%, #FDF6EE 100%)"
-          : "rgba(255,255,255,0.55)",
-        border: `1px solid ${isOpen ? "#C4956A28" : "#EAD9C8"}`,
-        boxShadow: isOpen
-          ? "0 6px 28px rgba(196,149,106,0.13), 0 1px 4px rgba(44,44,44,0.04)"
-          : "0 1px 4px rgba(196,149,106,0.04)",
-        position: "relative",
-      }}>
+    <div className="flex flex-col gap-0">
+      {/* Tab row */}
+      <div className="flex gap-2">
+        {drawers.map((drawer, index) => {
+          const Icon = drawer.icon;
+          const isOpen = openDrawer === index;
+          return (
+            <button
+              key={drawer.title}
+              type="button"
+              onClick={() => onToggle(index)}
+              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-4 transition-all duration-200"
+              style={{
+                borderRadius: "10px 10px 0 0",
+                backgroundColor: isOpen ? "#FFFDF9" : "rgba(255,255,255,0.5)",
+                border: `1px solid ${isOpen ? "#C4956A28" : "#EAD9C8"}`,
+                borderBottom: isOpen ? "1px solid #FFFDF9" : "1px solid #EAD9C8",
+                boxShadow: isOpen ? "0 -4px 16px rgba(196,149,106,0.09)" : "none",
+                position: "relative",
+                zIndex: isOpen ? 2 : 1,
+                marginBottom: isOpen ? "-1px" : "0",
+                cursor: "pointer",
+              }}>
+              <Icon className="h-4 w-4" style={{ color: isOpen ? "#C4956A" : "#9a8f84", transition: "color 0.2s" }} />
+              <span className="font-micro" style={{ fontSize: "0.6rem", letterSpacing: "0.16em", color: isOpen ? "#2B2B28" : "#9a8f84", transition: "color 0.2s" }}>
+                {drawer.title}
+              </span>
+              {/* Active bottom accent */}
+              {isOpen && (
+                <div style={{ position: "absolute", bottom: 0, left: "20%", right: "20%", height: "2px", backgroundColor: "#C4956A", borderRadius: "2px 2px 0 0" }} />
+              )}
+            </button>
+          );
+        })}
+      </div>
 
-      {/* Left accent bar — visible when open */}
-      <div style={{
-        position: "absolute", left: 0, top: 0, bottom: 0, width: "3px",
-        borderRadius: "12px 0 0 12px",
-        background: isOpen ? "linear-gradient(180deg, #C4956A, #C4956A88)" : "transparent",
-        transition: "background 0.25s ease"
-      }} />
-
-      <button
-        type="button"
-        onClick={onToggle}
-        className="flex w-full items-center gap-4 px-5 py-4 text-left"
-        style={{ paddingLeft: "20px" }}>
-
-        {/* Icon badge */}
-        <div className="flex-none flex items-center justify-center rounded-xl transition-all duration-200"
-          style={{
-            width: "36px", height: "36px",
-            backgroundColor: isOpen ? "#C4956A15" : "rgba(77,94,73,0.07)",
-            border: `1px solid ${isOpen ? "#C4956A28" : "rgba(77,94,73,0.12)"}`,
-          }}>
-          <Icon className="h-4 w-4" style={{ color: isOpen ? "#C4956A" : "#4D5E49" }} />
-        </div>
-
-        <span className="flex-1 font-micro" style={{ fontSize: "0.66rem", letterSpacing: "0.14em", color: isOpen ? "#2B2B28" : "#5C5148" }}>
-          {drawer.title}
-        </span>
-
-        <ChevronDown
-          className="h-4 w-4 flex-shrink-0 transition-transform duration-300"
-          style={{ color: isOpen ? "#C4956A" : "#9a8f84", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-        />
-      </button>
-
-      <div style={{ maxHeight: isOpen ? "180px" : "0px", overflow: "hidden", opacity: isOpen ? 1 : 0, transition: "max-height 0.32s ease, opacity 0.25s ease" }}>
-        <div className="px-5 pb-5" style={{ paddingLeft: "20px" }}>
-          <div className="pl-[52px]">
-            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
-              {drawer.content}
+      {/* Pop-out content panel */}
+      <div
+        style={{
+          borderRadius: "0 0 12px 12px",
+          backgroundColor: "#FFFDF9",
+          border: "1px solid #C4956A28",
+          borderTop: "none",
+          overflow: "hidden",
+          maxHeight: openDrawer >= 0 ? "200px" : "0px",
+          opacity: openDrawer >= 0 ? 1 : 0,
+          transition: "max-height 0.32s ease, opacity 0.25s ease",
+          boxShadow: "0 8px 28px rgba(196,149,106,0.1)",
+          position: "relative",
+          zIndex: 1,
+        }}>
+        {openDrawer >= 0 && (
+          <div className="px-5 py-4">
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65" }}>
+              {drawers[openDrawer]?.content}
             </p>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
@@ -172,12 +174,8 @@ export default function DanielleStorySection() {
               </div>
             </div>
 
-            {/* Accordion */}
-            <div className="flex flex-col gap-2">
-              {drawers.map((drawer, index) => (
-                <AccordionDrawer key={drawer.title} drawer={drawer} isOpen={openDrawer === index} onToggle={() => handleToggle(index)} />
-              ))}
-            </div>
+            {/* Tabs */}
+            <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
           </div>
         </div>
 
@@ -218,12 +216,8 @@ export default function DanielleStorySection() {
             })}
           </div>
 
-          {/* Accordion */}
-          <div className="flex flex-col gap-2">
-            {drawers.map((drawer, index) => (
-              <AccordionDrawer key={drawer.title} drawer={drawer} isOpen={openDrawer === index} onToggle={() => handleToggle(index)} />
-            ))}
-          </div>
+          {/* Tabs */}
+          <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
 
           <div className="flex justify-center">
             <button
