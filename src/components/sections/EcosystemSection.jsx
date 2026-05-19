@@ -210,7 +210,7 @@ export default function EcosystemSection() {
         {/* Quote */}
         <div
           ref={quoteRef}
-          className="mt-4 md:mt-10 text-center mx-auto max-w-xl"
+          className="mt-4 md:mt-10 mb-8 text-center mx-auto max-w-xl"
           style={{ transition: "opacity 0.6s ease", opacity: quoteVisible ? 1 : 0 }}>
           
           <div className="w-8 h-px mx-auto mb-5" style={{ backgroundColor: "#C4956A" }} />
