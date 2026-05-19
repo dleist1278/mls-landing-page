@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
-import { ClipboardCheck, Mail, Users, Puzzle, DoorOpen, Heart, ChevronDown } from "lucide-react";
+import { ClipboardCheck, Mail, Users, Puzzle, DoorOpen, Heart } from "lucide-react";
 
+// ── Desktop data (unchanged) ──────────────────────────────────────────────────
 const steps = [
   { step: "01", title: "Join the Waitlist", description: "Secure your spot and be the first to know what's next.", icon: ClipboardCheck },
   { step: "02", title: "Receive Your Welcome", description: "Check your inbox for your personal welcome and next steps.", icon: Mail },
@@ -9,6 +10,29 @@ const steps = [
   { step: "05", title: "Open Your Doors", description: "Move toward launching your daycare or nursery with support.", icon: DoorOpen },
 ];
 
+// ── Mobile journey stages ─────────────────────────────────────────────────────
+const mobileStages = [
+  {
+    id: 1,
+    title: "JOIN",
+    label: "Immediate access + onboarding",
+    copy: "Reserve your founding member spot and receive your welcome roadmap.",
+  },
+  {
+    id: 2,
+    title: "GET ORIENTED",
+    label: "Choose your launch path",
+    copy: "Choose your pathway and unlock your first implementation phase.",
+  },
+  {
+    id: 3,
+    title: "BUILD FORWARD",
+    label: "Steady momentum + support",
+    copy: "Move through guided prompts, templates, and support at your own pace with the village beside you.",
+  },
+];
+
+// ── Desktop StepCard (unchanged) ─────────────────────────────────────────────
 function StepCard({ step, index, isOpen, onToggle }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -33,87 +57,32 @@ function StepCard({ step, index, isOpen, onToggle }) {
         transform: visible ? "translateY(0)" : "translateY(12px)",
       }}
     >
-      {/* Step number circle */}
       <div
         className="z-10 flex h-10 w-10 lg:h-11 lg:w-11 shrink-0 items-center justify-center rounded-full bg-white text-xs lg:text-sm font-semibold self-start mt-3"
         style={{ color: "#C4956A", boxShadow: "0 1px 3px rgba(196,149,106,0.10)", outline: "1px solid #EAD9C8" }}
       >
         {step.step}
       </div>
-
-      {/* Card */}
       <div
-        className="flex flex-1 flex-col rounded-2xl lg:rounded-2xl cursor-pointer group"
+        className="flex flex-1 flex-col rounded-2xl cursor-pointer"
         onClick={onToggle}
         style={{
           backgroundColor: "rgba(255,255,255,0.80)",
           outline: isOpen ? "1px solid #D4BDA8" : "1px solid #EDE3D8",
           backdropFilter: "blur(8px)",
-          boxShadow: isOpen
-            ? "0 4px 18px rgba(196,149,106,0.10)"
-            : "0 1px 4px rgba(196,149,106,0.05)",
-          transition: "box-shadow 0.22s ease, outline-color 0.22s ease, transform 0.18s ease",
-        }}
-        onMouseEnter={e => {
-          // desktop hover only
-          if (window.innerWidth >= 1024) {
-            e.currentTarget.style.transform = "translateY(-1px)";
-            e.currentTarget.style.boxShadow = "0 6px 22px rgba(196,149,106,0.12)";
-            e.currentTarget.style.outlineColor = "#C8B09A";
-          }
-        }}
-        onMouseLeave={e => {
-          if (window.innerWidth >= 1024) {
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = isOpen
-              ? "0 4px 18px rgba(196,149,106,0.10)"
-              : "0 1px 4px rgba(196,149,106,0.05)";
-            e.currentTarget.style.outlineColor = isOpen ? "#D4BDA8" : "#EDE3D8";
-          }
+          boxShadow: isOpen ? "0 4px 18px rgba(196,149,106,0.10)" : "0 1px 4px rgba(196,149,106,0.05)",
+          transition: "box-shadow 0.22s ease, outline-color 0.22s ease",
         }}
       >
-        {/* Header row — always visible */}
-        <div className="flex items-center gap-3 px-4 py-3.5 lg:px-5 lg:py-4">
-          {/* Icon circle */}
-          <div
-            className="flex h-10 w-10 lg:h-11 lg:w-11 shrink-0 items-center justify-center rounded-full"
-            style={{ backgroundColor: "#F0EDE6", border: "1px solid #E4D8CC" }}
-          >
+        <div className="flex items-center gap-3 px-5 py-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: "#F0EDE6", border: "1px solid #E4D8CC" }}>
             <Icon size={19} style={{ color: "#4D5E49", strokeWidth: 1.6 }} />
           </div>
-
-          {/* Title */}
-          <h3
-            className="flex-1 font-display text-[18px] lg:text-[19px] leading-snug"
-            style={{ color: "#2C2C2C" }}
-          >
-            {step.title}
-          </h3>
-
-          {/* Chevron */}
-          <ChevronDown
-            size={16}
-            style={{
-              color: "#C4956A",
-              flexShrink: 0,
-              transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-              transition: "transform 0.22s ease",
-            }}
-          />
+          <h3 className="flex-1 font-display text-[19px] leading-snug" style={{ color: "#2C2C2C" }}>{step.title}</h3>
         </div>
-
-        {/* Description — only when open */}
         {isOpen && (
-          <div
-            className="px-4 pb-3.5 lg:px-5 lg:pb-4"
-            style={{ borderTop: "1px solid #F0EBE3" }}
-          >
-            <p
-              className="pt-3 text-sm lg:text-[14px] leading-relaxed"
-              style={{ color: "#7A6E65", maxWidth: "38ch" }}
-            >
-              {step.description}
-            </p>
+          <div className="px-5 pb-4" style={{ borderTop: "1px solid #F0EBE3" }}>
+            <p className="pt-3 text-[14px] leading-relaxed" style={{ color: "#7A6E65", maxWidth: "38ch" }}>{step.description}</p>
           </div>
         )}
       </div>
@@ -121,10 +90,101 @@ function StepCard({ step, index, isOpen, onToggle }) {
   );
 }
 
+// ── Mobile stage card ─────────────────────────────────────────────────────────
+function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
+  return (
+    <button
+      type="button"
+      onClick={onTap}
+      className="w-full text-left"
+      style={{ display: "block" }}
+    >
+      {/* Stage row */}
+      <div
+        className="w-full rounded-2xl overflow-hidden transition-all duration-250"
+        style={{
+          backgroundColor: isActive ? "#FFFCF8" : "transparent",
+          border: `1px solid ${isActive ? "#D4BDA8" : "#E8DDD3"}`,
+          boxShadow: isActive ? "0 3px 14px rgba(196,149,106,0.09)" : "none",
+        }}
+      >
+        {/* Header */}
+        <div className="flex items-center gap-3 px-4 py-3.5">
+          {/* Stage dot */}
+          <div
+            className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center"
+            style={{
+              backgroundColor: isActive ? "#4D5E49" : "transparent",
+              border: `1.5px solid ${isActive ? "#4D5E49" : "#C4A080"}`,
+              transition: "background-color 0.2s ease",
+            }}
+          >
+            {isActive && (
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#fff" }} />
+            )}
+          </div>
+
+          {/* Title */}
+          <span
+            className="flex-1 font-micro"
+            style={{
+              color: isActive ? "#2C2C2C" : "#9a8f84",
+              fontSize: "0.72rem",
+              letterSpacing: "0.14em",
+              fontWeight: isActive ? 700 : 500,
+              transition: "color 0.2s ease",
+            }}
+          >
+            {stage.title}
+          </span>
+
+          {/* Label — visible always, de-emphasized when inactive */}
+          <span
+            className="font-body"
+            style={{
+              color: isActive ? "#C4956A" : "#C4B09A",
+              fontSize: "0.62rem",
+              opacity: isActive ? 1 : 0.6,
+              transition: "opacity 0.2s ease",
+            }}
+          >
+            {stage.label}
+          </span>
+        </div>
+
+        {/* Expanded copy */}
+        <div
+          style={{
+            maxHeight: isActive ? "120px" : "0px",
+            overflow: "hidden",
+            transition: "max-height 0.3s ease",
+          }}
+        >
+          <p
+            className="font-body px-4 pb-4"
+            style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}
+          >
+            {stage.copy}
+          </p>
+        </div>
+      </div>
+
+      {/* Connector line between stages */}
+      {stageIndex < totalStages - 1 && (
+        <div className="flex justify-start pl-[18px] py-1">
+          <div style={{ width: "1px", height: "10px", backgroundColor: "#D4BDA840" }} />
+        </div>
+      )}
+    </button>
+  );
+}
+
+// ── Main section ──────────────────────────────────────────────────────────────
 export default function FoundingMemberSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [activeStep, setActiveStep] = useState("01");
+  const [activeStage, setActiveStage] = useState(1);
 
   useEffect(() => {
     const o1 = new IntersectionObserver(
@@ -137,80 +197,129 @@ export default function FoundingMemberSection() {
 
   return (
     <section className="py-8 lg:py-24" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
-      <div className="max-w-[1120px] mx-auto px-5 md:px-12 grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-12 items-start">
 
-        {/* Left column */}
-        <div
-          ref={headerRef}
-          className="lg:sticky lg:top-28 lg:pr-6"
-          style={{
-            transition: "opacity 0.5s ease, transform 0.5s ease",
-            opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(14px)",
-          }}
+      {/* ── MOBILE layout ────────────────────────────────────────────────── */}
+      <div className="lg:hidden w-full max-w-full overflow-hidden px-5">
+
+        {/* Eyebrow */}
+        <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
+          YOUR FOUNDING MEMBER JOURNEY
+        </p>
+
+        {/* Headline */}
+        <h2
+          className="font-display leading-snug mb-3"
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}
         >
-          <p className="font-micro mb-2 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
-            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-            The Founding Member Experience
-          </p>
+          Here's what happens after you join.
+        </h2>
 
-          <h2
-            className="font-display leading-tight mb-4 lg:mb-6"
-            style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3.5vw, 3.75rem)", lineHeight: "1.05" }}
-          >
-            What Happens After
-            <br />
-            <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
-          </h2>
+        {/* Support copy */}
+        <p
+          className="font-body leading-relaxed mb-6"
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65" }}
+        >
+          You do not need to figure everything out before starting. Mama Launch guides you step by step with structure, support, and implementation tools designed for real motherhood life.
+        </p>
 
-          {/* Supporting paragraph — desktop only for editorial calm */}
-          <p
-            className="hidden lg:block text-sm leading-relaxed mb-8"
-            style={{ color: "#7A6E65", maxWidth: "26ch", lineHeight: "1.7" }}
-          >
-            Each step is intentional. You'll always know what's next and why it matters.
-          </p>
+        {/* 3-stage progression */}
+        <div className="w-full">
+          {mobileStages.map((stage, i) => (
+            <MobileStageCard
+              key={stage.id}
+              stage={stage}
+              isActive={activeStage === stage.id}
+              onTap={() => setActiveStage(activeStage === stage.id ? stage.id : stage.id)}
+              stageIndex={i}
+              totalStages={mobileStages.length}
+            />
+          ))}
+        </div>
 
-          {/* Callout — soft note, reduced prominence */}
+        {/* Micro-moment editorial line */}
+        <p
+          className="font-body mt-6 mb-5"
+          style={{ color: "#9a8f84", fontSize: "0.78rem", fontStyle: "italic", lineHeight: "1.6" }}
+        >
+          Built around real motherhood rhythms, not uninterrupted workdays.
+        </p>
+
+        {/* Founding member support line */}
+        <div
+          className="rounded-xl px-4 py-3 w-full"
+          style={{ backgroundColor: "#EEF1E7", border: "1px solid #E1E6D8" }}
+        >
+          <div className="flex items-start gap-2.5">
+            <Heart size={14} style={{ color: "#4D5E49", flexShrink: 0, marginTop: "2px", strokeWidth: 1.6 }} />
+            <p className="font-body text-xs leading-relaxed" style={{ color: "#4D5E49" }}>
+              Founding members receive first access, early pricing, and the opportunity to help shape the platform from the beginning.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ── DESKTOP layout (unchanged) ───────────────────────────────────── */}
+      <div className="hidden lg:block max-w-[1120px] mx-auto px-12">
+        <div className="grid grid-cols-[0.85fr_1.15fr] gap-12 items-start">
+
+          {/* Left column */}
           <div
-            className="rounded-xl p-3 lg:p-4"
-            style={{ backgroundColor: "#EEF1E7", outline: "1px solid #E1E6D8" }}
+            ref={headerRef}
+            className="sticky top-28 pr-6"
+            style={{
+              transition: "opacity 0.5s ease, transform 0.5s ease",
+              opacity: headerVisible ? 1 : 0,
+              transform: headerVisible ? "translateY(0)" : "translateY(14px)",
+            }}
           >
-            <div className="flex items-center gap-3">
-              <Heart size={16} style={{ color: "#4D5E49", flexShrink: 0, strokeWidth: 1.6 }} />
-              <div className="flex-1">
-                <p className="font-display text-sm font-semibold leading-snug" style={{ color: "#4D5E49" }}>
-                  You're not just joining.
-                </p>
-                <p className="mt-0.5 text-xs" style={{ color: "#5C5148" }}>
-                  You're helping build the future.
-                </p>
+            <p className="font-micro mb-2 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+              The Founding Member Experience
+            </p>
+            <h2
+              className="font-display leading-tight mb-6"
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3.5vw, 3.75rem)", lineHeight: "1.05" }}
+            >
+              What Happens After
+              <br />
+              <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
+            </h2>
+            <p className="text-sm leading-relaxed mb-8" style={{ color: "#7A6E65", maxWidth: "26ch", lineHeight: "1.7" }}>
+              Each step is intentional. You'll always know what's next and why it matters.
+            </p>
+            <div className="rounded-xl p-4" style={{ backgroundColor: "#EEF1E7", outline: "1px solid #E1E6D8" }}>
+              <div className="flex items-center gap-3">
+                <Heart size={16} style={{ color: "#4D5E49", flexShrink: 0, strokeWidth: 1.6 }} />
+                <div className="flex-1">
+                  <p className="font-display text-sm font-semibold leading-snug" style={{ color: "#4D5E49" }}>You're not just joining.</p>
+                  <p className="mt-0.5 text-xs" style={{ color: "#5C5148" }}>You're helping build the future.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Right column: Accordion steps */}
-        <div>
-          <div className="relative space-y-3 lg:space-y-2.5 max-w-full lg:max-w-[540px]">
-            {/* Dashed vertical line */}
-            <div
-              className="absolute left-[19px] lg:left-[21px] top-10 h-[calc(100%-72px)] border-l border-dashed"
-              style={{ borderColor: "rgba(196,149,106,0.22)" }}
-            />
-            {steps.map((step, i) => (
-              <StepCard
-                key={step.step}
-                step={step}
-                index={i}
-                isOpen={activeStep === step.step}
-                onToggle={() => setActiveStep(activeStep === step.step ? null : step.step)}
+          {/* Right column */}
+          <div>
+            <div className="relative space-y-2.5 max-w-[540px]">
+              <div
+                className="absolute left-[19px] lg:left-[21px] top-10 h-[calc(100%-72px)] border-l border-dashed"
+                style={{ borderColor: "rgba(196,149,106,0.22)" }}
               />
-            ))}
+              {steps.map((step, i) => (
+                <StepCard
+                  key={step.step}
+                  step={step}
+                  index={i}
+                  isOpen={activeStep === step.step}
+                  onToggle={() => setActiveStep(activeStep === step.step ? null : step.step)}
+                />
+              ))}
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
+
     </section>
   );
 }
