@@ -67,7 +67,8 @@ export default function HeroSection() {
                   lineHeight: "1.15",
                   maxWidth: "100%",
                   wordBreak: "break-word",
-                  overflowWrap: "break-word"
+                  overflowWrap: "break-word",
+                  textShadow: "0 2px 12px rgba(196,149,106,0.18), 0 1px 2px rgba(44,44,44,0.08)"
                 }}>
                 
                 Reimagining Home Childcare for
