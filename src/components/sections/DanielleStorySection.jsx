@@ -183,7 +183,7 @@ export default function DanielleStorySection() {
             BUILT FROM REAL EXPERIENCE
           </p>
           <h2 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
-            Created by Someone Who Understands
+            Created by Someone<br />Who Understands
           </h2>
           {MobilePhoto}
           <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
