@@ -198,7 +198,7 @@ export default function IntakeFormSection() {
           {/* Mobile editorial micro-line above form */}
           {!submitted && (
             <p
-              className="md:hidden font-body mb-5 mt-6"
+              className="md:hidden font-body mb-7 mt-8"
               style={{ color: "#9a8f84", fontSize: "0.78rem", fontStyle: "italic", lineHeight: "1.6" }}
             >
               You do not need to have everything figured out before starting.
@@ -352,13 +352,13 @@ export default function IntakeFormSection() {
                   style={{
                     backgroundColor: "#4D5E49",
                     fontSize: "0.75rem",
-                    boxShadow: "0 8px 28px rgba(77,94,73,0.18)",
+                    boxShadow: "0 4px 16px rgba(77,94,73,0.12)",
                     letterSpacing: "0.08em",
                   }}
                 >
                   {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
                 </button>
-                <p className="font-body text-center" style={{ color: "#9a8f84", fontSize: "0.73rem", lineHeight: "1.55" }}>
+                <p className="font-body text-center mx-auto" style={{ color: "#B5A99F", fontSize: "0.68rem", lineHeight: "1.55", maxWidth: "26ch" }}>
                   Founding members receive early access, founding pricing, and first entry into the Mama Launch platform.
                 </p>
               </div>
