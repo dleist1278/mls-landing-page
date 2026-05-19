@@ -211,11 +211,6 @@ export default function WhatIsMamaLaunchSection() {
               )}
             </div>
 
-            {/* Mobile: founding member support line */}
-            <p className="md:hidden font-body text-xs mb-5" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
-              Founding members unlock the complete 5-phase path first.
-            </p>
-
             <div className="flex justify-center my-6">
               <button
                 onClick={() => document.getElementById("method-roadmap")?.scrollIntoView({ behavior: "smooth" })}
@@ -224,6 +219,11 @@ export default function WhatIsMamaLaunchSection() {
                 See the 5-Phase Method →
               </button>
             </div>
+
+            {/* Mobile: founding member support line */}
+            <p className="md:hidden font-body text-xs mt-3 text-center" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
+              Founding members unlock the complete 5-phase path first.
+            </p>
           </div>
         </div>
       </div>
