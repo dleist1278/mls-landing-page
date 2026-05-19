@@ -122,10 +122,9 @@ export default function IntakeFormSection() {
 
   const inputStyle = {
     background: "transparent",
-    border: "none",
-    borderBottom: "1px solid #E2D5C8",
-    borderRadius: 0,
-    padding: "7px 0",
+    border: "1px solid #E0D1BF",
+    borderRadius: "10px",
+    padding: "10px 14px",
     fontFamily: "'Inter', sans-serif",
     fontSize: "0.88rem",
     color: "#2C2C2C",
@@ -165,7 +164,7 @@ export default function IntakeFormSection() {
         </p>
       </div>
 
-      <div className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 py-10 md:py-20">
+      <div className="max-w-3xl mx-auto px-5 sm:px-8 md:px-10 py-8 md:py-16">
         <div
           ref={ref}
           style={{
@@ -173,198 +172,172 @@ export default function IntakeFormSection() {
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(16px)"
           }}>
-          
-          {/* Desktop-only header (unchanged) */}
-          <div className="hidden md:block text-center mb-7">
-            <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-              Founding Member Waitlist
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-            </p>
-            <h2
-              className="font-display leading-tight mb-4 break-words"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.4rem)", overflowWrap: "break-word" }}>
-              
-              Come Build This{" "}
-              <em style={{ color: "#4D5E49" }}>With Us.</em>
-            </h2>
-            <p
-              className="font-body mx-auto leading-relaxed"
-              style={{ color: "#5C5148", maxWidth: "460px", fontSize: "0.97rem" }}>
-              
-              Tell us a little about yourself and your vision. This is the beginning of your launch path — and we're honored to walk it with you.
-            </p>
+
+          {/* Elevated form card */}
+          <div className="relative overflow-hidden rounded-3xl"
+            style={{
+              background: "linear-gradient(145deg, #FFFDF9 0%, #F7F2EA 100%)",
+              border: "1px solid #E4D5C0",
+              boxShadow: "0 20px 60px rgba(196,149,106,0.14), 0 4px 16px rgba(77,94,73,0.06)"
+            }}>
+
+            {/* Decorative top accent bar */}
+            <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #C4956A, #4D5E49, #C4956A)" }} />
+
+            {/* Decorative corner flourish */}
+            <div className="absolute top-6 right-6 opacity-10 pointer-events-none select-none" style={{ fontSize: "5rem", lineHeight: 1, color: "#C4956A" }}>✦</div>
+            <div className="absolute bottom-8 left-5 opacity-[0.06] pointer-events-none select-none" style={{ fontSize: "3.5rem", lineHeight: 1, color: "#4D5E49" }}>✦</div>
+
+            <div className="px-6 md:px-10 py-8 md:py-10">
+
+              {/* Desktop header */}
+              <div className="hidden md:block text-center mb-8">
+                <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+                  <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+                  Founding Member Waitlist
+                  <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+                </p>
+                <h2 className="font-display leading-tight mb-3 break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", overflowWrap: "break-word" }}>
+                  Come Build This{" "}
+                  <em style={{ color: "#4D5E49" }}>With Us.</em>
+                </h2>
+                <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "440px", fontSize: "0.95rem" }}>
+                  Tell us a little about yourself and your vision. This is the beginning of your launch path.
+                </p>
+              </div>
+
+              {/* Mobile micro-line */}
+              {!submitted &&
+                <p className="md:hidden font-body mb-6 mt-2 text-center" style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6" }}>
+                  You do not need to have everything figured out before starting.
+                </p>
+              }
+
+              {/* Form / Success */}
+              {submitted ? (
+                <div className="text-center py-12" style={{ animation: "atmosphericEntrance 0.9s ease-out forwards" }}>
+                  <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ background: "linear-gradient(135deg, #4D5E4920, #4D5E4908)", border: "1px solid #4D5E4930" }}>
+                    <span style={{ color: "#4D5E49", fontSize: "1.6rem" }}>✓</span>
+                  </div>
+                  <h3 className="font-display text-3xl md:text-4xl mb-4" style={{ color: "#2C2C2C" }}>
+                    You're on the waitlist,{" "}
+                    <em style={{ color: "#4D5E49" }}>{form.firstName || "Mama"}.</em>
+                  </h3>
+                  <div className="w-10 h-px mx-auto my-5" style={{ backgroundColor: "#C4956A" }} />
+                  <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "400px", fontSize: "1rem" }}>
+                    We'll send next steps to your inbox soon.
+                  </p>
+                  <p className="font-micro mt-6" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+                    You are exactly where you're meant to be.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+
+                  {/* Section divider label */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
+                    <span className="font-micro text-[0.6rem] tracking-widest" style={{ color: "#C4956A80" }}>TELL US ABOUT YOU</span>
+                    <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
+                  </div>
+
+                  {/* Row 1 — Name + Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="group">
+                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>First Name</label>
+                      <div className="relative">
+                        <input type="text" required placeholder="Your first name" value={form.firstName}
+                          onChange={(e) => handleChange("firstName", e.target.value)}
+                          style={{ ...inputStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)" }} />
+                      </div>
+                    </div>
+                    <div className="group">
+                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Email Address</label>
+                      <input type="email" required placeholder="your@email.com" value={form.email}
+                        onChange={(e) => handleChange("email", e.target.value)}
+                        style={{ ...inputStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)" }} />
+                    </div>
+                  </div>
+
+                  {/* Section divider label */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
+                    <span className="font-micro text-[0.6rem] tracking-widest" style={{ color: "#C4956A80" }}>YOUR VISION</span>
+                    <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
+                  </div>
+
+                  {/* Row 2 — Role + Interest */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="relative">
+                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Current Role</label>
+                      <select required value={form.role} onChange={(e) => handleChange("role", e.target.value)}
+                        style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.role ? "#2C2C2C" : "#9a8f84" }}>
+                        <option value="" disabled>Select your current role</option>
+                        {roles.map((r) => <option key={r} value={r} style={{ color: "#2C2C2C" }}>{r}</option>)}
+                      </select>
+                      <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
+                    </div>
+                    <div className="relative">
+                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Childcare Interest</label>
+                      <select required value={form.interest} onChange={(e) => { handleChange("interest", e.target.value); trackPathwaySelect(e.target.value); }}
+                        style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.interest ? "#2C2C2C" : "#9a8f84" }}>
+                        <option value="" disabled>What type interests you?</option>
+                        {interests.map((i) => <option key={i} value={i} style={{ color: "#2C2C2C" }}>{i}</option>)}
+                      </select>
+                      <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
+                    </div>
+                  </div>
+
+                  {/* Row 3 — State + Hesitation */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="relative">
+                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Your State</label>
+                      <select required value={form.state} onChange={(e) => handleChange("state", e.target.value)}
+                        style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.state ? "#2C2C2C" : "#9a8f84" }}>
+                        <option value="" disabled>Select your state</option>
+                        {states.map((s) => <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>)}
+                      </select>
+                      <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
+                    </div>
+                    <div className="relative">
+                      <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Biggest Hesitation</label>
+                      <select required value={form.hesitation} onChange={(e) => handleChange("hesitation", e.target.value)}
+                        style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.hesitation ? "#2C2C2C" : "#9a8f84" }}>
+                        <option value="" disabled>What holds you back most?</option>
+                        {hesitations.map((h) => <option key={h} value={h} style={{ color: "#2C2C2C" }}>{h}</option>)}
+                      </select>
+                      <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
+                    </div>
+                  </div>
+
+                  {/* Error */}
+                  {submitError && (
+                    <div className="p-4 rounded-2xl" style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA" }}>
+                      <p className="font-body text-sm" style={{ color: "#DC2626" }}>{submitError}</p>
+                    </div>
+                  )}
+
+                  {/* Submit */}
+                  <div className="pt-2">
+                    <button type="submit" disabled={submitting}
+                      onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
+                      className="font-micro text-white w-full px-8 py-4 rounded-2xl transition-all min-h-[52px] disabled:opacity-60"
+                      style={{
+                        background: "linear-gradient(135deg, #4D5E49, #3a4a37)",
+                        fontSize: "0.75rem",
+                        letterSpacing: "0.1em",
+                        boxShadow: "0 6px 24px rgba(77,94,73,0.28), 0 1px 3px rgba(77,94,73,0.12)"
+                      }}>
+                      {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
+                    </button>
+                    <p className="text-center font-body mt-3" style={{ color: "#B0A090", fontSize: "0.7rem" }}>
+                      No spam, ever. Just your next step forward.
+                    </p>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
-
-          {/* Mobile editorial micro-line above form */}
-          {!submitted &&
-          <p
-            className="md:hidden font-body mb-8 mt-6"
-            style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6", maxWidth: "30ch" }}>
-            
-              You do not need to have everything figured out before starting.
-            </p>
-          }
-
-          {/* Form / Success state */}
-          {submitted ?
-          <div
-            className="text-center py-16"
-            style={{ animation: "atmosphericEntrance 0.9s ease-out forwards" }}>
-            
-              <div
-              className="w-14 h-14 rounded-full mx-auto mb-7 flex items-center justify-center"
-              style={{ backgroundColor: "#4D5E4915", border: "1px solid #4D5E4930" }}>
-              
-                <span style={{ color: "#4D5E49", fontSize: "1.4rem" }}>✓</span>
-              </div>
-              <h3 className="font-display text-3xl md:text-4xl mb-5" style={{ color: "#2C2C2C" }}>
-                You're on the waitlist,{" "}
-                <em style={{ color: "#4D5E49" }}>{form.firstName || "Mama"}.</em>
-              </h3>
-              <div className="w-10 h-px mx-auto my-6" style={{ backgroundColor: "#C4956A" }} />
-              <p
-              className="font-body mx-auto leading-relaxed"
-              style={{ color: "#5C5148", maxWidth: "420px", fontSize: "1rem" }}>
-              
-                We'll send next steps to your inbox soon.
-              </p>
-              <p className="font-micro mt-7" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
-                You are exactly where you're meant to be.
-              </p>
-            </div> :
-
-          <form onSubmit={handleSubmit} className="space-y-5 md:space-y-9">
-              {/* Row 1 — Name + Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
-                <div>
-                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
-                    First Name
-                  </label>
-                  <input
-                  type="text"
-                  required
-                  placeholder="Your first name"
-                  value={form.firstName}
-                  onChange={(e) => handleChange("firstName", e.target.value)}
-                  style={inputStyle} />
-                
-                </div>
-                <div>
-                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
-                    Email Address
-                  </label>
-                  <input
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={form.email}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                  style={inputStyle} />
-                
-                </div>
-              </div>
-
-              {/* Row 2 — Role + Interest */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
-                <div className="relative">
-                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
-                    Current Role
-                  </label>
-                  <select
-                  required
-                  value={form.role}
-                  onChange={(e) => handleChange("role", e.target.value)}
-                  style={{ ...selectStyle, color: form.role ? "#2C2C2C" : "#9a8f84" }}>
-                  
-                    <option value="" disabled>Select your current role</option>
-                    {roles.map((r) => <option key={r} value={r} style={{ color: "#2C2C2C" }}>{r}</option>)}
-                  </select>
-                  <span className="absolute right-0 bottom-3 pointer-events-none" style={{ color: "#C4956A55", fontSize: "0.65rem" }}>↓</span>
-                       </div>
-                       <div className="relative">
-                         <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
-                           Childcare Interest
-                  </label>
-                  <select
-                  required
-                  value={form.interest}
-                  onChange={(e) => {handleChange("interest", e.target.value);trackPathwaySelect(e.target.value);}}
-                  style={{ ...selectStyle, color: form.interest ? "#2C2C2C" : "#9a8f84" }}>
-                  
-                    <option value="" disabled>What type interests you?</option>
-                    {interests.map((i) => <option key={i} value={i} style={{ color: "#2C2C2C" }}>{i}</option>)}
-                  </select>
-                  <span className="absolute right-0 bottom-3 pointer-events-none" style={{ color: "#C4956A66", fontSize: "0.65rem" }}>↓</span>
-                </div>
-              </div>
-
-              {/* Row 3 — State + Hesitation */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
-                <div className="relative">
-                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
-                    Your State
-                  </label>
-                  <select
-                  required
-                  value={form.state}
-                  onChange={(e) => handleChange("state", e.target.value)}
-                  style={{ ...selectStyle, color: form.state ? "#2C2C2C" : "#9a8f84" }}>
-                  
-                    <option value="" disabled>Select your state</option>
-                    {states.map((s) => <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>)}
-                  </select>
-                  <span className="absolute right-0 bottom-3 pointer-events-none" style={{ color: "#C4956A66", fontSize: "0.65rem" }}>↓</span>
-                </div>
-                <div className="relative">
-                  <label className="font-micro block mb-2" style={{ color: "#9a8f84", fontSize: "0.7rem" }}>
-                    Biggest Hesitation
-                  </label>
-                  <select
-                  required
-                  value={form.hesitation}
-                  onChange={(e) => handleChange("hesitation", e.target.value)}
-                  style={{ ...selectStyle, color: form.hesitation ? "#2C2C2C" : "#9a8f84" }}>
-                  
-                    <option value="" disabled>What holds you back most?</option>
-                    {hesitations.map((h) => <option key={h} value={h} style={{ color: "#2C2C2C" }}>{h}</option>)}
-                  </select>
-                  <span className="absolute right-0 bottom-3 pointer-events-none" style={{ color: "#C4956A66", fontSize: "0.65rem" }}>↓</span>
-                </div>
-              </div>
-
-              {/* Error state */}
-              {submitError &&
-            <div
-              className="p-4 rounded-2xl"
-              style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA" }}>
-              
-                  <p className="font-body text-sm" style={{ color: "#DC2626" }}>{submitError}</p>
-                </div>
-            }
-
-              {/* Submit */}
-              <div className="pt-1 flex flex-col items-center gap-3">
-                <button
-                type="submit"
-                disabled={submitting}
-                onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
-                className="font-micro text-white w-full px-8 py-3 rounded-full hover:opacity-90 transition-all min-h-[44px] disabled:opacity-60"
-                style={{
-                  backgroundColor: "#4D5E49",
-                  fontSize: "0.75rem",
-                  boxShadow: "0 3px 10px rgba(77,94,73,0.10)",
-                  letterSpacing: "0.08em"
-                }}>
-                
-                  {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
-                </button>
-                
-
-              
-              </div>
-            </form>
-          }
         </div>
       </div>
     </section>);
