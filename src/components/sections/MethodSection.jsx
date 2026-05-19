@@ -150,7 +150,8 @@ export default function MethodSection() {
             THE OPENING PATH
           </p>
           <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
-            The 5 phases that guide you from idea to opening day.
+            The 5 Phases<br />
+            <em style={{ color: "#4D5E49" }}>That Guide You</em>
           </h2>
           <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
             Move through each phase with guided prompts, practical tools, and clear next steps designed for real motherhood life.
