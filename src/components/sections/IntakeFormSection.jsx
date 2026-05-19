@@ -159,10 +159,9 @@ export default function IntakeFormSection() {
           <em style={{ color: "#4D5E49" }}>with us.</em>
         </h2>
         <p
-          className="font-body leading-relaxed mb-7"
-          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "34ch" }}>
-          
-          Mama Launch was designed to help mothers move from idea to opening day with more clarity, structure, and support — without needing to figure everything out alone first.
+          className="font-body leading-relaxed mb-7 text-center mx-auto"
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "32ch" }}>
+          From idea to opening day — with clarity,<br />structure, and support<br />you don't have to find alone.
         </p>
       </div>
 
