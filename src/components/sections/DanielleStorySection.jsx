@@ -78,8 +78,8 @@ export default function DanielleStorySection() {
 
   const Title = (
     <h2 className="font-display text-[38px] leading-[1.05] lg:text-6xl text-[#2B2B28] mb-3">
-      Inside the Studio{" "}
-      <em className="block italic text-[#566B4E]">Everything works together to help you keep moving.</em>
+      I built this{" "}
+      <em className="block italic text-[#566B4E]">because I needed it.</em>
     </h2>
   );
 
@@ -183,8 +183,7 @@ export default function DanielleStorySection() {
             BUILT FROM REAL EXPERIENCE
           </p>
           <h2 className="font-display leading-snug" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 6.5vw, 2.2rem)", lineHeight: "1.2" }}>
-            Inside the Studio{" "}
-            <em style={{ color: "#4D5E49" }}>Everything works together to help you keep moving.</em>
+            Created by someone who understands both the systems and the real life.
           </h2>
           {MobilePhoto}
           <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
