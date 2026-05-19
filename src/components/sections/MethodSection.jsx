@@ -49,7 +49,7 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
       className="w-full text-left overflow-hidden focus:outline-none relative"
       style={{
         borderRadius: "18px",
-        backgroundColor: isActive ? "#F0EBE1" : "#FDFCFA",
+        backgroundColor: isActive ? "#FFFDF9" : "#FAF7F2",
         border: `1px solid ${isActive ? phase.color + "40" : "#C4956A0E"}`,
         boxShadow: isActive
           ? `0 6px 28px rgba(77,94,73,0.10), 0 1px 4px rgba(44,44,44,0.05), inset 0 1px 0 rgba(255,255,255,0.7)`
@@ -145,7 +145,7 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
+    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw" }}>
       <div className="w-full h-px mb-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
