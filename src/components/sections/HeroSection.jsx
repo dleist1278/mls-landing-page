@@ -104,7 +104,7 @@ export default function HeroSection() {
             <div className={`hidden sm:block transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <p
                 className="font-micro mb-9"
-                style={{ color: "#C4956A", fontSize: "0.66rem", letterSpacing: "0.1em" }}
+                style={{ color: "#C4956A", fontSize: "0.66rem", letterSpacing: "0.1em", textAlign: "center", display: "block" }}
               >
                 Launch System · Templates · Community · Guided Implementation
               </p>
