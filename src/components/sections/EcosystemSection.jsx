@@ -198,29 +198,45 @@ export default function EcosystemSection() {
             </div>
           </div>
           <div
-            className="flex gap-3 overflow-x-auto px-5 pb-4 max-w-full"
+            className="flex gap-3 overflow-x-auto pb-4 max-w-full"
             style={{
               scrollSnapType: "x mandatory",
               scrollbarWidth: "none",
               msOverflowStyle: "none",
               WebkitOverflowScrolling: "touch",
               overscrollBehaviorX: "contain",
-              WebkitScrollSnapType: "x mandatory"
+              WebkitScrollSnapType: "x mandatory",
+              paddingLeft: "calc(50% - 126px)",
+              paddingRight: "calc(50% - 126px + 20px)",
+              animation: "peekNudge 0.9s ease-out 1.4s 1"
             }}>
+            <style>{`
+              @keyframes peekNudge {
+                0%   { transform: translateX(0); }
+                40%  { transform: translateX(-22px); }
+                70%  { transform: translateX(-10px); }
+                100% { transform: translateX(0); }
+              }
+            `}</style>
             
             {MOBILE_CARD_META.map((card) =>
             <div
               key={card.key}
-              className="flex-none w-[68vw] max-w-[260px] rounded-[18px] bg-[#FDFCFA] border border-[#EAD9C8] p-2 overflow-hidden"
-              style={{ scrollSnapAlign: "start", boxShadow: "0 4px 18px rgba(196,149,106,0.07)" }}>
-              
-                <div className="w-full h-[130px] overflow-hidden rounded-xl border border-[#EAD9C8] bg-white">
-                  {CARD_IMAGES[card.key] ? <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png" alt={card.key} className="w-full h-full object-contain object-center block" /> : null}
+              className="flex-none rounded-2xl overflow-hidden"
+              style={{
+                width: "252px",
+                scrollSnapAlign: "center",
+                background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)",
+                border: "1px solid #E4D5C0",
+                boxShadow: "0 8px 28px rgba(196,149,106,0.12), 0 1px 4px rgba(0,0,0,0.04)"
+              }}>
+              {/* Accent top bar */}
+              <div style={{ height: "3px", background: "linear-gradient(90deg, #C4956A, #C4956A88)" }} />
+                <div className="w-full overflow-hidden" style={{ height: "110px" }}>
+                  {CARD_IMAGES[card.key] ? <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png" alt={card.key} className="w-full h-full object-contain object-center block" style={{ filter: "saturate(0.82) brightness(0.97)" }} /> : null}
                 </div>
-                <div className="px-1.5 pt-2 pb-1 text-center">
-                  <h3
-                  className="font-display text-sm font-semibold"
-                  style={{ color: "#C4956A" }}>
+                <div className="px-4 pt-2 pb-3 text-center">
+                  <h3 className="font-display text-sm font-semibold" style={{ color: "#C4956A" }}>
                     {card.title}
                   </h3>
                 </div>
