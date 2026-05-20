@@ -52,8 +52,8 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
         backgroundColor: isActive ? "#FFFDF9" : "#EDE5D8",
         border: `1px solid ${isActive ? phase.color + "28" : "#C4956A14"}`,
         boxShadow: isActive
-          ? `0 3px 14px rgba(44,44,44,0.05)`
-          : "none",
+          ? `0 8px 32px rgba(77,94,73,0.18), 0 3px 10px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6)`
+          : "0 2px 6px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)",
         opacity: isActive ? 1 : 0.55,
         transition: "opacity 0.2s ease, box-shadow 0.22s ease, background-color 0.2s ease",
         WebkitTransform: "translateZ(0)",
