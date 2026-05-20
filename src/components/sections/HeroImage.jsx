@@ -34,7 +34,7 @@ export default function HeroImage({ imageData, visible }) {
           <div
             className="relative w-full h-full rounded-[28px] overflow-hidden"
             style={{
-              boxShadow: "0 16px 48px rgba(196,149,106,0.14), 0 4px 16px rgba(44,44,44,0.06)",
+              boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)",
               border: "1px solid #C4956A14",
               zIndex: 1,
             }}
@@ -60,7 +60,7 @@ export default function HeroImage({ imageData, visible }) {
           className="w-full rounded-2xl overflow-hidden"
           style={{
             aspectRatio: "3/2",
-            boxShadow: "0 16px 48px rgba(196,149,106,0.15)",
+            boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)",
             border: "1px solid #C4956A14",
           }}
         >

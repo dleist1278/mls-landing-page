@@ -196,7 +196,7 @@ export default function DanielleStorySection() {
             <div className="relative">
               <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.13, zIndex: 0 }} />
               <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.09, zIndex: 1 }} />
-              <div className="relative rounded-[20px] overflow-hidden" style={{ zIndex: 2, boxShadow: "0 8px 36px rgba(196,149,106,0.14)", border: "1px solid rgba(196,149,106,0.1)" }}>
+              <div className="relative rounded-[20px] overflow-hidden" style={{ zIndex: 2, boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)", border: "1px solid rgba(196,149,106,0.1)" }}>
                 <img
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                   alt="Danielle, founder of Mama Launch Studio"
@@ -226,7 +226,7 @@ export default function DanielleStorySection() {
           <div className="relative mx-4">
             <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(8px, 8px)", backgroundColor: "#C4956A", opacity: 0.15, zIndex: 0 }} />
             <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(4px, 4px)", backgroundColor: "#4D5E49", opacity: 0.1, zIndex: 1 }} />
-            <div className="relative rounded-2xl overflow-hidden" style={{ zIndex: 2, boxShadow: "0 6px 28px rgba(196,149,106,0.16)" }}>
+            <div className="relative rounded-2xl overflow-hidden" style={{ zIndex: 2, boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)" }}>
               <img
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                 alt="Danielle, founder of Mama Launch Studio"

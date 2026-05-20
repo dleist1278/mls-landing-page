@@ -85,7 +85,7 @@ export default function HeroSection() {
                   {/* Depth layers */}
                   <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.18, zIndex: 0 }} />
                   <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.12, zIndex: 1 }} />
-                  <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: "0 8px 32px rgba(196,149,106,0.18)", zIndex: 2 }}>
+                  <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)", zIndex: 2 }}>
                     <img src={HERO_BELOW_TITLE_PHOTO} alt="Mama Launch" className="w-full object-cover" style={{ maxHeight: "260px", objectPosition: "center 20%" }} />
                   </div>
                 </div> :

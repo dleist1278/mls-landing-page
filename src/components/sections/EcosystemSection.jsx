@@ -149,7 +149,7 @@ export default function EcosystemSection() {
                 className="absolute rounded-[24px]"
                 style={{ inset: 0, transform: "translate(-8px, 8px)", backgroundColor: "#E8D5C0", opacity: 0.32, zIndex: 0 }} />
               
-              <div className="relative w-full h-full rounded-[24px] overflow-hidden" style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}>
+              <div className="relative w-full h-full rounded-[24px] overflow-hidden" style={{ boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)", zIndex: 1 }}>
                 <img
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/4df106e43_Untitled_design__1_.jpg"
                   alt="Mothers in a warm, supportive community gathering"

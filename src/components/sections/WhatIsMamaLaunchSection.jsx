@@ -83,7 +83,7 @@ export default function WhatIsMamaLaunchSection() {
               {/* Level 2 — image surface */}
               <div
                 className="relative w-full h-full rounded-[24px] overflow-hidden"
-                style={{ boxShadow: "0 8px 36px rgba(196,149,106,0.1)", zIndex: 1 }}>
+                style={{ boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)", zIndex: 1 }}>
                 
                 {primaryImage?.image_url ?
                 <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bcd7fe44c_Untitled_design__1_.jpg"

@@ -43,7 +43,7 @@ export default function FounderSection() {
               />
               <div
                 className="relative rounded-[28px] overflow-hidden"
-                style={{ aspectRatio: "4/5", boxShadow: "0 8px 40px rgba(196,149,106,0.12)", zIndex: 1, maxWidth: "92%", margin: "0 auto" }}
+                style={{ aspectRatio: "4/5", boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)", zIndex: 1, maxWidth: "92%", margin: "0 auto" }}
               >
                 <img
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
@@ -83,7 +83,7 @@ export default function FounderSection() {
                   aspectRatio: "4/5",
                   borderRadius: "28px",
                   overflow: "hidden",
-                  boxShadow: "0 8px 40px rgba(196,149,106,0.12)",
+                  boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)",
                   flexShrink: 0,
                 }}
               >
