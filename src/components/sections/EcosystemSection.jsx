@@ -136,19 +136,12 @@ export default function EcosystemSection() {
           <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.92rem", lineHeight: "1.65" }}>
             A village that understands you. Built-in momentum to keep you progressing. Support that goes beyond motivation — straight into implementation.
           </p>
-          <div className="mt-8 overflow-visible relative" style={{ width: "150%", marginLeft: "-25%", marginRight: "-25%" }}>
-            {/* Depth layer behind */}
-            <div className="absolute rounded-3xl" style={{ inset: 0, transform: "translate(12px, 16px) scale(0.97)", backgroundColor: "#C4956A", opacity: 0.12, zIndex: 0, borderRadius: "24px" }} />
-            <div className="absolute rounded-3xl" style={{ inset: 0, transform: "translate(6px, 8px) scale(0.985)", backgroundColor: "#4D5E49", opacity: 0.08, zIndex: 0, borderRadius: "24px" }} />
+          <div className="mt-8 overflow-visible" style={{ width: "150%", marginLeft: "-25%", marginRight: "-25%" }}>
             <img
               src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/79cea4da6_Untitleddesign.png"
               alt="Mama Launch platform — progress tracking, implementation tools, and community village"
-              className="w-full h-auto block relative"
-              style={{
-                zIndex: 1,
-                borderRadius: "16px",
-                boxShadow: "0 40px 80px rgba(0,0,0,0.22), 0 16px 40px rgba(196,149,106,0.18), 0 4px 12px rgba(0,0,0,0.10)"
-              }}
+              className="w-full h-auto block"
+              style={{ filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.14)) drop-shadow(0 6px 16px rgba(196,149,106,0.12))" }}
             />
           </div>
           <p className="font-body mx-auto leading-relaxed hidden" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.9rem", lineHeight: "1.6" }}>
