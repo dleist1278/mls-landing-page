@@ -16,7 +16,7 @@ export default function SiteFooter() {
       {/* Tonal gradient bridge */}
       
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-7">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 py-12 md:py-16">
 
         {/* Single condensed row */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 pb-5 border-b" style={{ borderColor: "#C4956A18" }}>
