@@ -246,14 +246,23 @@ export default function FoundingMemberSection() {
 
         {/* Founding member support line */}
         <div
-          className="rounded-xl px-3 py-2 w-full mt-5"
-          style={{ backgroundColor: "transparent", border: "1px solid #E8DDD344" }}>
-          
-          <div className="flex items-start gap-2">
-            <Heart size={11} style={{ color: "#e53935", flexShrink: 0, marginTop: "2px", strokeWidth: 1.5, fill: "#e53935" }} />
-            <p className="font-body leading-relaxed" style={{ color: "#7A8877", fontSize: "0.73rem" }}>
-              Founding members receive first access, early pricing, and the opportunity to help shape the platform from the beginning.
-            </p>
+          className="rounded-2xl px-4 py-4 w-full mt-5"
+          style={{
+            background: "linear-gradient(135deg, #FFFDF9 0%, #F5EFE6 100%)",
+            border: "1px solid #C4956A28",
+            boxShadow: "0 6px 24px rgba(196,149,106,0.14), 0 1px 4px rgba(0,0,0,0.05)"
+          }}>
+          <div className="flex items-start gap-3">
+            <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5"
+              style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
+              <Heart size={12} style={{ color: "#4D5E49", strokeWidth: 1.8, fill: "#4D5E4940" }} />
+            </div>
+            <div>
+              <p className="font-micro mb-0.5" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.14em" }}>FOUNDING MEMBER BENEFIT</p>
+              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.8rem", lineHeight: "1.6" }}>
+                First access, early pricing, and the opportunity to help shape the platform from the beginning.
+              </p>
+            </div>
           </div>
         </div>
       </div>
