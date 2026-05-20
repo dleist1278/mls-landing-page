@@ -138,7 +138,7 @@ export default function EcosystemSection() {
           </p>
           <div className="mt-8 mx-auto" style={{ maxWidth: "2280px" }}>
             <img
-              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/36c20a771_Untitleddesign.png"
+              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/79cea4da6_Untitleddesign.png"
               alt="Mama Launch platform — progress tracking, implementation tools, and community village"
               className="w-full h-auto block"
               style={{ filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.14)) drop-shadow(0 6px 16px rgba(196,149,106,0.12))" }}
