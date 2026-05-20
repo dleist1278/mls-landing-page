@@ -233,10 +233,13 @@ export default function FoundingMemberSection() {
 
         {/* Support copy */}
         <p
-          className="font-body leading-relaxed mb-7 text-center"
-          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "38ch", margin: "0 auto 1.75rem" }}>
+          className="font-body leading-relaxed mb-3 text-center"
+          style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "38ch", margin: "0 auto 0.75rem" }}>
           
           Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
+        </p>
+        <p className="font-micro mb-7 text-center" style={{ color: "#9a8f84", fontSize: "0.62rem", letterSpacing: "0.08em" }}>
+          Small founding cohort. Intentionally limited.
         </p>
 
         {/* 3-stage progression */}
@@ -336,8 +339,11 @@ export default function FoundingMemberSection() {
               What Happens After<br />
               <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
             </h2>
-            <p className="text-sm leading-relaxed mb-8" style={{ color: "#7A6E65", maxWidth: "26ch", lineHeight: "1.7" }}>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#7A6E65", maxWidth: "26ch", lineHeight: "1.7" }}>
               Each step is intentional. You'll always know what's next and why it matters.
+            </p>
+            <p className="font-micro mb-8" style={{ color: "#9a8f84", fontSize: "0.66rem", letterSpacing: "0.07em" }}>
+              Small founding cohort. Enrollment closes June 30.
             </p>
             <div className="rounded-xl p-4" style={{ backgroundColor: "#EEF1E7", outline: "1px solid #E1E6D8" }}>
               <div className="flex items-center gap-3">
