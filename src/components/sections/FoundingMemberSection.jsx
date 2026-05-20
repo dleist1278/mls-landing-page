@@ -21,8 +21,8 @@ const mobileStages = [
 {
   id: 2,
   title: "GET ORIENTED",
-  label: "Choose your launch path",
-  copy: "Choose your pathway and unlock your first implementation phase."
+  label: "Shape your program",
+  copy: "Define your hours, age range, and whether you're launching a daycare or nursery school. This is where your program starts taking real shape."
 },
 {
   id: 3,
