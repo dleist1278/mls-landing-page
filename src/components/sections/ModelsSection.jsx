@@ -117,7 +117,7 @@ export default function ModelsSection() {
           }
         `}</style>
         <div className="hidden md:grid grid-cols-3 gap-5">
-          {pathways.map((pathway, i) => (
+          {[pathways[1], pathways[0], pathways[2]].map((pathway, i) => (
             <div key={pathway.id} className="rounded-3xl overflow-hidden flex flex-col"
               style={{
                 backgroundColor: "#FFFDF9",
