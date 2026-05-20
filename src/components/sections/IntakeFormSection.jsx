@@ -188,7 +188,6 @@ export default function IntakeFormSection() {
             <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #C4956A, #4D5E49, #C4956A)" }} />
 
             {/* Decorative corner flourish */}
-            <div className="absolute top-6 right-6 opacity-10 pointer-events-none select-none" style={{ fontSize: "5rem", lineHeight: 1, color: "#C4956A" }}>✦</div>
             <div className="absolute bottom-8 left-5 opacity-[0.06] pointer-events-none select-none" style={{ fontSize: "3.5rem", lineHeight: 1, color: "#4D5E49" }}>✦</div>
 
             <div className="px-6 md:px-10 py-8 md:py-10">
