@@ -43,7 +43,7 @@ export default function IntakeFormSection() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({
-    firstName: "", email: "", role: "", interest: "", state: "", hesitation: ""
+    firstName: "", email: "", role: "", interest: "", state: "", hesitation: "", pathway: ""
   });
 
   useEffect(() => {
@@ -91,6 +91,7 @@ export default function IntakeFormSection() {
             { name: "childcare_interest", value: form.interest },
             { name: "state", value: form.state },
             { name: "biggest_hesitation", value: form.hesitation },
+            { name: "program_pathway", value: form.pathway },
             { name: "lead_source", value: "Mama Launch Studio — Founding Member Waitlist" }],
 
             context: {
@@ -263,6 +264,20 @@ export default function IntakeFormSection() {
                   style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.state ? "#2C2C2C" : "#9a8f84" }}>
                       <option value="" disabled>Select your state</option>
                       {states.map((s) => <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>)}
+                    </select>
+                    <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
+                  </div>
+
+                  {/* Row 3 — Program Pathway */}
+                  <div className="relative">
+                    <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Which program path interests you most?</label>
+                    <select required value={form.pathway} onChange={(e) => handleChange("pathway", e.target.value)}
+                  style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.pathway ? "#2C2C2C" : "#9a8f84" }}>
+                      <option value="" disabled>Select your path</option>
+                      <option value="Home Daycare & Nursery (Full-Time)" style={{ color: "#2C2C2C" }}>Home Daycare &amp; Nursery (Full-Time)</option>
+                      <option value="Drop-In Care (Part-Time / Flexible)" style={{ color: "#9a8f84" }}>Drop-In Care — Coming Soon</option>
+                      <option value="Small-Group Caregiver Co-op" style={{ color: "#9a8f84" }}>Small-Group Co-op — Coming Soon</option>
+                      <option value="Not sure yet" style={{ color: "#2C2C2C" }}>I'm not sure yet — help me decide</option>
                     </select>
                     <span className="absolute right-3 bottom-3.5 pointer-events-none" style={{ color: "#C4956A88", fontSize: "0.6rem" }}>↓</span>
                   </div>
