@@ -51,9 +51,9 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
         borderRadius: "14px",
         backgroundColor: isActive ? "#FFFDF9" : "#EDE5D8",
         border: `1px solid ${isActive ? phase.color + "28" : "#C4956A14"}`,
-        boxShadow: isActive
-          ? `0 8px 32px rgba(77,94,73,0.18), 0 3px 10px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6)`
-          : "0 2px 6px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)",
+        boxShadow: isActive ?
+        `0 8px 32px rgba(77,94,73,0.18), 0 3px 10px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6)` :
+        "0 2px 6px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)",
         opacity: isActive ? 1 : 0.55,
         transition: "opacity 0.2s ease, box-shadow 0.22s ease, background-color 0.2s ease",
         WebkitTransform: "translateZ(0)",
@@ -66,9 +66,9 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
         style={{
           width: "3px",
           borderRadius: "18px 0 0 18px",
-          background: isActive
-            ? `linear-gradient(180deg, ${phase.color}, ${phase.color}88)`
-            : "transparent",
+          background: isActive ?
+          `linear-gradient(180deg, ${phase.color}, ${phase.color}88)` :
+          "transparent",
           transition: "background 0.2s ease"
         }} />
 
@@ -95,30 +95,30 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
               {phase.name}
             </h3>
           </div>
-          {isActive ? (
-            <div
-              className="flex-none rounded-full"
-              style={{ width: "20px", height: "20px", backgroundColor: phase.color + "15", border: `1px solid ${phase.color}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {isActive ?
+          <div
+            className="flex-none rounded-full"
+            style={{ width: "20px", height: "20px", backgroundColor: phase.color + "15", border: `1px solid ${phase.color}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span style={{ color: phase.color, fontSize: "0.6rem", lineHeight: 1 }}>▾</span>
-            </div>
-          ) : (
-            <div
-              className="flex-none rounded-full"
-              style={{
-                width: "18px", height: "18px",
-                backgroundColor: "#C4956A10",
-                border: "1px solid #C4956A28",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                animation: "chevronBounce 2s ease-in-out infinite"
-              }}>
+            </div> :
+
+          <div
+            className="flex-none rounded-full"
+            style={{
+              width: "18px", height: "18px",
+              backgroundColor: "#C4956A10",
+              border: "1px solid #C4956A28",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              animation: "chevronBounce 2s ease-in-out infinite"
+            }}>
               <span style={{ color: "#C4956A", fontSize: "0.55rem", lineHeight: 1 }}>▾</span>
             </div>
-          )}
+          }
         </div>
 
         {/* Expanded detail — only when active */}
         {isActive &&
-          <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${phase.color}18` }}>
+        <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${phase.color}18` }}>
             <p className="font-micro mb-1" style={{ color: "#9a8f84", fontSize: "0.58rem" }}>What you'll do</p>
             <p className="font-body leading-snug mb-3" style={{ color: "#7A6E65", fontSize: "0.75rem", maxWidth: "86%" }}>
               {phase.detail}
@@ -126,15 +126,15 @@ function MobilePhaseCard({ phase, isActive, onClick }) {
             <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.58rem" }}>Includes</p>
             <ul className="flex flex-col gap-1">
               {phase.includes.map((item) =>
-                <li key={item} className="flex items-center gap-2">
+            <li key={item} className="flex items-center gap-2">
                   <span
-                    className="flex-none rounded-sm"
-                    style={{ width: "14px", height: "14px", backgroundColor: phase.color + "14", border: `1px solid ${phase.color}28`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                className="flex-none rounded-sm"
+                style={{ width: "14px", height: "14px", backgroundColor: phase.color + "14", border: `1px solid ${phase.color}28`, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <span style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: phase.color, display: "block" }} />
                   </span>
                   <span className="font-body leading-snug" style={{ color: "#5C5148", fontSize: "0.75rem" }}>{item}</span>
                 </li>
-              )}
+            )}
             </ul>
           </div>
         }
@@ -269,6 +269,6 @@ export default function MethodSection() {
         <div className="flex-none w-2 md:w-8" />
       </div>
 
-      <div className="w-full h-px mt-10" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      <div className="w-full h-px mt-10 hidden" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
     </section>);
 }
