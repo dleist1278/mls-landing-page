@@ -102,8 +102,6 @@ export default function WalkAwaySection() {
   const [headerVisible, setHeaderVisible] = useState(false);
   const [portalVisible, setPortalVisible] = useState(false);
   const [deliverablesVisible, setDeliverablesVisible] = useState(false);
-  const [parallaxY, setParallaxY] = useState(0);
-
   useEffect(() => {
     const makeObs = (setter) => new IntersectionObserver(([e]) => {if (e.isIntersecting) setter(true);}, { threshold: 0.06 });
     const o1 = makeObs(setHeaderVisible);
@@ -113,21 +111,6 @@ export default function WalkAwaySection() {
     if (portalRef.current) o2.observe(portalRef.current);
     if (deliverablesRef.current) o3.observe(deliverablesRef.current);
     return () => {o1.disconnect();o2.disconnect();o3.disconnect();};
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!portalRef.current) return;
-      const rect = portalRef.current.getBoundingClientRect();
-      const windowH = window.innerHeight;
-      // How far through the viewport the element has traveled (−1 to 1)
-      const progress = (windowH - rect.top) / (windowH + rect.height);
-      const offset = (progress - 0.5) * 60; // max ±30px parallax
-      setParallaxY(offset);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
