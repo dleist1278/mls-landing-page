@@ -61,7 +61,7 @@ export default function ModelsSection() {
     <section
       id="models"
       className="py-10 md:py-16 pb-0 md:pb-0 overflow-hidden"
-      style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw" }}>
+      style={{ backgroundColor: "#E8DDD0", scrollMarginTop: "60px", maxWidth: "100vw" }}>
       
       <div className="max-w-5xl mx-auto px-6 md:px-12">
 
@@ -113,9 +113,9 @@ export default function ModelsSection() {
           <div
             className="rounded-3xl p-10 mb-6 relative overflow-hidden"
             style={{
-              backgroundColor: "#F0EBE1",
-              border: "1px solid #4D5E4930",
-              boxShadow: "0 6px 36px rgba(77,94,73,0.08)"
+              backgroundColor: "#FFFDF9",
+              border: "1px solid #4D5E4950",
+              boxShadow: "0 8px 40px rgba(77,94,73,0.14)"
             }}>
 
             {/* Corner ribbon — Spots Limited */}
@@ -163,7 +163,7 @@ export default function ModelsSection() {
             <div
               key={m.title}
               className="rounded-3xl p-6 flex flex-col gap-2.5"
-              style={{ backgroundColor: "#FAF7F2", border: "1px solid #C4956A1A", opacity: 0.65 }}>
+              style={{ backgroundColor: "#FFFDF9", border: "1px solid #C4956A30", opacity: 0.8 }}>
               
                 <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22" }}>
                   <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem" }}>Coming Soon</span>
@@ -216,9 +216,9 @@ export default function ModelsSection() {
                     minHeight: "260px",
                     borderRadius: "20px",
                     padding: "28px 22px",
-                    backgroundColor: isActive ? "#F5F1EB" : "transparent",
-                    border: `1px solid ${isActive ? "#C4956A18" : "transparent"}`,
-                    boxShadow: "none",
+                    backgroundColor: isActive ? "#FFFDF9" : "#DDD4C7",
+                    border: `1px solid ${isActive ? "#C4956A40" : "#C4956A10"}`,
+                    boxShadow: isActive ? "0 6px 28px rgba(77,94,73,0.12)" : "none",
                     opacity: isActive ? 1 : 0.35,
                     transition: "opacity 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease",
                     WebkitTransform: "translateZ(0)",
