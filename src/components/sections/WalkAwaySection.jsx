@@ -183,7 +183,7 @@ export default function WalkAwaySection() {
             {/* Image surface — soft edge, barely there shadow */}
             <div
               className="relative rounded-[16px] overflow-hidden"
-              style={{ boxShadow: "0 4px 24px rgba(196,149,106,0.1)", border: "1px solid rgba(196,149,106,0.08)", zIndex: 1 }}>
+              style={{ boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)", border: "1px solid rgba(196,149,106,0.08)", zIndex: 1 }}>
               
               <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5d4942da6_ChatGPT_Image_May_18__2026__09_38_47_AM.png"
               alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
