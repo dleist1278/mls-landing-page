@@ -156,7 +156,7 @@ export default function WalkAwaySection() {
               src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f47d05e0f_ChatGPTImageMay19202609_24_36PM.png"
               alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
               className="w-full h-auto block"
-              style={{ filter: "drop-shadow(0 32px 64px rgba(0,0,0,0.22)) drop-shadow(0 8px 24px rgba(196,149,106,0.18))" }}
+              style={{ filter: "drop-shadow(0 32px 64px rgba(0,0,0,0.22)) drop-shadow(0 8px 24px rgba(196,149,106,0.18))", mixBlendMode: "multiply" }}
             />
           </div>
           <p className="hidden md:block font-body mt-5 text-center" style={{ color: "#b0a49a", fontSize: "0.78rem", letterSpacing: "0.01em" }}>
