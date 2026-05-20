@@ -4,17 +4,17 @@ export default function SiteFooter() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   const navLinks = [
-    { label: "The Method", id: "method" },
-    { label: "Program Pathways", id: "models" },
-    { label: "Community", id: "ecosystem" },
-    { label: "Meet Danielle", id: "founder" },
-    { label: "Join the Waitlist", id: "intake" },
-  ];
+  { label: "The Method", id: "method" },
+  { label: "Program Pathways", id: "models" },
+  { label: "Community", id: "ecosystem" },
+  { label: "Meet Danielle", id: "founder" },
+  { label: "Join the Waitlist", id: "intake" }];
+
 
   return (
     <footer style={{ backgroundColor: "#1E1E1E" }}>
       {/* Tonal gradient bridge */}
-      <div className="w-full" style={{ height: "48px", background: "linear-gradient(to bottom, #FAF7F2, #1E1E1E)" }} />
+      <div className="w-full hidden" style={{ height: "48px", background: "linear-gradient(to bottom, #FAF7F2, #1E1E1E)" }} />
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 pb-7">
 
@@ -31,15 +31,15 @@ export default function SiteFooter() {
 
           {/* Nav links — horizontal on desktop, wrap on mobile */}
           <nav className="flex flex-wrap gap-x-5 gap-y-2">
-            {navLinks.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                className="font-body text-xs transition-colors duration-150 hover:text-white"
-                style={{ color: "#7A6E65", background: "none", border: "none", padding: 0, cursor: "pointer" }}>
+            {navLinks.map((item) =>
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className="font-body text-xs transition-colors duration-150 hover:text-white"
+              style={{ color: "#7A6E65", background: "none", border: "none", padding: 0, cursor: "pointer" }}>
                 {item.label}
               </button>
-            ))}
+            )}
           </nav>
         </div>
 
@@ -50,6 +50,6 @@ export default function SiteFooter() {
         </div>
 
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
