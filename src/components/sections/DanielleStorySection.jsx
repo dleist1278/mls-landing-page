@@ -5,14 +5,14 @@ const credentials = [
   { icon: GraduationCap, text: "Former educator + school leader" },
   { icon: Home, text: "Licensed home daycare owner" },
   { icon: Heart, text: "Mom of two" },
-  { icon: LayoutDashboard, text: "Experience in app implementation" },
+  { icon: LayoutDashboard, text: "ClassTag — app features & retention pipeline" },
 ];
 
 const drawers = [
   {
     icon: Heart,
     title: "WHO",
-    content: "I'm Danielle — former educator, assistant principal, licensed home daycare owner, and mom of two. I built this from the inside out.",
+    content: "I'm Danielle — former educator, assistant principal, licensed home daycare owner, and mom of two. I also worked at ClassTag, a family communication platform, where I helped build app features and created an implementation and retention pipeline. I built this from the inside out.",
   },
   {
     icon: Lightbulb,
