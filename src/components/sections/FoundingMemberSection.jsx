@@ -162,8 +162,8 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
               transform: isActive ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.22s ease, color 0.2s ease",
               flexShrink: 0
-            }}
-          />
+            }} />
+          
         </div>
 
         {/* Expanded copy */}
@@ -262,10 +262,10 @@ export default function FoundingMemberSection() {
         </p>
 
         {/* Badge / stamp graphic */}
-        <div className="flex justify-center mt-6 mb-3">
+        <div className="flex justify-center mt-6 mb-3 hidden">
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Outer starburst */}
-            {[0,22.5,45,67.5,90,112.5,135,157.5,180,202.5,225,247.5,270,292.5,315,337.5].map((deg, i) => {
+            {[0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5].map((deg, i) => {
               const r = deg * Math.PI / 180;
               const x1 = 40 + 35 * Math.cos(r);
               const y1 = 40 + 35 * Math.sin(r);
@@ -293,11 +293,11 @@ export default function FoundingMemberSection() {
           className="rounded-xl px-4 py-3.5 w-full mt-4"
           style={{
             backgroundColor: "transparent",
-            border: "1px solid #C4956A22",
+            border: "1px solid #C4956A22"
           }}>
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5"
-              style={{ backgroundColor: "#e5393518", border: "1px solid #e5393530" }}>
+            style={{ backgroundColor: "#e5393518", border: "1px solid #e5393530" }}>
               <Heart size={12} style={{ color: "#e53935", strokeWidth: 1.8, fill: "#e53935", animation: "heartPulse 1.4s ease-in-out infinite" }} />
               <style>{`@keyframes heartPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.28); } }`}</style>
             </div>
