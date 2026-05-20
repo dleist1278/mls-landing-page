@@ -137,13 +137,8 @@ export default function WhatIsMamaLaunchSection() {
             </p>
 
             {/* Mobile summary — concise */}
-            <p className="md:hidden font-body leading-relaxed mb-4 text-center" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
-              A guided opening path that helps you move from idea to real program with less guesswork.
-            </p>
-
-            {/* Mobile credibility micro-line */}
-            <p className="md:hidden font-micro mb-6 text-center" style={{ color: "#9a8f84", fontSize: "0.65rem", letterSpacing: "0.07em" }}>
-              Built from real childcare experience, not theory.
+            <p className="md:hidden font-body leading-relaxed mb-6 text-center" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
+              A guided opening path that helps you move from idea to real program with less guesswork. Built from real childcare experience, not theory.
             </p>
 
             {/* Mobile-only horizontal swipe proof cards */}
