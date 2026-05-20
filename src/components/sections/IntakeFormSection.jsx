@@ -175,11 +175,11 @@ export default function IntakeFormSection() {
 
           {/* Elevated form card */}
           <div className="relative overflow-hidden rounded-3xl"
-            style={{
-              background: "linear-gradient(145deg, #F0EBE1 0%, #E8DDD0 100%)",
-              border: "1px solid rgba(196,149,106,0.12)",
-              boxShadow: "0 8px 40px rgba(44,44,44,0.04), 0 2px 8px rgba(196,149,106,0.06)"
-            }}>
+          style={{
+            background: "linear-gradient(145deg, #F0EBE1 0%, #E8DDD0 100%)",
+            border: "1px solid rgba(196,149,106,0.12)",
+            boxShadow: "0 8px 40px rgba(44,44,44,0.04), 0 2px 8px rgba(196,149,106,0.06)"
+          }}>
 
             {/* Decorative top accent bar */}
             <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #C4956A, #4D5E49, #C4956A)" }} />
@@ -208,14 +208,14 @@ export default function IntakeFormSection() {
 
               {/* Mobile micro-line */}
               {!submitted &&
-                <p className="md:hidden font-body mb-6 mt-2 text-center" style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6" }}>
+              <p className="md:hidden font-body mb-6 mt-2 text-center hidden" style={{ color: "#9a8f84", fontSize: "0.76rem", fontStyle: "italic", lineHeight: "1.6" }}>
                   You do not need to have everything figured out before starting.
                 </p>
               }
 
               {/* Form / Success */}
-              {submitted ? (
-                <div className="text-center py-12" style={{ animation: "atmosphericEntrance 0.9s ease-out forwards" }}>
+              {submitted ?
+              <div className="text-center py-12" style={{ animation: "atmosphericEntrance 0.9s ease-out forwards" }}>
                   <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ background: "linear-gradient(135deg, #4D5E4920, #4D5E4908)", border: "1px solid #4D5E4930" }}>
                     <span style={{ color: "#4D5E49", fontSize: "1.6rem" }}>✓</span>
                   </div>
@@ -230,14 +230,14 @@ export default function IntakeFormSection() {
                   <p className="font-micro mt-6" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
                     You are exactly where you're meant to be.
                   </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                </div> :
+
+              <form onSubmit={handleSubmit} className="space-y-6">
 
                   {/* Section divider label */}
                   <div className="flex items-center gap-3">
                     <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
-                    <span className="font-micro text-[0.6rem] tracking-widest" style={{ color: "#C4956A80" }}>TELL US ABOUT YOU</span>
+                    <span className="font-micro text-[0.6rem] tracking-widest hidden" style={{ color: "#C4956A80" }}>TELL US ABOUT YOU</span>
                     <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
                   </div>
 
@@ -247,15 +247,15 @@ export default function IntakeFormSection() {
                       <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>First Name</label>
                       <div className="relative">
                         <input type="text" required placeholder="Your first name" value={form.firstName}
-                          onChange={(e) => handleChange("firstName", e.target.value)}
-                          style={{ ...inputStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)" }} />
+                      onChange={(e) => handleChange("firstName", e.target.value)}
+                      style={{ ...inputStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)" }} />
                       </div>
                     </div>
                     <div className="group">
                       <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Email Address</label>
                       <input type="email" required placeholder="your@email.com" value={form.email}
-                        onChange={(e) => handleChange("email", e.target.value)}
-                        style={{ ...inputStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)" }} />
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    style={{ ...inputStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)" }} />
                     </div>
                   </div>
 
@@ -263,7 +263,7 @@ export default function IntakeFormSection() {
                   <div className="relative">
                     <label className="font-micro block mb-1.5" style={{ color: "#9a8f84", fontSize: "0.65rem" }}>Your State</label>
                     <select required value={form.state} onChange={(e) => handleChange("state", e.target.value)}
-                      style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.state ? "#2C2C2C" : "#9a8f84" }}>
+                  style={{ ...selectStyle, padding: "10px 14px", borderRadius: "10px", border: "1px solid #E0D1BF", backgroundColor: "rgba(255,255,255,0.7)", color: form.state ? "#2C2C2C" : "#9a8f84" }}>
                       <option value="" disabled>Select your state</option>
                       {states.map((s) => <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>)}
                     </select>
@@ -271,23 +271,23 @@ export default function IntakeFormSection() {
                   </div>
 
                   {/* Error */}
-                  {submitError && (
-                    <div className="p-4 rounded-2xl" style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA" }}>
+                  {submitError &&
+                <div className="p-4 rounded-2xl" style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA" }}>
                       <p className="font-body text-sm" style={{ color: "#DC2626" }}>{submitError}</p>
                     </div>
-                  )}
+                }
 
                   {/* Submit */}
                   <div className="pt-2">
                     <button type="submit" disabled={submitting}
-                      onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
-                      className="font-micro text-white w-full px-8 py-4 rounded-2xl transition-all min-h-[52px] disabled:opacity-60"
-                      style={{
-                        background: "linear-gradient(135deg, #4D5E49, #3a4a37)",
-                        fontSize: "0.75rem",
-                        letterSpacing: "0.1em",
-                        boxShadow: "0 6px 24px rgba(77,94,73,0.28), 0 1px 3px rgba(77,94,73,0.12)"
-                      }}>
+                  onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
+                  className="font-micro text-white w-full px-8 py-4 rounded-2xl transition-all min-h-[52px] disabled:opacity-60"
+                  style={{
+                    background: "linear-gradient(135deg, #4D5E49, #3a4a37)",
+                    fontSize: "0.75rem",
+                    letterSpacing: "0.1em",
+                    boxShadow: "0 6px 24px rgba(77,94,73,0.28), 0 1px 3px rgba(77,94,73,0.12)"
+                  }}>
                       {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
                     </button>
                     <p className="text-center font-body mt-3" style={{ color: "#B0A090", fontSize: "0.7rem" }}>
@@ -295,7 +295,7 @@ export default function IntakeFormSection() {
                     </p>
                   </div>
                 </form>
-              )}
+              }
             </div>
           </div>
         </div>
