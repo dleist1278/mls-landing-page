@@ -262,31 +262,31 @@ export default function FoundingMemberSection() {
         </p>
 
         {/* Badge / stamp graphic */}
-        <div className="flex justify-center mt-6 mb-3 hidden">
-          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Outer starburst */}
-            {[0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5].map((deg, i) => {
-              const r = deg * Math.PI / 180;
-              const x1 = 40 + 35 * Math.cos(r);
-              const y1 = 40 + 35 * Math.sin(r);
-              const x2 = 40 + 28 * Math.cos(r + 0.196);
-              const y2 = 40 + 28 * Math.sin(r + 0.196);
-              return <line key={i} x1="40" y1="40" x2={x1} y2={y1} stroke="#C4956A" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />;
-            })}
-            {/* Outer ring */}
-            <circle cx="40" cy="40" r="33" stroke="#C4956A" strokeWidth="1.2" strokeDasharray="3 2.5" fill="none" opacity="0.5" />
-            {/* Inner circle fill */}
-            <circle cx="40" cy="40" r="26" fill="#F5EFE6" stroke="#C4956A" strokeWidth="1.2" opacity="0.9" />
-            {/* Star / seal center */}
-            <text x="40" y="36" textAnchor="middle" fontSize="13" fill="#4D5E49" fontFamily="serif" fontStyle="italic" fontWeight="600">Mama</text>
-            <text x="40" y="50" textAnchor="middle" fontSize="13" fill="#4D5E49" fontFamily="serif" fontStyle="italic" fontWeight="600">Launch</text>
-            {/* Small dot accents */}
-            <circle cx="40" cy="14" r="1.8" fill="#C4956A" opacity="0.6" />
-            <circle cx="40" cy="66" r="1.8" fill="#C4956A" opacity="0.6" />
-            <circle cx="14" cy="40" r="1.8" fill="#C4956A" opacity="0.6" />
-            <circle cx="66" cy="40" r="1.8" fill="#C4956A" opacity="0.6" />
-          </svg>
-        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
         {/* Founding member support line */}
         <div
