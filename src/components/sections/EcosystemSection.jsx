@@ -141,7 +141,7 @@ export default function EcosystemSection() {
               src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/79cea4da6_Untitleddesign.png"
               alt="Mama Launch platform — progress tracking, implementation tools, and community village"
               className="w-full h-auto block"
-              style={{ filter: "drop-shadow(0 32px 64px rgba(0,0,0,0.28)) drop-shadow(0 12px 32px rgba(196,149,106,0.22)) drop-shadow(0 4px 12px rgba(0,0,0,0.18))" }}
+              style={{}}
             />
           </div>
           <p className="font-body mx-auto leading-relaxed hidden" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.9rem", lineHeight: "1.6" }}>
