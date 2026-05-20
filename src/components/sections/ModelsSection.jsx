@@ -61,7 +61,7 @@ export default function ModelsSection() {
     <section
       id="models"
       className="py-10 md:py-16 pb-0 md:pb-0 overflow-hidden"
-      style={{ backgroundColor: "#E8DDD0", scrollMarginTop: "60px", maxWidth: "100vw" }}>
+      style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw" }}>
       
       <div className="max-w-5xl mx-auto px-6 md:px-12">
 
