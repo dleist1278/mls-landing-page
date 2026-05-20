@@ -138,15 +138,27 @@ export default function WhatIsMamaLaunchSection() {
 
             {/* Mobile-only horizontal swipe proof cards */}
             <div className="md:hidden mb-5 overflow-hidden">
+              <style>{`
+                @keyframes peekNudge {
+                  0%   { transform: translateX(0); }
+                  40%  { transform: translateX(-18px); }
+                  70%  { transform: translateX(-8px); }
+                  100% { transform: translateX(0); }
+                }
+              `}</style>
               <div
-                className="flex gap-3 overflow-x-auto px-5 pb-3"
+                className="flex gap-3 overflow-x-auto pb-3"
                 style={{
                   scrollSnapType: "x mandatory",
                   WebkitScrollSnapType: "x mandatory",
                   overscrollBehaviorX: "contain",
                   WebkitOverflowScrolling: "touch",
                   scrollbarWidth: "none",
-                  msOverflowStyle: "none"
+                  msOverflowStyle: "none",
+                  /* center first card, peek next card by ~20px */
+                  paddingLeft: "calc(50% - 126px)",
+                  paddingRight: "calc(50% - 126px + 20px)",
+                  animation: "peekNudge 0.9s ease-out 1.4s 1"
                 }}>
                 
                 {[
@@ -155,9 +167,10 @@ export default function WhatIsMamaLaunchSection() {
                 { title: "Launch Momentum", body: "See your progress in real time as you complete each phase and move closer to opening your program.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" }].
                 map((card) =>
                 <div key={card.title}
-                className="flex-none w-[72vw] max-w-[252px] rounded-2xl overflow-hidden"
+                className="flex-none rounded-2xl overflow-hidden"
                 style={{
-                  scrollSnapAlign: "start",
+                  width: "252px",
+                  scrollSnapAlign: "center",
                   background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)",
                   border: "1px solid #E4D5C0",
                   boxShadow: "0 8px 28px rgba(196,149,106,0.12), 0 1px 4px rgba(0,0,0,0.04)"
@@ -176,7 +189,6 @@ export default function WhatIsMamaLaunchSection() {
                     </div>
                   </div>
                 )}
-                <div className="flex-none w-1" />
               </div>
             </div>
 
