@@ -141,7 +141,7 @@ export default function WalkAwaySection() {
         {/* REAL ASSET — Portal mockup */}
         <div
           ref={portalRef}
-          className="mb-3 md:mb-12 mx-auto"
+          className="mb-16 md:mb-24 mx-auto"
           style={{ maxWidth: "820px", transition: "opacity 0.6s ease, transform 0.6s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(16px)" }}>
 
           <p className="font-micro mb-3 flex items-center justify-center gap-3 hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
