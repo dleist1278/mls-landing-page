@@ -114,7 +114,7 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section id="walkaway" className="pt-20 md:pt-28 pb-14 md:pb-24 overflow-visible" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+    <section id="walkaway" className="pt-8 md:pt-12 pb-6 md:pb-12 overflow-visible" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 overflow-visible">
 
