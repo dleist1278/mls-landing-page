@@ -169,7 +169,7 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
         {/* Expanded copy */}
         <div
           style={{
-            maxHeight: isActive ? "120px" : "0px",
+            maxHeight: isActive ? "160px" : "0px",
             overflow: "hidden",
             transition: "max-height 0.22s ease"
           }}>

@@ -55,7 +55,7 @@ export default function WhatIsMamaLaunchSection() {
   }, []);
 
   return (
-    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%", position: "relative" }}>
+    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%", position: "relative", WebkitOverflowScrolling: "touch" }}>
       {/* Main two-column editorial block */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20" style={{ overflow: "hidden" }}>
         <div
@@ -137,7 +137,7 @@ export default function WhatIsMamaLaunchSection() {
             </p>
 
             {/* Mobile-only horizontal swipe proof cards */}
-            <div className="md:hidden mb-5 overflow-hidden">
+            <div className="md:hidden mb-5 overflow-hidden w-full max-w-full">
               <style>{`
                 @keyframes peekNudge {
                   0%   { transform: translateX(0); }
@@ -155,7 +155,7 @@ export default function WhatIsMamaLaunchSection() {
                   WebkitOverflowScrolling: "touch",
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
-                  /* center first card, peek next card by ~20px */
+                  touchAction: "pan-x",
                   paddingLeft: "calc(50% - 126px)",
                   paddingRight: "calc(50% - 126px + 20px)",
                   animation: "peekNudge 0.9s ease-out 1.4s 1"

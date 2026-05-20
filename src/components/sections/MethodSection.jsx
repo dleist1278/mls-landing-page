@@ -168,7 +168,7 @@ export default function MethodSection() {
   }, []);
 
   return (
-    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
+    <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw", width: "100%" }}>
 
 
       <div
@@ -216,8 +216,8 @@ export default function MethodSection() {
       <style>{phaseCardStyles}</style>
       <div
         id="method-roadmap"
-        className="md:hidden px-5 max-w-full overflow-hidden"
-        style={{ display: "flex", flexDirection: "column", gap: "6px", paddingTop: "12px" }}>
+        className="md:hidden px-4 max-w-full overflow-hidden"
+        style={{ display: "flex", flexDirection: "column", gap: "8px", paddingTop: "12px" }}>
         {phases.map((phase) =>
         <MobilePhaseCard
           key={phase.number}

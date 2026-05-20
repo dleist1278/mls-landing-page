@@ -124,9 +124,9 @@ export default function IntakeFormSection() {
     background: "transparent",
     border: "1px solid #E0D1BF",
     borderRadius: "10px",
-    padding: "10px 14px",
+    padding: "12px 14px",
     fontFamily: "'Inter', sans-serif",
-    fontSize: "0.88rem",
+    fontSize: "16px",
     color: "#2C2C2C",
     width: "100%",
     outline: "none",
@@ -142,7 +142,7 @@ export default function IntakeFormSection() {
   };
 
   return (
-    <section id="intake" style={{ backgroundColor: "#FAF7F2", overflow: "hidden", scrollMarginTop: "60px", paddingBottom: "40px" }}>
+    <section id="intake" style={{ backgroundColor: "#FAF7F2", overflow: "hidden", scrollMarginTop: "60px", paddingBottom: "60px" }}>
       {/* Mobile-only header — softer editorial entry */}
       <div className="md:hidden px-5 pt-14 pb-0">
         <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>

@@ -106,7 +106,7 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
           border: "1px solid #C4956A28",
           borderTop: "none",
           overflow: "hidden",
-          maxHeight: openDrawer >= 0 ? "200px" : "0px",
+          maxHeight: openDrawer >= 0 ? "260px" : "0px",
           opacity: openDrawer >= 0 ? 1 : 0,
           transition: "max-height 0.32s ease, opacity 0.25s ease",
           boxShadow: "0 8px 28px rgba(196,149,106,0.1)",

@@ -115,7 +115,7 @@ export default function EcosystemSection() {
   }, []);
 
   return (
-    <section id="ecosystem" className="md:py-16 py-4 overflow-hidden" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw" }}>
+    <section id="ecosystem" className="md:py-16 py-8 overflow-hidden" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw", width: "100%" }}>
 
 
       <div className="max-w-6xl mx-auto px-6 md:px-12">
@@ -136,7 +136,7 @@ export default function EcosystemSection() {
           <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.92rem", lineHeight: "1.65" }}>
             A village that understands you. Built-in momentum to keep you progressing. Support that goes beyond motivation — straight into implementation.
           </p>
-          <div className="mt-8 overflow-visible" style={{ width: "150%", marginLeft: "-25%", marginRight: "-25%" }}>
+          <div className="mt-8 md:overflow-visible overflow-hidden" style={{ width: "150%", marginLeft: "-25%", marginRight: "-25%" }}>
             <img
               src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/79cea4da6_Untitleddesign.png"
               alt="Mama Launch platform — progress tracking, implementation tools, and community village"

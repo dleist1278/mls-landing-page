@@ -76,8 +76,8 @@ export default function SiteNav() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div
-          className="md:hidden px-6 pb-8 pt-5"
-          style={{ backgroundColor: "#FAF7F2", borderBottom: "1px solid #C4956A55" }}
+          className="md:hidden px-6 pb-8 pt-5 overflow-hidden"
+          style={{ backgroundColor: "#FAF7F2", borderBottom: "1px solid #C4956A55", maxWidth: "100vw" }}
         >
           {/* 2-column grid of nav links */}
           <div className="grid grid-cols-2 gap-x-4 gap-y-1 mb-5">

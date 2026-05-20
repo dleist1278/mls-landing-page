@@ -60,10 +60,10 @@ export default function ModelsSection() {
   return (
     <section
       id="models"
-      className="py-10 md:py-16 pb-0 md:pb-0 overflow-hidden"
-      style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw" }}>
+      className="py-10 md:py-16 pb-4 md:pb-0 overflow-hidden"
+      style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw", width: "100%" }}>
       
-      <div className="max-w-5xl mx-auto px-6 md:px-12">
+      <div className="max-w-5xl mx-auto px-5 md:px-12 max-w-full overflow-hidden">
 
         {/* Header */}
         <div
@@ -197,6 +197,7 @@ export default function ModelsSection() {
               msOverflowStyle: "none",
               WebkitOverflowScrolling: "touch",
               overscrollBehaviorX: "contain",
+              touchAction: "pan-x",
               gap: "12px",
               paddingLeft: "calc(50% - 40vw)",
               paddingRight: "calc(50% - 40vw + 24px)",
