@@ -269,6 +269,6 @@ export default function MethodSection() {
         <div className="flex-none w-2 md:w-8" />
       </div>
 
-      <div className="w-full h-px mt-10 hidden" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+      
     </section>);
 }
