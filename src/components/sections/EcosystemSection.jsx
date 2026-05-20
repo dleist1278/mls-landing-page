@@ -141,8 +141,8 @@ export default function EcosystemSection() {
               src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/79cea4da6_Untitleddesign.png"
               alt="Mama Launch platform — progress tracking, implementation tools, and community village"
               className="w-full h-auto block"
-              style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.12)) drop-shadow(0 2px 8px rgba(196,149,106,0.10))" }}
-            />
+              style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.12)) drop-shadow(0 2px 8px rgba(196,149,106,0.10))" }} />
+            
           </div>
           <p className="font-body mx-auto leading-relaxed hidden" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.9rem", lineHeight: "1.6" }}>
             The Mama Launch community is operationally focused, uplifting, and milestone-driven — a village helping a village build something real.
@@ -179,7 +179,7 @@ export default function EcosystemSection() {
         </div>
 
         {/* Mobile swipe cards */}
-        <div className="md:hidden -mx-6 overflow-hidden -mt-10">
+        <div className="md:hidden -mx-6 overflow-hidden -mt-10 hidden">
           <style>{`
             @keyframes swipeNudge {
               0%   { transform: translateX(0px); opacity: 0.9; }
