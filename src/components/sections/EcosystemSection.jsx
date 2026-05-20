@@ -171,7 +171,7 @@ export default function EcosystemSection() {
         </div>
 
         {/* Mobile swipe cards */}
-        <div className="md:hidden -mx-6 overflow-hidden -mt-6">
+        <div className="md:hidden -mx-6 overflow-hidden -mt-10">
           <style>{`
             @keyframes swipeNudge {
               0%   { transform: translateX(0px); opacity: 0.9; }
