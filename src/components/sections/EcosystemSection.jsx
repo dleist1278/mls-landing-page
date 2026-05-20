@@ -11,9 +11,9 @@ const CARD_IMAGES = {
 };
 
 const MOBILE_CARD_META = [
-{ key: "village_feature", title: "A Village That Understands", description: "Connect with mothers building alongside you, asking questions, sharing wins, and navigating real motherhood life together." },
-{ key: "phase_tracking_feature", title: "Built to Keep You Moving", description: "Mama Launch helps you continue making progress with guided accountability, milestone momentum, and support woven into every phase." },
-{ key: "implementation_tools_feature", title: "Support Beyond Motivation", description: "This is not just inspiration. It is structure, encouragement, implementation support, and steady guidance when things feel overwhelming." }];
+{ key: "village_feature", title: "Your Village" },
+{ key: "phase_tracking_feature", title: "Your Progress" },
+{ key: "implementation_tools_feature", title: "Your Tools" }];
 
 
 const pillars = [
@@ -219,11 +219,10 @@ export default function EcosystemSection() {
                 </div>
                 <div className="px-1.5 pt-2 pb-1">
                   <h3
-                  className="font-body text-xs font-bold mb-1"
+                  className="font-body text-xs font-bold"
                   style={{ color: "#4D5E49" }}>
                     {card.title}
                   </h3>
-                  <p className="text-xs leading-[1.5] text-[#3A3A35] line-clamp-3">{card.description}</p>
                 </div>
               </div>
             )}
