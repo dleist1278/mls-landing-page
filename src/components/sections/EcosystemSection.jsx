@@ -169,6 +169,31 @@ export default function EcosystemSection() {
 
         {/* Mobile swipe cards */}
         <div className="md:hidden -mx-6 overflow-hidden -mt-6">
+          <style>{`
+            @keyframes swipeNudge {
+              0%   { transform: translateX(0px); opacity: 0.9; }
+              30%  { transform: translateX(14px); opacity: 1; }
+              60%  { transform: translateX(-4px); opacity: 0.7; }
+              100% { transform: translateX(0px); opacity: 0.9; }
+            }
+            @keyframes swipeFadeOut {
+              0%   { opacity: 1; }
+              70%  { opacity: 1; }
+              100% { opacity: 0; pointer-events: none; }
+            }
+          `}</style>
+          {/* Swipe hint */}
+          <div className="flex items-center justify-center gap-2 mb-3 px-5"
+            style={{ animation: "swipeFadeOut 3.5s ease-out 1.2s forwards" }}>
+            <div style={{ animation: "swipeNudge 1.1s ease-in-out 1.2s 3" }}
+              className="flex items-center gap-1.5">
+              <span style={{ fontSize: "1.1rem", lineHeight: 1 }}>👆</span>
+              <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.58rem", letterSpacing: "0.14em" }}>SWIPE TO EXPLORE</span>
+              <svg width="18" height="10" viewBox="0 0 18 10" fill="none" style={{ opacity: 0.5 }}>
+                <path d="M1 5h14M11 1l4 4-4 4" stroke="#C4956A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </div>
           <div
             className="flex gap-3 overflow-x-auto px-5 pb-4 max-w-full"
             style={{
