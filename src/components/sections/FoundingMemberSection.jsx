@@ -3,11 +3,9 @@ import { ClipboardCheck, Mail, Users, Puzzle, DoorOpen, Heart, ChevronDown } fro
 
 // ── Desktop data (unchanged) ──────────────────────────────────────────────────
 const steps = [
-{ step: "01", title: "Join the Waitlist", description: "Secure your spot and be the first to know what's next.", icon: ClipboardCheck },
-{ step: "02", title: "Receive Your Welcome", description: "Check your inbox for your personal welcome and next steps.", icon: Mail },
-{ step: "03", title: "Begin Phase One Together", description: "Kick things off with our first guided launch phase.", icon: Users },
-{ step: "04", title: "Shape the Platform", description: "Share your insights and help build what matters most.", icon: Puzzle },
-{ step: "05", title: "Open Your Doors", description: "Move toward launching your daycare or nursery with support.", icon: DoorOpen }];
+{ step: "01", title: "Join", description: "Reserve your founding member spot and receive your welcome roadmap.", icon: ClipboardCheck },
+{ step: "02", title: "Get Oriented", description: "Choose your pathway and unlock your first implementation phase.", icon: Puzzle },
+{ step: "03", title: "Build Forward", description: "Move through guided prompts, templates, and support at your own pace with the village beside you.", icon: Users }];
 
 
 // ── Mobile journey stages ─────────────────────────────────────────────────────
@@ -15,8 +13,8 @@ const mobileStages = [
 {
   id: 1,
   title: "MARK YOUR CALENDAR",
-  label: "July 8th",
-  copy: "The first Mama Launch cohort begins July 8th. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th."
+  label: "July 6th",
+  copy: "The first Mama Launch cohort begins July 6th. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th."
 },
 {
   id: 2,
@@ -330,17 +328,17 @@ export default function FoundingMemberSection() {
             
             <p className="font-micro mb-2 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-              The Founding Member Experience
+              YOUR FOUNDING MEMBER JOURNEY
             </p>
             <h2
               className="font-display leading-tight mb-6"
               style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.2" }}>
               
-              What Happens After<br />
-              <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
+              Here's what happens<br />
+              <em style={{ color: "#4D5E49" }}>after you join.</em>
             </h2>
-            <p className="text-sm leading-relaxed mb-4" style={{ color: "#7A6E65", maxWidth: "26ch", lineHeight: "1.7" }}>
-              Each step is intentional. You'll always know what's next and why it matters.
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#7A6E65", maxWidth: "28ch", lineHeight: "1.7" }}>
+              You do not need to figure everything out before starting. Mama Launch guides you step by step with structure, support, and implementation tools designed for real motherhood life.
             </p>
             <p className="font-micro mb-8" style={{ color: "#9a8f84", fontSize: "0.66rem", letterSpacing: "0.07em" }}>
               Small founding cohort. Enrollment closes June 30.

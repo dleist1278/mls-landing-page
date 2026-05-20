@@ -305,6 +305,9 @@ export default function IntakeFormSection() {
                     <p className="text-center font-body mt-3" style={{ color: "#B0A090", fontSize: "0.7rem" }}>
                       No spam, ever. Just your next step forward.
                     </p>
+                    <p className="text-center font-body mt-2 hidden md:block" style={{ color: "#9a8f84", fontSize: "0.72rem", lineHeight: "1.5" }}>
+                      Founding members receive early access, founding pricing, and first entry into the Mama Launch platform.
+                    </p>
                   </div>
                 </form>
               }

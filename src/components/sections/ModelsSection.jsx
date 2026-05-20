@@ -79,14 +79,16 @@ export default function ModelsSection() {
           <div className="hidden md:block">
             <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-              Program Pathways
+              NOW ENROLLING
             </p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-              <h2 className="font-display leading-tight break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.6rem)", maxWidth: "100%", overflowWrap: "break-word" }}>
-                One Method.{" "}
-                <br />
-                <em style={{ color: "#4D5E49" }}>Built Around Your Life.</em>
+              <h2 className="font-display leading-tight break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.4rem)", maxWidth: "28ch", overflowWrap: "break-word" }}>
+                Choose the path that fits{" "}
+                <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
               </h2>
+              <p className="font-body leading-relaxed md:max-w-xs" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
+                Every pathway is designed to help you build steadily with guided support, flexible structure, and real implementation tools.
+              </p>
             </div>
           </div>
 
@@ -149,7 +151,7 @@ export default function ModelsSection() {
                   className="font-micro text-white px-6 py-3 rounded-full transition-all min-h-[44px] focus-sage"
                   style={{ backgroundColor: "#4D5E49", fontSize: "0.7rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
                   
-                  Join the Founding Member Waitlist
+                  Become a Founding Member
                 </button>
               </div>
             </div>

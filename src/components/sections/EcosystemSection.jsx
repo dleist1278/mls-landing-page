@@ -131,10 +131,10 @@ export default function EcosystemSection() {
           </p>
           <h2 className="font-display leading-tight mx-auto mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", maxWidth: "24ch", lineHeight: "1.2" }}>
             Everything works together to help you{" "}
-            <em style={{ color: "#4D5E49" }}>keep moving.</em>
+            <em style={{ color: "#4D5E49" }}>keep moving forward.</em>
           </h2>
           <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.92rem", lineHeight: "1.65" }}>
-            A village that understands you, with built-in momentum to keep you progressing and support that goes beyond motivation — straight into implementation.
+            Instead of overwhelming courses and scattered information, Mama Launch gives you guided implementation, done-for-you tools, and real support in one place.
           </p>
           <div className="mt-8 md:overflow-visible overflow-hidden" style={{ width: "150%", marginLeft: "-25%", marginRight: "-25%" }}>
             <img
