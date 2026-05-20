@@ -14,6 +14,16 @@ export default function CohortDateSection() {
         <p className="font-display text-center mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.25rem, 5vw, 1.6rem)", lineHeight: 1.25 }}>
           <em style={{ color: "#4D5E49" }}>July 6th.</em>
         </p>
+        <style>{`
+          @keyframes badgePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(77,94,73,0.35); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(77,94,73,0); }
+          }
+          @keyframes badgeColorFlash {
+            0%, 100% { background-color: #4D5E490C; border-color: #4D5E491A; color: #4D5E49; }
+            40% { background-color: #4D5E4930; border-color: #4D5E4960; color: #2C3E28; }
+          }
+        `}</style>
         <div className="flex justify-center mb-3">
           <span
             className="font-micro px-3 py-1 rounded-full"
@@ -22,7 +32,9 @@ export default function CohortDateSection() {
               border: "1px solid #4D5E491A",
               color: "#4D5E49",
               fontSize: "0.58rem",
-              letterSpacing: "0.12em"
+              letterSpacing: "0.12em",
+              animation: "badgePulse 2s ease-in-out infinite, badgeColorFlash 2s ease-in-out infinite",
+              display: "inline-block"
             }}>
             Founding member access
           </span>
@@ -52,7 +64,7 @@ export default function CohortDateSection() {
         </p>
         <div className="flex flex-col items-center gap-2 mt-5">
           <div className="flex items-center gap-3 flex-wrap justify-center">
-            <span className="font-micro px-3 py-1 rounded-full" style={{ backgroundColor: "#4D5E4912", border: "1px solid #4D5E4928", color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
+            <span className="font-micro px-3 py-1 rounded-full" style={{ backgroundColor: "#4D5E4912", border: "1px solid #4D5E4928", color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.12em", animation: "badgePulse 2s ease-in-out infinite, badgeColorFlash 2s ease-in-out infinite", display: "inline-block" }}>
               Founding member access
             </span>
             <span className="font-body" style={{ color: "#9a8f84", fontSize: "0.78rem" }}>
