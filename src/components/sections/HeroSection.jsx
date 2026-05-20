@@ -50,8 +50,8 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
       {/* Constrained, overflow-safe content wrapper */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-8 md:pt-28 pb-10 md:pb-16 overflow-x-hidden">
-        <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-12 lg:gap-20">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-12 md:pt-36 pb-16 md:pb-24 overflow-x-hidden">
+        <div className="flex flex-col md:flex-row md:items-center gap-14 md:gap-16 lg:gap-24">
 
           {/* Text block — mobile-constrained */}
           <div className="w-full md:max-w-[520px] md:flex-none">
@@ -59,7 +59,7 @@ export default function HeroSection() {
             {/* Headline */}
             <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1
-              className="font-display mb-5 break-words text-center"
+              className="font-display mb-7 break-words text-center"
                 style={{
                   color: "#2C2C2C",
                   fontSize: "clamp(2.4rem, 7vw, 4.2rem)",
@@ -100,7 +100,7 @@ export default function HeroSection() {
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
                 className="font-body mb-6 mx-auto text-center"
-                style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "36ch", marginBottom: "1rem" }}>
+                style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "36ch", marginBottom: "1.75rem" }}>
                 
                 Build a <strong style={{ color: "#2C2C2C", fontWeight: 500 }}>flexible childcare business</strong><br />around your life, your family, and your goals.
               </p>
@@ -109,7 +109,7 @@ export default function HeroSection() {
             {/* Tag line — hidden on mobile */}
             <div className={`hidden sm:block transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
               <p
-                className="font-micro mb-9"
+                className="font-micro mb-11"
                 style={{ color: "#C4956A", fontSize: "0.66rem", letterSpacing: "0.1em", textAlign: "center", display: "block" }}>
                 
                 Launch System · Templates · Community · Guided Implementation
