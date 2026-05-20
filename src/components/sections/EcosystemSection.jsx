@@ -187,18 +187,18 @@ export default function EcosystemSection() {
           `}</style>
           {/* Swipe hint */}
           <div className="flex items-center justify-center gap-2 mb-3 px-5"
-            style={{ animation: "swipeFadeOut 3.5s ease-out 1.2s forwards" }}>
+          style={{ animation: "swipeFadeOut 3.5s ease-out 1.2s forwards" }}>
             <div style={{ animation: "swipeNudge 1.1s ease-in-out 1.2s 3" }}
-              className="flex items-center gap-1.5">
+            className="flex items-center gap-1.5">
               <span style={{ fontSize: "1.1rem", lineHeight: 1 }}>👆</span>
               <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.58rem", letterSpacing: "0.14em" }}>SWIPE TO EXPLORE</span>
               <svg width="18" height="10" viewBox="0 0 18 10" fill="none" style={{ opacity: 0.5 }}>
-                <path d="M1 5h14M11 1l4 4-4 4" stroke="#C4956A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 5h14M11 1l4 4-4 4" stroke="#C4956A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </div>
           <div
-            className="flex gap-3 overflow-x-auto pb-4 max-w-full"
+            className="flex gap-3 overflow-x-auto pb-4 max-w-full hidden"
             style={{
               scrollSnapType: "x mandatory",
               scrollbarWidth: "none",
@@ -232,10 +232,10 @@ export default function EcosystemSection() {
               }}>
               {/* Accent top bar */}
               <div style={{ height: "3px", background: "linear-gradient(90deg, #C4956A, #C4956A88)" }} />
-                <div className="w-full overflow-hidden" style={{ height: "200px" }}>
-                  {CARD_IMAGES[card.key] ? <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png" alt={card.key} className="w-full h-full object-contain object-center block" style={{ filter: "saturate(0.82) brightness(0.97)" }} /> : null}
+                <div className="w-full overflow-hidden hidden" style={{ height: "200px" }}>
+                  {CARD_IMAGES[card.key] ? <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png" alt={card.key} className="w-full h-full object-contain object-center block hidden" style={{ filter: "saturate(0.82) brightness(0.97)" }} /> : null}
                 </div>
-                <div className="px-4 pt-2 pb-3 text-center">
+                <div className="px-4 pt-2 pb-3 text-center hidden">
                   <h3 className="font-display text-sm font-semibold" style={{ color: "#4D5E49" }}>
                     {card.title}
                   </h3>
@@ -243,7 +243,7 @@ export default function EcosystemSection() {
               </div>
             )}
           </div>
-          <div className="flex justify-center gap-2 mt-4">
+          <div className="flex justify-center gap-2 mt-4 hidden">
             <span className="h-2 w-2 rounded-full bg-[#566B4E]" />
             <span className="h-2 w-2 rounded-full bg-[#D8C6B2]" />
             <span className="h-2 w-2 rounded-full bg-[#D8C6B2]" />
