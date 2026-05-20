@@ -56,7 +56,7 @@ export default function FounderSection() {
             <button
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
               className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px] w-full"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", boxShadow: "0 4px 20px rgba(77,94,73,0.18)", maxWidth: "92%", margin: "0 auto" }}>
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)", maxWidth: "92%", margin: "0 auto" }}>
               Become a Founding Member
             </button>
           </div>

@@ -228,11 +228,11 @@ export default function WhatIsMamaLaunchSection() {
               )}
             </div>
 
-            <div className="flex justify-center my-6">
+            <div className="hidden md:flex justify-start my-6">
               <button
                 onClick={() => document.getElementById("method-roadmap")?.scrollIntoView({ behavior: "smooth" })}
-                className="font-micro px-7 py-3.5 rounded-full border transition-all min-h-[48px]"
-                style={{ color: "#fff", borderColor: "#4D5E49", fontSize: "0.78rem", backgroundColor: "#4D5E49", boxShadow: "0 4px 20px rgba(77,94,73,0.18)" }}>
+                className="font-micro px-8 py-4 rounded-full transition-all min-h-[52px]"
+                style={{ color: "#fff", fontSize: "0.75rem", backgroundColor: "#4D5E49", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)", letterSpacing: "0.08em" }}>
                 See the 5-Phase Method →
               </button>
             </div>

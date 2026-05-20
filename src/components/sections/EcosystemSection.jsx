@@ -264,12 +264,20 @@ export default function EcosystemSection() {
           className="mt-4 md:mt-10 mb-8 text-center mx-auto max-w-xl"
           style={{ transition: "opacity 0.6s ease", opacity: quoteVisible ? 1 : 0 }}>
           
-          <blockquote className="font-display leading-relaxed mb-4" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.05rem, 2vw, 1.35rem)", lineHeight: "1.5", maxWidth: "480px", margin: "0 auto 1rem" }}>
+          <blockquote className="font-display leading-relaxed mb-6" style={{ color: "#2C2C2C", fontStyle: "italic", fontSize: "clamp(1.05rem, 2vw, 1.35rem)", lineHeight: "1.5", maxWidth: "480px", margin: "0 auto 1.5rem" }}>
             "I didn't need more inspiration. I needed someone to sit beside me and say — here's what to do next. That's exactly what this is."
           </blockquote>
           <p className="font-micro hidden" style={{ color: "#4D5E49", fontSize: "0.68rem" }}>
             — Early Access Member, Mama Launch Studio
           </p>
+          <div className="hidden md:flex justify-center mt-6">
+            <button
+              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+              className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px]"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}>
+              Become a Founding Member
+            </button>
+          </div>
         </div>
       </div>
 

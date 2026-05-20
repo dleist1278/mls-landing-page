@@ -183,8 +183,8 @@ export default function DanielleStorySection() {
 
             <button
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", boxShadow: "0 8px 32px rgba(77,94,73,0.32), 0 2px 8px rgba(0,0,0,0.10)" }}>
+              className="font-micro inline-flex items-center gap-2 text-white px-8 py-4 rounded-full min-h-[52px] transition-all"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}>
               Become a Founding Member
               <ArrowRight className="h-3.5 w-3.5" />
             </button>

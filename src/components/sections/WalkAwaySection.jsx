@@ -162,6 +162,14 @@ export default function WalkAwaySection() {
           <p className="hidden md:block font-body mt-5 text-center" style={{ color: "#b0a49a", fontSize: "0.78rem", letterSpacing: "0.01em" }}>
             Your guided implementation dashboard — track your progress through every phase.
           </p>
+          <div className="hidden md:flex justify-center mt-8">
+            <button
+              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+              className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px]"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}>
+              Become a Founding Member
+            </button>
+          </div>
         </div>
 
 
