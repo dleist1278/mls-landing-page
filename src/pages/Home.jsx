@@ -26,12 +26,12 @@ export default function Home() {
         <WhatIsMamaLaunchSection />
         <WalkAwaySection />
         <ModelsSection />
-        <CohortDateSection />
         <MethodSection />
         <InsideTheStudioSection />
         <EcosystemSection />
         <DanielleStorySection />
         <FoundingMemberSection />
+        <CohortDateSection />
         <IntakeFormSection />
       </main>
       <SiteFooter />
