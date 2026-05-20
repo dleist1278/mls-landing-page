@@ -16,7 +16,7 @@ const mobileStages = [
   id: 1,
   title: "MARK YOUR CALENDAR",
   label: "July 6th",
-  copy: "The first Mama Launch cohort begins July 6th. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th."
+  copy: "The first Mama Launch cohort begins July 8th. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th."
 },
 {
   id: 2,
