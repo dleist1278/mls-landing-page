@@ -169,28 +169,12 @@ export default function WalkAwaySection() {
 
           {/* Grounded image — warm tonal integration */}
           <div className="relative" style={{ willChange: "transform", transform: `translateY(${parallaxY}px)`, transition: "transform 0.05s linear" }}>
-            {/* Single warm tonal wash beneath — blends into cream page */}
-            <div
-              className="absolute rounded-[16px]"
-              style={{
-                inset: 0,
-                transform: "translate(4px, 8px)",
-                backgroundColor: "#C4956A",
-                opacity: 0.1,
-                zIndex: 0
-              }} />
-            
-            {/* Image surface — soft edge, barely there shadow */}
-            <div
-              className="relative rounded-[16px] overflow-hidden"
-              style={{ boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)", border: "1px solid rgba(196,149,106,0.08)", zIndex: 1 }}>
-              
-              <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/255d6809e_ChatGPTImageMay19202609_00_53PM.png"
+            <img
+              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/acfde67b8_ChatGPTImageMay19202609_12_17PM.png"
               alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
               className="w-full h-auto block"
-              style={{ filter: "saturate(0.9) brightness(0.98)" }} />
-              
-            </div>
+              style={{ filter: "drop-shadow(0 32px 64px rgba(0,0,0,0.22)) drop-shadow(0 8px 24px rgba(196,149,106,0.18))" }}
+            />
           </div>
           <p className="hidden md:block font-body mt-5 text-center" style={{ color: "#b0a49a", fontSize: "0.78rem", letterSpacing: "0.01em" }}>
             Your guided implementation dashboard — track your progress through every phase.
