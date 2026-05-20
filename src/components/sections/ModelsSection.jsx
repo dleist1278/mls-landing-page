@@ -19,7 +19,7 @@ const pathways = [
   title: "Kids Programs",
   description:
   "For mothers wanting to host enrichment-style classes, drop-ins, or small group programs from home.",
-  features: [],
+  features: ["Drop-in care", "Class formats", "Flexible hours", "Village support"],
   cta: null
 },
 {
@@ -29,7 +29,7 @@ const pathways = [
   title: "Homeschool Pods",
   description:
   "For mothers wanting to build intentional small-group learning environments with more flexibility and autonomy.",
-  features: [],
+  features: ["Small groups", "Custom curriculum", "Autonomy", "Village support"],
   cta: null
 }];
 
