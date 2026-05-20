@@ -2,29 +2,29 @@ import { useState, useRef, useEffect } from "react";
 import { GraduationCap, Home, Heart, ArrowRight, LayoutDashboard, Lightbulb, Gift } from "lucide-react";
 
 const credentials = [
-  { icon: GraduationCap, text: "Educator, teacher & assistant principal" },
-  { icon: Home, text: "Licensed home daycare owner — lived it firsthand" },
-  { icon: LayoutDashboard, text: "Built features & retention systems at ClassTag" },
-  { icon: Heart, text: "Mom of two — this work is deeply personal" },
-];
+{ icon: GraduationCap, text: "Educator, teacher & assistant principal" },
+{ icon: Home, text: "Licensed home daycare owner — lived it firsthand" },
+{ icon: LayoutDashboard, text: "Built features & retention systems at ClassTag" },
+{ icon: Heart, text: "Mom of two — this work is deeply personal" }];
+
 
 const drawers = [
-  {
-    icon: Heart,
-    title: "WHO",
-    content: "I'm Danielle — and I've lived every version of this. I've been the teacher, the assistant principal, the mom figuring out childcare, and the one who actually went through licensing and opened my own home daycare. I didn't read about this path. I walked it.",
-  },
-  {
-    icon: Lightbulb,
-    title: "WHY",
-    content: "When I opened my program, I was shocked at how hard it was to find real, organized guidance. The information was scattered, the process felt impossible to navigate alone, and nothing was built for mothers running serious programs from home. So I built what I wished had existed.",
-  },
-  {
-    icon: Gift,
-    title: "WHAT",
-    content: "I took everything — my years in education, my licensing experience, my work building features and retention systems at ClassTag — and designed a platform that actually moves you forward. Mama Launch is the structured, supported launch path I needed and couldn't find.",
-  },
-];
+{
+  icon: Heart,
+  title: "WHO",
+  content: "I'm Danielle — and I've lived every version of this. I've been the teacher, the assistant principal, the mom figuring out childcare, and the one who actually went through licensing and opened my own home daycare. I didn't read about this path. I walked it."
+},
+{
+  icon: Lightbulb,
+  title: "WHY",
+  content: "When I opened my program, I was shocked at how hard it was to find real, organized guidance. The information was scattered, the process felt impossible to navigate alone, and nothing was built for mothers running serious programs from home. So I built what I wished had existed."
+},
+{
+  icon: Gift,
+  title: "WHAT",
+  content: "I took everything — my years in education, my licensing experience, my work building features and retention systems at ClassTag — and designed a platform that actually moves you forward. Mama Launch is the structured, supported launch path I needed and couldn't find."
+}];
+
 
 function DrawerTabs({ drawers, openDrawer, onToggle }) {
   return (
@@ -79,22 +79,22 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
                 zIndex: isOpen ? 2 : 1,
                 marginBottom: isOpen ? "-1px" : "0",
                 cursor: "pointer",
-                animation: !isOpen && openDrawer < 0 ? `tabNudge 2.4s ease-in-out ${index * 0.3}s infinite` : "none",
+                animation: !isOpen && openDrawer < 0 ? `tabNudge 2.4s ease-in-out ${index * 0.3}s infinite` : "none"
               }}>
               <Icon className="h-4 w-4" style={{ color: isOpen ? "#C4956A" : "#9a8f84", transition: "color 0.2s" }} />
               <span className="font-micro" style={{ fontSize: "0.6rem", letterSpacing: "0.16em", color: isOpen ? "#2B2B28" : "#9a8f84", transition: "color 0.2s" }}>
                 {drawer.title}
               </span>
               {/* Active bottom accent */}
-              {isOpen && (
-                <div style={{ position: "absolute", bottom: 0, left: "20%", right: "20%", height: "2px", backgroundColor: "#C4956A", borderRadius: "2px 2px 0 0" }} />
-              )}
+              {isOpen &&
+              <div style={{ position: "absolute", bottom: 0, left: "20%", right: "20%", height: "2px", backgroundColor: "#C4956A", borderRadius: "2px 2px 0 0" }} />
+              }
               {/* Tap indicator dot — inactive only */}
-              {!isOpen && openDrawer < 0 && (
-                <div style={{ position: "absolute", top: "8px", right: "10px", width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "#C4956A", animation: `tabGlow 2.4s ease-in-out ${index * 0.3}s infinite` }} />
-              )}
-            </button>
-          );
+              {!isOpen && openDrawer < 0 &&
+              <div style={{ position: "absolute", top: "8px", right: "10px", width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "#C4956A", animation: `tabGlow 2.4s ease-in-out ${index * 0.3}s infinite` }} />
+              }
+            </button>);
+
         })}
       </div>
 
@@ -111,18 +111,18 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
           transition: "max-height 0.32s ease, opacity 0.25s ease",
           boxShadow: "0 8px 28px rgba(196,149,106,0.1)",
           position: "relative",
-          zIndex: 1,
+          zIndex: 1
         }}>
-        {openDrawer >= 0 && (
-          <div className="px-5 py-4">
+        {openDrawer >= 0 &&
+        <div className="px-5 py-4">
             <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65" }}>
               {drawers[openDrawer]?.content}
             </p>
           </div>
-        )}
+        }
       </div>
-    </div>
-  );
+    </div>);
+
 }
 
 export default function DanielleStorySection() {
@@ -131,7 +131,7 @@ export default function DanielleStorySection() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.06 });
+    const observer = new IntersectionObserver(([e]) => {if (e.isIntersecting) setVisible(true);}, { threshold: 0.06 });
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -169,23 +169,23 @@ export default function DanielleStorySection() {
 
             {/* Credential chips */}
             <div className="flex flex-wrap gap-2 mb-6">
-              {["Former educator + school leader", "Licensed home daycare owner", "Mom of two", "Experience in app implementation"].map((chip) => (
-                <span key={chip} className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.65rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
-              ))}
+              {["Former educator + school leader", "Licensed home daycare owner", "Mom of two", "Experience in app implementation"].map((chip) =>
+              <span key={chip} className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.65rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
+              )}
             </div>
 
             {/* Trust blocks */}
             <div className="flex flex-col gap-3 mb-8">
               {[
-                { label: "WHY I BUILT THIS", body: "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers." },
-                { label: "WHAT I UNDERSTAND", body: "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children." },
-                { label: "WHAT THIS GIVES YOU", body: "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone." }
-              ].map((block) => (
-                <div key={block.label} className="rounded-xl p-4" style={{ backgroundColor: "#F8F4EE", border: "1px solid #C4956A14" }}>
+              { label: "WHY I BUILT THIS", body: "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers." },
+              { label: "WHAT I UNDERSTAND", body: "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children." },
+              { label: "WHAT THIS GIVES YOU", body: "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone." }].
+              map((block) =>
+              <div key={block.label} className="rounded-xl p-4 hidden" style={{ backgroundColor: "#F8F4EE", border: "1px solid #C4956A14" }}>
                   <p className="font-micro mb-1.5" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.12em" }}>{block.label}</p>
                   <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148" }}>{block.body}</p>
                 </div>
-              ))}
+              )}
             </div>
 
             <button
@@ -208,8 +208,8 @@ export default function DanielleStorySection() {
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                   alt="Danielle, founder of Mama Launch Studio"
                   className="w-full"
-                  style={{ height: "400px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }}
-                />
+                  style={{ height: "400px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
+                
                 {/* Subtle gradient overlay at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 h-20" style={{ background: "linear-gradient(to top, rgba(250,247,242,0.4), transparent)" }} />
               </div>
@@ -238,8 +238,8 @@ export default function DanielleStorySection() {
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                 alt="Danielle, founder of Mama Launch Studio"
                 className="w-full"
-                style={{ maxHeight: "280px", objectFit: "cover", objectPosition: "center 12%", filter: "saturate(0.82) brightness(0.98)", display: "block" }}
-              />
+                style={{ maxHeight: "280px", objectFit: "cover", objectPosition: "center 12%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
+              
             </div>
           </div>
 
@@ -249,11 +249,11 @@ export default function DanielleStorySection() {
               const Icon = item.icon;
               return (
                 <div key={item.text} className="flex items-center gap-3 py-2.5 px-4"
-                  style={{ borderBottom: "1px solid rgba(77,94,73,0.07)" }}>
+                style={{ borderBottom: "1px solid rgba(77,94,73,0.07)" }}>
                   <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#C4956A" }} />
                   <span className="font-body" style={{ fontSize: "0.82rem", color: "#3A3530" }}>{item.text}</span>
-                </div>
-              );
+                </div>);
+
             })}
           </div>
 
@@ -273,6 +273,6 @@ export default function DanielleStorySection() {
 
       </div>
       <div className="w-full h-px" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
-    </section>
-  );
+    </section>);
+
 }
