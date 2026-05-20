@@ -181,7 +181,7 @@ export default function DanielleStorySection() {
               { label: "WHAT I UNDERSTAND", body: "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children." },
               { label: "WHAT THIS GIVES YOU", body: "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone." }].
               map((block) =>
-              <div key={block.label} className="rounded-xl p-4 hidden" style={{ backgroundColor: "#F8F4EE", border: "1px solid #C4956A14" }}>
+              <div key={block.label} className="rounded-xl p-4" style={{ backgroundColor: "#F8F4EE", border: "1px solid #C4956A14" }}>
                   <p className="font-micro mb-1.5" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.12em" }}>{block.label}</p>
                   <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148" }}>{block.body}</p>
                 </div>
@@ -192,7 +192,7 @@ export default function DanielleStorySection() {
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
               className="font-micro inline-flex items-center gap-2 text-white px-8 py-4 rounded-full min-h-[52px] transition-all"
               style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}>
-              Become a Founding Member
+              Join the Founding Member Waitlist
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </div>
@@ -265,7 +265,7 @@ export default function DanielleStorySection() {
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
               className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px]"
               style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", boxShadow: "0 8px 32px rgba(77,94,73,0.32), 0 2px 8px rgba(0,0,0,0.10)" }}>
-              Become a Founding Member
+              Join the Founding Member Waitlist
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </div>

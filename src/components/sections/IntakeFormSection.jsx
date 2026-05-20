@@ -193,19 +193,22 @@ export default function IntakeFormSection() {
 
             <div className="px-6 md:px-10 py-8 md:py-10">
 
-              {/* Desktop header */}
+              {/* Desktop header — matches mobile */}
               <div className="hidden md:block text-center mb-8">
                 <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
                   <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-                  Founding Member Waitlist
+                  FOUNDING MEMBER WAITLIST
                   <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
                 </p>
                 <h2 className="font-display leading-tight mb-3 break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", overflowWrap: "break-word" }}>
-                  Come Build This{" "}
-                  <em style={{ color: "#4D5E49" }}>With Us.</em>
+                  Come build this{" "}
+                  <em style={{ color: "#4D5E49" }}>with us.</em>
                 </h2>
                 <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "440px", fontSize: "0.95rem" }}>
-                  Tell us a little about yourself and your vision. This is the beginning of your launch path.
+                  From idea to opening day — with clarity, structure, and support.
+                </p>
+                <p className="font-body mx-auto mt-2" style={{ color: "#7A6E65", maxWidth: "400px", fontSize: "0.88rem" }}>
+                  You do not need to have everything figured out before starting.
                 </p>
               </div>
 
@@ -300,7 +303,7 @@ export default function IntakeFormSection() {
                     letterSpacing: "0.1em",
                     boxShadow: "0 6px 24px rgba(77,94,73,0.28), 0 1px 3px rgba(77,94,73,0.12)"
                   }}>
-                      {submitting ? "Submitting…" : "Become a Founding Member"}
+                      {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
                     </button>
                     <p className="text-center font-body mt-3" style={{ color: "#B0A090", fontSize: "0.7rem" }}>
                       No spam, ever. Just your next step forward.

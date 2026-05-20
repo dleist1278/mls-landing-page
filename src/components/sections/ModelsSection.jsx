@@ -75,21 +75,20 @@ export default function ModelsSection() {
             transform: headerVisible ? "translateY(0)" : "translateY(16px)"
           }}>
           
-          {/* Desktop header */}
-          <div className="hidden md:block">
-            <p className="font-micro mb-4 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+          {/* Desktop header — matches mobile */}
+          <div className="hidden md:block text-center">
+            <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               NOW ENROLLING
+              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             </p>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-              <h2 className="font-display leading-tight break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", maxWidth: "28ch", overflowWrap: "break-word" }}>
-                Choose the path that fits{" "}
-                <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
-              </h2>
-              <p className="font-body leading-relaxed md:max-w-xs" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
-                Every pathway is designed to help you build steadily with guided support, flexible structure, and real implementation tools.
-              </p>
-            </div>
+            <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
+              Choose the path that fits{" "}
+              <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
+            </h2>
+            <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.65", maxWidth: "52ch" }}>
+              Every pathway is designed to help you build steadily with guided support, flexible structure, and real implementation tools.
+            </p>
           </div>
 
           {/* Mobile header */}
@@ -110,71 +109,59 @@ export default function ModelsSection() {
           </div>
         </div>
 
-        {/* Desktop: original layout unchanged */}
-        <div className="hidden md:block">
-          <div
-            className="rounded-3xl p-10 mb-6 relative overflow-hidden"
-            style={{
-              backgroundColor: "#FFFDF9",
-              border: "1px solid #4D5E4950",
-              boxShadow: "0 8px 40px rgba(77,94,73,0.14)"
-            }}>
-
-            {/* Corner ribbon — Spots Limited */}
-            <div style={{ position: "absolute", top: "18px", left: "-28px", zIndex: 10, transform: "rotate(-45deg)", width: "120px", textAlign: "center", backgroundColor: "#C4956A", padding: "5px 0", boxShadow: "0 2px 8px rgba(196,149,106,0.3)" }}>
-              <span className="font-micro" style={{ color: "#fff", fontSize: "0.55rem", letterSpacing: "0.1em" }}>SPOTS LIMITED</span>
-            </div>
-
-            <style>{`
-              @keyframes enrollPulse {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0.3; }
-              }
-            `}</style>
-            
-            <div className="flex flex-col md:flex-row md:gap-10 gap-6">
-              <div className="flex-1">
-                <div className="flex justify-center mb-5">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
-                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#4D5E49", animation: "enrollPulse 1.6s ease-in-out infinite" }} />
-                    <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.68rem", animation: "enrollPulse 1.6s ease-in-out infinite" }}>Now Enrolling</span>
-                  </div>
+        {/* Desktop: 3-column pathway cards matching mobile content */}
+        <style>{`
+          @keyframes enrollPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+          }
+        `}</style>
+        <div className="hidden md:grid grid-cols-3 gap-5">
+          {pathways.map((pathway, i) => (
+            <div key={pathway.id} className="rounded-3xl overflow-hidden flex flex-col"
+              style={{
+                backgroundColor: "#FFFDF9",
+                border: `1px solid ${pathway.tagActive ? "#4D5E4940" : "#C4956A22"}`,
+                boxShadow: pathway.tagActive ? "0 8px 40px rgba(77,94,73,0.14)" : "none",
+                opacity: pathway.tagActive ? 1 : 0.75,
+                position: "relative"
+              }}>
+              {pathway.tagActive && (
+                <div style={{ position: "absolute", top: "14px", left: "-22px", zIndex: 10, transform: "rotate(-45deg)", width: "100px", textAlign: "center", backgroundColor: "#C4956A", padding: "4px 0", boxShadow: "0 2px 6px rgba(196,149,106,0.3)" }}>
+                  <span className="font-micro" style={{ color: "#fff", fontSize: "0.48rem", letterSpacing: "0.1em" }}>SPOTS LIMITED</span>
                 </div>
-                <h3 className="font-display mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
-                  Home Daycare / Nursery
-                </h3>
-                <p className="font-body leading-relaxed mb-6" style={{ color: "#5C5148", fontSize: "1rem", maxWidth: "520px" }}>
-                  Launch a calm, intentional home childcare program designed around your family life, licensing goals, and community needs. This is the core Mama Launch pathway — full-time, part-time, nursery-style, or mixed-age.
-                </p>
-                <button
-                  onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-                  className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px] focus-sage"
-                  style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}>
-                  Become a Founding Member
-                </button>
+              )}
+              <div style={{ height: "3px", background: pathway.tagActive ? "linear-gradient(90deg, #4D5E49, #4D5E4955)" : "linear-gradient(90deg, #C4956A55, #C4956A22)" }} />
+              <div className="p-7 flex flex-col flex-1 gap-3">
+                <div className="inline-flex items-center gap-2 self-start">
+                  {pathway.tagActive ? (
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49", animation: "enrollPulse 1.6s ease-in-out infinite" }} />
+                      <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.62rem" }}>{pathway.tag}</span>
+                    </div>
+                  ) : (
+                    <span className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22", color: "#C4956A", fontSize: "0.62rem" }}>{pathway.tag}</span>
+                  )}
+                </div>
+                <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "1.35rem", lineHeight: "1.2" }}>{pathway.title}</h3>
+                <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#5C5148" }}>{pathway.description}</p>
+                <div className="flex flex-wrap gap-1.5 mb-2">
+                  {pathway.features.map((f) => (
+                    <span key={f} className="font-micro px-2 py-1 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.06)", color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.06em" }}>{f}</span>
+                  ))}
+                </div>
+                {pathway.cta ? (
+                  <button onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                    className="font-micro text-white px-7 py-3.5 rounded-full min-h-[48px] mt-auto"
+                    style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24)" }}>
+                    Join the Founding Member Waitlist
+                  </button>
+                ) : (
+                  <span className="font-micro px-5 py-2.5 rounded-full inline-flex items-center justify-center mt-auto" style={{ backgroundColor: "rgba(196,149,106,0.08)", color: "#C4956A", fontSize: "0.68rem", border: "1px solid rgba(196,149,106,0.22)", letterSpacing: "0.08em" }}>Coming Soon</span>
+                )}
               </div>
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {[
-            { title: "Drop-In Childcare", description: "Flexible short-format care models built around specific time blocks, rhythms, or caregiver schedules. Ideal for mothers who want to start smaller or offer need-based care." },
-            { title: "Kids Classes & Enrichment Programs", description: "Creative, movement-based, sensory, or educational programs hosted from home or community spaces. A village-centered model for mothers with an educational or developmental focus." }].
-            map((m) =>
-            <div
-              key={m.title}
-              className="rounded-3xl p-6 flex flex-col gap-2.5"
-              style={{ backgroundColor: "#FFFDF9", border: "1px solid #C4956A30", opacity: 0.8 }}>
-              
-                <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22" }}>
-                  <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem" }}>Coming Soon</span>
-                </div>
-                <div className="w-8 h-px" style={{ backgroundColor: "#C4956A44" }} />
-                <h3 className="font-display text-xl" style={{ color: "#2C2C2C", opacity: 0.75 }}>{m.title}</h3>
-                <p className="font-body text-sm leading-relaxed" style={{ color: "#8C7E75" }}>{m.description}</p>
-              </div>
-            )}
-          </div>
+          ))}
         </div>
 
         {/* Mobile: swipeable pathway chooser */}

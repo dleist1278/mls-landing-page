@@ -243,8 +243,23 @@ export default function MethodSection() {
             border: `1px solid ${phase.color}20`,
             boxShadow: "0 2px 12px rgba(77,94,73,0.06)"
           }}>
-            
-            
+          <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}55)` }} />
+          <div className="p-4 flex flex-col flex-1 gap-2">
+            <div className="font-display" style={{ color: phase.color, fontSize: "1.6rem", lineHeight: 1, opacity: 0.8 }}>{phase.number}</div>
+            <h3 className="font-display text-sm leading-snug" style={{ color: "#2C2C2C" }}>{phase.name}</h3>
+            <p className="font-body text-xs leading-snug" style={{ color: "#7A6E65" }}>{phase.outcome}</p>
+            <div className="mt-auto pt-2 border-t" style={{ borderColor: `${phase.color}14` }}>
+              <ul className="flex flex-col gap-1">
+                {phase.includes.map((item) => (
+                  <li key={item} className="flex items-start gap-1.5">
+                    <span className="flex-none mt-1 w-1 h-1 rounded-full" style={{ backgroundColor: phase.color }} />
+                    <span className="font-body" style={{ color: "#5C5148", fontSize: "0.68rem", lineHeight: "1.4" }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
 
 
 
