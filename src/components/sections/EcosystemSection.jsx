@@ -134,7 +134,7 @@ export default function EcosystemSection() {
             <em style={{ color: "#4D5E49" }}>keep moving.</em>
           </h2>
           <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.92rem", lineHeight: "1.65" }}>
-            A village that understands you. Built-in momentum to keep you progressing. Support that goes beyond motivation — straight into implementation.
+            A village that understands you.<br />Built-in momentum to keep you progressing.<br />Support that goes beyond motivation — straight into implementation.
           </p>
           <div className="mt-8 md:overflow-visible overflow-hidden" style={{ width: "150%", marginLeft: "-25%", marginRight: "-25%" }}>
             <img
