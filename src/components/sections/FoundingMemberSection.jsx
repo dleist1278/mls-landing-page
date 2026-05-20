@@ -254,8 +254,9 @@ export default function FoundingMemberSection() {
           }}>
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5"
-              style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
-              <Heart size={12} style={{ color: "#4D5E49", strokeWidth: 1.8, fill: "#4D5E4940" }} />
+              style={{ backgroundColor: "#e5393518", border: "1px solid #e5393530" }}>
+              <Heart size={12} style={{ color: "#e53935", strokeWidth: 1.8, fill: "#e53935", animation: "heartPulse 1.4s ease-in-out infinite" }} />
+              <style>{`@keyframes heartPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.28); } }`}</style>
             </div>
             <div>
               <p className="font-micro mb-0.5" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.14em" }}>FOUNDING MEMBER BENEFIT</p>
