@@ -281,7 +281,13 @@ export default function ModelsSection() {
                     </div>
                   }
 
-                  <div className="mt-auto">
+                  <div className="mt-auto pt-5">
+                    <style>{`
+                      @keyframes ctaPulse {
+                        0%, 100% { transform: scale(1); box-shadow: 0 3px 14px rgba(77,94,73,0.13); }
+                        50% { transform: scale(1.04); box-shadow: 0 6px 22px rgba(77,94,73,0.28); }
+                      }
+                    `}</style>
                     {pathway.cta ?
                     <button
                       onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
@@ -291,7 +297,7 @@ export default function ModelsSection() {
                         color: "#fff",
                         fontSize: "0.7rem",
                         border: "none",
-                        boxShadow: "0 3px 14px rgba(77,94,73,0.13)"
+                        animation: "ctaPulse 2.4s ease-in-out infinite"
                       }}>
                         {pathway.cta}
                       </button>
