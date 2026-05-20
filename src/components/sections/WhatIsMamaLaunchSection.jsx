@@ -173,7 +173,7 @@ export default function WhatIsMamaLaunchSection() {
                   scrollSnapAlign: "center",
                   background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)",
                   border: "1px solid #E4D5C0",
-                  boxShadow: "0 16px 48px rgba(196,149,106,0.22), 0 4px 16px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05)"
+                  boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)"
                 }}>
                     {/* Accent top bar */}
                     <div style={{ height: "3px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}88)` }} />
