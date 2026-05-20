@@ -74,7 +74,7 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
                 backgroundColor: isOpen ? "#FFFDF9" : "rgba(255,255,255,0.5)",
                 border: `1px solid ${isOpen ? "#C4956A28" : "#EAD9C8"}`,
                 borderBottom: isOpen ? "1px solid #FFFDF9" : "1px solid #EAD9C8",
-                boxShadow: isOpen ? "0 -4px 16px rgba(196,149,106,0.09)" : "none",
+                boxShadow: isOpen ? "0 -8px 24px rgba(196,149,106,0.18), 0 -2px 6px rgba(0,0,0,0.06)" : "0 -4px 12px rgba(196,149,106,0.08), 0 -1px 3px rgba(0,0,0,0.04)",
                 position: "relative",
                 zIndex: isOpen ? 2 : 1,
                 marginBottom: isOpen ? "-1px" : "0",
