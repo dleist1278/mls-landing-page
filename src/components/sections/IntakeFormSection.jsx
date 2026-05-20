@@ -162,9 +162,9 @@ export default function IntakeFormSection() {
           style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "32ch" }}>
           From idea to opening day — with clarity,<br />structure, and support<br />you don't have to find alone.
         </p>
-        <p className="font-micro mb-7 text-center hidden" style={{ color: "#9a8f84", fontSize: "0.62rem", letterSpacing: "0.08em" }}>
-          Designed for real motherhood life, not perfect conditions.
-        </p>
+        
+
+        
       </div>
 
       <div className="max-w-3xl mx-auto px-5 sm:px-8 md:px-10 py-6 md:py-16">

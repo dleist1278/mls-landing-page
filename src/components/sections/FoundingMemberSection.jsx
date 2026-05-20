@@ -238,9 +238,9 @@ export default function FoundingMemberSection() {
           
           Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
         </p>
-        <p className="font-micro mb-7 text-center hidden" style={{ color: "#9a8f84", fontSize: "0.62rem", letterSpacing: "0.08em" }}>
-          Small founding cohort. Intentionally limited.
-        </p>
+        
+
+        
 
         {/* 3-stage progression */}
         <div className="w-full">
