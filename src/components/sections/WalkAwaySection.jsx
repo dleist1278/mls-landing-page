@@ -114,7 +114,7 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section id="walkaway" className="pt-8 md:pt-12 pb-6 md:pb-12 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+    <section id="walkaway" className="pt-8 md:pt-12 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 overflow-hidden">
 
@@ -141,7 +141,7 @@ export default function WalkAwaySection() {
         {/* REAL ASSET — Portal mockup */}
         <div
           ref={portalRef}
-          className="mb-16 md:mb-24 mx-auto"
+          className="mb-0 mx-auto"
           style={{ maxWidth: "820px", overflow: "visible", transition: "opacity 0.6s ease, transform 0.6s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(16px)" }}>
 
           <p className="font-micro mb-3 flex items-center justify-center gap-3 hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
@@ -156,7 +156,7 @@ export default function WalkAwaySection() {
               src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c00815f2_Untitleddesign.png"
               alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
               className="w-full h-auto block"
-              style={{ filter: "drop-shadow(0 32px 64px rgba(0,0,0,0.22)) drop-shadow(0 8px 24px rgba(196,149,106,0.18))" }}
+              style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.10)) drop-shadow(0 2px 8px rgba(196,149,106,0.10))" }}
             />
           </div>
           <p className="hidden md:block font-body mt-5 text-center" style={{ color: "#b0a49a", fontSize: "0.78rem", letterSpacing: "0.01em" }}>
