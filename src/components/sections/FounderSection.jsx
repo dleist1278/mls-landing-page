@@ -68,7 +68,7 @@ export default function FounderSection() {
               Meet Your Guide
             </p>
 
-            <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3.5vw, 2.8rem)", lineHeight: "1.2" }}>
+            <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
               Hi, I'm Danielle.<br />
               I built this<br />
               <em style={{ color: "#4D5E49" }}>because I needed it.</em>

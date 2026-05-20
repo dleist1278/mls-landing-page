@@ -159,7 +159,7 @@ export default function DanielleStorySection() {
 
           {/* Left — text content */}
           <div>
-            <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.5vw, 3rem)", lineHeight: "1.15" }}>
+            <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
               I built this{" "}
               <em className="block" style={{ color: "#4D5E49" }}>because I needed it.</em>
             </h2>

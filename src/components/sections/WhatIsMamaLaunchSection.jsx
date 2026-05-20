@@ -123,7 +123,7 @@ export default function WhatIsMamaLaunchSection() {
             </p>
             <h2
               className="font-display leading-tight mb-4 text-center"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", lineHeight: "1.2", maxWidth: "20ch", marginLeft: "auto", marginRight: "auto" }}>
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2", maxWidth: "22ch", marginLeft: "auto", marginRight: "auto" }}>
               What is the <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
             </h2>
             {/* Desktop summary paragraph */}

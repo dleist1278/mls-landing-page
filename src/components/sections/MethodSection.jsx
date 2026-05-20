@@ -187,7 +187,7 @@ export default function MethodSection() {
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
               The Implementation Roadmap
             </p>
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 4vw, 3.4rem)", lineHeight: "1.2" }}>
+            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
               The Mama Launch Method
               <br />
               <em style={{ color: "#4D5E49" }}>Five Phases. Real Deliverables.</em>

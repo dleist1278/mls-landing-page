@@ -82,7 +82,7 @@ export default function ModelsSection() {
               NOW ENROLLING
             </p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-              <h2 className="font-display leading-tight break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.4rem)", maxWidth: "28ch", overflowWrap: "break-word" }}>
+              <h2 className="font-display leading-tight break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", maxWidth: "28ch", overflowWrap: "break-word" }}>
                 Choose the path that fits{" "}
                 <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
               </h2>

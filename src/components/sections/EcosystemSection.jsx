@@ -129,7 +129,7 @@ export default function EcosystemSection() {
             Inside the Studio
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
-          <h2 className="font-display leading-tight mx-auto mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 5.5vw, 3.2rem)", maxWidth: "24ch", lineHeight: "1.2" }}>
+          <h2 className="font-display leading-tight mx-auto mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", maxWidth: "28ch", lineHeight: "1.2" }}>
             Everything works together to help you{" "}
             <em style={{ color: "#4D5E49" }}>keep moving forward.</em>
           </h2>

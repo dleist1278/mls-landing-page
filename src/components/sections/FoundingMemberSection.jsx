@@ -332,7 +332,7 @@ export default function FoundingMemberSection() {
             </p>
             <h2
               className="font-display leading-tight mb-6"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 4vw, 3.4rem)", lineHeight: "1.2" }}>
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
               
               Here's what happens<br />
               <em style={{ color: "#4D5E49" }}>after you join.</em>

@@ -200,7 +200,7 @@ export default function IntakeFormSection() {
                   Founding Member Waitlist
                   <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
                 </p>
-                <h2 className="font-display leading-tight mb-3 break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 5vw, 3.2rem)", overflowWrap: "break-word" }}>
+                <h2 className="font-display leading-tight mb-3 break-words" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", overflowWrap: "break-word" }}>
                   Come Build This{" "}
                   <em style={{ color: "#4D5E49" }}>With Us.</em>
                 </h2>
