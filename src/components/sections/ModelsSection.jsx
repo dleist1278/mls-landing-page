@@ -60,7 +60,7 @@ export default function ModelsSection() {
   return (
     <section
       id="models"
-      className="py-10 md:py-16 pb-4 md:pb-0 overflow-hidden"
+      className="py-10 md:py-16 pb-6 md:pb-0 overflow-hidden"
       style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw", width: "100%" }}>
       
       <div className="max-w-5xl mx-auto px-5 md:px-12 max-w-full overflow-hidden">

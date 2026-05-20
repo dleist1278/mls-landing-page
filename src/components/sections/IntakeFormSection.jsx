@@ -144,7 +144,7 @@ export default function IntakeFormSection() {
   return (
     <section id="intake" style={{ backgroundColor: "#FAF7F2", overflow: "hidden", scrollMarginTop: "60px", paddingBottom: "60px" }}>
       {/* Mobile-only header — softer editorial entry */}
-      <div className="md:hidden px-5 pt-14 pb-0">
+      <div className="md:hidden px-5 pt-10 pb-0">
         <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
           <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           FOUNDING MEMBER WAITLIST
@@ -164,7 +164,7 @@ export default function IntakeFormSection() {
         </p>
       </div>
 
-      <div className="max-w-3xl mx-auto px-5 sm:px-8 md:px-10 py-8 md:py-16">
+      <div className="max-w-3xl mx-auto px-5 sm:px-8 md:px-10 py-6 md:py-16">
         <div
           ref={ref}
           style={{
@@ -232,14 +232,10 @@ export default function IntakeFormSection() {
                   </p>
                 </div> :
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
 
-                  {/* Section divider label */}
-                  <div className="flex items-center gap-3">
-                    <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
-                    <span className="font-micro text-[0.6rem] tracking-widest hidden" style={{ color: "#C4956A80" }}>TELL US ABOUT YOU</span>
-                    <div className="flex-1 h-px" style={{ backgroundColor: "#E4D5C022" }} />
-                  </div>
+                  {/* spacer */}
+                  <div />
 
                   {/* Row 1 — Name + Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

@@ -144,7 +144,7 @@ export default function DanielleStorySection() {
 
       <div
         ref={sectionRef}
-        className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20"
+        className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-10 md:py-20"
         style={{ transition: "opacity 0.7s ease, transform 0.7s ease", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)" }}>
 
         {/* Section eyebrow — shared mobile + desktop */}
@@ -214,7 +214,7 @@ export default function DanielleStorySection() {
         </div>
 
         {/* ── MOBILE single-column ── */}
-        <div className="md:hidden flex flex-col gap-6">
+        <div className="md:hidden flex flex-col gap-5">
           <h2 className="font-display leading-snug text-center mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 6vw, 2.8rem)", lineHeight: "1.18", maxWidth: "20ch" }}>
             Created by Someone<br /><em style={{ color: "#4D5E49" }}>Who Understands</em>
           </h2>

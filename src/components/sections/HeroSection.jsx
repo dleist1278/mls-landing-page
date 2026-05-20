@@ -50,7 +50,7 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-px z-10" style={{ backgroundColor: "#C4956A", opacity: 0.4 }} />
 
       {/* Constrained, overflow-safe content wrapper */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-12 md:pt-36 pb-16 md:pb-24 overflow-x-hidden">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-10 md:pt-36 pb-12 md:pb-24 overflow-x-hidden">
         <div className="flex flex-col md:flex-row md:items-center gap-14 md:gap-16 lg:gap-24">
 
           {/* Text block — mobile-constrained */}
@@ -156,7 +156,7 @@ export default function HeroSection() {
             </div>
 
             {/* Mobile-only bridge copy */}
-            <p className="md:hidden mt-5 font-body text-xs leading-relaxed text-center w-full" style={{ color: "#7A6E65" }}>
+            <p className="md:hidden mt-4 font-body text-xs leading-relaxed text-center w-full" style={{ color: "#7A6E65" }}>
               The step-by-step path from idea to opening day.
             </p>
 
