@@ -43,14 +43,14 @@ export default function WhatIsMamaLaunchSection() {
           </p>
 
           {/* Cards — desktop: 3 columns, mobile: horizontal swipe */}
-          <div className="hidden md:grid grid-cols-3 gap-6 mb-10">
+          <div className="hidden md:grid grid-cols-3 gap-6 mb-10 -mx-8">
             {cards.map((card) => (
               <div key={card.title} className="rounded-3xl overflow-hidden" style={{ background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)", border: "1px solid #E4D5C0", boxShadow: "0 8px 32px rgba(196,149,106,0.12)" }}>
                 <div style={{ height: "4px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}88)` }} />
                 <div className="overflow-hidden" style={{ height: "180px" }}>
                   <img src={card.image} alt={card.title} className="w-full h-full object-cover" style={{ objectPosition: "center", transform: "scale(1.1)", transformOrigin: "center", filter: "saturate(0.82) brightness(0.97)" }} />
                 </div>
-                <div className="px-6 pt-5 pb-6">
+                <div className="px-6 pt-5 pb-6 text-center">
                   <p className="font-display text-lg font-semibold mb-2" style={{ color: card.accent }}>{card.title}</p>
                   <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148", lineHeight: "1.65" }}>{card.body}</p>
                 </div>
