@@ -22,7 +22,7 @@ export default function FounderSection() {
   }, []);
 
   return (
-    <section id="founder" className="pt-7 md:pt-16 pb-4 md:pb-4" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
+    <section id="founder" className="pt-7 md:pt-16 pb-4 md:pb-4" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
       <div className="max-w-6xl mx-auto px-5 md:px-12">
 
         {/* Main two-col */}

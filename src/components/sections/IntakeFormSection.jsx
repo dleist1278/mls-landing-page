@@ -143,7 +143,7 @@ export default function IntakeFormSection() {
   };
 
   return (
-    <section id="intake" style={{ backgroundColor: "#FAF7F2", overflow: "hidden", scrollMarginTop: "60px" }}>
+    <section id="intake" style={{ backgroundColor: "#FAF7F2", overflow: "hidden", scrollMarginTop: "60px", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
       {/* Mobile-only header — softer editorial entry */}
       <div className="md:hidden px-5 pt-10 pb-0">
         <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>

@@ -17,7 +17,7 @@ import IntakeFormSection from "@/components/sections/IntakeFormSection";
 export default function Home() {
   useScrollDepth();
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#FAF7F2" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#FAF7F2", overflowX: "hidden" }}>
       <SiteNav />
       <main>
         <HeroSection />

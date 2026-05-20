@@ -55,7 +55,7 @@ export default function WhatIsMamaLaunchSection() {
   }, []);
 
   return (
-    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%", position: "relative", WebkitOverflowScrolling: "touch" }}>
+    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%", position: "relative", WebkitOverflowScrolling: "touch", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
       {/* Main two-column editorial block */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-8 md:py-20" style={{ overflow: "hidden" }}>
         <div

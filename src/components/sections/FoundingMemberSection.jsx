@@ -208,7 +208,7 @@ export default function FoundingMemberSection() {
   }, []);
 
   return (
-    <section className="py-14 lg:py-24" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px" }}>
+    <section className="py-14 lg:py-24" style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
 
       {/* ── MOBILE layout ────────────────────────────────────────────────── */}
       <div className="lg:hidden w-full max-w-full overflow-hidden px-5">
