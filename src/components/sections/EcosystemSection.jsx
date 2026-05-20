@@ -133,6 +133,9 @@ export default function EcosystemSection() {
             Everything works together to help you{" "}
             <em style={{ color: "#4D5E49" }}>keep moving.</em>
           </h2>
+          <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.92rem", lineHeight: "1.65" }}>
+            A village that understands you. Built-in momentum to keep you progressing. Support that goes beyond motivation — straight into implementation.
+          </p>
           <p className="font-body mx-auto leading-relaxed hidden" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.9rem", lineHeight: "1.6" }}>
             The Mama Launch community is operationally focused, uplifting, and milestone-driven — a village helping a village build something real.
           </p>
