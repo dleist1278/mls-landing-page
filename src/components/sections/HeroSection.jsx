@@ -105,16 +105,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* Tag line — hidden on mobile */}
-            <div className={`hidden sm:block transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-              <p
-                className="font-micro mb-10 md:text-left text-center"
-                style={{ color: "#C4956A", fontSize: "0.66rem", letterSpacing: "0.1em", display: "block" }}>
-                
-                Launch System · Templates · Community · Guided Implementation
-              </p>
-            </div>
-            <div className="sm:hidden mb-6" />
+            <div className="mb-6" />
 
             {/* CTAs — stacked on mobile, row on sm+ */}
             <div
@@ -138,8 +129,8 @@ export default function HeroSection() {
                     50% { box-shadow: 0 6px 32px rgba(77,94,73,0.42), 0 0 0 6px rgba(77,94,73,0.08); transform: scale(1.015); }
                   }
                 `}</style>
-                Become a Founding Member
-              </button>
+                Join the Founding Member Waitlist
+                </button>
               {/* Ghost CTA — desktop/tablet only; replaced by text link on mobile */}
               <button
                 onClick={scrollToMethod}
