@@ -178,6 +178,14 @@ export default function ModelsSection() {
 
         {/* Mobile: swipeable pathway chooser */}
         <div className="md:hidden w-full max-w-full overflow-hidden">
+          <style>{`
+            @keyframes modelsPeekNudge {
+              0%   { transform: translateX(0); }
+              40%  { transform: translateX(-18px); }
+              70%  { transform: translateX(-8px); }
+              100% { transform: translateX(0); }
+            }
+          `}</style>
           <div
             ref={trackRef}
             onScroll={handleScroll}
@@ -189,9 +197,11 @@ export default function ModelsSection() {
               msOverflowStyle: "none",
               WebkitOverflowScrolling: "touch",
               overscrollBehaviorX: "contain",
-              gap: "10px",
-              paddingRight: "20px",
-              willChange: "scroll-position"
+              gap: "12px",
+              paddingLeft: "calc(50% - 40vw)",
+              paddingRight: "calc(50% - 40vw + 24px)",
+              willChange: "scroll-position",
+              animation: "modelsPeekNudge 0.9s ease-out 1.4s 1"
             }}>
             
             {pathways.map((pathway, i) => {
@@ -200,9 +210,9 @@ export default function ModelsSection() {
                 <div
                   key={pathway.id}
                   style={{
-                    scrollSnapAlign: "start",
-                    flex: "0 0 calc(100% - 20px)",
-                    maxWidth: "calc(100% - 20px)",
+                    scrollSnapAlign: "center",
+                    flex: "0 0 80vw",
+                    maxWidth: "320px",
                     minHeight: "260px",
                     borderRadius: "20px",
                     padding: "28px 22px",
