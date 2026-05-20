@@ -236,7 +236,7 @@ export default function EcosystemSection() {
                   {CARD_IMAGES[card.key] ? <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png" alt={card.key} className="w-full h-full object-contain object-center block" style={{ filter: "saturate(0.82) brightness(0.97)" }} /> : null}
                 </div>
                 <div className="px-4 pt-2 pb-3 text-center">
-                  <h3 className="font-display text-sm font-semibold" style={{ color: "#C4956A" }}>
+                  <h3 className="font-display text-sm font-semibold" style={{ color: "#4D5E49" }}>
                     {card.title}
                   </h3>
                 </div>
