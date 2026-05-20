@@ -217,7 +217,7 @@ export default function EcosystemSection() {
                 <div className="w-full h-[130px] overflow-hidden rounded-xl border border-[#EAD9C8] bg-white">
                   {CARD_IMAGES[card.key] ? <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png" alt={card.key} className="w-full h-full object-contain object-center block" /> : null}
                 </div>
-                <div className="px-1.5 pt-2 pb-1">
+                <div className="px-1.5 pt-2 pb-1 text-center">
                   <h3
                   className="font-body text-xs font-bold"
                   style={{ color: "#4D5E49" }}>
