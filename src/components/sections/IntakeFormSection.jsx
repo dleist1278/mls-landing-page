@@ -300,7 +300,7 @@ export default function IntakeFormSection() {
                     letterSpacing: "0.1em",
                     boxShadow: "0 6px 24px rgba(77,94,73,0.28), 0 1px 3px rgba(77,94,73,0.12)"
                   }}>
-                      {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
+                      {submitting ? "Submitting…" : "Become a Founding Member"}
                     </button>
                     <p className="text-center font-body mt-3" style={{ color: "#B0A090", fontSize: "0.7rem" }}>
                       No spam, ever. Just your next step forward.
