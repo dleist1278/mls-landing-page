@@ -19,12 +19,13 @@ export default function SiteNav() {
     <nav
       className="md:fixed md:top-0 md:left-0 md:right-0 md:z-50 transition-all duration-500 relative"
       style={{
-        backgroundColor: scrolled ? "rgba(250,247,242,0.96)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid #C4956A33" : "none",
+        backgroundColor: scrolled ? "rgba(250,247,242,0.97)" : "transparent",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(196,149,106,0.18)" : "none",
+        boxShadow: scrolled ? "0 1px 24px rgba(44,44,44,0.05)" : "none",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-7 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-5 flex items-center justify-between">
         {/* Logo */}
         <div
           className="cursor-pointer"
@@ -36,7 +37,7 @@ export default function SiteNav() {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {[
             { label: "The Method", id: "method" },
             { label: "Programs", id: "models" },
@@ -47,7 +48,7 @@ export default function SiteNav() {
               key={item.id}
               onClick={() => scrollTo(item.id)}
               className="font-micro text-charcoal hover:text-sage transition-colors duration-200 focus-sage min-h-[44px] flex items-center"
-              style={{ fontSize: "0.8rem" }}
+              style={{ fontSize: "0.72rem", letterSpacing: "0.08em" }}
             >
               {item.label}
             </button>
@@ -55,9 +56,9 @@ export default function SiteNav() {
           <button
             onClick={() => scrollTo("intake")}
             className="font-micro text-white px-6 py-3 rounded-full transition-all duration-200 hover:opacity-90 focus-sage min-h-[44px]"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.8rem" }}
+            style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 4px 16px rgba(77,94,73,0.2)" }}
           >
-            Start Your Launch Path
+            Become a Founding Member
           </button>
         </div>
 
