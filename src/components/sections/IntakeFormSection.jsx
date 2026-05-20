@@ -236,8 +236,7 @@ export default function IntakeFormSection() {
 
               <form onSubmit={handleSubmit} className="space-y-5">
 
-                  {/* spacer */}
-                  <div />
+
 
                   {/* Row 1 — Name + Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
