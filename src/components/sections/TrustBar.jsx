@@ -10,7 +10,7 @@ const signals = [
 
 export default function TrustBar() {
   return (
-    <div style={{ backgroundColor: "#4D5E49", width: "100%", maxWidth: "100vw", overflow: "hidden", position: "relative", paddingTop: "8px", paddingBottom: "8px" }}>
+    <div style={{ backgroundColor: "#2C2417", width: "100%", maxWidth: "100vw", overflow: "hidden", position: "relative", paddingTop: "8px", paddingBottom: "8px" }}>
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -19,7 +19,7 @@ export default function TrustBar() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 50s linear infinite;
+          animation: marquee 100s linear infinite;
           will-change: transform;
         }
         .marquee-track:hover {
