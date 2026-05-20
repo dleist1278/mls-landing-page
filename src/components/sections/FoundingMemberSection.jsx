@@ -246,11 +246,10 @@ export default function FoundingMemberSection() {
 
         {/* Founding member support line */}
         <div
-          className="rounded-2xl px-4 py-4 w-full mt-5"
+          className="rounded-xl px-4 py-3.5 w-full mt-4"
           style={{
-            background: "linear-gradient(135deg, #FFFDF9 0%, #F5EFE6 100%)",
-            border: "1px solid #C4956A28",
-            boxShadow: "0 6px 24px rgba(196,149,106,0.14), 0 1px 4px rgba(0,0,0,0.05)"
+            backgroundColor: "transparent",
+            border: "1px solid #C4956A22",
           }}>
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5"
