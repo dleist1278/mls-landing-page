@@ -13,6 +13,12 @@ const steps = [
 // ── Mobile journey stages ─────────────────────────────────────────────────────
 const mobileStages = [
 {
+  id: 1,
+  title: "MARK YOUR CALENDAR",
+  label: "July 6th",
+  copy: "The first Mama Launch cohort begins July 6th. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th."
+},
+{
   id: 2,
   title: "GET ORIENTED",
   label: "Choose your launch path",
@@ -192,7 +198,7 @@ export default function FoundingMemberSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [activeStep, setActiveStep] = useState("01");
-  const [activeStage, setActiveStage] = useState(2);
+  const [activeStage, setActiveStage] = useState(1);
 
   useEffect(() => {
     const o1 = new IntersectionObserver(
