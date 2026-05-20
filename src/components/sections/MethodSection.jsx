@@ -180,19 +180,20 @@ export default function MethodSection() {
           transform: headerVisible ? "translateY(0)" : "translateY(16px)"
         }}>
 
-        {/* Desktop header — unchanged */}
-        <div className="hidden md:flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-          <div>
-            <p className="font-micro mb-3 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-              The Implementation Roadmap
-            </p>
-            <h2 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
-              The Mama Launch Method
-              <br />
-              <em style={{ color: "#4D5E49" }}>Five Phases. Real Deliverables.</em>
-            </h2>
-          </div>
+        {/* Desktop header */}
+        <div className="hidden md:block text-center">
+          <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+            THE OPENING PATH
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+          </p>
+          <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
+            The 5 phases that guide you{" "}
+            <em style={{ color: "#4D5E49" }}>from idea to opening day.</em>
+          </h2>
+          <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.65", maxWidth: "48ch" }}>
+            Move through each phase with guided prompts, practical tools, and clear next steps designed for real motherhood life.
+          </p>
         </div>
 
         {/* Mobile header */}
@@ -231,42 +232,41 @@ export default function MethodSection() {
         )}
       </div>
 
-      {/* Desktop: original horizontal scroll — unchanged */}
-      <div
-        className="hidden md:flex gap-3 overflow-x-auto pb-4 px-5 md:px-12 max-w-6xl mx-auto"
-        style={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          WebkitOverflowScrolling: "touch",
-          scrollSnapType: "x mandatory",
-          scrollPaddingLeft: "20px",
-          alignItems: "flex-start"
-        }}>
-        {phases.map((phase, i) =>
-        <div
-          key={phase.number}
-          className="flex-none"
-          style={{ width: "52vw", maxWidth: "200px", scrollSnapAlign: "start" }}>
-            <div
-            className="w-full text-left rounded-2xl overflow-hidden"
+      {/* Desktop: 5-phase expanded grid */}
+      <div className="hidden md:grid grid-cols-5 gap-3 px-5 md:px-12 max-w-6xl mx-auto mt-8">
+        {phases.map((phase) => (
+          <div
+            key={phase.number}
+            className="rounded-2xl overflow-hidden flex flex-col"
             style={{
-              backgroundColor: "#F0EBE1",
-              border: `1px solid ${phase.color}28`,
-              padding: "16px"
+              backgroundColor: "#FFFDF9",
+              border: `1px solid ${phase.color}20`,
+              boxShadow: "0 2px 12px rgba(77,94,73,0.06)"
             }}>
-              <div className="font-display mb-3" style={{ color: phase.color, fontSize: "2rem", lineHeight: 1 }}>
+            <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}55)` }} />
+            <div className="p-4 flex flex-col flex-1 gap-2">
+              <div className="font-display" style={{ color: phase.color, fontSize: "1.6rem", lineHeight: 1, opacity: 0.8 }}>
                 {phase.number}
               </div>
-              <h3 className="font-display text-sm leading-snug mb-1" style={{ color: "#2C2C2C" }}>
+              <h3 className="font-display text-sm leading-snug" style={{ color: "#2C2C2C" }}>
                 {phase.name}
               </h3>
-              <p className="font-body text-xs leading-snug mt-2" style={{ color: "#7A6E65" }}>
+              <p className="font-body text-xs leading-snug" style={{ color: "#7A6E65" }}>
                 {phase.outcome}
               </p>
+              <div className="mt-auto pt-2 border-t" style={{ borderColor: `${phase.color}14` }}>
+                <ul className="flex flex-col gap-1">
+                  {phase.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-1.5">
+                      <span className="flex-none mt-1 w-1 h-1 rounded-full" style={{ backgroundColor: phase.color }} />
+                      <span className="font-body" style={{ color: "#5C5148", fontSize: "0.68rem", lineHeight: "1.4" }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        )}
-        <div className="flex-none w-2 md:w-8" />
+        ))}
       </div>
 
       

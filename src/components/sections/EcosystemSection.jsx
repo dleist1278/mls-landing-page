@@ -19,24 +19,24 @@ const MOBILE_CARD_META = [
 const pillars = [
 {
   num: "01",
-  title: "Implementation-First Guidance",
-  description: "Every phase of the Mama Launch Method comes with structured checklists, templates, and operational tools — so you're always moving forward, never just consuming content.",
+  title: "A Village That Understands",
+  description: "Connect with mothers building alongside you, asking questions, sharing wins, and navigating real motherhood life together.",
   items: [
-  "State-specific licensing roadmaps",
-  "Phase-by-phase implementation checklists",
-  "Downloadable templates and workbooks",
-  "Guided action steps in every module"]
+  "Private peer community",
+  "Cohort-based milestone support",
+  "Monthly live community calls",
+  "Phase-organized groups"]
 
 },
 {
   num: "02",
-  title: "A Village That Moves Forward",
-  description: "The Mama Launch community is implementation-focused, milestone-driven, and uplifting. We celebrate progress, share what's actually working, and move through the method together — a village helping a village.",
+  title: "Built to Keep You Moving",
+  description: "Mama Launch helps you continue making progress with guided accountability, milestone momentum, and support woven into every phase.",
   items: [
-  "Private peer implementation community",
-  "Cohort-based milestone tracking",
-  "Monthly live community calls",
-  "Phase-organized peer support groups"]
+  "Phase-by-phase checklists",
+  "Progress tracking",
+  "Guided action steps",
+  "Implementation sprints"]
 
 }];
 
@@ -130,11 +130,11 @@ export default function EcosystemSection() {
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
           <h2 className="font-display leading-tight mx-auto mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", maxWidth: "28ch", lineHeight: "1.2" }}>
-            Everything works together to help you{" "}
-            <em style={{ color: "#4D5E49" }}>keep moving forward.</em>
+            Implementation Support,{" "}
+            <em style={{ color: "#4D5E49" }}>Not Just Inspiration.</em>
           </h2>
           <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.92rem", lineHeight: "1.65" }}>
-            Instead of overwhelming courses and scattered information, Mama Launch gives you guided implementation, done-for-you tools, and real support in one place.
+            The Mama Launch community is operationally focused, uplifting, and milestone-driven — a village helping a village build something real.
           </p>
           <div className="mt-8 md:overflow-visible overflow-hidden" style={{ width: "150%", marginLeft: "-25%", marginRight: "-25%" }}>
             <img

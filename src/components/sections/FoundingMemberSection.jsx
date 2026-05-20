@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ClipboardCheck, Mail, Users, Puzzle, DoorOpen, Heart, ChevronDown } from "lucide-react";
 
-// ── Desktop data (unchanged) ──────────────────────────────────────────────────
+// ── Desktop + mobile shared data ─────────────────────────────────────────────
 const steps = [
-{ step: "01", title: "Join", description: "Reserve your founding member spot and receive your welcome roadmap.", icon: ClipboardCheck },
-{ step: "02", title: "Get Oriented", description: "Choose your pathway and unlock your first implementation phase.", icon: Puzzle },
-{ step: "03", title: "Build Forward", description: "Move through guided prompts, templates, and support at your own pace with the village beside you.", icon: Users }];
+{ step: "01", title: "Join", description: "Reserve your founding member spot and receive your welcome roadmap.", sub: "Immediate access + onboarding", icon: ClipboardCheck },
+{ step: "02", title: "Get Oriented", description: "Choose your pathway and unlock your first implementation phase.", sub: "Choose your launch path", icon: Puzzle },
+{ step: "03", title: "Build Forward", description: "Move through guided prompts, templates, and support at your own pace with the village beside you.", sub: "Steady momentum + support", icon: Users }];
 
 
 // ── Mobile journey stages ─────────────────────────────────────────────────────
@@ -76,7 +76,10 @@ function StepCard({ step, index, isOpen, onToggle }) {
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: "#F0EDE6", border: "1px solid #E4D8CC" }}>
             <Icon size={19} style={{ color: "#4D5E49", strokeWidth: 1.6 }} />
           </div>
-          <h3 className="flex-1 font-display text-[19px] leading-snug" style={{ color: "#2C2C2C" }}>{step.title}</h3>
+          <div className="flex-1">
+            <h3 className="font-display text-[19px] leading-snug" style={{ color: "#2C2C2C" }}>{step.title}</h3>
+            <p className="font-micro mt-0.5" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.1em" }}>{step.sub}</p>
+          </div>
         </div>
         {isOpen &&
         <div className="px-5 pb-4" style={{ borderTop: "1px solid #F0EBE3" }}>
@@ -331,24 +334,25 @@ export default function FoundingMemberSection() {
               YOUR FOUNDING MEMBER JOURNEY
             </p>
             <h2
-              className="font-display leading-tight mb-6"
+              className="font-display leading-tight mb-4"
               style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
-              
               Here's what happens<br />
               <em style={{ color: "#4D5E49" }}>after you join.</em>
             </h2>
-            <p className="text-sm leading-relaxed mb-4" style={{ color: "#7A6E65", maxWidth: "28ch", lineHeight: "1.7" }}>
+            <p className="font-body text-sm leading-relaxed mb-4" style={{ color: "#7A6E65", maxWidth: "32ch", lineHeight: "1.7" }}>
               You do not need to figure everything out before starting. Mama Launch guides you step by step with structure, support, and implementation tools designed for real motherhood life.
             </p>
-            <p className="font-micro mb-8" style={{ color: "#9a8f84", fontSize: "0.66rem", letterSpacing: "0.07em" }}>
-              Small founding cohort. Enrollment closes June 30.
+            <p className="font-micro mb-6" style={{ color: "#9a8f84", fontSize: "0.66rem", letterSpacing: "0.07em" }}>
+              Built around real motherhood rhythms, not uninterrupted workdays.
             </p>
             <div className="rounded-xl p-4" style={{ backgroundColor: "#EEF1E7", outline: "1px solid #E1E6D8" }}>
-              <div className="flex items-center gap-3">
-                <Heart size={16} style={{ color: "#4D5E49", flexShrink: 0, strokeWidth: 1.6 }} />
-                <div className="flex-1">
-                  <p className="font-display text-sm font-semibold leading-snug" style={{ color: "#4D5E49" }}>You're not just joining.</p>
-                  <p className="mt-0.5 text-xs" style={{ color: "#5C5148" }}>You're helping build the future.</p>
+              <div className="flex items-start gap-3">
+                <Heart size={14} style={{ color: "#4D5E49", flexShrink: 0, strokeWidth: 1.6, marginTop: "2px" }} />
+                <div>
+                  <p className="font-micro mb-1" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.12em" }}>FOUNDING MEMBER BENEFIT</p>
+                  <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>
+                    Founding members receive first access, early pricing, and the opportunity to help shape the platform from the beginning.
+                  </p>
                 </div>
               </div>
             </div>

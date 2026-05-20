@@ -159,26 +159,33 @@ export default function DanielleStorySection() {
 
           {/* Left — text content */}
           <div>
-            <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
-              I built this{" "}
-              <em className="block" style={{ color: "#4D5E49" }}>because I needed it.</em>
+            <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
+              Created by someone who understands{" "}
+              <em style={{ color: "#4D5E49" }}>both the systems and the real life.</em>
             </h2>
             <p className="font-body leading-relaxed mb-6" style={{ color: "#5C5148", fontSize: "0.97rem", lineHeight: "1.72" }}>
-              I've stood exactly where you're standing. I've been the educator, the assistant principal, the mom who went through licensing and opened her own home daycare — and learned everything the hard way. That experience is exactly why I'm the right person to guide you through this.
+              Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
             </p>
 
-            {/* Credential list */}
-            <div className="flex flex-col mb-8" style={{ borderLeft: "2px solid #C4956A28" }}>
-              {credentials.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.text} className="flex items-center gap-3 py-2.5 px-4"
-                    style={{ borderBottom: "1px solid rgba(77,94,73,0.07)" }}>
-                    <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#C4956A" }} />
-                    <span className="font-body" style={{ fontSize: "0.88rem", color: "#3A3530" }}>{item.text}</span>
-                  </div>
-                );
-              })}
+            {/* Credential chips */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {["Former educator + school leader", "Licensed home daycare owner", "Mom of two", "Experience in app implementation"].map((chip) => (
+                <span key={chip} className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.65rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
+              ))}
+            </div>
+
+            {/* Trust blocks */}
+            <div className="flex flex-col gap-3 mb-8">
+              {[
+                { label: "WHY I BUILT THIS", body: "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers." },
+                { label: "WHAT I UNDERSTAND", body: "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children." },
+                { label: "WHAT THIS GIVES YOU", body: "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone." }
+              ].map((block) => (
+                <div key={block.label} className="rounded-xl p-4" style={{ backgroundColor: "#F8F4EE", border: "1px solid #C4956A14" }}>
+                  <p className="font-micro mb-1.5" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.12em" }}>{block.label}</p>
+                  <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148" }}>{block.body}</p>
+                </div>
+              ))}
             </div>
 
             <button

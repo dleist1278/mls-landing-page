@@ -126,15 +126,15 @@ export default function WalkAwaySection() {
 
           <p className="font-micro mb-5 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-            The Mama Launch Platform
+            INSIDE THE STUDIO
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
           <h2 className="font-display leading-tight mb-3 mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", maxWidth: "38rem", lineHeight: "1.2" }}>
-            Move Through the Method With <em style={{ color: "#4D5E49" }}>Structure + Support.</em>
+            Everything works together to help you{" "}
+            <em style={{ color: "#4D5E49" }}>keep moving forward.</em>
           </h2>
           <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.94rem", maxWidth: "44rem" }}>
-            Move through every phase with step-by-step guidance, built-in tools,
-            and a community that understands real motherhood.
+            Instead of overwhelming courses and scattered information, Mama Launch gives you guided implementation, done-for-you tools, and real support in one place.
           </p>
         </div>
 
@@ -159,9 +159,28 @@ export default function WalkAwaySection() {
               style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.10)) drop-shadow(0 2px 8px rgba(196,149,106,0.10))" }}
             />
           </div>
-          <p className="hidden md:block font-body mt-5 text-center" style={{ color: "#b0a49a", fontSize: "0.78rem", letterSpacing: "0.01em" }}>
-            Your guided implementation dashboard — track your progress through every phase.
-          </p>
+          {/* Desktop 3-card studio breakdown */}
+          <div className="hidden md:grid grid-cols-3 gap-5 mt-8">
+            {[
+              { title: "Interactive Guide", sub: "Step-by-step implementation", body: "Know exactly what to do next through guided phases, prompts, and progress tracking designed to keep you moving.", weight: "high", accent: "#4D5E49" },
+              { title: "Done-for-You Tools", sub: "Templates that save time", body: "Open ready-made templates, checklists, parent resources, and operational tools without starting from scratch.", weight: "mid", accent: "#6B7E67" },
+              { title: "The Village", sub: "Community support built in", body: "Ask questions, get unstuck, and build alongside mothers walking through the same process with you.", weight: "low", accent: "#C4956A" }
+            ].map((card, i) => (
+              <div key={card.title} className="rounded-2xl overflow-hidden flex flex-col"
+                style={{
+                  backgroundColor: i === 0 ? "#FFFDF9" : i === 1 ? "#F8F4EE" : "#F4EFE8",
+                  border: `1px solid ${card.accent}18`,
+                  boxShadow: i === 0 ? "0 8px 32px rgba(77,94,73,0.12)" : i === 1 ? "0 4px 16px rgba(77,94,73,0.07)" : "0 2px 8px rgba(196,149,106,0.06)"
+                }}>
+                <div style={{ height: "3px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}55)` }} />
+                <div className="p-5 flex flex-col flex-1 gap-2.5">
+                  <p className="font-micro" style={{ color: card.accent, fontSize: "0.6rem", letterSpacing: "0.12em" }}>{card.sub}</p>
+                  <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: i === 0 ? "1.25rem" : "1.05rem", lineHeight: "1.2" }}>{card.title}</h3>
+                  <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
           <div className="hidden md:flex justify-center mt-8">
             <button
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}

@@ -127,13 +127,8 @@ export default function WhatIsMamaLaunchSection() {
               What is the <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
             </h2>
             {/* Desktop summary paragraph */}
-            <p className="hidden md:block font-body leading-relaxed mb-3" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "38rem" }}>
-              Mama Launch is a guided implementation system helping mothers launch intentional home childcare programs — with step-by-step phases, templates, and community support.
-            </p>
-
-            {/* Desktop credibility micro-line */}
-            <p className="hidden md:block font-micro mb-5" style={{ color: "#9a8f84", fontSize: "0.68rem", letterSpacing: "0.06em" }}>
-              Built from real classroom, leadership, and home childcare experience.
+            <p className="hidden md:block font-body leading-relaxed mb-6" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.6", maxWidth: "38rem" }}>
+              A guided opening path that helps you move from idea to real program with less guesswork. Built from real childcare experience, not theory.
             </p>
 
             {/* Mobile summary — concise */}
@@ -197,9 +192,25 @@ export default function WhatIsMamaLaunchSection() {
               </div>
             </div>
 
-            <p className="hidden md:block font-body leading-relaxed mb-8" style={{ color: "#5C5148", fontSize: "0.93rem", maxWidth: "38rem" }}>
-              This is not a traditional business course or generic childcare training. Mama Launch helps mothers build calm, sustainable childcare ecosystems rooted in structure, emotional safety, and real family life.
-            </p>
+            {/* Desktop 3-column concept cards */}
+            <div className="hidden md:grid grid-cols-3 gap-4 mb-8">
+              {[
+                { title: "Guided Interactive Roadmap", body: "Move through 5 structured phases with prompts, decisions, and tasks at every step — so you always know what to do next.", accent: "#4D5E49", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png" },
+                { title: "Built-In Clarity", body: "Every template, checklist, and policy document you need — organized by phase and ready to fill in as you go.", accent: "#C4956A", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png" },
+                { title: "Launch Momentum", body: "See your progress in real time as you complete each phase and move closer to opening your program.", accent: "#4D5E49", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png" }
+              ].map((card) => (
+                <div key={card.title} className="rounded-2xl overflow-hidden" style={{ background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)", border: "1px solid #E4D5C0", boxShadow: "0 4px 20px rgba(196,149,106,0.08)" }}>
+                  <div style={{ height: "3px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}88)` }} />
+                  <div className="overflow-hidden" style={{ height: "100px" }}>
+                    <img src={card.image} alt={card.title} className="w-full h-full object-cover" style={{ objectPosition: "center", transform: "scale(1.1)", transformOrigin: "center", filter: "saturate(0.82) brightness(0.97)" }} />
+                  </div>
+                  <div className="px-4 pt-3 pb-4">
+                    <p className="font-display text-sm font-semibold mb-1.5" style={{ color: card.accent }}>{card.title}</p>
+                    <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
 
             <p className="font-micro mb-3 text-center hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>What's inside the method</p>
 
@@ -228,9 +239,9 @@ export default function WhatIsMamaLaunchSection() {
               )}
             </div>
 
-            <div className="hidden md:flex justify-start my-6">
+            <div className="hidden md:flex justify-start my-4">
               <button
-                onClick={() => document.getElementById("method-roadmap")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" })}
                 className="font-micro px-8 py-4 rounded-full transition-all min-h-[52px]"
                 style={{ color: "#fff", fontSize: "0.75rem", backgroundColor: "#4D5E49", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)", letterSpacing: "0.08em" }}>
                 See the 5-Phase Method →

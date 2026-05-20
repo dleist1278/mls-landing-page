@@ -5,13 +5,14 @@ import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/sections/HeroSection";
 import TrustBar from "@/components/sections/TrustBar";
 import WhatIsMamaLaunchSection from "@/components/sections/WhatIsMamaLaunchSection";
+import ModelsSection from "@/components/sections/ModelsSection";
+import BuildInMotionSection from "@/components/sections/BuildInMotionSection";
 import MethodSection from "@/components/sections/MethodSection";
 import WalkAwaySection from "@/components/sections/WalkAwaySection";
-import ModelsSection from "@/components/sections/ModelsSection";
-import InsideTheStudioSection from "@/components/sections/InsideTheStudioSection";
 import EcosystemSection from "@/components/sections/EcosystemSection";
-import FoundingMemberSection from "@/components/sections/FoundingMemberSection";
 import DanielleStorySection from "@/components/sections/DanielleStorySection";
+import FoundingMemberSection from "@/components/sections/FoundingMemberSection";
+import FoundingCohortSection from "@/components/sections/FoundingCohortSection";
 import IntakeFormSection from "@/components/sections/IntakeFormSection";
 
 export default function Home() {
@@ -23,13 +24,14 @@ export default function Home() {
         <HeroSection />
         <TrustBar />
         <WhatIsMamaLaunchSection />
-        <WalkAwaySection />
         <ModelsSection />
+        <BuildInMotionSection />
         <MethodSection />
-        <InsideTheStudioSection />
+        <WalkAwaySection />
         <EcosystemSection />
         <DanielleStorySection />
         <FoundingMemberSection />
+        <FoundingCohortSection />
         <IntakeFormSection />
       </main>
       <SiteFooter />
