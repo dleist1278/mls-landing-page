@@ -136,7 +136,7 @@ export default function EcosystemSection() {
           <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.92rem", lineHeight: "1.65" }}>
             A village that understands you. Built-in momentum to keep you progressing. Support that goes beyond motivation — straight into implementation.
           </p>
-          <div className="mt-8 mx-auto" style={{ maxWidth: "4560px" }}>
+          <div className="mt-8 overflow-visible" style={{ width: "150%", marginLeft: "-25%", marginRight: "-25%" }}>
             <img
               src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/79cea4da6_Untitleddesign.png"
               alt="Mama Launch platform — progress tracking, implementation tools, and community village"
