@@ -150,9 +150,9 @@ export default function WhatIsMamaLaunchSection() {
                 }}>
                 
                 {[
-                { title: "Guided Interactive Roadmap", body: "5 phases. Step-by-step prompts and tasks so you always know what to do next.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png", accent: "#4D5E49" },
-                { title: "Built-In Clarity", body: "Templates, checklists, and policies — organized by phase and ready to fill in.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png", accent: "#C4956A" },
-                { title: "Launch Momentum", body: "Track progress phase by phase and open your program with real confidence.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" }].
+                { title: "Guided Interactive Roadmap", body: "Move through 5 structured phases with prompts, decisions, and tasks at every step — so you always know what to do next.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png", accent: "#4D5E49" },
+                { title: "Built-In Clarity", body: "Every template, checklist, and policy document you need — organized by phase and ready to fill in as you go.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png", accent: "#C4956A" },
+                { title: "Launch Momentum", body: "See your progress in real time as you complete each phase and move closer to opening your program with confidence.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" }].
                 map((card) =>
                 <div key={card.title}
                 className="flex-none w-[72vw] max-w-[252px] rounded-2xl overflow-hidden"
