@@ -303,7 +303,17 @@ export default function ModelsSection() {
                         {pathway.cta}
                       </button> :
 
-                    <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem", letterSpacing: "0.08em" }}>Coming Soon</span>
+                    <span
+                      className="font-micro px-5 py-2 rounded-full min-h-[44px] inline-flex items-center justify-center"
+                      style={{
+                        backgroundColor: "rgba(196,149,106,0.10)",
+                        color: "#C4956A",
+                        fontSize: "0.7rem",
+                        border: "1px solid rgba(196,149,106,0.25)",
+                        letterSpacing: "0.08em"
+                      }}>
+                      Coming Soon
+                    </span>
                     }
                   </div>
                 </div>);
