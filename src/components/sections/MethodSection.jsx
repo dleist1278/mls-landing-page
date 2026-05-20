@@ -234,17 +234,17 @@ export default function MethodSection() {
 
       {/* Desktop: 5-phase expanded grid */}
       <div className="hidden md:grid grid-cols-5 gap-3 px-5 md:px-12 max-w-6xl mx-auto mt-8">
-        {phases.map((phase) => (
-          <div
-            key={phase.number}
-            className="rounded-2xl overflow-hidden flex flex-col"
-            style={{
-              backgroundColor: "#FFFDF9",
-              border: `1px solid ${phase.color}20`,
-              boxShadow: "0 2px 12px rgba(77,94,73,0.06)"
-            }}>
-            <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}55)` }} />
-            <div className="p-4 flex flex-col flex-1 gap-2">
+        {phases.map((phase) =>
+        <div
+          key={phase.number}
+          className="rounded-2xl overflow-hidden flex flex-col"
+          style={{
+            backgroundColor: "#FFFDF9",
+            border: `1px solid ${phase.color}20`,
+            boxShadow: "0 2px 12px rgba(77,94,73,0.06)"
+          }}>
+            <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}55)` }} className="hidden" />
+            <div className="p-4 flex flex-col flex-1 gap-2 hidden">
               <div className="font-display" style={{ color: phase.color, fontSize: "1.6rem", lineHeight: 1, opacity: 0.8 }}>
                 {phase.number}
               </div>
@@ -256,17 +256,17 @@ export default function MethodSection() {
               </p>
               <div className="mt-auto pt-2 border-t" style={{ borderColor: `${phase.color}14` }}>
                 <ul className="flex flex-col gap-1">
-                  {phase.includes.map((item) => (
-                    <li key={item} className="flex items-start gap-1.5">
+                  {phase.includes.map((item) =>
+                <li key={item} className="flex items-start gap-1.5">
                       <span className="flex-none mt-1 w-1 h-1 rounded-full" style={{ backgroundColor: phase.color }} />
                       <span className="font-body" style={{ color: "#5C5148", fontSize: "0.68rem", lineHeight: "1.4" }}>{item}</span>
                     </li>
-                  ))}
+                )}
                 </ul>
               </div>
             </div>
           </div>
-        ))}
+        )}
       </div>
 
       
