@@ -103,9 +103,9 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
       <div
         className="w-full rounded-2xl overflow-hidden"
         style={{
-          backgroundColor: isActive ? "#FDFAF6" : "transparent",
-          border: `1px solid ${isActive ? "#D4BDA888" : "#E8DDD344"}`,
-          boxShadow: isActive ? "0 8px 28px rgba(196,149,106,0.18), 0 2px 8px rgba(0,0,0,0.07)" : "0 2px 8px rgba(196,149,106,0.06)",
+          backgroundColor: isActive ? "#FDFAF6" : "#FAF7F2",
+          border: `1px solid ${isActive ? "#D4BDA888" : "#DDD0C4"}`,
+          boxShadow: isActive ? "0 8px 28px rgba(196,149,106,0.18), 0 2px 8px rgba(0,0,0,0.07)" : "0 4px 16px rgba(196,149,106,0.14), 0 1px 4px rgba(0,0,0,0.07)",
           transition: "background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease",
           WebkitTransform: "translateZ(0)",
           transform: "translateZ(0)"
