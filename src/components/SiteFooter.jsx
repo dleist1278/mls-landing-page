@@ -14,7 +14,7 @@ export default function SiteFooter() {
   return (
     <footer style={{ backgroundColor: "#1E1E1E" }}>
       {/* Tonal gradient bridge */}
-      <div className="w-full hidden" style={{ height: "48px", background: "linear-gradient(to bottom, #FAF7F2, #1E1E1E)" }} />
+      
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 pb-7">
 
