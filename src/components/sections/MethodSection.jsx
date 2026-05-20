@@ -209,7 +209,7 @@ export default function MethodSection() {
           <p className="font-body leading-relaxed mx-auto text-center" style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "36ch" }}>
             Move through each phase with guided prompts, practical tools, and clear next steps designed for real motherhood life.
           </p>
-          <p className="font-micro mt-3 text-center" style={{ color: "#9a8f84", fontSize: "0.62rem", letterSpacing: "0.08em" }}>
+          <p className="font-micro mt-3 text-center hidden" style={{ color: "#9a8f84", fontSize: "0.62rem", letterSpacing: "0.08em" }}>
             Guided implementation — not an overwhelming course.
           </p>
         </div>
