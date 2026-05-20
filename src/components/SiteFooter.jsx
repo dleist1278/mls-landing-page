@@ -14,7 +14,7 @@ export default function SiteFooter() {
   return (
     <footer style={{ backgroundColor: "#1E1E1E" }}>
       {/* Tonal gradient bridge */}
-      
+      <div className="w-full h-px" style={{ backgroundColor: "#C4956A", opacity: 0.22 }} />
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 py-12 md:py-16">
 
@@ -30,13 +30,13 @@ export default function SiteFooter() {
           </div>
 
           {/* Nav links — horizontal on desktop, wrap on mobile */}
-          <nav className="flex flex-wrap gap-x-5 gap-y-2">
+          <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {navLinks.map((item) =>
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className="font-body text-xs transition-colors duration-150 hover:text-white"
-              style={{ color: "#7A6E65", background: "none", border: "none", padding: 0, cursor: "pointer" }}>
+              className="font-micro transition-colors duration-150 hover:text-white"
+              style={{ color: "#6A5E57", fontSize: "0.68rem", letterSpacing: "0.08em", background: "none", border: "none", padding: 0, cursor: "pointer" }}>
                 {item.label}
               </button>
             )}
@@ -44,9 +44,9 @@ export default function SiteFooter() {
         </div>
 
         {/* Bottom micro bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-1.5 pt-4">
-          <p className="font-body text-xs" style={{ color: "#3A3028" }}>© 2026 Mama Launch Studio. All rights reserved.</p>
-          <p className="font-body text-xs" style={{ color: "#3A3028" }}>Designed with intention. Built with love.</p>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-1.5 pt-5">
+          <p className="font-micro" style={{ color: "#3A3028", fontSize: "0.62rem", letterSpacing: "0.06em" }}>© 2026 Mama Launch Studio. All rights reserved.</p>
+          <p className="font-micro" style={{ color: "#3A3028", fontSize: "0.62rem", letterSpacing: "0.06em" }}>Designed with intention. Built with love.</p>
         </div>
 
       </div>
