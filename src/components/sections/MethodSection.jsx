@@ -169,7 +169,7 @@ export default function MethodSection() {
 
   return (
     <section id="method" className="py-10 md:py-14 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", maxWidth: "100vw" }}>
-      <div className="w-full h-px mb-8" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
+
 
       <div
         ref={headerRef}
