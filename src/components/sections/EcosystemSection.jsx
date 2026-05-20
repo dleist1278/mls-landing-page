@@ -136,6 +136,14 @@ export default function EcosystemSection() {
           <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", maxWidth: "480px", fontSize: "0.92rem", lineHeight: "1.65" }}>
             A village that understands you. Built-in momentum to keep you progressing. Support that goes beyond motivation — straight into implementation.
           </p>
+          <div className="mt-8 mx-auto" style={{ maxWidth: "760px" }}>
+            <img
+              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/0cf27d777_Untitleddesign.png"
+              alt="Mama Launch platform — progress tracking, implementation tools, and community village"
+              className="w-full h-auto block"
+              style={{ filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.14)) drop-shadow(0 6px 16px rgba(196,149,106,0.12))" }}
+            />
+          </div>
           <p className="font-body mx-auto leading-relaxed hidden" style={{ color: "#5C5148", maxWidth: "500px", fontSize: "0.9rem", lineHeight: "1.6" }}>
             The Mama Launch community is operationally focused, uplifting, and milestone-driven — a village helping a village build something real.
           </p>
