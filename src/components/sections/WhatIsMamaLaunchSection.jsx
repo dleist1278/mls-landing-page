@@ -259,7 +259,7 @@ export default function WhatIsMamaLaunchSection() {
 
         {/* Mobile: single centered editorial image */}
         {mobileHeroImage &&
-        <div className="block md:hidden px-8 py-6">
+        <div className="block md:hidden px-8 py-6 hidden">
           <div className="relative mx-auto" style={{ maxWidth: "300px" }}>
             {/* Depth layers behind */}
             <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.18, zIndex: 0 }} />
