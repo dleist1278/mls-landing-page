@@ -114,9 +114,9 @@ export default function WalkAwaySection() {
   }, []);
 
   return (
-    <section id="walkaway" className="pt-20 md:pt-28 pb-14 md:pb-24" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
+    <section id="walkaway" className="pt-20 md:pt-28 pb-14 md:pb-24 overflow-visible" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px" }}>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 overflow-visible">
 
         {/* Header */}
         <div
@@ -142,7 +142,7 @@ export default function WalkAwaySection() {
         <div
           ref={portalRef}
           className="mb-16 md:mb-24 mx-auto"
-          style={{ maxWidth: "820px", transition: "opacity 0.6s ease, transform 0.6s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(16px)" }}>
+          style={{ maxWidth: "820px", overflow: "visible", transition: "opacity 0.6s ease, transform 0.6s ease", opacity: portalVisible ? 1 : 0, transform: portalVisible ? "translateY(0)" : "translateY(16px)" }}>
 
           <p className="font-micro mb-3 flex items-center justify-center gap-3 hidden" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
             <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
