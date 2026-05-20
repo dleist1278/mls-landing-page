@@ -233,11 +233,11 @@ export default function ModelsSection() {
                   }}>
 
                   {/* Corner ribbon — only on first (home-daycare) card */}
-                  {pathway.tagActive && (
-                    <div style={{ position: "absolute", top: "14px", left: "-22px", zIndex: 10, transform: "rotate(-45deg)", width: "100px", textAlign: "center", backgroundColor: "#C4956A", padding: "4px 0", boxShadow: "0 2px 6px rgba(196,149,106,0.3)" }}>
+                  {pathway.tagActive &&
+                  <div style={{ position: "absolute", top: "14px", left: "-22px", zIndex: 10, transform: "rotate(-45deg)", width: "100px", textAlign: "center", backgroundColor: "#C4956A", padding: "4px 0", boxShadow: "0 2px 6px rgba(196,149,106,0.3)" }}>
                       <span className="font-micro" style={{ color: "#fff", fontSize: "0.48rem", letterSpacing: "0.1em" }}>SPOTS LIMITED</span>
                     </div>
-                  )}
+                  }
                   
                   <div className="mb-2.5">
                     <span
@@ -301,8 +301,8 @@ export default function ModelsSection() {
                         animation: "ctaPulse 2.4s ease-in-out infinite"
                       }}>
                         {pathway.cta}
-                      </button>
-                    :
+                      </button> :
+
                     <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.65rem", letterSpacing: "0.08em" }}>Coming Soon</span>
                     }
                   </div>
@@ -347,15 +347,15 @@ export default function ModelsSection() {
           }
         `}</style>
 
-        <div className="relative w-full" style={{ height: "72px" }}>
+        <div className="relative w-full hidden" style={{ height: "72px" }}>
           {/* Base gradient band */}
-          <div className="absolute inset-0" style={{
+          <div className="absolute inset-0 hidden" style={{
             background: "linear-gradient(180deg, transparent 0%, #E8DDD0 40%, #EDE5D8 60%, transparent 100%)",
             opacity: 0.6
           }} />
 
           {/* Slow breathing glow orb — left */}
-          <div className="absolute" style={{
+          <div className="absolute hidden" style={{
             width: "180px", height: "180px",
             borderRadius: "50%",
             background: "radial-gradient(circle, #C4956A 0%, transparent 70%)",
