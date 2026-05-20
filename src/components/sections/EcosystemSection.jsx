@@ -219,8 +219,8 @@ export default function EcosystemSection() {
                 </div>
                 <div className="px-1.5 pt-2 pb-1 text-center">
                   <h3
-                  className="font-body text-xs font-bold"
-                  style={{ color: "#4D5E49" }}>
+                  className="font-display text-sm font-semibold"
+                  style={{ color: "#C4956A" }}>
                     {card.title}
                   </h3>
                 </div>
