@@ -167,8 +167,8 @@ export default function WalkAwaySection() {
             <span className="inline-block w-6 h-px" style={{ backgroundColor: "#C4956A44" }} />
           </p>
 
-          {/* Grounded image — warm tonal integration */}
-          <div className="relative pb-10" style={{ willChange: "transform", transform: `translateY(${parallaxY}px)`, transition: "transform 0.05s linear" }}>
+          {/* Phone mockup image */}
+          <div className="relative">
             <img
               src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/acfde67b8_ChatGPTImageMay19202609_12_17PM.png"
               alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
