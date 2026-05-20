@@ -2,27 +2,27 @@ import { useState, useRef, useEffect } from "react";
 import { GraduationCap, Home, Heart, ArrowRight, LayoutDashboard, Lightbulb, Gift } from "lucide-react";
 
 const credentials = [
-  { icon: GraduationCap, text: "Former educator + school leader" },
-  { icon: Home, text: "Licensed home daycare owner" },
-  { icon: Heart, text: "Mom of two" },
-  { icon: LayoutDashboard, text: "ClassTag — app features & retention pipeline" },
+  { icon: GraduationCap, text: "Educator, teacher & assistant principal" },
+  { icon: Home, text: "Licensed home daycare owner — lived it firsthand" },
+  { icon: LayoutDashboard, text: "Built features & retention systems at ClassTag" },
+  { icon: Heart, text: "Mom of two — this work is deeply personal" },
 ];
 
 const drawers = [
   {
     icon: Heart,
     title: "WHO",
-    content: "I'm Danielle — former educator, assistant principal, licensed home daycare owner, and mom of two. I also worked at ClassTag, a family communication platform, where I helped build app features and created an implementation and retention pipeline. I built this from the inside out.",
+    content: "I'm Danielle — and I've lived every version of this. I've been the teacher, the assistant principal, the mom figuring out childcare, and the one who actually went through licensing and opened my own home daycare. I didn't read about this path. I walked it.",
   },
   {
     icon: Lightbulb,
     title: "WHY",
-    content: "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers.",
+    content: "When I opened my program, I was shocked at how hard it was to find real, organized guidance. The information was scattered, the process felt impossible to navigate alone, and nothing was built for mothers running serious programs from home. So I built what I wished had existed.",
   },
   {
     icon: Gift,
     title: "WHAT",
-    content: "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone.",
+    content: "I took everything — my years in education, my licensing experience, my work building features and retention systems at ClassTag — and designed a platform that actually moves you forward. Mama Launch is the structured, supported launch path I needed and couldn't find.",
   },
 ];
 
@@ -164,7 +164,7 @@ export default function DanielleStorySection() {
               <em className="block" style={{ color: "#4D5E49" }}>because I needed it.</em>
             </h2>
             <p className="font-body leading-relaxed mb-6" style={{ color: "#5C5148", fontSize: "0.97rem", lineHeight: "1.72" }}>
-              I've been the educator, the assistant principal, the licensed home daycare owner — and through all of it, I've been a mom of two. I know what it feels like to hold a vision for something meaningful and not know where to begin.
+              I've stood exactly where you're standing. I've been the educator, the assistant principal, the mom who went through licensing and opened her own home daycare — and learned everything the hard way. That experience is exactly why I'm the right person to guide you through this.
             </p>
 
             {/* Credential list */}
