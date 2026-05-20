@@ -232,7 +232,7 @@ export default function EcosystemSection() {
               }}>
               {/* Accent top bar */}
               <div style={{ height: "3px", background: "linear-gradient(90deg, #C4956A, #C4956A88)" }} />
-                <div className="w-full overflow-hidden" style={{ height: "110px" }}>
+                <div className="w-full overflow-hidden" style={{ height: "160px" }}>
                   {CARD_IMAGES[card.key] ? <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/a2409d929_Screenshot_2026-05-19_at_21305_PM.png" alt={card.key} className="w-full h-full object-contain object-center block" style={{ filter: "saturate(0.82) brightness(0.97)" }} /> : null}
                 </div>
                 <div className="px-4 pt-2 pb-3 text-center">
