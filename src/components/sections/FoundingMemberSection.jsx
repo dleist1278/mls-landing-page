@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { ClipboardCheck, Mail, Users, Puzzle, DoorOpen, Heart } from "lucide-react";
+import { ClipboardCheck, Mail, Users, Puzzle, DoorOpen, Heart, ChevronDown } from "lucide-react";
 
 // ── Desktop data (unchanged) ──────────────────────────────────────────────────
 const steps = [
@@ -147,6 +147,17 @@ function MobileStageCard({ stage, isActive, onTap, stageIndex, totalStages }) {
             
             {stage.label}
           </span>
+
+          {/* Chevron */}
+          <ChevronDown
+            size={13}
+            style={{
+              color: isActive ? "#C4956A" : "#A8917A",
+              transform: isActive ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "transform 0.22s ease, color 0.2s ease",
+              flexShrink: 0
+            }}
+          />
         </div>
 
         {/* Expanded copy */}
