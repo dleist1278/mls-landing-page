@@ -313,6 +313,96 @@ export default function ModelsSection() {
         </div>
       </div>
 
+      {/* Animated section divider — mobile + desktop */}
+      <div className="w-full overflow-hidden" style={{ marginTop: "8px", lineHeight: 0 }}>
+        <style>{`
+          @keyframes shimmerWave {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+          }
+          @keyframes breatheGlow {
+            0%, 100% { opacity: 0.18; transform: scaleX(1); }
+            50% { opacity: 0.38; transform: scaleX(1.04); }
+          }
+          @keyframes floatOrb {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.22; }
+            50% { transform: translateY(-8px) scale(1.08); opacity: 0.36; }
+          }
+        `}</style>
+
+        <div className="relative w-full" style={{ height: "72px" }}>
+          {/* Base gradient band */}
+          <div className="absolute inset-0" style={{
+            background: "linear-gradient(180deg, transparent 0%, #E8DDD0 40%, #EDE5D8 60%, transparent 100%)",
+            opacity: 0.6
+          }} />
+
+          {/* Slow breathing glow orb — left */}
+          <div className="absolute" style={{
+            width: "180px", height: "180px",
+            borderRadius: "50%",
+            background: "radial-gradient(circle, #C4956A 0%, transparent 70%)",
+            left: "8%", top: "50%", transform: "translate(-50%, -50%)",
+            animation: "floatOrb 5s ease-in-out infinite",
+            animationDelay: "0s",
+            opacity: 0.22,
+            filter: "blur(18px)"
+          }} />
+
+          {/* Slow breathing glow orb — right */}
+          <div className="absolute" style={{
+            width: "140px", height: "140px",
+            borderRadius: "50%",
+            background: "radial-gradient(circle, #4D5E49 0%, transparent 70%)",
+            right: "10%", top: "50%", transform: "translate(50%, -50%)",
+            animation: "floatOrb 6.5s ease-in-out infinite",
+            animationDelay: "1.2s",
+            opacity: 0.18,
+            filter: "blur(14px)"
+          }} />
+
+          {/* Center shimmer line */}
+          <div className="absolute left-0 right-0" style={{ top: "50%", transform: "translateY(-50%)", height: "1px", overflow: "hidden" }}>
+            <div style={{
+              position: "absolute", inset: 0,
+              background: "linear-gradient(90deg, transparent, #C4956A66, #4D5E4944, #C4956A66, transparent)",
+              animation: "breatheGlow 4s ease-in-out infinite"
+            }} />
+            {/* Moving shimmer */}
+            <div style={{
+              position: "absolute", top: 0, bottom: 0, width: "40%",
+              background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)",
+              animation: "shimmerWave 3s ease-in-out infinite",
+              animationDelay: "0.5s"
+            }} />
+          </div>
+
+          {/* Thin clay accent line above */}
+          <div className="absolute left-1/2" style={{
+            top: "calc(50% - 6px)", transform: "translateX(-50%)",
+            width: "60px", height: "1px",
+            background: "linear-gradient(90deg, transparent, #C4956A, transparent)",
+            opacity: 0.5
+          }} />
+          {/* Thin sage accent line below */}
+          <div className="absolute left-1/2" style={{
+            top: "calc(50% + 6px)", transform: "translateX(-50%)",
+            width: "40px", height: "1px",
+            background: "linear-gradient(90deg, transparent, #4D5E49, transparent)",
+            opacity: 0.4
+          }} />
+
+          {/* Center diamond mark */}
+          <div className="absolute left-1/2 top-1/2" style={{
+            transform: "translate(-50%, -50%) rotate(45deg)",
+            width: "6px", height: "6px",
+            backgroundColor: "#C4956A",
+            opacity: 0.5,
+            borderRadius: "1px"
+          }} />
+        </div>
+      </div>
+
       {/* Cohort date — mobile only, editorial invitation tone */}
       <div className="md:hidden max-w-5xl mx-auto px-6 mt-8 pb-10">
 
