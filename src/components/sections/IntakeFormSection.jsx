@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { trackWaitlistSubmit, trackCTAClick } from "@/lib/analytics";
-
-const FUNCTION_URL =
-  "https://api.base44.com/api/apps/6a090e6659c9e6ef2267ee4b/functions/hubspotLeadCapture";
+import { base44 } from "@/api/base44Client";
 
 const states = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
@@ -47,19 +45,15 @@ export default function IntakeFormSection() {
     setSubmitError("");
 
     try {
-      const res = await fetch(FUNCTION_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          email: form.email,
-          state: form.state,
-          pathway: form.pathway,
-        }),
+      const res = await base44.functions.invoke("hubspotLeadCapture", {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        state: form.state,
+        pathway: form.pathway,
       });
 
-      const result = await res.json();
+      const result = res.data;
 
       if (result?.success) {
         trackWaitlistSubmit({ interest: form.pathway, state: form.state });
