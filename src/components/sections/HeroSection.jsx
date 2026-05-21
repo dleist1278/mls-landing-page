@@ -1,4 +1,3 @@
-import WaitlistForm from "@/components/WaitlistForm";
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import HeroImage from "@/components/sections/HeroImage";
