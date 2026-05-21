@@ -39,10 +39,41 @@ export default function IntakeFormSection() {
   const handleChange = (field, value) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setSubmitError("");
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setSubmitting(true);
+  setSubmitError("");
+
+  try {
+    const res = await fetch(
+      "https://api.base44.com/api/apps/6a01f9a6b3cd01fecd87b705/functions/hubspotLeadCapture",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          state: form.state,
+          pathway: form.pathway,
+        }),
+      }
+    );
+
+    const result = await res.json();
+
+    if (result?.success) {
+      trackWaitlistSubmit({ interest: form.pathway, state: form.state });
+      setSubmitted(true);
+    } else {
+      setSubmitError(result?.error || "Something went wrong. Please try again.");
+    }
+  } catch (err) {
+    setSubmitError("Connection error. Please try again.");
+  } finally {
+    setSubmitting(false);
+  }
+};
 
     try {
       const result = await base44.functions.invoke("hubspotLeadCapture", {
