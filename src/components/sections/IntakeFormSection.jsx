@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
-import { base44 } from "@/api/base44Client";
 import { trackWaitlistSubmit, trackCTAClick } from "@/lib/analytics";
+
+const FUNCTION_URL =
+  "https://api.base44.com/api/apps/6a01f9a6b3cd01fecd87b705/functions/hubspotLeadCapture";
 
 const states = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
@@ -39,25 +41,31 @@ export default function IntakeFormSection() {
   const handleChange = (field, value) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setSubmitError("");
 
     try {
-      const result = await base44.functions.invoke("hubspotLeadCapture", {
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        state: form.state,
-        pathway: form.pathway,
+      const res = await fetch(FUNCTION_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          state: form.state,
+          pathway: form.pathway,
+        }),
       });
 
-      if (result?.data?.success) {
+      const result = await res.json();
+
+      if (result?.success) {
         trackWaitlistSubmit({ interest: form.pathway, state: form.state });
         setSubmitted(true);
       } else {
-        setSubmitError(result?.data?.error || "Something went wrong. Please try again.");
+        setSubmitError(result?.error || "Something went wrong. Please try again.");
       }
     } catch (err) {
       setSubmitError("Connection error. Please try again.");
@@ -282,7 +290,7 @@ const handleSubmit = async (e) => {
                     <input
                       type="email"
                       required
-                      placeholder="your@email.com"
+                      placeholder="your@[email.com](https://email.com)"
                       value={form.email}
                       onChange={(e) => handleChange("email", e.target.value)}
                       style={inputStyle}
