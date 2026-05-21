@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { trackWaitlistSubmit, trackCTAClick } from "@/lib/analytics";
 
 const FUNCTION_URL =
-  "https://api.base44.com/api/apps/6a01f9a6b3cd01fecd87b705/functions/hubspotLeadCapture";
+  "https://api.base44.com/api/apps/6a090e6659c9e6ef2267ee4b/functions/hubspotLeadCapture";
 
 const states = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
@@ -290,7 +290,7 @@ export default function IntakeFormSection() {
                     <input
                       type="email"
                       required
-                      placeholder="your@[email.com](https://email.com)"
+                      placeholder="your@email.com"
                       value={form.email}
                       onChange={(e) => handleChange("email", e.target.value)}
                       style={inputStyle}
