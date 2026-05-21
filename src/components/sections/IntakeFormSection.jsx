@@ -1,31 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
-import { trackWaitlistSubmit, trackCTAClick } from "@/lib/analytics";
-import { base44 } from "@/api/base44Client";
-
-const states = [
-  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
-  "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
-  "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan",
-  "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
-  "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
-  "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
-  "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
-  "Wisconsin", "Wyoming",
-];
 
 export default function IntakeFormSection() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    state: "",
-    pathway: "",
-  });
+  const formContainerRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,57 +14,31 @@ export default function IntakeFormSection() {
     return () => observer.disconnect();
   }, []);
 
-  const handleChange = (field, value) =>
-    setForm((prev) => ({ ...prev, [field]: value }));
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setSubmitError("");
-
-    try {
-      const res = await base44.functions.invoke("hubspotLeadCapture", {
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        state: form.state,
-        pathway: form.pathway,
-      });
-
-      const result = res.data;
-
-      if (result?.success) {
-        trackWaitlistSubmit({ interest: form.pathway, state: form.state });
-        setSubmitted(true);
-      } else {
-        setSubmitError(result?.error || "Something went wrong. Please try again.");
-      }
-    } catch (err) {
-      setSubmitError("Connection error. Please try again.");
-    } finally {
-      setSubmitting(false);
+  useEffect(() => {
+    // Load HubSpot embed script and create form
+    if (!document.querySelector('script[src="//js.hsforms.net/forms/embed/v2.js"]')) {
+      const script = document.createElement("script");
+      script.charset = "utf-8";
+      script.type = "text/javascript";
+      script.src = "//js.hsforms.net/forms/embed/v2.js";
+      script.onload = () => createHsForm();
+      document.head.appendChild(script);
+    } else if (window.hbspt) {
+      createHsForm();
     }
-  };
 
-  const inputStyle = {
-    background: "rgba(255,255,255,0.7)",
-    border: "1px solid #E0D1BF",
-    borderRadius: "10px",
-    padding: "10px 14px",
-    fontFamily: "'Inter', sans-serif",
-    fontSize: "16px",
-    color: "#2C2C2C",
-    width: "100%",
-    outline: "none",
-    WebkitAppearance: "none",
-    appearance: "none",
-    boxSizing: "border-box",
-  };
-
-  const selectStyle = {
-    ...inputStyle,
-    cursor: "pointer",
-  };
+    function createHsForm() {
+      if (window.hbspt && formContainerRef.current) {
+        formContainerRef.current.innerHTML = "";
+        window.hbspt.forms.create({
+          region: "na2",
+          portalId: "246156561",
+          formId: "aa96c22d-2a9d-495a-9951-158ab4b95899",
+          target: "#hs-form-container",
+        });
+      }
+    }
+  }, []);
 
   return (
     <section
@@ -201,212 +153,45 @@ export default function IntakeFormSection() {
                 </p>
               </div>
 
-              {/* Success state */}
-              {submitted ? (
-                <div className="text-center py-12">
-                  <div
-                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
-                    style={{
-                      background: "linear-gradient(135deg, #4D5E4920, #4D5E4908)",
-                      border: "1px solid #4D5E4930",
-                    }}
-                  >
-                    <span style={{ color: "#4D5E49", fontSize: "1.6rem" }}>✓</span>
-                  </div>
-                  <h3
-                    className="font-display text-3xl md:text-4xl mb-4"
-                    style={{ color: "#2C2C2C" }}
-                  >
-                    You're on the waitlist,{" "}
-                    <em style={{ color: "#4D5E49" }}>{form.firstName || "Mama"}.</em>
-                  </h3>
-                  <div className="w-10 h-px mx-auto my-5" style={{ backgroundColor: "#C4956A" }} />
-                  <p
-                    className="font-body mx-auto leading-relaxed"
-                    style={{ color: "#5C5148", maxWidth: "400px", fontSize: "1rem" }}
-                  >
-                    We'll send next steps to your inbox soon.
-                  </p>
-                  <p
-                    className="font-micro mt-6"
-                    style={{ color: "#C4956A", fontSize: "0.72rem" }}
-                  >
-                    You are exactly where you're meant to be.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-
-                  {/* Row 1 — First Name + Last Name */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label
-                        className="font-micro block mb-1.5"
-                        style={{ color: "#9a8f84", fontSize: "0.65rem" }}
-                      >
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="First name"
-                        value={form.firstName}
-                        onChange={(e) => handleChange("firstName", e.target.value)}
-                        style={inputStyle}
-                      />
-                    </div>
-                    <div>
-                      <label
-                        className="font-micro block mb-1.5"
-                        style={{ color: "#9a8f84", fontSize: "0.65rem" }}
-                      >
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Last name"
-                        value={form.lastName}
-                        onChange={(e) => handleChange("lastName", e.target.value)}
-                        style={inputStyle}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Row 2 — Email */}
-                  <div>
-                    <label
-                      className="font-micro block mb-1.5"
-                      style={{ color: "#9a8f84", fontSize: "0.65rem" }}
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="your@email.com"
-                      value={form.email}
-                      onChange={(e) => handleChange("email", e.target.value)}
-                      style={inputStyle}
-                    />
-                  </div>
-
-                  {/* Row 3 — State */}
-                  <div className="relative">
-                    <label
-                      className="font-micro block mb-1.5"
-                      style={{ color: "#9a8f84", fontSize: "0.65rem" }}
-                    >
-                      Your State
-                    </label>
-                    <select
-                      required
-                      value={form.state}
-                      onChange={(e) => handleChange("state", e.target.value)}
-                      style={{
-                        ...selectStyle,
-                        color: form.state ? "#2C2C2C" : "#9a8f84",
-                        paddingRight: "32px",
-                      }}
-                    >
-                      <option value="" disabled>Select your state</option>
-                      {states.map((s) => (
-                        <option key={s} value={s} style={{ color: "#2C2C2C" }}>{s}</option>
-                      ))}
-                    </select>
-                    <span
-                      className="absolute right-3 bottom-3.5 pointer-events-none"
-                      style={{ color: "#C4956A88", fontSize: "0.6rem" }}
-                    >
-                      ↓
-                    </span>
-                  </div>
-
-                  {/* Row 4 — Pathway */}
-                  <div className="relative">
-                    <label
-                      className="font-micro block mb-1.5"
-                      style={{ color: "#9a8f84", fontSize: "0.65rem" }}
-                    >
-                      Which program path interests you most?
-                    </label>
-                    <select
-                      required
-                      value={form.pathway}
-                      onChange={(e) => handleChange("pathway", e.target.value)}
-                      style={{
-                        ...selectStyle,
-                        color: form.pathway ? "#2C2C2C" : "#9a8f84",
-                        paddingRight: "32px",
-                      }}
-                    >
-                      <option value="" disabled>Select your path</option>
-                      <option value="Home Daycare & Nursery (Full-Time)" style={{ color: "#2C2C2C" }}>
-                        Home Daycare &amp; Nursery (Full-Time)
-                      </option>
-                      <option value="Drop-In Care (Part-Time / Flexible)" style={{ color: "#9a8f84" }}>
-                        Drop-In Care — Coming Soon
-                      </option>
-                      <option value="Small-Group Caregiver Co-op" style={{ color: "#9a8f84" }}>
-                        Small-Group Co-op — Coming Soon
-                      </option>
-                      <option value="Not sure yet" style={{ color: "#2C2C2C" }}>
-                        I'm not sure yet — help me decide
-                      </option>
-                    </select>
-                    <span
-                      className="absolute right-3 bottom-3.5 pointer-events-none"
-                      style={{ color: "#C4956A88", fontSize: "0.6rem" }}
-                    >
-                      ↓
-                    </span>
-                  </div>
-
-                  {/* Error */}
-                  {submitError && (
-                    <div
-                      className="p-4 rounded-2xl"
-                      style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA" }}
-                    >
-                      <p className="font-body text-sm" style={{ color: "#DC2626" }}>
-                        {submitError}
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Submit */}
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      onClick={() => trackCTAClick("Join Founding Member Waitlist", "intake_form")}
-                      className="font-micro text-white w-full px-8 py-4 rounded-2xl transition-all min-h-[52px] disabled:opacity-60"
-                      style={{
-                        background: "linear-gradient(135deg, #4D5E49, #3a4a37)",
-                        fontSize: "0.75rem",
-                        letterSpacing: "0.1em",
-                        boxShadow: "0 6px 24px rgba(77,94,73,0.28), 0 1px 3px rgba(77,94,73,0.12)",
-                        border: "none",
-                        cursor: submitting ? "not-allowed" : "pointer",
-                      }}
-                    >
-                      {submitting ? "Submitting…" : "Join the Founding Member Waitlist"}
-                    </button>
-                    <p
-                      className="text-center font-body mt-3"
-                      style={{ color: "#B0A090", fontSize: "0.7rem" }}
-                    >
-                      No spam, ever. Just your next step forward.
-                    </p>
-                    <p
-                      className="text-center font-body mt-2 hidden md:block"
-                      style={{ color: "#9a8f84", fontSize: "0.72rem", lineHeight: "1.5" }}
-                    >
-                      Founding members receive early access, founding pricing, and first entry into the Mama Launch platform.
-                    </p>
-                  </div>
-                </form>
-              )}
+              {/* HubSpot Embed Form */}
+              <style>{`
+                #hs-form-container .hs-form fieldset { max-width: 100% !important; }
+                #hs-form-container .hs-form .hs-input {
+                  background: rgba(255,255,255,0.7) !important;
+                  border: 1px solid #E0D1BF !important;
+                  border-radius: 10px !important;
+                  padding: 10px 14px !important;
+                  font-family: 'Inter', sans-serif !important;
+                  font-size: 16px !important;
+                  color: #2C2C2C !important;
+                  width: 100% !important;
+                  box-sizing: border-box !important;
+                }
+                #hs-form-container .hs-form .hs-button {
+                  background: linear-gradient(135deg, #4D5E49, #3a4a37) !important;
+                  color: #fff !important;
+                  font-family: 'Inter', sans-serif !important;
+                  font-size: 0.75rem !important;
+                  letter-spacing: 0.1em !important;
+                  text-transform: uppercase !important;
+                  border: none !important;
+                  border-radius: 14px !important;
+                  padding: 14px 32px !important;
+                  width: 100% !important;
+                  cursor: pointer !important;
+                  box-shadow: 0 6px 24px rgba(77,94,73,0.28) !important;
+                }
+                #hs-form-container .hs-form label {
+                  font-family: 'Inter', sans-serif !important;
+                  font-size: 0.65rem !important;
+                  letter-spacing: 0.1em !important;
+                  text-transform: uppercase !important;
+                  color: #9a8f84 !important;
+                }
+                #hs-form-container .hs-error-msgs { color: #DC2626 !important; font-size: 0.8rem !important; }
+                #hs-form-container .hs-form .field { margin-bottom: 20px !important; }
+              `}</style>
+              <div id="hs-form-container" ref={formContainerRef} />
             </div>
           </div>
         </div>
