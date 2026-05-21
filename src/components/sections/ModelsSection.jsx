@@ -31,6 +31,16 @@ const pathways = [
   "For mothers wanting to build intentional small-group learning environments with more flexibility and autonomy.",
   features: ["Small groups", "Custom curriculum", "Autonomy", "Village support"],
   cta: null
+},
+{
+  id: "caregiver-babysitter",
+  tag: "Coming Soon",
+  tagActive: false,
+  title: "Caregiver / Babysitter",
+  description:
+  "For mothers offering dedicated in-home care to one family — following the Mama Launch Method with the option to bring their own child as a natural enhancement to family life.",
+  features: ["One-family focus", "Flexible hours", "Child-friendly", "Village support"],
+  cta: null
 }];
 
 
@@ -116,8 +126,8 @@ export default function ModelsSection() {
             50% { opacity: 0.3; }
           }
         `}</style>
-        <div className="hidden md:grid grid-cols-3 gap-5">
-          {[pathways[1], pathways[0], pathways[2]].map((pathway, i) => (
+        <div className="hidden md:grid grid-cols-4 gap-5">
+          {[pathways[1], pathways[0], pathways[2], pathways[3]].map((pathway, i) => (
             <div key={pathway.id} className="rounded-3xl overflow-hidden flex flex-col"
               style={{
                 backgroundColor: "#FFFDF9",
