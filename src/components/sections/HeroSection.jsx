@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { base44 } from "@/api/client";
+import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 
 // 7-item nav per benchmark brief — Shop/Work With Me/Contact in footer
