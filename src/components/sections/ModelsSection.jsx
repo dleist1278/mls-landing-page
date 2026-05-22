@@ -153,7 +153,7 @@ export default function ModelsSection() {
                     <span className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22", color: "#C4956A", fontSize: "0.62rem" }}>{pathway.tag}</span>
                   )}
                 </div>
-                <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "1.35rem", lineHeight: "1.2" }}>{pathway.title}</h3>
+                <h3 className="font-display text-center" style={{ color: "#2C2C2C", fontSize: "1.35rem", lineHeight: "1.2" }}>{pathway.title}</h3>
                 <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#5C5148" }}>{pathway.description}</p>
                 <div className="flex flex-wrap gap-1.5 mb-2 justify-center">
                   {pathway.features.map((f) => (
