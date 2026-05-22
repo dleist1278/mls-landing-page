@@ -143,9 +143,9 @@ export default function ModelsSection() {
               )}
               <div style={{ height: "3px", background: pathway.tagActive ? "linear-gradient(90deg, #4D5E49, #4D5E4955)" : "linear-gradient(90deg, #C4956A55, #C4956A22)" }} />
               <div className="p-7 flex flex-col flex-1 gap-3">
-                <div className="inline-flex items-center gap-2 self-start">
+                <div className="flex justify-center">
                   {pathway.tagActive ? (
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mx-auto" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
                       <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49", animation: "enrollPulse 1.6s ease-in-out infinite" }} />
                       <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.62rem" }}>{pathway.tag}</span>
                     </div>
