@@ -38,13 +38,22 @@ export default function BlueprintPage() {
     setError("");
     setSubmitting(true);
     try {
-      await base44.functions.invoke("hubspotLeadCapture", {
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        stage: form.stage,
-        source: "blueprint_landing",
-      });
+      const response = await fetch(
+        "https://api.base44.app/api/apps/6a0f3060b259082fa2acf652/functions/blueprintCapture",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            first_name: form.firstName,
+            last_name: form.lastName,
+            email: form.email,
+            readiness_stage: form.stage,
+            program_interest: "home-daycare",
+          }),
+        }
+      );
+      const data = await response.json();
+      if (!data.ok) throw new Error(data.error || "Submission failed");
       setSubmitted(true);
     } catch (err) {
       setError("Something went wrong. Please try again.");
