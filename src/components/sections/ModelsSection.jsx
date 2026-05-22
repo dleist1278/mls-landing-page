@@ -154,7 +154,7 @@ export default function ModelsSection() {
                   )}
                 </div>
                 <h3 className="font-display text-center" style={{ color: "#2C2C2C", fontSize: "1.35rem", lineHeight: "1.2" }}>{pathway.title}</h3>
-                <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#5C5148" }}>{pathway.description}</p>
+                <p className="font-body text-sm leading-relaxed flex-1 text-center" style={{ color: "#5C5148" }}>{pathway.description}</p>
                 <div className="flex flex-wrap gap-1.5 mb-2 justify-center">
                   {pathway.features.map((f) => (
                     <span key={f} className="font-micro px-2 py-1 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.06)", color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.06em" }}>{f}</span>
