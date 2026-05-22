@@ -23,7 +23,7 @@ const foundations = [
 ];
 
 export default function BlueprintPage() {
-  const [form, setForm] = useState({ firstName: "", email: "", stage: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", stage: "" });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -40,6 +40,7 @@ export default function BlueprintPage() {
     try {
       await base44.functions.invoke("hubspotLeadCapture", {
         firstName: form.firstName,
+        lastName: form.lastName,
         email: form.email,
         stage: form.stage,
         source: "blueprint_landing",
@@ -136,6 +137,12 @@ export default function BlueprintPage() {
               <label style={{ display: "block", fontSize: "0.62rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#9a8f84", marginBottom: "6px" }}>First Name</label>
               <input type="text" value={form.firstName} onChange={e => setForm({ ...form, firstName: e.target.value })}
                 placeholder="Your first name"
+                style={{ width: "100%", background: "rgba(255,255,255,0.7)", border: "1px solid #E0D1BF", borderRadius: "10px", padding: "12px 14px", fontSize: "1rem", color: "#2C2C2C", boxSizing: "border-box", outline: "none" }} />
+            </div>
+            <div>
+              <label style={{ display: "block", fontSize: "0.62rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#9a8f84", marginBottom: "6px" }}>Last Name</label>
+              <input type="text" value={form.lastName} onChange={e => setForm({ ...form, lastName: e.target.value })}
+                placeholder="Your last name"
                 style={{ width: "100%", background: "rgba(255,255,255,0.7)", border: "1px solid #E0D1BF", borderRadius: "10px", padding: "12px 14px", fontSize: "1rem", color: "#2C2C2C", boxSizing: "border-box", outline: "none" }} />
             </div>
             <div>
