@@ -144,24 +144,27 @@ export default function ThankYou() {
           </h1>
 
           <p
-            className="font-body leading-relaxed mx-auto"
+            className="font-body leading-relaxed mx-auto mb-5"
             style={{ color: "#5C5148", maxWidth: "440px", fontSize: "1rem" }}
           >
-            You just took the first real step toward your home childcare program. That matters more than you know.
+            From idea to opening day — with clarity, structure, and support.
+          </p>
+
+          <p
+            className="font-body leading-relaxed mx-auto"
+            style={{ color: "#5C5148", maxWidth: "460px", fontSize: "0.97rem", lineHeight: "1.7" }}
+          >
+            You're officially on the Founding Member Waitlist. Within the next 24 hours, you'll receive an email with next steps, <em style={{ color: "#4D5E49" }}>The Calm Home Childcare Blueprint</em>, and more details about the Mama Launch founding experience.
           </p>
 
           <div className="w-10 h-px mx-auto my-8" style={{ backgroundColor: "#C4956A", opacity: 0.5 }} />
 
-          {/* Timeline note */}
-          <div
-            className="inline-block rounded-2xl px-6 py-3"
-            style={{ backgroundColor: "#F0EBE1", border: "1px solid #C4956A18" }}
+          <p
+            className="font-body mx-auto"
+            style={{ color: "#7A6E65", maxWidth: "380px", fontSize: "0.92rem", fontStyle: "italic" }}
           >
-            <p className="font-body" style={{ color: "#5C5148", fontSize: "0.88rem" }}>
-              <span style={{ color: "#4D5E49" }}>Expected timeline:</span>{" "}
-              You'll hear from us within <strong>24 hours</strong>.
-            </p>
-          </div>
+            You do not need to have everything figured out before starting.
+          </p>
         </div>
 
         {/* What happens next */}
