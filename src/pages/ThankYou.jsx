@@ -21,7 +21,12 @@ export default function ThankYou() {
 
       <div
         className="ty-wrap"
-        style={{ maxWidth: '560px', width: '100%', textAlign: 'center', paddingTop: '40px' }}
+        style={{
+          maxWidth: '560px',
+          width: '100%',
+          textAlign: 'center',
+          paddingTop: '40px'
+        }}
       >
 
         {/* Eyebrow */}
@@ -134,7 +139,12 @@ export default function ThankYou() {
               }}>
                 {i + 1}
               </span>
-              <p style={{ fontSize: '15px', color: '#3a3a2e', lineHeight: '1.65', margin: '0' }}>
+              <p style={{
+                fontSize: '15px',
+                color: '#3a3a2e',
+                lineHeight: '1.65',
+                margin: '0'
+              }}>
                 {step}
               </p>
             </div>
@@ -149,8 +159,11 @@ export default function ThankYou() {
           fontFamily: 'Arial, sans-serif'
         }}>
           Mama Launch Studio ·{' '}
-          <a href="https://mamalaunchstudio.com" style={{ color: '#9a9a8a', textDecoration: 'none' }}>
-            mamalaunchstudio.com
+          <a
+            href="https://mamalaunchstudio.com"
+            style={{ color: '#9a9a8a', textDecoration: 'none' }}
+          >
+            [mamalaunchstudio.com](https://mamalaunchstudio.com)
           </a>
         </p>
 
