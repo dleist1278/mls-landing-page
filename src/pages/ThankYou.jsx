@@ -9,11 +9,7 @@ export default function ThankYou() {
       padding: '48px 24px',
       fontFamily: 'Georgia, serif'
     }}>
-      <div style={{
-        maxWidth: '560px',
-        width: '100%',
-        textAlign: 'center'
-      }}>
+      <div style={{ maxWidth: '560px', width: '100%', textAlign: 'center' }}>
 
         {/* Eyebrow */}
         <p style={{
@@ -63,6 +59,9 @@ export default function ThankYou() {
             marginBottom: '24px',
             fontFamily: 'Arial, sans-serif',
             fontWeight: '600'
+          }}>
+            What Happens Next?
+          </h2>
 
           {[
             'Check your inbox within 24 hours.',
@@ -92,12 +91,7 @@ export default function ThankYou() {
               }}>
                 {i + 1}
               </span>
-              <p style={{
-                fontSize: '15px',
-                color: '#3a3a2e',
-                lineHeight: '1.6',
-                margin: '0'
-              }}>
+              <p style={{ fontSize: '15px', color: '#3a3a2e', lineHeight: '1.6', margin: '0' }}>
                 {step}
               </p>
             </div>
@@ -105,12 +99,11 @@ export default function ThankYou() {
         </div>
 
         {/* Footer */}
-        <p style={{
-          fontSize: '13px',
-          color: '#9a9a8a',
-          marginTop: '32px'
-        }}>
-          Mama Launch Studio · [mamalaunchstudio.com](https://mamalaunchstudio.com)
+        <p style={{ fontSize: '13px', color: '#9a9a8a', marginTop: '32px' }}>
+          Mama Launch Studio ·{' '}
+          <a href="https://mamalaunchstudio.com" style={{ color: '#9a9a8a' }}>
+            mamalaunchstudio.com
+          </a>
         </p>
 
       </div>
