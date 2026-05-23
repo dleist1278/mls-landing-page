@@ -63,9 +63,6 @@ export default function ThankYou() {
             marginBottom: '24px',
             fontFamily: 'Arial, sans-serif',
             fontWeight: '600'
-          }}>
-            What Happens Next?
-          </h2>
 
           {[
             'Check your inbox within 24 hours.',
