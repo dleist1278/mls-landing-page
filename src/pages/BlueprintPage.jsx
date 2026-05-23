@@ -468,7 +468,7 @@ export default function BlueprintPage() {
 
       setSubmitted(true);
     } catch (err) {
-      setError([err.me](https://err.me)ssage || "Something went wrong. Please try again.");
+      setError(err.message || "Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
     }
