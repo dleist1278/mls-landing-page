@@ -94,7 +94,7 @@ export default function IntakeFormSection() {
             transform: visible ? "translateY(0)" : "translateY(16px)",
           }}
         >
-          {/* Form card */}
+          {/* Intro card */}
           <div
             className="relative overflow-hidden rounded-3xl"
             style={{
@@ -151,18 +151,6 @@ export default function IntakeFormSection() {
                 >
                   You do not need to have everything figured out before starting.
                 </p>
-
-                <div className="mt-8 max-w-md mx-auto text-center">
-                  <h3 className="font-display text-lg mb-4" style={{ color: "#2C2C2C" }}>
-                    What Happens Next?
-                  </h3>
-                  <ul className="list-none p-0 m-0 space-y-2 text-sm" style={{ color: "#5C5148" }}>
-                    <li>1. Check your inbox within 24 hours.</li>
-                    <li>2. Receive The Calm Home Childcare Blueprint and founding member details.</li>
-                    <li>3. Learn more about the July 8 founding cohort experience.</li>
-                    <li>4. Be first invited into the Mama Launch membership experience.</li>
-                  </ul>
-                </div>
               </div>
 
               {/* HubSpot Embed Form */}
@@ -206,6 +194,20 @@ export default function IntakeFormSection() {
               <div id="hs-form-container" ref={formContainerRef} />
             </div>
           </div>
+
+          {/* What Happens Next — appears BELOW the form card */}
+          <div className="mt-8 max-w-md mx-auto text-center">
+            <h3 className="font-display text-lg mb-4" style={{ color: "#2C2C2C" }}>
+              What Happens Next?
+            </h3>
+            <ul className="list-none p-0 m-0 space-y-2 text-sm" style={{ color: "#5C5148" }}>
+              <li>1. Check your inbox within 24 hours.</li>
+              <li>2. Receive The Calm Home Childcare Blueprint and founding member details.</li>
+              <li>3. Learn more about the July 8 founding cohort experience.</li>
+              <li>4. Be first invited into the Mama Launch membership experience.</li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </section>
