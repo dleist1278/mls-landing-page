@@ -6,16 +6,16 @@ export default function ThankYou() {
       display: 'flex',
       alignItems: 'flex-start',
       justifyContent: 'center',
-      padding: '48px 24px 64px',
+      padding: '32px 24px 48px',
       fontFamily: 'Georgia, serif'
     }}>
       <style>{`
         @media (max-width: 640px) {
-          .ty-wrap { padding-top: 32px !important; }
-          .ty-eyebrow { margin-bottom: 14px !important; }
+          .ty-wrap { padding-top: 20px !important; }
+          .ty-eyebrow { margin-bottom: 12px !important; }
           .ty-headline { margin-bottom: 16px !important; font-size: 26px !important; }
-          .ty-intro-1 { margin-bottom: 6px !important; line-height: 1.6 !important; }
-          .ty-intro-2 { margin-bottom: 32px !important; line-height: 1.6 !important; }
+          .ty-intro-1 { margin-bottom: 14px !important; line-height: 1.6 !important; }
+          .ty-intro-2 { margin-bottom: 28px !important; line-height: 1.6 !important; }
         }
       `}</style>
 
@@ -25,7 +25,7 @@ export default function ThankYou() {
           maxWidth: '560px',
           width: '100%',
           textAlign: 'center',
-          paddingTop: '40px'
+          paddingTop: '24px'
         }}
       >
 
@@ -37,7 +37,7 @@ export default function ThankYou() {
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             color: '#c8a96e',
-            marginBottom: '20px',
+            marginBottom: '18px',
             fontFamily: 'Arial, sans-serif'
           }}
         >
@@ -51,7 +51,7 @@ export default function ThankYou() {
             fontSize: 'clamp(26px, 5vw, 38px)',
             fontWeight: '400',
             color: '#2c3e2d',
-            marginBottom: '24px',
+            marginBottom: '22px',
             lineHeight: '1.2'
           }}
         >
@@ -64,7 +64,7 @@ export default function ThankYou() {
           style={{
             fontSize: '15px',
             color: '#5a5a4a',
-            marginBottom: '8px',
+            marginBottom: '14px',
             lineHeight: '1.6',
             maxWidth: '460px',
             marginLeft: 'auto',
@@ -80,7 +80,7 @@ export default function ThankYou() {
           style={{
             fontSize: '15px',
             color: '#5a5a4a',
-            marginBottom: '48px',
+            marginBottom: '40px',
             lineHeight: '1.6',
             maxWidth: '460px',
             marginLeft: 'auto',
@@ -163,7 +163,7 @@ export default function ThankYou() {
             href="https://mamalaunchstudio.com"
             style={{ color: '#9a9a8a', textDecoration: 'none' }}
           >
-            [mamalaunchstudio.com](https://mamalaunchstudio.com)
+            mamalaunchstudio.com
           </a>
         </p>
 
