@@ -9,7 +9,11 @@ export default function ThankYou() {
       padding: '48px 24px',
       fontFamily: 'Georgia, serif'
     }}>
-      <div style={{ maxWidth: '560px', width: '100%', textAlign: 'center' }}>
+      <div style={{
+        maxWidth: '560px',
+        width: '100%',
+        textAlign: 'center'
+      }}>
 
         {/* Eyebrow */}
         <p style={{
@@ -17,46 +21,61 @@ export default function ThankYou() {
           letterSpacing: '0.15em',
           textTransform: 'uppercase',
           color: '#c8a96e',
-          marginBottom: '24px'
+          marginBottom: '24px',
+          fontFamily: 'Arial, sans-serif'
         }}>
           — Founding Member Waitlist —
         </p>
 
         {/* Headline */}
         <h1 style={{
-          fontSize: '36px',
+          fontSize: 'clamp(28px, 6vw, 40px)',
           fontWeight: '400',
           color: '#2c3e2d',
-          marginBottom: '16px',
+          marginBottom: '20px',
           lineHeight: '1.2'
         }}>
-          You're on the waitlist.
+          You're officially on the waitlist.
         </h1>
 
-        {/* Subheading */}
+        {/* Intro copy */}
         <p style={{
-          fontSize: '16px',
+          fontSize: '15px',
           color: '#5a5a4a',
-          marginBottom: '48px',
-          lineHeight: '1.6'
+          marginBottom: '8px',
+          lineHeight: '1.75',
+          maxWidth: '480px',
+          marginLeft: 'auto',
+          marginRight: 'auto'
         }}>
-          We'll send next steps to your inbox within 24 hours.
+          You've taken the first step toward building a calm, intentional home childcare business rooted in meaningful work, child development, and a rhythm that can fit real motherhood.
+        </p>
+        <p style={{
+          fontSize: '15px',
+          color: '#5a5a4a',
+          marginBottom: '40px',
+          lineHeight: '1.75',
+          maxWidth: '480px',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>
+          We'll send your first email shortly with the Calm Home Childcare Blueprint and details about the founding membership.
         </p>
 
-        {/* What Happens Next */}
+        {/* What Happens Next card */}
         <div style={{
           backgroundColor: '#fff',
           borderRadius: '16px',
-          padding: '40px 36px',
+          padding: '36px 32px',
           textAlign: 'left',
           boxShadow: '0 2px 16px rgba(0,0,0,0.06)'
         }}>
           <h2 style={{
-            fontSize: '13px',
-            letterSpacing: '0.12em',
+            fontSize: '11px',
+            letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: '#c8a96e',
-            marginBottom: '24px',
+            marginBottom: '28px',
             fontFamily: 'Arial, sans-serif',
             fontWeight: '600'
           }}>
@@ -64,20 +83,20 @@ export default function ThankYou() {
           </h2>
 
           {[
-            'Check your inbox within 24 hours.',
-            'Receive The Calm Home Childcare Blueprint and founding member details.',
-            'Learn more about the July 8 founding cohort experience.',
-            'Be first invited into the Mama Launch membership experience.'
+            'Check your inbox shortly for your first Mama Launch Studio email.',
+            'Receive The Calm Home Childcare Blueprint to start thinking through your home childcare vision.',
+            'Learn how the July 8 founding cohort and Mama Launch Method™ will guide you step by step.',
+            "If it feels like the right fit, you'll receive your invitation to join as a Founding Member."
           ].map((step, i) => (
             <div key={i} style={{
               display: 'flex',
               alignItems: 'flex-start',
               gap: '16px',
-              marginBottom: i < 3 ? '20px' : '0'
+              marginBottom: i < 3 ? '22px' : '0'
             }}>
               <span style={{
-                minWidth: '28px',
-                height: '28px',
+                minWidth: '30px',
+                height: '30px',
                 borderRadius: '50%',
                 backgroundColor: '#2c3e2d',
                 color: '#fff',
@@ -87,11 +106,17 @@ export default function ThankYou() {
                 fontSize: '13px',
                 fontFamily: 'Arial, sans-serif',
                 fontWeight: '600',
-                marginTop: '2px'
+                flexShrink: 0,
+                marginTop: '1px'
               }}>
                 {i + 1}
               </span>
-              <p style={{ fontSize: '15px', color: '#3a3a2e', lineHeight: '1.6', margin: '0' }}>
+              <p style={{
+                fontSize: '15px',
+                color: '#3a3a2e',
+                lineHeight: '1.65',
+                margin: '0'
+              }}>
                 {step}
               </p>
             </div>
@@ -99,11 +124,13 @@ export default function ThankYou() {
         </div>
 
         {/* Footer */}
-        <p style={{ fontSize: '13px', color: '#9a9a8a', marginTop: '32px' }}>
-          Mama Launch Studio ·{' '}
-          <a href="https://mamalaunchstudio.com" style={{ color: '#9a9a8a' }}>
-            mamalaunchstudio.com
-          </a>
+        <p style={{
+          fontSize: '13px',
+          color: '#9a9a8a',
+          marginTop: '32px',
+          fontFamily: 'Arial, sans-serif'
+        }}>
+          Mama Launch Studio · [mamalaunchstudio.com](https://mamalaunchstudio.com)
         </p>
 
       </div>
