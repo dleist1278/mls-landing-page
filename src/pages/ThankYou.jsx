@@ -2,30 +2,10 @@ import React, { useEffect, useState } from "react";
 import { gaEvent } from "@/lib/analytics";
 
 const nextSteps = [
-  {
-    number: "01",
-    title: "A personal welcome in your inbox",
-    body: "Within 24 hours, you'll receive a message from us — not a bot. We'll introduce ourselves and share exactly what to expect as a founding member.",
-    icon: "✉️",
-  },
-  {
-    number: "02",
-    title: "Early access before public launch",
-    body: "Founding members are the first to receive platform access. You'll help shape the method before it opens to the world.",
-    icon: "🗝️",
-  },
-  {
-    number: "03",
-    title: "Your founding member rate — locked in",
-    body: "The price you join at as a founding member is yours permanently. No future price increases will affect you.",
-    icon: "🌿",
-  },
-  {
-    number: "04",
-    title: "Community before the doors open",
-    body: "You'll be invited into our founding member cohort — a private space to connect, ask questions, and build alongside other intentional mothers.",
-    icon: "🤝",
-  },
+  { number: "01", title: "Check your inbox within 24 hours.", icon: "✉️" },
+  { number: "02", title: "Receive The Calm Home Childcare Blueprint and founding member details.", icon: "🗝️" },
+  { number: "03", title: "Learn more about the July 8 founding cohort experience.", icon: "🌿" },
+  { number: "04", title: "Be first invited into the Mama Launch membership experience.", icon: "🤝" },
 ];
 
 function StepCard({ step, index }) {
@@ -63,12 +43,9 @@ function StepCard({ step, index }) {
             <p className="font-micro mb-1" style={{ color: "#C4956A", fontSize: "0.65rem" }}>
               Step {step.number}
             </p>
-            <h3 className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "1.05rem", lineHeight: "1.3" }}>
+            <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "1rem", lineHeight: "1.4" }}>
               {step.title}
             </h3>
-            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem" }}>
-              {step.body}
-            </p>
           </div>
         </div>
       </div>
@@ -140,21 +117,14 @@ export default function ThankYou() {
             className="font-display leading-tight mb-5"
             style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 5vw, 3rem)" }}
           >
-            Welcome, <em style={{ color: "#4D5E49" }}>{name}.</em>
+            You're on the waitlist.
           </h1>
 
           <p
-            className="font-body leading-relaxed mx-auto mb-5"
-            style={{ color: "#5C5148", maxWidth: "440px", fontSize: "1rem" }}
-          >
-            From idea to opening day — with clarity, structure, and support.
-          </p>
-
-          <p
             className="font-body leading-relaxed mx-auto"
-            style={{ color: "#5C5148", maxWidth: "460px", fontSize: "0.97rem", lineHeight: "1.7" }}
+            style={{ color: "#5C5148", maxWidth: "400px", fontSize: "1rem" }}
           >
-            You're officially on the Founding Member Waitlist. Within the next 24 hours, you'll receive an email with next steps, <em style={{ color: "#4D5E49" }}>The Calm Home Childcare Blueprint</em>, and more details about the Mama Launch founding experience.
+            We'll send next steps to your inbox within 24 hours.
           </p>
 
           <div className="w-10 h-px mx-auto my-8" style={{ backgroundColor: "#C4956A", opacity: 0.5 }} />
@@ -175,10 +145,9 @@ export default function ThankYou() {
             transform: visible ? "translateY(0)" : "translateY(16px)",
           }}
         >
-          <p className="font-micro mb-6 flex items-center gap-3" style={{ color: "#9a8f84", fontSize: "0.68rem" }}>
-            <span className="inline-block w-6 h-px" style={{ backgroundColor: "#9a8f84" }} />
-            What happens next
-          </p>
+          <h2 className="font-display mb-6" style={{ color: "#2C2C2C", fontSize: "1.4rem" }}>
+            What Happens Next?
+          </h2>
         </div>
 
         <div className="flex flex-col gap-4 mb-14">
