@@ -604,7 +604,7 @@ export default function BlueprintPage() {
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="your@[email.com](https://email.com)"
+                      placeholder="your@email.com"
                       autoComplete="email"
                       required
                     />
@@ -715,7 +715,7 @@ export default function BlueprintPage() {
             target="_blank"
             rel="noreferrer"
           >
-            [mamalaunchstudio.com](https://mamalaunchstudio.com)
+            mamalaunchstudio.com
           </a>
         </footer>
 
