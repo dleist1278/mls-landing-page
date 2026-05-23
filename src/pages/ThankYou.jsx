@@ -1,64 +1,92 @@
-export default function ThankYou() {
+xport default function ThankYou() {
   return (
     <div style={{
       minHeight: '100vh',
       backgroundColor: '#f5f0eb',
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       justifyContent: 'center',
-      padding: '48px 24px',
+      padding: '48px 24px 64px',
       fontFamily: 'Georgia, serif'
     }}>
-      <div style={{
-        maxWidth: '560px',
-        width: '100%',
-        textAlign: 'center'
-      }}>
+      <style>{`
+        @media (max-width: 640px) {
+          .ty-wrap { padding-top: 32px !important; }
+          .ty-eyebrow { margin-bottom: 14px !important; }
+          .ty-headline { margin-bottom: 16px !important; font-size: 26px !important; }
+          .ty-intro-1 { margin-bottom: 6px !important; line-height: 1.6 !important; }
+          .ty-intro-2 { margin-bottom: 32px !important; line-height: 1.6 !important; }
+        }
+      `}</style>
+
+      <div
+        className="ty-wrap"
+        style={{
+          maxWidth: '560px',
+          width: '100%',
+          textAlign: 'center',
+          paddingTop: '40px'
+        }}
+      >
 
         {/* Eyebrow */}
-        <p style={{
-          fontSize: '11px',
-          letterSpacing: '0.15em',
-          textTransform: 'uppercase',
-          color: '#c8a96e',
-          marginBottom: '24px',
-          fontFamily: 'Arial, sans-serif'
-        }}>
+        <p
+          className="ty-eyebrow"
+          style={{
+            fontSize: '11px',
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
+            color: '#c8a96e',
+            marginBottom: '20px',
+            fontFamily: 'Arial, sans-serif'
+          }}
+        >
           — Founding Member Waitlist —
         </p>
 
         {/* Headline */}
-        <h1 style={{
-          fontSize: 'clamp(28px, 6vw, 40px)',
-          fontWeight: '400',
-          color: '#2c3e2d',
-          marginBottom: '20px',
-          lineHeight: '1.2'
-        }}>
+        <h1
+          className="ty-headline"
+          style={{
+            fontSize: 'clamp(26px, 5vw, 38px)',
+            fontWeight: '400',
+            color: '#2c3e2d',
+            marginBottom: '24px',
+            lineHeight: '1.2'
+          }}
+        >
           You're officially on the waitlist.
         </h1>
 
-        {/* Intro copy */}
-        <p style={{
-          fontSize: '15px',
-          color: '#5a5a4a',
-          marginBottom: '8px',
-          lineHeight: '1.75',
-          maxWidth: '480px',
-          marginLeft: 'auto',
-          marginRight: 'auto'
-        }}>
+        {/* Intro copy — paragraph 1 */}
+        <p
+          className="ty-intro-1"
+          style={{
+            fontSize: '15px',
+            color: '#5a5a4a',
+            marginBottom: '8px',
+            lineHeight: '1.6',
+            maxWidth: '460px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        >
           You've taken the first step toward building a calm, intentional home childcare business rooted in meaningful work, child development, and a rhythm that can fit real motherhood.
         </p>
-        <p style={{
-          fontSize: '15px',
-          color: '#5a5a4a',
-          marginBottom: '40px',
-          lineHeight: '1.75',
-          maxWidth: '480px',
-          marginLeft: 'auto',
-          marginRight: 'auto'
-        }}>
+
+        {/* Intro copy — paragraph 2 */}
+        <p
+          className="ty-intro-2"
+          style={{
+            fontSize: '15px',
+            color: '#5a5a4a',
+            marginBottom: '48px',
+            lineHeight: '1.6',
+            maxWidth: '460px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        >
           We'll send your first email shortly with the Calm Home Childcare Blueprint and details about the founding membership.
         </p>
 
@@ -130,7 +158,13 @@ export default function ThankYou() {
           marginTop: '32px',
           fontFamily: 'Arial, sans-serif'
         }}>
-          Mama Launch Studio · [mamalaunchstudio.com](https://mamalaunchstudio.com)
+          Mama Launch Studio ·{' '}
+          <a
+            href="https://mamalaunchstudio.com"
+            style={{ color: '#9a9a8a', textDecoration: 'none' }}
+          >
+            [mamalaunchstudio.com](https://mamalaunchstudio.com)
+          </a>
         </p>
 
       </div>
