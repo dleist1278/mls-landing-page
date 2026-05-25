@@ -12,7 +12,8 @@ const phases = [
   {
     number: "01",
     name: "Vision, Lifestyle & Program Alignment",
-    description: "Choose the childcare model that fits your family, goals, and real-life schedule.",
+    outcome: "Choose the childcare model that fits your family, goals, income needs, and real-life schedule.",
+    whyItMatters: "This phase helps you stop spinning and start building the right path with confidence.",
     includes: ["Lifestyle alignment prompts", "Program model decision guide", "Income + schedule clarity"],
     color: "#4D5E49",
     accentBg: "rgba(77,94,73,0.07)",
@@ -21,8 +22,9 @@ const phases = [
   {
     number: "02",
     name: "Licensing, Home Setup & Safety",
-    description: "Understand what you need to prepare legally and safely before opening.",
-    includes: ["Licensing guidance", "Home setup checklist", "Inspection prep"],
+    outcome: "Understand what needs to be prepared legally, safely, and practically before opening.",
+    whyItMatters: "This phase helps you move from uncertainty to clear next steps.",
+    includes: ["Licensing guidance", "Home setup checklist", "Safety + inspection prep"],
     color: "#7A6E65",
     accentBg: "rgba(122,110,101,0.07)",
     image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png",
@@ -30,8 +32,9 @@ const phases = [
   {
     number: "03",
     name: "Program Design, Policies & Operations",
-    description: "Build a calm, professional childcare experience families can trust.",
-    includes: ["Parent handbook", "Operational templates", "Communication systems"],
+    outcome: "Build the policies, routines, and communication systems that help families trust your care.",
+    whyItMatters: "This phase helps you create a calm, structured business that feels professional and sustainable.",
+    includes: ["Parent handbook", "Operational templates", "Family communication systems"],
     color: "#C4956A",
     accentBg: "rgba(196,149,106,0.07)",
     image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png",
@@ -39,7 +42,8 @@ const phases = [
   {
     number: "04",
     name: "Enrollment, Marketing & Family Trust",
-    description: "Attract the right families and help them feel confident choosing your program.",
+    outcome: "Attract aligned families and guide them from interest to confident enrollment.",
+    whyItMatters: "This phase helps you turn your vision into a program families feel excited to join.",
     includes: ["Enrollment tools", "Marketing prompts", "Parent inquiry systems"],
     color: "#4D5E49",
     accentBg: "rgba(77,94,73,0.07)",
@@ -48,7 +52,8 @@ const phases = [
   {
     number: "05",
     name: "Launch Readiness & Opening",
-    description: "Feel prepared and supported walking into opening week.",
+    outcome: "Feel prepared, supported, and organized as you move into opening week.",
+    whyItMatters: "This phase helps you launch with more confidence, calm, and clarity.",
     includes: ["Opening week checklist", "Family welcome tools", "First-week preparation"],
     color: "#6B7E67",
     accentBg: "rgba(107,126,103,0.07)",
@@ -110,16 +115,20 @@ export default function WhatIsMamaLaunchSection() {
         <div className="text-center mx-auto px-8 pt-16 pb-10" style={{ maxWidth: "700px" }}>
           <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.16em" }}>
             <span style={{ display: "inline-block", width: "28px", height: "1px", backgroundColor: "#C4956A" }} />
-            UNDERSTANDING THE PLATFORM
+            THE MAMA LAUNCH METHOD™
             <span style={{ display: "inline-block", width: "28px", height: "1px", backgroundColor: "#C4956A" }} />
           </p>
 
           <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3vw, 2.65rem)", lineHeight: "1.15" }}>
-            What is the <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
+            The guided path from idea to a fully launched home childcare business.
           </h2>
 
-          <p className="font-body leading-relaxed mb-7 mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75" }}>
-            The Mama Launch Method is a guided implementation path that helps mothers move from idea to opening day with less overwhelm, less guesswork, and more support. Each phase helps you build one part of your home childcare ecosystem — from vision and licensing to environment, enrollment, and opening your doors.
+          <p className="font-body leading-relaxed mb-3 mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75" }}>
+            This is the heart of Mama Launch Studio — a step-by-step method designed to help mothers move from uncertainty and overwhelm to clarity, confidence, and launch readiness.
+          </p>
+
+          <p className="font-body leading-relaxed mb-7 mx-auto" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.75", fontStyle: "italic" }}>
+            Instead of piecing everything together alone, you'll follow a clear path that walks you through what to do, when to do it, and how to do it well.
           </p>
 
           <div className="flex items-center justify-center gap-5">
@@ -213,9 +222,14 @@ export default function WhatIsMamaLaunchSection() {
                       </h3>
                     </div>
 
-                    {/* Description */}
-                    <p className="font-body mb-4" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
-                      {phase.description}
+                    {/* Outcome */}
+                    <p className="font-body mb-2" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
+                      {phase.outcome}
+                    </p>
+
+                    {/* Why it matters */}
+                    <p className="font-body mb-4" style={{ color: "#9a8f84", fontSize: "0.82rem", lineHeight: "1.6", fontStyle: "italic" }}>
+                      {phase.whyItMatters}
                     </p>
 
                     {/* Deliverables */}
@@ -279,8 +293,11 @@ export default function WhatIsMamaLaunchSection() {
         {/* ── Closing CTA ── */}
         <div className="text-center mx-auto px-8 pt-8 pb-16" style={{ maxWidth: "600px" }}>
           <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C4956A44, transparent)", marginBottom: "24px" }} />
-          <p className="font-body mb-5" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.65" }}>
-            Founding members will be the first to move through the complete 5-phase path.
+          <h3 className="font-display mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.2rem, 2vw, 1.55rem)", lineHeight: "1.25" }}>
+            A calm, guided path to opening with clarity and support.
+          </h3>
+          <p className="font-body mb-6" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.7" }}>
+            Founding members will be the first to move through the complete Mama Launch Method™ with step-by-step guidance, templates, and support designed for real motherhood.
           </p>
           <button
             onClick={scrollToWaitlist}
