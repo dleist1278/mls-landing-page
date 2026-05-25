@@ -421,40 +421,42 @@ export default function WhatIsMamaLaunchSection() {
                 animation: "glowPulse 4s ease-in-out infinite"
               }} />
 
-              {/* Panel heading */}
-              <div style={{ textAlign: "center", position: "relative", zIndex: 2, flexShrink: 0, width: "100%" }}>
-                <p className="font-display" style={{
-                  color: "#2C2C2C",
-                  fontSize: "1.2rem",
-                  letterSpacing: "-0.01em",
-                  lineHeight: "1.2",
-                  marginBottom: "2px"
-                }}>
-                  See the Method
-                </p>
-                <p className="font-micro" style={{
-                  color: "#C4956A",
-                  fontSize: "0.58rem",
-                  letterSpacing: "0.22em",
-                }}>
-                  IN ACTION
-                </p>
-              </div>
-
               {/* Phone — hero, with float animation */}
               <div style={{
                 position: "relative",
                 zIndex: 2,
                 width: "100%",
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
                 flex: "1",
                 minHeight: 0,
-                padding: "12px 0 8px"
+                gap: "16px",
+                padding: "16px 0 8px"
               }}>
-                <img
-                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
+                {/* Panel heading — centered above phone */}
+                <div style={{ textAlign: "center", flexShrink: 0 }}>
+                  <p className="font-display" style={{
+                    color: "#2C2C2C",
+                    fontSize: "1.2rem",
+                    letterSpacing: "-0.01em",
+                    lineHeight: "1.2",
+                    marginBottom: "2px"
+                  }}>
+                    See the Method
+                  </p>
+                  <p className="font-micro" style={{
+                    color: "#C4956A",
+                    fontSize: "0.58rem",
+                    letterSpacing: "0.22em",
+                  }}>
+                    IN ACTION
+                  </p>
+                </div>
+
+                 <img
+                  src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
                  alt="Mama Launch Method app interface"
                  style={{
                    width: "auto",
