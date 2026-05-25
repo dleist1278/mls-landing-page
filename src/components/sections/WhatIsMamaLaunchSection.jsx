@@ -10,42 +10,42 @@ const cards = [
 const phases = [
   {
     number: "01",
+    shortName: "Vision",
     name: "Vision, Lifestyle & Program Alignment",
-    outcome: "Choose the childcare model that fits your family, goals, income needs, and real-life schedule.",
-    whyItMatters: "This phase helps you stop spinning and start building the right path with confidence.",
-    includes: ["Lifestyle alignment prompts", "Program model decision guide", "Income + schedule clarity"],
+    outcome: "Choose the childcare model that fits your family, goals, income needs, and real-life rhythm so you can start with clarity.",
+    inside: "Lifestyle prompts · Model decision guide · Income clarity",
     color: "#4D5E49",
   },
   {
     number: "02",
+    shortName: "Licensing",
     name: "Licensing, Home Setup & Safety",
-    outcome: "Understand what needs to be prepared legally, safely, and practically before opening.",
-    whyItMatters: "This phase helps you move from uncertainty to clear next steps.",
-    includes: ["Licensing guidance", "Home setup checklist", "Safety + inspection prep"],
+    outcome: "Understand what needs to be prepared legally, safely, and practically so your home and program feel ready.",
+    inside: "Licensing guidance · Home setup checklist · Safety prep",
     color: "#7A6E65",
   },
   {
     number: "03",
+    shortName: "Systems",
     name: "Program Design, Policies & Operations",
-    outcome: "Build the policies, routines, and communication systems that help families trust your care.",
-    whyItMatters: "This phase helps you create a calm, structured business that feels professional and sustainable.",
-    includes: ["Parent handbook", "Operational templates", "Family communication systems"],
+    outcome: "Build the routines, policies, and communication systems that make your program feel professional and sustainable.",
+    inside: "Parent handbook · Operations templates · Communication systems",
     color: "#C4956A",
   },
   {
     number: "04",
+    shortName: "Enrollment",
     name: "Enrollment, Marketing & Family Trust",
     outcome: "Attract aligned families and guide them from interest to confident enrollment.",
-    whyItMatters: "This phase helps you turn your vision into a program families feel excited to join.",
-    includes: ["Enrollment tools", "Marketing prompts", "Parent inquiry systems"],
+    inside: "Enrollment tools · Marketing prompts · Inquiry systems",
     color: "#4D5E49",
   },
   {
     number: "05",
+    shortName: "Launch",
     name: "Launch Readiness & Opening",
-    outcome: "Feel prepared, supported, and organized as you move into opening week.",
-    whyItMatters: "This phase helps you launch with more confidence, calm, and clarity.",
-    includes: ["Opening week checklist", "Family welcome tools", "First-week preparation"],
+    outcome: "Prepare for opening week with the tools, confidence, and organization to begin calmly.",
+    inside: "Opening checklist · Family welcome tools · First-week prep",
     color: "#6B7E67",
   }
 ];
@@ -112,23 +112,19 @@ export default function WhatIsMamaLaunchSection() {
       >
 
         {/* ── Section Intro ── */}
-        <div className="text-center mx-auto px-8 pt-16 pb-12" style={{ maxWidth: "680px" }}>
+        <div className="text-center mx-auto px-8 pt-16 pb-10" style={{ maxWidth: "620px" }}>
           <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.18em" }}>
             <span style={{ display: "inline-block", width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
             THE MAMA LAUNCH METHOD™
             <span style={{ display: "inline-block", width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
           </p>
 
-          <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", lineHeight: "1.12" }}>
-            The guided path from idea to a fully launched home childcare business.
+          <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", lineHeight: "1.12" }}>
+            The guided path from idea to opening day.
           </h2>
 
-          <p className="font-body leading-relaxed mb-3 mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.8", maxWidth: "56ch" }}>
-            This is the heart of Mama Launch Studio — a step-by-step method designed to help mothers move from uncertainty and overwhelm to clarity, confidence, and launch readiness.
-          </p>
-
-          <p className="font-body mx-auto" style={{ color: "#7A6E65", fontSize: "0.87rem", lineHeight: "1.75", fontStyle: "italic", maxWidth: "52ch" }}>
-            Instead of piecing everything together alone, you'll follow a clear path that walks you through what to do, when to do it, and how to do it well.
+          <p className="font-body mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75", maxWidth: "52ch" }}>
+            A step-by-step framework that helps mothers move from uncertainty to clarity, structure, and launch readiness — without piecing everything together alone.
           </p>
         </div>
 
@@ -166,21 +162,12 @@ export default function WhatIsMamaLaunchSection() {
               <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.18em" }}>
                 SEE THE METHOD IN ACTION
               </p>
-              <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: "1.25" }}>
+              <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.2rem, 2vw, 1.55rem)", lineHeight: "1.25" }}>
                 A guided app experience built for real motherhood.
               </h3>
               <p className="font-body" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.75", maxWidth: "42ch" }}>
-                Each phase guides you through focused questions, progress tracking, templates, and portfolio-building tools so your business takes shape as you go.
+                Guided questions, progress tracking, templates, and portfolio-building tools help your business take shape as you move through each phase.
               </p>
-              {/* Three proof points */}
-              <div style={{ marginTop: "24px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                {["Step-by-step guided prompts at every phase", "Built-in templates, checklists, and policy docs", "Progress tracking so you always know what's next"].map((pt) => (
-                  <div key={pt} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#4D5E49", flexShrink: 0 }} />
-                    <span className="font-body" style={{ color: "#5C5148", fontSize: "0.83rem" }}>{pt}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Right: phone mockup */}
@@ -339,19 +326,19 @@ export default function WhatIsMamaLaunchSection() {
                       </div>
 
                       {/* Phase title in nav */}
-                      <div style={{ paddingTop: "4px" }}>
-                        <p
-                          className="font-body"
-                          style={{
-                            fontSize: "0.75rem",
-                            lineHeight: "1.35",
-                            color: isActive ? "#2C2C2C" : isPast ? "#7A6E65" : "#9a8f84",
-                            fontWeight: isActive ? 500 : 400,
-                            transition: "color 0.3s ease"
-                          }}
-                        >
-                          {phase.name}
-                        </p>
+                      <div style={{ paddingTop: "5px" }}>
+                       <p
+                         className="font-body"
+                         style={{
+                           fontSize: "0.75rem",
+                           lineHeight: "1.2",
+                           color: isActive ? "#2C2C2C" : isPast ? "#7A6E65" : "#9a8f84",
+                           fontWeight: isActive ? 600 : 400,
+                           transition: "color 0.3s ease"
+                         }}
+                       >
+                         {phase.shortName}
+                       </p>
                       </div>
                     </button>
                   );
@@ -389,18 +376,18 @@ export default function WhatIsMamaLaunchSection() {
                   {/* Top accent bar */}
                   <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}44, transparent)` }} />
 
-                  <div style={{ padding: "36px 40px 40px" }}>
+                  <div style={{ padding: "28px 36px 32px" }}>
 
                     {/* Phase number + title */}
-                    <div style={{ marginBottom: "24px" }}>
+                    <div style={{ marginBottom: "16px" }}>
                       <span
                         className="font-micro"
                         style={{
                           display: "inline-block",
                           color: phase.color,
-                          fontSize: "0.6rem",
+                          fontSize: "0.58rem",
                           letterSpacing: "0.16em",
-                          marginBottom: "10px"
+                          marginBottom: "8px"
                         }}
                       >
                         PHASE {phase.number}
@@ -409,7 +396,7 @@ export default function WhatIsMamaLaunchSection() {
                         className="font-display"
                         style={{
                           color: "#2C2C2C",
-                          fontSize: "clamp(1.3rem, 2vw, 1.65rem)",
+                          fontSize: "clamp(1.15rem, 1.8vw, 1.45rem)",
                           lineHeight: "1.2",
                           letterSpacing: "-0.02em"
                         }}
@@ -419,82 +406,35 @@ export default function WhatIsMamaLaunchSection() {
                     </div>
 
                     {/* Outcome */}
-                    <div style={{ marginBottom: "20px" }}>
-                      <p
-                        className="font-micro"
-                        style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.12em", marginBottom: "6px" }}
-                      >
-                        WHAT YOU'LL ACHIEVE
-                      </p>
-                      <p
-                        className="font-body"
-                        style={{ color: "#3a3228", fontSize: "1rem", lineHeight: "1.65", fontWeight: 500 }}
-                      >
-                        {phase.outcome}
-                      </p>
-                    </div>
+                    <p
+                      className="font-body"
+                      style={{ color: "#3a3228", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "20px" }}
+                    >
+                      {phase.outcome}
+                    </p>
 
-                    {/* Divider */}
-                    <div style={{ height: "1px", backgroundColor: `${phase.color}14`, marginBottom: "20px" }} />
-
-                    {/* Why it matters */}
-                    <div style={{ marginBottom: "28px" }}>
-                      <p
-                        className="font-micro"
-                        style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.12em", marginBottom: "6px" }}
-                      >
-                        WHY IT MATTERS
-                      </p>
-                      <p
-                        className="font-body"
-                        style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.7", fontStyle: "italic" }}
-                      >
-                        {phase.whyItMatters}
-                      </p>
-                    </div>
-
-                    {/* Included items */}
+                    {/* Inside line */}
                     <div
                       style={{
-                        backgroundColor: `${phase.color}07`,
-                        borderRadius: "12px",
-                        border: `1px solid ${phase.color}16`,
-                        padding: "18px 22px"
+                        borderTop: `1px solid ${phase.color}18`,
+                        paddingTop: "16px",
+                        display: "flex",
+                        alignItems: "baseline",
+                        gap: "8px"
                       }}
                     >
-                      <p
+                      <span
                         className="font-micro"
-                        style={{ color: phase.color, fontSize: "0.58rem", letterSpacing: "0.14em", marginBottom: "12px" }}
+                        style={{ color: phase.color, fontSize: "0.56rem", letterSpacing: "0.14em", flexShrink: 0 }}
                       >
-                        WHAT'S INCLUDED
-                      </p>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                        {phase.includes.map((item) => (
-                          <div key={item} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                            <div
-                              style={{
-                                width: "22px",
-                                height: "22px",
-                                borderRadius: "6px",
-                                backgroundColor: `${phase.color}14`,
-                                border: `1px solid ${phase.color}28`,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                flexShrink: 0
-                              }}
-                            >
-                              <div style={{ width: "5px", height: "5px", borderRadius: "50%", backgroundColor: phase.color }} />
-                            </div>
-                            <span
-                              className="font-body"
-                              style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: 1 }}
-                            >
-                              {item}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                        INSIDE
+                      </span>
+                      <span
+                        className="font-body"
+                        style={{ color: "#7A6E65", fontSize: "0.82rem", lineHeight: "1.5" }}
+                      >
+                        {phase.inside}
+                      </span>
                     </div>
 
                   </div>
@@ -512,10 +452,10 @@ export default function WhatIsMamaLaunchSection() {
         >
           <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C4956A44, transparent)", marginBottom: "32px" }} />
           <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.25rem, 2vw, 1.65rem)", lineHeight: "1.2" }}>
-            A calm, guided path to opening with clarity and support.
+            You don't need to figure out every step alone.
           </h3>
           <p className="font-body mb-8" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.75" }}>
-            Founding members will be the first to move through the complete Mama Launch Method™ with step-by-step guidance, templates, and support designed for real motherhood.
+            Founding members will be the first to move through the full Mama Launch Method™ with guided support, templates, and a clear path to opening.
           </p>
           <button
             onClick={scrollToWaitlist}
