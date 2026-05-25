@@ -44,6 +44,95 @@ const pathways = [
 }];
 
 
+const futurePathways = [
+  { id: "kids-programs", title: "Kids Programs", description: "For mothers who want to host enrichment-style classes, drop-ins, or small group programs from home." },
+  { id: "homeschool-pods", title: "Homeschool Pods", description: "For mothers who want to build intentional small-group learning environments with flexibility and autonomy." },
+  { id: "caregiver-babysitter", title: "Caregiver / Babysitter", description: "For mothers offering dedicated in-home care to one family, with the option to bring their own child." }
+];
+
+function DesktopPathwayDrawers({ visible }) {
+  const [openId, setOpenId] = useState(null);
+
+  return (
+    <div
+      style={{
+        borderTop: "1px solid rgba(196,149,106,0.14)",
+        paddingTop: "28px",
+        opacity: visible ? 1 : 0,
+        animation: visible ? "drawersFadeIn 0.7s ease 0.45s forwards" : "none",
+        animationFillMode: "forwards"
+      }}
+    >
+      <p className="font-micro" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.18em", marginBottom: "14px" }}>
+        OTHER PATHWAYS COMING SOON
+      </p>
+      <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
+        {futurePathways.map((pathway) => {
+          const isOpen = openId === pathway.id;
+          return (
+            <div key={pathway.id}>
+              <button
+                className="models-drawer-row"
+                onClick={() => setOpenId(isOpen ? null : pathway.id)}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "12px",
+                  padding: "13px 16px",
+                  background: isOpen ? "rgba(196,149,106,0.05)" : "transparent",
+                  border: "1px solid rgba(196,149,106,0.12)",
+                  borderRadius: isOpen ? "10px 10px 0 0" : "10px",
+                  cursor: "pointer",
+                  textAlign: "left"
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1, minWidth: 0 }}>
+                  <span className="font-body" style={{ color: "#5C5148", fontSize: "0.88rem", fontWeight: 500 }}>{pathway.title}</span>
+                  <span className="font-micro" style={{
+                    flexShrink: 0,
+                    backgroundColor: "rgba(196,149,106,0.08)",
+                    border: "1px solid rgba(196,149,106,0.18)",
+                    color: "#C4956A",
+                    borderRadius: "999px",
+                    padding: "2px 9px",
+                    fontSize: "0.52rem",
+                    letterSpacing: "0.12em"
+                  }}>Coming Soon</span>
+                </div>
+                <svg
+                  className="models-drawer-chevron"
+                  width="14" height="14" viewBox="0 0 14 14" fill="none"
+                  style={{ flexShrink: 0, transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", color: "#C4956A" }}
+                >
+                  <path d="M3 5L7 9L11 5" stroke="#C4956A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              <div
+                className="models-drawer-body"
+                style={{
+                  maxHeight: isOpen ? "80px" : "0px",
+                  opacity: isOpen ? 1 : 0,
+                  backgroundColor: "rgba(196,149,106,0.03)",
+                  border: isOpen ? "1px solid rgba(196,149,106,0.12)" : "none",
+                  borderTop: "none",
+                  borderRadius: "0 0 10px 10px",
+                  padding: isOpen ? "12px 16px 14px" : "0 16px"
+                }}
+              >
+                <p className="font-body" style={{ color: "#8a7d74", fontSize: "0.83rem", lineHeight: "1.6" }}>
+                  {pathway.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function ModelsSection() {
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
@@ -93,11 +182,11 @@ export default function ModelsSection() {
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             </p>
             <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
-              Now enrolling:{" "}
-              <em style={{ color: "#4D5E49" }}>Home Daycare / Nursery</em>
+              Choose the path that fits{" "}
+              <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
             </h2>
             <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.65", maxWidth: "56ch" }}>
-              The first founding pathway is for mothers who want to build a calm, intentional home childcare program from home. Other Mama Launch pathways are coming soon.
+              Start with the first founding pathway: Home Daycare / Nursery. Other Mama Launch pathways are coming soon.
             </p>
           </div>
 
@@ -119,7 +208,7 @@ export default function ModelsSection() {
           </div>
         </div>
 
-        {/* Desktop: Editorial spotlight — image left, content right, compact future pathways below */}
+        {/* Desktop: Editorial spotlight + accordion future pathways */}
         <style>{`
           @keyframes enrollPulse {
             0%, 100% { opacity: 1; }
@@ -129,8 +218,8 @@ export default function ModelsSection() {
             from { opacity: 0; transform: translateY(18px); }
             to   { opacity: 1; transform: translateY(0); }
           }
-          @keyframes pillsFadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+          @keyframes drawersFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
             to   { opacity: 1; transform: translateY(0); }
           }
           .models-cta-btn {
@@ -139,6 +228,19 @@ export default function ModelsSection() {
           .models-cta-btn:hover {
             box-shadow: 0 10px 32px rgba(77,94,73,0.34) !important;
             transform: translateY(-1px);
+          }
+          .models-drawer-row {
+            transition: background 0.2s ease;
+          }
+          .models-drawer-row:hover {
+            background: rgba(196,149,106,0.05) !important;
+          }
+          .models-drawer-chevron {
+            transition: transform 0.3s ease;
+          }
+          .models-drawer-body {
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease;
           }
         `}</style>
 
@@ -206,6 +308,11 @@ export default function ModelsSection() {
                 ))}
               </div>
 
+              {/* Support line */}
+              <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.82rem", fontStyle: "italic", margin: 0 }}>
+                This is the pathway currently enrolling for the founding cohort.
+              </p>
+
               {/* CTA */}
               <button
                 className="models-cta-btn font-micro"
@@ -221,7 +328,7 @@ export default function ModelsSection() {
                   letterSpacing: "0.1em",
                   cursor: "pointer",
                   boxShadow: "0 6px 22px rgba(77,94,73,0.26)",
-                  marginTop: "4px"
+                  marginTop: "2px"
                 }}
               >
                 Join the Founding Member Waitlist
@@ -229,32 +336,8 @@ export default function ModelsSection() {
             </div>
           </div>
 
-          {/* ── Future Pathways compact row ── */}
-          <div
-            style={{
-              borderTop: "1px solid rgba(196,149,106,0.14)",
-              paddingTop: "24px",
-              opacity: headerVisible ? 1 : 0,
-              animation: headerVisible ? "pillsFadeIn 0.7s ease 0.4s forwards" : "none",
-              animationFillMode: "forwards"
-            }}
-          >
-            <p className="font-micro" style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.18em", marginBottom: "14px" }}>
-              FUTURE PATHWAYS
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
-              {[
-                "Kids Programs",
-                "Homeschool Pods",
-                "Caregiver / Babysitter"
-              ].map((name) => (
-                <div key={name} style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: "rgba(196,149,106,0.06)", border: "1px solid rgba(196,149,106,0.14)", borderRadius: "999px", padding: "6px 14px 6px 12px" }}>
-                  <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.8rem" }}>{name}</span>
-                  <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.52rem", letterSpacing: "0.12em", backgroundColor: "rgba(196,149,106,0.12)", borderRadius: "999px", padding: "2px 7px" }}>Coming Soon</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* ── Other pathways coming soon — accordion drawers ── */}
+          <DesktopPathwayDrawers visible={headerVisible} />
 
         </div>
 
