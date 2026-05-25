@@ -85,19 +85,19 @@ export default function ModelsSection() {
             transform: headerVisible ? "translateY(0)" : "translateY(16px)"
           }}>
           
-          {/* Desktop header — matches mobile */}
+          {/* Desktop header */}
           <div className="hidden md:block text-center">
             <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-              NOW ENROLLING
+              MAMA LAUNCH PATHWAYS
               <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             </p>
             <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
-              Choose the path that fits{" "}
-              <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
+              Now enrolling:{" "}
+              <em style={{ color: "#4D5E49" }}>Home Daycare / Nursery</em>
             </h2>
-            <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.65", maxWidth: "52ch" }}>
-              Every pathway is designed to help you build steadily with guided support, flexible structure, and real implementation tools.
+            <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.65", maxWidth: "56ch" }}>
+              The first founding pathway is for mothers who want to build a calm, intentional home childcare program from home. Other Mama Launch pathways are coming soon.
             </p>
           </div>
 
@@ -119,59 +119,189 @@ export default function ModelsSection() {
           </div>
         </div>
 
-        {/* Desktop: 3-column pathway cards matching mobile content */}
+        {/* Desktop: Featured card + 3 secondary cards */}
         <style>{`
           @keyframes enrollPulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.3; }
           }
+          @keyframes featuredFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes secondaryFadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          .featured-card {
+            transition: box-shadow 0.35s ease, transform 0.35s ease;
+          }
+          .featured-card:hover {
+            box-shadow: 0 20px 64px rgba(77,94,73,0.22), 0 4px 16px rgba(77,94,73,0.10) !important;
+            transform: translateY(-3px);
+          }
+          .secondary-card {
+            transition: box-shadow 0.3s ease, opacity 0.3s ease;
+          }
+          .secondary-card:hover {
+            box-shadow: 0 4px 18px rgba(44,44,44,0.07) !important;
+          }
         `}</style>
-        <div className="hidden md:grid grid-cols-4 gap-5">
-          {[pathways[1], pathways[0], pathways[2], pathways[3]].map((pathway, i) => (
-            <div key={pathway.id} className="rounded-3xl overflow-hidden flex flex-col"
-              style={{
-                backgroundColor: "#FFFDF9",
-                border: `1px solid ${pathway.tagActive ? "#4D5E4940" : "#C4956A22"}`,
-                boxShadow: pathway.tagActive ? "0 8px 40px rgba(77,94,73,0.14)" : "none",
-                opacity: pathway.tagActive ? 1 : 0.75,
-                position: "relative"
-              }}>
-              {pathway.tagActive && (
-                <div style={{ position: "absolute", top: "14px", left: "-22px", zIndex: 10, transform: "rotate(-45deg)", width: "100px", textAlign: "center", backgroundColor: "#C4956A", padding: "4px 0", boxShadow: "0 2px 6px rgba(196,149,106,0.3)" }}>
-                  <span className="font-micro" style={{ color: "#fff", fontSize: "0.48rem", letterSpacing: "0.1em" }}>SPOTS LIMITED</span>
-                </div>
-              )}
-              <div style={{ height: "3px", background: pathway.tagActive ? "linear-gradient(90deg, #4D5E49, #4D5E4955)" : "linear-gradient(90deg, #C4956A55, #C4956A22)" }} />
-              <div className="p-7 flex flex-col flex-1 gap-3">
-                <div className="flex justify-center">
-                  {pathway.tagActive ? (
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ backgroundColor: "#4D5E4918", border: "1px solid #4D5E4930" }}>
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49", animation: "enrollPulse 1.6s ease-in-out infinite" }} />
-                      <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.62rem" }}>{pathway.tag}</span>
-                    </div>
-                  ) : (
-                    <span className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "#C4956A10", border: "1px solid #C4956A22", color: "#C4956A", fontSize: "0.62rem" }}>{pathway.tag}</span>
-                  )}
-                </div>
-                <h3 className="font-display text-center" style={{ color: "#2C2C2C", fontSize: "1.35rem", lineHeight: "1.2" }}>{pathway.title}</h3>
-                <p className="font-body text-sm leading-relaxed flex-1 text-center" style={{ color: "#5C5148" }}>{pathway.description}</p>
-                <div className="flex flex-wrap gap-1.5 mb-2 justify-center">
-                  {pathway.features.map((f) => (
-                    <span key={f} className="font-micro px-2 py-1 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.06)", color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.06em" }}>{f}</span>
-                  ))}
-                </div>
-                {pathway.cta ? (
-                  <button onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-                    className="font-micro text-white px-7 py-3.5 rounded-full min-h-[48px] mt-auto"
-                    style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24)" }}>
-                    Join the Founding Member Waitlist
-                  </button>
-                ) : (
-                  <span className="font-micro px-5 py-2.5 rounded-full inline-flex items-center justify-center mt-auto" style={{ backgroundColor: "rgba(196,149,106,0.08)", color: "#C4956A", fontSize: "0.68rem", border: "1px solid rgba(196,149,106,0.22)", letterSpacing: "0.08em" }}>Coming Soon</span>
-                )}
-              </div>
+
+        <div
+          className="hidden md:flex flex-col gap-5"
+          style={{ opacity: headerVisible ? 1 : 0, animation: headerVisible ? "featuredFadeUp 0.7s ease forwards" : "none" }}
+        >
+          {/* ── FEATURED CARD: Home Daycare / Nursery ── */}
+          <div
+            className="featured-card rounded-3xl overflow-hidden"
+            style={{
+              backgroundColor: "#FFFDF9",
+              border: "1px solid rgba(77,94,73,0.2)",
+              boxShadow: "0 12px 48px rgba(77,94,73,0.14), 0 2px 8px rgba(77,94,73,0.06)",
+              display: "flex",
+              minHeight: "340px"
+            }}
+          >
+            {/* Left: Image — easy to replace, just swap the src */}
+            <div style={{
+              width: "42%",
+              flexShrink: 0,
+              position: "relative",
+              overflow: "hidden",
+              borderRadius: "24px 0 0 24px"
+            }}>
+              <img
+                src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/d4f06cd77_generated_image.png"
+                alt="Calm, intentional home nursery playroom"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  display: "block"
+                }}
+              />
+              {/* Subtle right-edge fade to blend with card */}
+              <div style={{
+                position: "absolute", inset: 0,
+                background: "linear-gradient(to right, transparent 70%, #FFFDF9 100%)"
+              }} />
+              {/* Top accent bar */}
+              <div style={{
+                position: "absolute", top: 0, left: 0, right: 0, height: "3px",
+                background: "linear-gradient(90deg, #4D5E49, #6B7E67)"
+              }} />
             </div>
-          ))}
+
+            {/* Right: Content */}
+            <div style={{
+              flex: 1,
+              padding: "40px 44px 40px 36px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              gap: "18px"
+            }}>
+              {/* Badge */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ backgroundColor: "#4D5E4915", border: "1px solid #4D5E4928" }}>
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#4D5E49", animation: "enrollPulse 1.6s ease-in-out infinite" }} />
+                  <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.62rem", letterSpacing: "0.14em" }}>NOW ENROLLING</span>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 2.4vw, 2.1rem)", lineHeight: "1.15", letterSpacing: "-0.02em" }}>
+                Home Daycare / Nursery
+              </h3>
+
+              {/* Description */}
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "46ch" }}>
+                Build a calm, intentional home childcare program naturally woven into daily family life.
+              </p>
+
+              {/* Value chips */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                {["Calm home setup", "Guided licensing", "Parent trust systems", "Village support"].map((chip) => (
+                  <span key={chip} className="font-micro" style={{
+                    backgroundColor: "rgba(77,94,73,0.07)",
+                    border: "1px solid rgba(77,94,73,0.16)",
+                    color: "#4D5E49",
+                    borderRadius: "999px",
+                    padding: "4px 12px",
+                    fontSize: "0.62rem",
+                    letterSpacing: "0.06em"
+                  }}>{chip}</span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <button
+                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                className="font-micro"
+                style={{
+                  alignSelf: "flex-start",
+                  backgroundColor: "#4D5E49",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "999px",
+                  padding: "14px 32px",
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.1em",
+                  cursor: "pointer",
+                  boxShadow: "0 6px 24px rgba(77,94,73,0.28), 0 1px 4px rgba(77,94,73,0.14)",
+                  transition: "background 0.2s ease, box-shadow 0.2s ease"
+                }}
+              >
+                Join the Founding Member Waitlist
+              </button>
+            </div>
+          </div>
+
+          {/* ── SECONDARY CARDS row ── */}
+          <div
+            className="grid grid-cols-3 gap-4"
+            style={{ animation: headerVisible ? "secondaryFadeUp 0.8s ease 0.25s forwards" : "none", opacity: headerVisible ? 0 : 0, animationFillMode: "forwards" }}
+          >
+            {[
+              { id: "kids-programs", title: "Kids Programs", description: "For mothers who want to host enrichment-style classes, drop-ins, or small group programs from home." },
+              { id: "homeschool-pods", title: "Homeschool Pods", description: "For mothers who want to build intentional small-group learning environments with flexibility and autonomy." },
+              { id: "caregiver-babysitter", title: "Caregiver / Babysitter", description: "For mothers offering dedicated in-home care to one family, with the option to bring their own child." }
+            ].map((card) => (
+              <div
+                key={card.id}
+                className="secondary-card rounded-2xl overflow-hidden"
+                style={{
+                  backgroundColor: "#F5EFE6",
+                  border: "1px solid rgba(196,149,106,0.14)",
+                  boxShadow: "0 2px 10px rgba(44,44,44,0.04)",
+                  opacity: 0.82
+                }}
+              >
+                <div style={{ height: "2px", background: "linear-gradient(90deg, #C4956A44, transparent)" }} />
+                <div style={{ padding: "22px 24px 24px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <span className="font-micro" style={{
+                    display: "inline-block",
+                    backgroundColor: "rgba(196,149,106,0.10)",
+                    border: "1px solid rgba(196,149,106,0.2)",
+                    color: "#C4956A",
+                    borderRadius: "999px",
+                    padding: "3px 10px",
+                    fontSize: "0.58rem",
+                    letterSpacing: "0.12em",
+                    alignSelf: "flex-start"
+                  }}>Coming Soon</span>
+                  <h4 className="font-display" style={{ color: "#5C5148", fontSize: "1.05rem", lineHeight: "1.2", letterSpacing: "-0.01em" }}>
+                    {card.title}
+                  </h4>
+                  <p className="font-body" style={{ color: "#8a7d74", fontSize: "0.82rem", lineHeight: "1.6" }}>
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Mobile: swipeable pathway chooser */}
