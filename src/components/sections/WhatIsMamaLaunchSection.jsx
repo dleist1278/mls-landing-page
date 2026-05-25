@@ -213,8 +213,8 @@ export default function WhatIsMamaLaunchSection() {
               position: "relative"
             }}
           >
-            {/* Top accent bar */}
-            <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #4D5E49, #C4956A, #4D5E49)", borderRadius: "28px 28px 0 0" }} />
+            {/* Top accent bar — spans full frame including right panel */}
+            <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #4D5E49 0%, #C4956A 50%, #6B7E67 100%)", borderRadius: "28px 28px 0 0", zIndex: 10 }} />
 
             {/* ── LEFT: Progress rail ── */}
             <div
@@ -228,8 +228,8 @@ export default function WhatIsMamaLaunchSection() {
                 background: "rgba(240,235,225,0.45)"
               }}
             >
-              <p className="font-micro mb-6" style={{ color: "#C4956A", fontSize: "0.57rem", letterSpacing: "0.16em" }}>
-                THE FIVE PHASES
+              <p className="font-micro mb-6" style={{ color: "#C4956A", fontSize: "0.57rem", letterSpacing: "0.18em" }}>
+                METHOD MAP
               </p>
 
               {/* Nav items — no connecting line */}
@@ -310,14 +310,15 @@ export default function WhatIsMamaLaunchSection() {
                   >
                     <div style={{
                       borderRadius: "18px",
-                      backgroundColor: "#FFFDF9",
-                      border: `1px solid ${isActiveCard ? phase.color + "38" : phase.color + "1C"}`,
+                      backgroundColor: isActiveCard ? "#FFFDF9" : "#FDFAF5",
+                      border: `1px solid ${isActiveCard ? phase.color + "48" : phase.color + "18"}`,
                       boxShadow: isActiveCard
-                        ? `0 8px 32px rgba(44,44,44,0.11), 0 2px 8px ${phase.color}18`
-                        : "0 3px 20px rgba(44,44,44,0.06), 0 1px 4px rgba(196,149,106,0.05)",
+                        ? `0 10px 40px rgba(44,44,44,0.13), 0 3px 10px ${phase.color}22, inset 0 1px 0 rgba(255,255,255,0.8)`
+                        : "0 2px 10px rgba(44,44,44,0.04)",
                       overflow: "hidden",
-                      transform: isActiveCard ? "translateY(-2px)" : "translateY(0px)",
-                      transition: "box-shadow 0.45s ease, border-color 0.45s ease, transform 0.45s ease"
+                      opacity: isActiveCard ? 1 : 0.72,
+                      transform: isActiveCard ? "translateY(-3px) scale(1.005)" : "translateY(0px) scale(1)",
+                      transition: "box-shadow 0.5s ease, border-color 0.5s ease, transform 0.5s ease, opacity 0.5s ease"
                     }}>
                       <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}44, transparent)` }} />
                       <div style={{ padding: "22px 28px 24px" }}>
@@ -334,20 +335,22 @@ export default function WhatIsMamaLaunchSection() {
                         </p>
                         <div style={{ borderTop: `1px solid ${phase.color}18`, paddingTop: "12px" }}>
                            <p className="font-micro" style={{ color: phase.color, fontSize: "0.5rem", letterSpacing: "0.14em", marginBottom: "8px" }}>INSIDE</p>
-                           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                           <div style={{ display: "flex", flexWrap: "nowrap", gap: "5px", overflowX: "auto", scrollbarWidth: "none" }}>
                              {phase.inside.split(" · ").map((item) => (
                                <span key={item} style={{
                                  display: "inline-block",
+                                 whiteSpace: "nowrap",
+                                 flexShrink: 0,
                                  backgroundColor: "#FDFAF6",
-                                 border: `1px solid ${phase.color}28`,
+                                 border: `1px solid ${phase.color}26`,
                                  borderRadius: "999px",
-                                 padding: "4px 12px",
+                                 padding: "3px 9px",
                                  fontFamily: "'Inter', sans-serif",
-                                 fontSize: "0.72rem",
+                                 fontSize: "0.67rem",
                                  color: "#5C5148",
-                                 letterSpacing: "0.01em",
+                                 letterSpacing: "0.005em",
                                  lineHeight: "1.4",
-                                 boxShadow: `0 1px 3px rgba(44,44,44,0.04), inset 0 1px 0 rgba(255,255,255,0.8)`
+                                 boxShadow: `0 1px 2px rgba(44,44,44,0.04), inset 0 1px 0 rgba(255,255,255,0.8)`
                                }}>
                                  {item}
                                </span>
@@ -416,18 +419,25 @@ export default function WhatIsMamaLaunchSection() {
                 animation: "glowPulse 4s ease-in-out infinite"
               }} />
 
-              {/* Eyebrow */}
-              <p className="font-micro" style={{
-                color: "#C4956A",
-                fontSize: "0.52rem",
-                letterSpacing: "0.2em",
-                textAlign: "center",
-                position: "relative",
-                zIndex: 2,
-                flexShrink: 0
-              }}>
-                SEE THE METHOD IN ACTION
-              </p>
+              {/* Panel heading */}
+              <div style={{ textAlign: "center", position: "relative", zIndex: 2, flexShrink: 0 }}>
+                <p className="font-display" style={{
+                  color: "#2C2C2C",
+                  fontSize: "0.95rem",
+                  letterSpacing: "0.06em",
+                  lineHeight: "1.3",
+                  marginBottom: "4px"
+                }}>
+                  See the Method
+                </p>
+                <p className="font-micro" style={{
+                  color: "#C4956A",
+                  fontSize: "0.55rem",
+                  letterSpacing: "0.2em",
+                }}>
+                  IN ACTION
+                </p>
+              </div>
 
               {/* Phone — hero, with float animation */}
               <div style={{
@@ -442,31 +452,31 @@ export default function WhatIsMamaLaunchSection() {
                 padding: "12px 0 8px"
               }}>
                 <img
-                  src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
-                  alt="Mama Launch Method app interface"
-                  style={{
-                    width: "100%",
-                    maxWidth: "270px",
-                    maxHeight: "calc(100% - 8px)",
-                    objectFit: "contain",
-                    display: "block",
-                    position: "relative",
-                    zIndex: 3,
-                    animation: "phoneFloat 5s ease-in-out infinite",
-                    filter: "drop-shadow(0 20px 40px rgba(44,44,44,0.20)) drop-shadow(0 4px 12px rgba(44,44,44,0.09))"
-                  }}
+                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
+                 alt="Mama Launch Method app interface"
+                 style={{
+                   width: "auto",
+                   maxWidth: "min(240px, 90%)",
+                   maxHeight: "100%",
+                   objectFit: "contain",
+                   display: "block",
+                   position: "relative",
+                   zIndex: 3,
+                   animation: "phoneFloat 6s ease-in-out infinite",
+                   filter: "drop-shadow(0 18px 36px rgba(44,44,44,0.18)) drop-shadow(0 3px 10px rgba(44,44,44,0.08))"
+                 }}
                 />
               </div>
 
-              {/* Phase indicator dot — minimal, below phone */}
-              <div style={{ display: "flex", gap: "6px", justifyContent: "center", position: "relative", zIndex: 2, flexShrink: 0, paddingBottom: "4px" }}>
-                {phases.map((phase, i) => (
+              {/* Phase dot indicator — stays, no text */}
+              <div style={{ display: "flex", gap: "5px", justifyContent: "center", position: "relative", zIndex: 2, flexShrink: 0 }}>
+                {phases.map((_, i) => (
                   <div key={i} style={{
-                    width: i === activeIndex ? "18px" : "5px",
+                    width: i === activeIndex ? "16px" : "5px",
                     height: "5px",
                     borderRadius: "999px",
-                    backgroundColor: i === activeIndex ? phases[activeIndex].color : "rgba(196,149,106,0.25)",
-                    transition: "all 0.4s cubic-bezier(0.34,1.56,0.64,1)"
+                    backgroundColor: i === activeIndex ? phases[activeIndex].color : "rgba(196,149,106,0.22)",
+                    transition: "all 0.5s ease"
                   }} />
                 ))}
               </div>
