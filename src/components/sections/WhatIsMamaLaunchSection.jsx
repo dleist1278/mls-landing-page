@@ -204,16 +204,18 @@ export default function WhatIsMamaLaunchSection() {
                 }}
               />
               <img
-                src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png"
+                src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
                 alt="Mama Launch Method app interface — guided phase experience"
                 style={{
-                  width: "clamp(180px, 18vw, 240px)",
+                  width: "clamp(200px, 20vw, 260px)",
                   height: "auto",
-                  borderRadius: "28px",
-                  boxShadow: "0 32px 80px rgba(44,44,44,0.22), 0 8px 24px rgba(44,44,44,0.12), 0 2px 6px rgba(44,44,44,0.08)",
+                  borderRadius: "0",
+                  boxShadow: "none",
+                  background: "none",
                   position: "relative",
                   zIndex: 1,
-                  display: "block"
+                  display: "block",
+                  filter: "drop-shadow(0 28px 48px rgba(44,44,44,0.18)) drop-shadow(0 6px 16px rgba(44,44,44,0.10))"
                 }}
               />
             </div>
