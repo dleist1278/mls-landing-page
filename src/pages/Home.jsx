@@ -26,7 +26,7 @@ export default function Home() {
         <WhatIsMamaLaunchSection />
         <ModelsSection />
         <BuildInMotionSection />
-        <MethodSection />
+        <div className="md:hidden"><MethodSection /></div>
         <WalkAwaySection />
         <EcosystemSection />
         <DanielleStorySection />
