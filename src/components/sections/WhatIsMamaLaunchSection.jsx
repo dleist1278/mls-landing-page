@@ -50,12 +50,21 @@ const phases = [
   }
 ];
 
+const phaseCaptions = [
+  "Guided foundation prompts",
+  "Setup and safety checklists",
+  "Policies and systems",
+  "Enrollment tools",
+  "Opening readiness",
+];
+
 export default function WhatIsMamaLaunchSection() {
   const sectionRef = useRef(null);
   const phaseRefs = useRef([]);
   const innerScrollRef = useRef(null);
   const [visible, setVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
 
   // Entrance animation
   useEffect(() => {
@@ -82,12 +91,15 @@ export default function WhatIsMamaLaunchSection() {
         const dist = Math.abs(rect.top - containerTop - 80);
         if (dist < bestDist) { bestDist = dist; best = i; }
       });
-      setActiveIndex(best);
+      if (best !== activeIndex) {
+        setPrevIndex(activeIndex);
+        setActiveIndex(best);
+      }
     };
 
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
-  }, [visible]);
+  }, [visible, activeIndex]);
 
   const scrollToPhase = (i) => {
     const el = phaseRefs.current[i];
@@ -114,32 +126,76 @@ export default function WhatIsMamaLaunchSection() {
       {/* ══════════════════════════════════════════════════════════════
           DESKTOP LAYOUT
       ══════════════════════════════════════════════════════════════ */}
-      <div
-        className="hidden md:block"
-        style={{
-          transition: "opacity 0.8s ease, transform 0.8s ease",
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(20px)"
-        }}
-      >
+      <style>{`
+        @keyframes methodFadeUp {
+          from { opacity: 0; transform: translateY(18px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes methodFadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes phoneFloat {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-6px); }
+        }
+        @keyframes glowPulse {
+          0%, 100% { opacity: 0.18; }
+          50%       { opacity: 0.28; }
+        }
+      `}</style>
 
-        {/* ── Section Intro ── */}
+      <div className="hidden md:block">
+
+        {/* ── Section Intro — staggered entrance ── */}
         <div className="text-center mx-auto px-8 pt-16 pb-8" style={{ maxWidth: "620px" }}>
-          <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.18em" }}>
+          <p
+            className="font-micro mb-4 inline-flex items-center gap-3"
+            style={{
+              color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.18em",
+              opacity: visible ? 1 : 0,
+              animation: visible ? "methodFadeUp 0.7s ease forwards" : "none",
+              animationDelay: "0s"
+            }}
+          >
             <span style={{ display: "inline-block", width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
             THE MAMA LAUNCH METHOD™
             <span style={{ display: "inline-block", width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
           </p>
-          <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", lineHeight: "1.12" }}>
+          <h2
+            className="font-display leading-tight mb-4"
+            style={{
+              color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", lineHeight: "1.12",
+              opacity: visible ? 1 : 0,
+              animation: visible ? "methodFadeUp 0.8s ease forwards" : "none",
+              animationDelay: "0.1s"
+            }}
+          >
             The guided path from idea to opening day.
           </h2>
-          <p className="font-body mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75", maxWidth: "52ch" }}>
+          <p
+            className="font-body mx-auto"
+            style={{
+              color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75", maxWidth: "52ch",
+              opacity: visible ? 1 : 0,
+              animation: visible ? "methodFadeUp 0.8s ease forwards" : "none",
+              animationDelay: "0.2s"
+            }}
+          >
             A step-by-step framework that helps mothers move from uncertainty to clarity, structure, and launch readiness — without piecing everything together alone.
           </p>
         </div>
 
         {/* ── Framed 3-column Method showcase ── */}
-        <div className="mx-auto px-8 pb-12" style={{ maxWidth: "1160px" }}>
+        <div
+          className="mx-auto px-8 pb-12"
+          style={{
+            maxWidth: "1160px",
+            opacity: visible ? 1 : 0,
+            animation: visible ? "methodFadeUp 0.9s ease forwards" : "none",
+            animationDelay: "0.3s"
+          }}
+        >
           <div
             style={{
               borderRadius: "28px",
@@ -235,7 +291,9 @@ export default function WhatIsMamaLaunchSection() {
                 <style>{`
                   .method-inner-scroll::-webkit-scrollbar { display: none; }
                 `}</style>
-                {phases.map((phase, i) => (
+                {phases.map((phase, i) => {
+                  const isActiveCard = i === activeIndex;
+                  return (
                   <div
                     key={phase.number}
                     ref={el => phaseRefs.current[i] = el}
@@ -243,9 +301,13 @@ export default function WhatIsMamaLaunchSection() {
                     <div style={{
                       borderRadius: "18px",
                       backgroundColor: "#FFFDF9",
-                      border: `1px solid ${phase.color}1C`,
-                      boxShadow: "0 3px 20px rgba(44,44,44,0.06), 0 1px 4px rgba(196,149,106,0.05)",
-                      overflow: "hidden"
+                      border: `1px solid ${isActiveCard ? phase.color + "38" : phase.color + "1C"}`,
+                      boxShadow: isActiveCard
+                        ? `0 8px 32px rgba(44,44,44,0.11), 0 2px 8px ${phase.color}18`
+                        : "0 3px 20px rgba(44,44,44,0.06), 0 1px 4px rgba(196,149,106,0.05)",
+                      overflow: "hidden",
+                      transform: isActiveCard ? "translateY(-2px)" : "translateY(0px)",
+                      transition: "box-shadow 0.45s ease, border-color 0.45s ease, transform 0.45s ease"
                     }}>
                       <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}44, transparent)` }} />
                       <div style={{ padding: "22px 28px 24px" }}>
@@ -267,7 +329,8 @@ export default function WhatIsMamaLaunchSection() {
                       </div>
                     </div>
                   </div>
-                ))}
+                );
+                })}
               </div>
 
               {/* Bottom fade — scroll cue */}
@@ -293,30 +356,35 @@ export default function WhatIsMamaLaunchSection() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "center",
-                padding: "28px 24px 24px",
+                justifyContent: "space-between",
+                padding: "28px 20px 22px",
                 position: "relative",
-                overflow: "hidden"
+                overflow: "hidden",
+                opacity: visible ? 1 : 0,
+                animation: visible ? "methodFadeUp 1s ease forwards" : "none",
+                animationDelay: "0.5s"
               }}
             >
               {/* Blueprint grid lines — behind everything */}
-              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.05, pointerEvents: "none", zIndex: 0 }} preserveAspectRatio="xMidYMid slice">
-                {Array.from({ length: 22 }, (_, i) => (
-                  <line key={i} x1="0" y1={i * 30} x2="9999" y2={i * 30} stroke="#4D5E49" strokeWidth="0.7" />
+              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.045, pointerEvents: "none", zIndex: 0 }} preserveAspectRatio="xMidYMid slice">
+                {Array.from({ length: 24 }, (_, i) => (
+                  <line key={i} x1="0" y1={i * 28} x2="9999" y2={i * 28} stroke="#4D5E49" strokeWidth="0.7" />
                 ))}
               </svg>
 
-              {/* Radial glow — behind phone */}
+              {/* Animated radial glow — shifts subtly with active phase */}
               <div style={{
                 position: "absolute",
-                top: "30%",
+                top: "38%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: "280px",
-                height: "320px",
-                background: "radial-gradient(ellipse at center, rgba(196,149,106,0.22) 0%, transparent 68%)",
+                width: "260px",
+                height: "300px",
+                background: `radial-gradient(ellipse at center, ${phases[activeIndex].color}28 0%, transparent 68%)`,
                 pointerEvents: "none",
-                zIndex: 1
+                zIndex: 1,
+                transition: "background 0.6s ease",
+                animation: "glowPulse 4s ease-in-out infinite"
               }} />
 
               {/* Eyebrow */}
@@ -325,63 +393,72 @@ export default function WhatIsMamaLaunchSection() {
                 fontSize: "0.52rem",
                 letterSpacing: "0.2em",
                 textAlign: "center",
-                marginBottom: "14px",
                 position: "relative",
-                zIndex: 2
+                zIndex: 2,
+                flexShrink: 0
               }}>
                 SEE THE METHOD IN ACTION
               </p>
 
-              {/* Phone — the hero */}
-              <div style={{ position: "relative", zIndex: 2, width: "100%", display: "flex", justifyContent: "center" }}>
-
-                {/* Dynamic phase badge — top-right of phone area */}
-                <div style={{
-                  position: "absolute",
-                  top: "-8px",
-                  right: "8px",
-                  backgroundColor: "#FFFDF9",
-                  border: `1px solid ${phases[activeIndex].color}40`,
-                  borderRadius: "999px",
-                  padding: "4px 11px",
-                  zIndex: 4,
-                  boxShadow: "0 2px 8px rgba(44,44,44,0.08)",
-                  transition: "border-color 0.35s ease"
-                }}>
-                  <span className="font-micro" style={{ color: phases[activeIndex].color, fontSize: "0.49rem", letterSpacing: "0.12em", transition: "color 0.35s ease" }}>
-                    PHASE {phases[activeIndex].number} IN ACTION
-                  </span>
-                </div>
-
+              {/* Phone — hero, with float animation */}
+              <div style={{
+                position: "relative",
+                zIndex: 2,
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flex: "1",
+                minHeight: 0,
+                padding: "12px 0 8px"
+              }}>
                 <img
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
                   alt="Mama Launch Method app interface"
                   style={{
                     width: "100%",
-                    maxWidth: "300px",
-                    maxHeight: "580px",
+                    maxWidth: "270px",
+                    maxHeight: "calc(100% - 8px)",
                     objectFit: "contain",
                     display: "block",
                     position: "relative",
                     zIndex: 3,
-                    filter: "drop-shadow(0 20px 40px rgba(44,44,44,0.22)) drop-shadow(0 4px 12px rgba(44,44,44,0.10))"
+                    animation: "phoneFloat 5s ease-in-out infinite",
+                    filter: "drop-shadow(0 20px 40px rgba(44,44,44,0.20)) drop-shadow(0 4px 12px rgba(44,44,44,0.09))"
                   }}
                 />
               </div>
 
-              {/* Caption — below phone, supporting role */}
-              <p className="font-body" style={{
-                color: "#7A6E65",
-                fontSize: "0.69rem",
-                lineHeight: "1.6",
+              {/* Dynamic caption — changes with active phase */}
+              <div style={{
                 textAlign: "center",
-                marginTop: "16px",
-                maxWidth: "26ch",
                 position: "relative",
-                zIndex: 2
+                zIndex: 2,
+                flexShrink: 0,
+                padding: "0 4px"
               }}>
-                Guided prompts, progress tracking, templates, and portfolio tools help your business take shape as you move through each phase.
-              </p>
+                <p
+                  className="font-micro"
+                  style={{
+                    color: phases[activeIndex].color,
+                    fontSize: "0.5rem",
+                    letterSpacing: "0.14em",
+                    marginBottom: "4px",
+                    transition: "color 0.4s ease"
+                  }}
+                >
+                  PHASE {phases[activeIndex].number} · {phaseCaptions[activeIndex]}
+                </p>
+                <p className="font-body" style={{
+                  color: "#7A6E65",
+                  fontSize: "0.67rem",
+                  lineHeight: "1.55",
+                  maxWidth: "24ch",
+                  margin: "0 auto"
+                }}>
+                  Guided prompts, progress tracking, templates, and portfolio tools help your business take shape.
+                </p>
+              </div>
             </div>
 
           </div>
