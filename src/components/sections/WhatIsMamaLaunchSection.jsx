@@ -1,74 +1,91 @@
 import React, { useRef, useEffect, useState } from "react";
 
-// Mobile-only cards (unchanged)
+// Mobile-only swipe cards — unchanged
 const cards = [
   { title: "Guided Interactive Roadmap", body: "Move through 5 structured phases with prompts, decisions, and tasks at every step — so you always know what to do.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png", accent: "#4D5E49" },
   { title: "Built-In Clarity", body: "Every template, checklist, and policy document you need — organized by phase and ready to fill in as you go.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png", accent: "#C4956A" },
   { title: "Launch Momentum", body: "See your progress in real time as you complete each phase and move closer to opening your program.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" }
 ];
 
-// Locked phase names + exact copy per brief
+// ── LOCKED PHASE DATA ─────────────────────────────────────────────────────────
 const phases = [
   {
     number: "01",
-    name: "Dream & Align",
-    outcome: "Feel clear on what you're building and why it fits your life.",
-    detail: "Clarify your childcare vision, family-aligned schedule, program model, income goals, and the type of experience you want to create.",
-    includes: ["Vision Blueprint", "Program model clarity", "Lifestyle + schedule alignment"],
+    name: "Vision, Lifestyle & Program Alignment",
+    description: "Choose the childcare model that fits your family, goals, and real-life schedule.",
+    includes: ["Lifestyle alignment prompts", "Program model decision guide", "Income + schedule clarity"],
     color: "#4D5E49",
+    accentBg: "rgba(77,94,73,0.07)",
     image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png",
-    imageLabel: "Vision workbook pages"
   },
   {
     number: "02",
-    name: "Build Your Foundation",
-    outcome: "Feel grounded and organized instead of overwhelmed by licensing and setup.",
-    detail: "Work through licensing preparation, home setup, safety requirements, documentation, and operational readiness.",
-    includes: ["Licensing guidance", "Home setup checklist", "Inspection preparation"],
-    color: "#6B7E67",
+    name: "Licensing, Home Setup & Safety",
+    description: "Understand what you need to prepare legally and safely before opening.",
+    includes: ["Licensing guidance", "Home setup checklist", "Inspection prep"],
+    color: "#7A6E65",
+    accentBg: "rgba(122,110,101,0.07)",
     image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png",
-    imageLabel: "Licensing checklist & document tracker"
   },
   {
     number: "03",
-    name: "Design Your Ecosystem",
-    outcome: "See your program come to life through space, rhythm, policies, and parent experience.",
-    detail: "Create your environment plan, daily rhythms, policies, parent communication systems, and childcare experience.",
-    includes: ["Room planning", "Parent handbook guidance", "Daily rhythm framework"],
+    name: "Program Design, Policies & Operations",
+    description: "Build a calm, professional childcare experience families can trust.",
+    includes: ["Parent handbook", "Operational templates", "Communication systems"],
     color: "#C4956A",
+    accentBg: "rgba(196,149,106,0.07)",
     image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png",
-    imageLabel: "Room layout & environment plan"
   },
   {
     number: "04",
-    name: "Launch Your Program",
-    outcome: "Feel ready to share your program publicly and begin attracting aligned families.",
-    detail: "Set up your waitlist, tour process, website messaging, enrollment flow, and local outreach systems.",
-    includes: ["Waitlist workflow", "Tour system", "Launch messaging"],
+    name: "Enrollment, Marketing & Family Trust",
+    description: "Attract the right families and help them feel confident choosing your program.",
+    includes: ["Enrollment tools", "Marketing prompts", "Parent inquiry systems"],
     color: "#4D5E49",
+    accentBg: "rgba(77,94,73,0.07)",
     image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png",
-    imageLabel: "Waitlist & marketing workflow"
   },
   {
     number: "05",
-    name: "Open Your Doors",
-    outcome: "Feel prepared and supported walking into opening week.",
-    detail: "Finalize your systems, welcome families, prepare for the first day, and transition into real program operations.",
+    name: "Launch Readiness & Opening",
+    description: "Feel prepared and supported walking into opening week.",
     includes: ["Opening week checklist", "Family welcome tools", "First-week preparation"],
     color: "#6B7E67",
+    accentBg: "rgba(107,126,103,0.07)",
     image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png",
-    imageLabel: "Opening week checklist & welcome plan"
   }
 ];
+
+// ── Blueprint accent — subtle ruled-line workbook texture rendered in SVG ─────
+function BlueprintAccent({ color }) {
+  return (
+    <svg width="180" height="100%" viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full opacity-[0.18]" preserveAspectRatio="xMidYMid slice">
+      {[0,1,2,3,4,5,6,7,8,9,10,11].map(i => (
+        <line key={i} x1="0" y1={18 + i * 18} x2="180" y2={18 + i * 18} stroke={color} strokeWidth="0.8" />
+      ))}
+      <line x1="28" y1="0" x2="28" y2="220" stroke={color} strokeWidth="1.2" />
+      <circle cx="28" cy="36" r="3" fill={color} opacity="0.5" />
+      <circle cx="28" cy="72" r="3" fill={color} opacity="0.5" />
+      <circle cx="28" cy="108" r="3" fill={color} opacity="0.5" />
+      <rect x="40" y="30" width="100" height="6" rx="2" fill={color} opacity="0.25" />
+      <rect x="40" y="66" width="76" height="6" rx="2" fill={color} opacity="0.18" />
+      <rect x="40" y="102" width="88" height="6" rx="2" fill={color} opacity="0.2" />
+      <rect x="40" y="138" width="60" height="6" rx="2" fill={color} opacity="0.14" />
+    </svg>
+  );
+}
 
 export default function WhatIsMamaLaunchSection() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const o1 = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.05 });
-    if (ref.current) o1.observe(ref.current);
-    return () => o1.disconnect();
+    const observer = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.04 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
   }, []);
 
   const scrollToWaitlist = () => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
@@ -76,231 +93,227 @@ export default function WhatIsMamaLaunchSection() {
   return (
     <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%", position: "relative", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
 
-      {/* ══════════════════════════════════════════════════════════════════
+      {/* ══════════════════════════════════════════════════════════════
           DESKTOP LAYOUT
-      ══════════════════════════════════════════════════════════════════ */}
+      ══════════════════════════════════════════════════════════════ */}
       <div
         ref={ref}
         className="hidden md:block"
         style={{
           transition: "opacity 0.7s ease, transform 0.7s ease",
           opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(20px)"
+          transform: visible ? "translateY(0)" : "translateY(18px)"
         }}
       >
-        {/* ── Section intro — full-width centered ── */}
-        <div className="max-w-3xl mx-auto px-8 pt-16 pb-10 text-center">
+
+        {/* ── Intro ── */}
+        <div className="text-center mx-auto px-8 pt-16 pb-10" style={{ maxWidth: "700px" }}>
           <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.16em" }}>
-            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+            <span style={{ display: "inline-block", width: "28px", height: "1px", backgroundColor: "#C4956A" }} />
             UNDERSTANDING THE PLATFORM
-            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+            <span style={{ display: "inline-block", width: "28px", height: "1px", backgroundColor: "#C4956A" }} />
           </p>
 
-          <h2
-            className="font-display leading-tight mb-5"
-            style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", lineHeight: "1.15" }}
-          >
-            What is the{" "}
-            <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
+          <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3vw, 2.65rem)", lineHeight: "1.15" }}>
+            What is the <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
           </h2>
 
-          <p className="font-body leading-relaxed mb-6 mx-auto" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.75", maxWidth: "58ch" }}>
+          <p className="font-body leading-relaxed mb-7 mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75" }}>
             The Mama Launch Method is a guided implementation path that helps mothers move from idea to opening day with less overwhelm, less guesswork, and more support. Each phase helps you build one part of your home childcare ecosystem — from vision and licensing to environment, enrollment, and opening your doors.
           </p>
 
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-5">
             <button
               onClick={scrollToWaitlist}
-              className="font-micro px-7 py-3.5 rounded-full transition-all"
-              style={{ color: "#fff", fontSize: "0.72rem", backgroundColor: "#4D5E49", boxShadow: "0 6px 24px rgba(77,94,73,0.24)", letterSpacing: "0.09em" }}
+              className="font-micro transition-all"
+              style={{
+                color: "#fff",
+                fontSize: "0.7rem",
+                letterSpacing: "0.09em",
+                backgroundColor: "#4D5E49",
+                border: "none",
+                borderRadius: "999px",
+                padding: "13px 28px",
+                cursor: "pointer",
+                boxShadow: "0 6px 20px rgba(77,94,73,0.26)"
+              }}
             >
               Join the Founding Member Waitlist
             </button>
             <button
               onClick={() => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" })}
               className="font-micro transition-all"
-              style={{ color: "#4D5E49", fontSize: "0.7rem", letterSpacing: "0.09em", background: "none", border: "none", cursor: "pointer", textDecoration: "underline", textUnderlineOffset: "3px" }}
+              style={{
+                color: "#4D5E49",
+                fontSize: "0.7rem",
+                letterSpacing: "0.09em",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                textDecoration: "underline",
+                textUnderlineOffset: "3px"
+              }}
             >
               Explore the Method ↓
             </button>
           </div>
         </div>
 
-        {/* ── Centered vertical roadmap ── */}
-        <div className="max-w-4xl mx-auto px-8 pb-10 relative">
-
-          {/* Vertical timeline line — hugs the phase number circles */}
-          <div
-            className="absolute"
-            style={{
-              left: "calc(50% - 0.5px)",
-              top: "20px",
-              bottom: "20px",
-              width: "1px",
-              background: "linear-gradient(180deg, transparent 0%, #C4956A55 8%, #4D5E4944 50%, #C4956A55 92%, transparent 100%)",
-              zIndex: 0,
-              display: "none" // hidden — using left-side node line instead
-            }}
-          />
-
-          <div className="flex flex-col" style={{ gap: "0" }}>
+        {/* ── Phase cards stack ── */}
+        <div className="mx-auto px-6 pb-6" style={{ maxWidth: "1100px" }}>
+          <div className="flex flex-col" style={{ gap: "10px" }}>
             {phases.map((phase, i) => (
-              <div key={phase.number} className="relative flex items-stretch" style={{ marginBottom: i < phases.length - 1 ? "0" : "0" }}>
+              <div key={phase.number} className="relative">
 
-                {/* Timeline gutter — left 48px */}
-                <div className="flex flex-col items-center flex-shrink-0" style={{ width: "48px" }}>
-                  {/* Connector line above node */}
-                  {i > 0 && (
-                    <div style={{ flex: "0 0 24px", width: "1px", background: `linear-gradient(180deg, ${phases[i-1].color}44, ${phase.color}44)` }} />
-                  )}
-                  {i === 0 && <div style={{ flex: "0 0 24px" }} />}
-
-                  {/* Phase number node */}
+                {/* Subtle connector dot between cards */}
+                {i < phases.length - 1 && (
                   <div
-                    className="flex-shrink-0 flex items-center justify-center rounded-full z-10"
+                    className="absolute left-1/2 -bottom-[5px] z-10"
                     style={{
-                      width: "44px",
-                      height: "44px",
-                      backgroundColor: "#F0EBE1",
-                      border: `2px solid ${phase.color}`,
-                      boxShadow: `0 0 0 4px #F0EBE1, 0 2px 10px ${phase.color}28`
+                      transform: "translateX(-50%)",
+                      width: "1px",
+                      height: "10px",
+                      background: `linear-gradient(180deg, ${phase.color}55, ${phases[i+1].color}33)`
                     }}
-                  >
-                    <span className="font-display" style={{ color: phase.color, fontSize: "0.82rem", fontWeight: 700, lineHeight: 1 }}>
-                      {phase.number}
-                    </span>
-                  </div>
+                  />
+                )}
 
-                  {/* Connector line below node */}
-                  {i < phases.length - 1 && (
-                    <div style={{ flex: "1", minHeight: "24px", width: "1px", background: `linear-gradient(180deg, ${phase.color}44, ${phases[i+1].color}44)` }} />
-                  )}
-                  {i === phases.length - 1 && <div style={{ flex: "0 0 24px" }} />}
-                </div>
-
-                {/* Phase card */}
+                {/* Card */}
                 <div
-                  className="flex-1 min-w-0 overflow-hidden"
+                  className="flex overflow-hidden"
                   style={{
-                    margin: "12px 0 12px 16px",
-                    borderRadius: "16px",
+                    borderRadius: "14px",
                     backgroundColor: "#FFFDF9",
-                    border: `1px solid ${phase.color}22`,
-                    boxShadow: "0 4px 20px rgba(44,44,44,0.07), 0 1px 4px rgba(196,149,106,0.07)"
+                    border: `1px solid ${phase.color}1E`,
+                    boxShadow: "0 2px 16px rgba(44,44,44,0.07), 0 1px 3px rgba(196,149,106,0.06)"
                   }}
                 >
-                  {/* Top accent bar */}
-                  <div style={{ height: "2px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}44)`, borderRadius: "16px 16px 0 0" }} />
+                  {/* Left accent strip */}
+                  <div style={{ width: "4px", flexShrink: 0, background: `linear-gradient(180deg, ${phase.color}, ${phase.color}66)`, borderRadius: "14px 0 0 14px" }} />
 
-                  <div className="flex">
-                    {/* Text side */}
-                    <div className="flex-1 p-5 lg:p-6">
-                      {/* Phase label */}
-                      <p className="font-micro mb-1" style={{ color: phase.color, fontSize: "0.6rem", letterSpacing: "0.14em" }}>
+                  {/* Text content */}
+                  <div className="flex-1 px-7 py-6 min-w-0">
+                    {/* Phase number + name row */}
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span
+                        className="font-micro flex-shrink-0"
+                        style={{
+                          color: "#fff",
+                          backgroundColor: phase.color,
+                          fontSize: "0.58rem",
+                          letterSpacing: "0.12em",
+                          padding: "3px 8px",
+                          borderRadius: "999px"
+                        }}
+                      >
                         PHASE {phase.number}
-                      </p>
-                      <h3 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "1.15rem" }}>
+                      </span>
+                      <h3 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "1.1rem", lineHeight: "1.2" }}>
                         {phase.name}
                       </h3>
-
-                      {/* Outcome */}
-                      <div className="mb-3">
-                        <p className="font-micro mb-1" style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.1em" }}>WHAT YOU'LL FEEL</p>
-                        <p className="font-body" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.6", fontStyle: "italic" }}>
-                          "{phase.outcome}"
-                        </p>
-                      </div>
-
-                      {/* What you'll build */}
-                      <div className="mb-3">
-                        <p className="font-micro mb-1" style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.1em" }}>WHAT YOU'LL BUILD</p>
-                        <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.84rem", lineHeight: "1.6" }}>
-                          {phase.detail}
-                        </p>
-                      </div>
-
-                      {/* Deliverables */}
-                      <div className="pt-3" style={{ borderTop: `1px solid ${phase.color}16` }}>
-                        <p className="font-micro mb-2" style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.1em" }}>INCLUDES</p>
-                        <ul className="flex flex-wrap gap-2">
-                          {phase.includes.map((item) => (
-                            <li
-                              key={item}
-                              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full"
-                              style={{ backgroundColor: phase.color + "10", border: `1px solid ${phase.color}22` }}
-                            >
-                              <span style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: phase.color, display: "block", flexShrink: 0 }} />
-                              <span className="font-body" style={{ color: "#5C5148", fontSize: "0.75rem", lineHeight: 1 }}>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
                     </div>
 
-                    {/* Mockup image side */}
-                    <div
-                      className="flex-shrink-0 flex flex-col overflow-hidden"
-                      style={{
-                        width: "180px",
-                        borderLeft: `1px solid ${phase.color}14`,
-                        borderRadius: "0 16px 16px 0"
-                      }}
-                    >
-                      <div className="flex-1 overflow-hidden">
-                        <img
-                          src={phase.image}
-                          alt={phase.imageLabel}
-                          className="w-full h-full object-cover"
-                          style={{ objectPosition: "center top", filter: "saturate(0.85) brightness(0.95)", minHeight: "140px" }}
-                        />
-                      </div>
-                      <div
-                        className="px-3 py-2"
-                        style={{ backgroundColor: "#F8F4EF", borderTop: `1px solid ${phase.color}16` }}
-                      >
-                        <p className="font-micro" style={{ color: phase.color, fontSize: "0.55rem", letterSpacing: "0.1em", lineHeight: "1.4" }}>
-                          {phase.imageLabel}
-                        </p>
-                      </div>
+                    {/* Description */}
+                    <p className="font-body mb-4" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
+                      {phase.description}
+                    </p>
+
+                    {/* Deliverables */}
+                    <div className="flex flex-wrap gap-2">
+                      {phase.includes.map((item) => (
+                        <span
+                          key={item}
+                          className="font-body flex items-center gap-1.5"
+                          style={{
+                            fontSize: "0.75rem",
+                            color: "#5C5148",
+                            backgroundColor: phase.accentBg,
+                            border: `1px solid ${phase.color}22`,
+                            borderRadius: "6px",
+                            padding: "4px 10px",
+                            lineHeight: 1
+                          }}
+                        >
+                          <span style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: phase.color, display: "inline-block", flexShrink: 0 }} />
+                          {item}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                </div>
 
+                  {/* Blueprint visual panel */}
+                  <div
+                    className="flex-shrink-0 relative overflow-hidden"
+                    style={{
+                      width: "160px",
+                      backgroundColor: phase.accentBg,
+                      borderLeft: `1px solid ${phase.color}16`
+                    }}
+                  >
+                    <BlueprintAccent color={phase.color} />
+                    <img
+                      src={phase.image}
+                      alt={phase.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{
+                        filter: `saturate(0.6) brightness(0.92) sepia(0.1)`,
+                        opacity: 0.55,
+                        mixBlendMode: "multiply"
+                      }}
+                    />
+                    {/* Phase number watermark */}
+                    <div
+                      className="absolute bottom-3 right-3 font-display"
+                      style={{ color: phase.color, fontSize: "2.2rem", opacity: 0.18, lineHeight: 1, fontWeight: 700, userSelect: "none" }}
+                    >
+                      {phase.number}
+                    </div>
+                  </div>
+
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* ── Closing CTA ── */}
-        <div className="max-w-3xl mx-auto px-8 pb-16 text-center">
-          <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C4956A44, transparent)", marginBottom: "28px" }} />
-          <p className="font-body mb-5" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
+        <div className="text-center mx-auto px-8 pt-8 pb-16" style={{ maxWidth: "600px" }}>
+          <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C4956A44, transparent)", marginBottom: "24px" }} />
+          <p className="font-body mb-5" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.65" }}>
             Founding members will be the first to move through the complete 5-phase path.
           </p>
           <button
             onClick={scrollToWaitlist}
-            className="font-micro px-8 py-4 rounded-full transition-all"
-            style={{ color: "#fff", fontSize: "0.72rem", backgroundColor: "#4D5E49", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)", letterSpacing: "0.09em" }}
+            className="font-micro transition-all"
+            style={{
+              color: "#fff",
+              fontSize: "0.7rem",
+              letterSpacing: "0.09em",
+              backgroundColor: "#4D5E49",
+              border: "none",
+              borderRadius: "999px",
+              padding: "13px 28px",
+              cursor: "pointer",
+              boxShadow: "0 6px 20px rgba(77,94,73,0.26)"
+            }}
           >
             Join the Founding Member Waitlist
           </button>
         </div>
       </div>
 
-      {/* ══════════════════════════════════════════════════════════════════
+      {/* ══════════════════════════════════════════════════════════════
           MOBILE LAYOUT — UNCHANGED
-      ══════════════════════════════════════════════════════════════════ */}
+      ══════════════════════════════════════════════════════════════ */}
       <div className="md:hidden max-w-2xl mx-auto px-5 sm:px-8 py-10">
         <div style={{ transition: "opacity 0.6s ease", opacity: visible ? 1 : 0 }}>
 
-          {/* Eyebrow */}
           <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
             UNDERSTANDING THE PLATFORM
             <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           </p>
 
-          {/* Heading */}
           <h2
             className="font-display leading-tight mb-4 text-center"
             style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2", maxWidth: "22ch", marginLeft: "auto", marginRight: "auto" }}
@@ -308,12 +321,10 @@ export default function WhatIsMamaLaunchSection() {
             What is the <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
           </h2>
 
-          {/* Support copy */}
           <p className="font-body leading-relaxed mb-7 text-center mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.65", maxWidth: "42ch" }}>
             A guided opening path that helps you move from idea to real program with less guesswork. Built from real childcare experience, not theory.
           </p>
 
-          {/* Mobile swipe cards */}
           <div className="mb-5 overflow-hidden w-full">
             <style>{`
               @keyframes peekNudge {
@@ -361,7 +372,6 @@ export default function WhatIsMamaLaunchSection() {
             </div>
           </div>
 
-          {/* Mobile bridge line */}
           <p className="font-body text-xs mt-3 text-center" style={{ color: "#7A6E65", lineHeight: "1.5" }}>
             Founding members unlock the complete 5-phase path first.
           </p>
