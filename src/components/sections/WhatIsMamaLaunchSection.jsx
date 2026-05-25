@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 
 // Mobile-only swipe cards — unchanged
 const cards = [
@@ -7,7 +7,6 @@ const cards = [
   { title: "Launch Momentum", body: "See your progress in real time as you complete each phase and move closer to opening your program.", image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png", accent: "#4D5E49" }
 ];
 
-// ── LOCKED PHASE DATA ─────────────────────────────────────────────────────────
 const phases = [
   {
     number: "01",
@@ -16,8 +15,6 @@ const phases = [
     whyItMatters: "This phase helps you stop spinning and start building the right path with confidence.",
     includes: ["Lifestyle alignment prompts", "Program model decision guide", "Income + schedule clarity"],
     color: "#4D5E49",
-    accentBg: "rgba(77,94,73,0.07)",
-    image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png",
   },
   {
     number: "02",
@@ -26,8 +23,6 @@ const phases = [
     whyItMatters: "This phase helps you move from uncertainty to clear next steps.",
     includes: ["Licensing guidance", "Home setup checklist", "Safety + inspection prep"],
     color: "#7A6E65",
-    accentBg: "rgba(122,110,101,0.07)",
-    image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png",
   },
   {
     number: "03",
@@ -36,8 +31,6 @@ const phases = [
     whyItMatters: "This phase helps you create a calm, structured business that feels professional and sustainable.",
     includes: ["Parent handbook", "Operational templates", "Family communication systems"],
     color: "#C4956A",
-    accentBg: "rgba(196,149,106,0.07)",
-    image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png",
   },
   {
     number: "04",
@@ -46,8 +39,6 @@ const phases = [
     whyItMatters: "This phase helps you turn your vision into a program families feel excited to join.",
     includes: ["Enrollment tools", "Marketing prompts", "Parent inquiry systems"],
     color: "#4D5E49",
-    accentBg: "rgba(77,94,73,0.07)",
-    image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f5cbe19f1_ChatGPTImageMay19202609_41_06AM.png",
   },
   {
     number: "05",
@@ -56,247 +47,383 @@ const phases = [
     whyItMatters: "This phase helps you launch with more confidence, calm, and clarity.",
     includes: ["Opening week checklist", "Family welcome tools", "First-week preparation"],
     color: "#6B7E67",
-    accentBg: "rgba(107,126,103,0.07)",
-    image: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5c6463f25_ChatGPTImageMay19202609_41_35AM.png",
   }
 ];
 
-// ── Blueprint accent — subtle ruled-line workbook texture rendered in SVG ─────
-function BlueprintAccent({ color }) {
-  return (
-    <svg width="180" height="100%" viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full opacity-[0.18]" preserveAspectRatio="xMidYMid slice">
-      {[0,1,2,3,4,5,6,7,8,9,10,11].map(i => (
-        <line key={i} x1="0" y1={18 + i * 18} x2="180" y2={18 + i * 18} stroke={color} strokeWidth="0.8" />
-      ))}
-      <line x1="28" y1="0" x2="28" y2="220" stroke={color} strokeWidth="1.2" />
-      <circle cx="28" cy="36" r="3" fill={color} opacity="0.5" />
-      <circle cx="28" cy="72" r="3" fill={color} opacity="0.5" />
-      <circle cx="28" cy="108" r="3" fill={color} opacity="0.5" />
-      <rect x="40" y="30" width="100" height="6" rx="2" fill={color} opacity="0.25" />
-      <rect x="40" y="66" width="76" height="6" rx="2" fill={color} opacity="0.18" />
-      <rect x="40" y="102" width="88" height="6" rx="2" fill={color} opacity="0.2" />
-      <rect x="40" y="138" width="60" height="6" rx="2" fill={color} opacity="0.14" />
-    </svg>
-  );
-}
-
 export default function WhatIsMamaLaunchSection() {
-  const ref = useRef(null);
+  const sectionRef = useRef(null);
+  const phaseRefs = useRef([]);
   const [visible, setVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  // Entrance animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) setVisible(true); },
       { threshold: 0.04 }
     );
-    if (ref.current) observer.observe(ref.current);
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  // Scroll-spy: track which phase card is in view
+  useEffect(() => {
+    const observers = phaseRefs.current.map((el, i) => {
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveIndex(i); },
+        { threshold: 0.4, rootMargin: "-10% 0px -50% 0px" }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach(obs => obs?.disconnect());
+  }, [visible]);
+
+  const scrollToPhase = (i) => {
+    phaseRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
 
   const scrollToWaitlist = () => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section style={{ backgroundColor: "#F0EBE1", overflow: "hidden", maxWidth: "100vw", width: "100%", position: "relative", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
+    <section
+      ref={sectionRef}
+      style={{
+        backgroundColor: "#F0EBE1",
+        overflow: "hidden",
+        maxWidth: "100vw",
+        width: "100%",
+        position: "relative",
+        borderTop: "1px solid rgba(196,149,106,0.08)"
+      }}
+    >
 
       {/* ══════════════════════════════════════════════════════════════
           DESKTOP LAYOUT
       ══════════════════════════════════════════════════════════════ */}
       <div
-        ref={ref}
         className="hidden md:block"
         style={{
-          transition: "opacity 0.7s ease, transform 0.7s ease",
+          transition: "opacity 0.8s ease, transform 0.8s ease",
           opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(18px)"
+          transform: visible ? "translateY(0)" : "translateY(20px)"
         }}
       >
 
-        {/* ── Intro ── */}
-        <div className="text-center mx-auto px-8 pt-16 pb-10" style={{ maxWidth: "700px" }}>
-          <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.16em" }}>
-            <span style={{ display: "inline-block", width: "28px", height: "1px", backgroundColor: "#C4956A" }} />
+        {/* ── Section Intro ── */}
+        <div className="text-center mx-auto px-8 pt-16 pb-12" style={{ maxWidth: "680px" }}>
+          <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.18em" }}>
+            <span style={{ display: "inline-block", width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
             THE MAMA LAUNCH METHOD™
-            <span style={{ display: "inline-block", width: "28px", height: "1px", backgroundColor: "#C4956A" }} />
+            <span style={{ display: "inline-block", width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
           </p>
 
-          <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 3vw, 2.65rem)", lineHeight: "1.15" }}>
+          <h2 className="font-display leading-tight mb-5" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", lineHeight: "1.12" }}>
             The guided path from idea to a fully launched home childcare business.
           </h2>
 
-          <p className="font-body leading-relaxed mb-3 mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75" }}>
+          <p className="font-body leading-relaxed mb-3 mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.8", maxWidth: "56ch" }}>
             This is the heart of Mama Launch Studio — a step-by-step method designed to help mothers move from uncertainty and overwhelm to clarity, confidence, and launch readiness.
           </p>
 
-          <p className="font-body leading-relaxed mb-7 mx-auto" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.75", fontStyle: "italic" }}>
+          <p className="font-body mx-auto" style={{ color: "#7A6E65", fontSize: "0.87rem", lineHeight: "1.75", fontStyle: "italic", maxWidth: "52ch" }}>
             Instead of piecing everything together alone, you'll follow a clear path that walks you through what to do, when to do it, and how to do it well.
           </p>
-
-          <div className="flex items-center justify-center gap-5">
-            <button
-              onClick={scrollToWaitlist}
-              className="font-micro transition-all"
-              style={{
-                color: "#fff",
-                fontSize: "0.7rem",
-                letterSpacing: "0.09em",
-                backgroundColor: "#4D5E49",
-                border: "none",
-                borderRadius: "999px",
-                padding: "13px 28px",
-                cursor: "pointer",
-                boxShadow: "0 6px 20px rgba(77,94,73,0.26)"
-              }}
-            >
-              Join the Founding Member Waitlist
-            </button>
-            <button
-              onClick={() => document.getElementById("method")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro transition-all"
-              style={{
-                color: "#4D5E49",
-                fontSize: "0.7rem",
-                letterSpacing: "0.09em",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                textDecoration: "underline",
-                textUnderlineOffset: "3px"
-              }}
-            >
-              Explore the Method ↓
-            </button>
-          </div>
         </div>
 
-        {/* ── Phase cards stack ── */}
-        <div className="mx-auto px-6 pb-6" style={{ maxWidth: "1100px" }}>
-          <div className="flex flex-col" style={{ gap: "10px" }}>
-            {phases.map((phase, i) => (
-              <div key={phase.number} className="relative">
+        {/* Thin full-width divider */}
+        <div style={{ height: "1px", background: "linear-gradient(90deg, transparent 5%, rgba(196,149,106,0.2) 40%, rgba(196,149,106,0.2) 60%, transparent 95%)", marginBottom: "0" }} />
 
-                {/* Subtle connector dot between cards */}
-                {i < phases.length - 1 && (
-                  <div
-                    className="absolute left-1/2 -bottom-[5px] z-10"
-                    style={{
-                      transform: "translateX(-50%)",
-                      width: "1px",
-                      height: "10px",
-                      background: `linear-gradient(180deg, ${phase.color}55, ${phases[i+1].color}33)`
-                    }}
-                  />
-                )}
+        {/* ── Two-column: sticky nav + scrollable phase cards ── */}
+        <div className="mx-auto flex" style={{ maxWidth: "1080px", padding: "0 32px" }}>
 
-                {/* Card */}
+          {/* LEFT: Sticky progress rail */}
+          <div
+            className="flex-shrink-0"
+            style={{
+              width: "220px",
+              paddingTop: "56px",
+              paddingBottom: "56px",
+              paddingRight: "32px",
+            }}
+          >
+            <div style={{ position: "sticky", top: "96px" }}>
+
+              {/* Rail label */}
+              <p className="font-micro mb-5" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.16em" }}>
+                THE FIVE PHASES
+              </p>
+
+              {/* Phase nav items */}
+              <div className="relative flex flex-col" style={{ gap: "0" }}>
+
+                {/* Vertical track line */}
                 <div
-                  className="flex overflow-hidden"
                   style={{
-                    borderRadius: "14px",
+                    position: "absolute",
+                    left: "14px",
+                    top: "14px",
+                    bottom: "14px",
+                    width: "1px",
+                    background: "linear-gradient(180deg, rgba(196,149,106,0.2), rgba(77,94,73,0.15), rgba(196,149,106,0.1))",
+                    zIndex: 0
+                  }}
+                />
+
+                {/* Animated fill line */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "14px",
+                    top: "14px",
+                    width: "1px",
+                    height: `${(activeIndex / (phases.length - 1)) * 100}%`,
+                    background: "linear-gradient(180deg, #4D5E49, #C4956A)",
+                    zIndex: 1,
+                    transition: "height 0.5s ease"
+                  }}
+                />
+
+                {phases.map((phase, i) => {
+                  const isActive = i === activeIndex;
+                  const isPast = i < activeIndex;
+                  return (
+                    <button
+                      key={phase.number}
+                      onClick={() => scrollToPhase(i)}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "14px",
+                        padding: "10px 0",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        textAlign: "left",
+                        position: "relative",
+                        zIndex: 2,
+                        transition: "opacity 0.3s ease"
+                      }}
+                    >
+                      {/* Node dot */}
+                      <div
+                        style={{
+                          width: "28px",
+                          height: "28px",
+                          borderRadius: "50%",
+                          flexShrink: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          backgroundColor: isActive ? phase.color : isPast ? "#F0EBE1" : "#F0EBE1",
+                          border: isActive
+                            ? `2px solid ${phase.color}`
+                            : isPast
+                            ? `1px solid ${phase.color}55`
+                            : "1px solid rgba(196,149,106,0.25)",
+                          boxShadow: isActive ? `0 0 0 4px ${phase.color}18, 0 2px 10px ${phase.color}30` : "none",
+                          transition: "all 0.35s ease",
+                          zIndex: 2,
+                          position: "relative"
+                        }}
+                      >
+                        {isPast && !isActive ? (
+                          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                            <path d="M1 4L3.5 6.5L9 1" stroke={phase.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        ) : (
+                          <span
+                            className="font-display"
+                            style={{
+                              fontSize: "0.6rem",
+                              fontWeight: 700,
+                              lineHeight: 1,
+                              color: isActive ? "#fff" : "rgba(196,149,106,0.5)"
+                            }}
+                          >
+                            {phase.number}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Phase title in nav */}
+                      <div style={{ paddingTop: "4px" }}>
+                        <p
+                          className="font-body"
+                          style={{
+                            fontSize: "0.75rem",
+                            lineHeight: "1.35",
+                            color: isActive ? "#2C2C2C" : isPast ? "#7A6E65" : "#9a8f84",
+                            fontWeight: isActive ? 500 : 400,
+                            transition: "color 0.3s ease"
+                          }}
+                        >
+                          {phase.name}
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT: Scrollable phase detail cards */}
+          <div
+            className="flex-1 min-w-0 flex flex-col"
+            style={{ paddingTop: "48px", paddingBottom: "48px", gap: "0" }}
+          >
+            {phases.map((phase, i) => (
+              <div
+                key={phase.number}
+                ref={el => phaseRefs.current[i] = el}
+                style={{
+                  paddingTop: "40px",
+                  paddingBottom: "40px",
+                  borderBottom: i < phases.length - 1 ? "1px solid rgba(196,149,106,0.1)" : "none"
+                }}
+              >
+                {/* Phase card — editorial layout */}
+                <div
+                  style={{
+                    borderRadius: "20px",
                     backgroundColor: "#FFFDF9",
-                    border: `1px solid ${phase.color}1E`,
-                    boxShadow: "0 2px 16px rgba(44,44,44,0.07), 0 1px 3px rgba(196,149,106,0.06)"
+                    border: `1px solid ${phase.color}1A`,
+                    boxShadow: "0 4px 32px rgba(44,44,44,0.07), 0 1px 4px rgba(196,149,106,0.06)",
+                    overflow: "hidden",
+                    transition: "box-shadow 0.4s ease"
                   }}
                 >
-                  {/* Left accent strip */}
-                  <div style={{ width: "4px", flexShrink: 0, background: `linear-gradient(180deg, ${phase.color}, ${phase.color}66)`, borderRadius: "14px 0 0 14px" }} />
+                  {/* Top accent bar */}
+                  <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}44, transparent)` }} />
 
-                  {/* Text content */}
-                  <div className="flex-1 px-7 py-6 min-w-0">
-                    {/* Phase number + name row */}
-                    <div className="flex items-baseline gap-3 mb-2">
+                  <div style={{ padding: "36px 40px 40px" }}>
+
+                    {/* Phase number + title */}
+                    <div style={{ marginBottom: "24px" }}>
                       <span
-                        className="font-micro flex-shrink-0"
+                        className="font-micro"
                         style={{
-                          color: "#fff",
-                          backgroundColor: phase.color,
-                          fontSize: "0.58rem",
-                          letterSpacing: "0.12em",
-                          padding: "3px 8px",
-                          borderRadius: "999px"
+                          display: "inline-block",
+                          color: phase.color,
+                          fontSize: "0.6rem",
+                          letterSpacing: "0.16em",
+                          marginBottom: "10px"
                         }}
                       >
                         PHASE {phase.number}
                       </span>
-                      <h3 className="font-display leading-tight" style={{ color: "#2C2C2C", fontSize: "1.1rem", lineHeight: "1.2" }}>
+                      <h3
+                        className="font-display"
+                        style={{
+                          color: "#2C2C2C",
+                          fontSize: "clamp(1.3rem, 2vw, 1.65rem)",
+                          lineHeight: "1.2",
+                          letterSpacing: "-0.02em"
+                        }}
+                      >
                         {phase.name}
                       </h3>
                     </div>
 
                     {/* Outcome */}
-                    <p className="font-body mb-2" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
-                      {phase.outcome}
-                    </p>
+                    <div style={{ marginBottom: "20px" }}>
+                      <p
+                        className="font-micro"
+                        style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.12em", marginBottom: "6px" }}
+                      >
+                        WHAT YOU'LL ACHIEVE
+                      </p>
+                      <p
+                        className="font-body"
+                        style={{ color: "#3a3228", fontSize: "1rem", lineHeight: "1.65", fontWeight: 500 }}
+                      >
+                        {phase.outcome}
+                      </p>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ height: "1px", backgroundColor: `${phase.color}14`, marginBottom: "20px" }} />
 
                     {/* Why it matters */}
-                    <p className="font-body mb-4" style={{ color: "#9a8f84", fontSize: "0.82rem", lineHeight: "1.6", fontStyle: "italic" }}>
-                      {phase.whyItMatters}
-                    </p>
-
-                    {/* Deliverables */}
-                    <div className="flex flex-wrap gap-2">
-                      {phase.includes.map((item) => (
-                        <span
-                          key={item}
-                          className="font-body flex items-center gap-1.5"
-                          style={{
-                            fontSize: "0.75rem",
-                            color: "#5C5148",
-                            backgroundColor: phase.accentBg,
-                            border: `1px solid ${phase.color}22`,
-                            borderRadius: "6px",
-                            padding: "4px 10px",
-                            lineHeight: 1
-                          }}
-                        >
-                          <span style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: phase.color, display: "inline-block", flexShrink: 0 }} />
-                          {item}
-                        </span>
-                      ))}
+                    <div style={{ marginBottom: "28px" }}>
+                      <p
+                        className="font-micro"
+                        style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.12em", marginBottom: "6px" }}
+                      >
+                        WHY IT MATTERS
+                      </p>
+                      <p
+                        className="font-body"
+                        style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.7", fontStyle: "italic" }}
+                      >
+                        {phase.whyItMatters}
+                      </p>
                     </div>
-                  </div>
 
-                  {/* Blueprint visual panel */}
-                  <div
-                    className="flex-shrink-0 relative overflow-hidden"
-                    style={{
-                      width: "160px",
-                      backgroundColor: phase.accentBg,
-                      borderLeft: `1px solid ${phase.color}16`
-                    }}
-                  >
-                    <BlueprintAccent color={phase.color} />
-                    <img
-                      src={phase.image}
-                      alt={phase.name}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{
-                        filter: `saturate(0.6) brightness(0.92) sepia(0.1)`,
-                        opacity: 0.55,
-                        mixBlendMode: "multiply"
-                      }}
-                    />
-                    {/* Phase number watermark */}
+                    {/* Included items */}
                     <div
-                      className="absolute bottom-3 right-3 font-display"
-                      style={{ color: phase.color, fontSize: "2.2rem", opacity: 0.18, lineHeight: 1, fontWeight: 700, userSelect: "none" }}
+                      style={{
+                        backgroundColor: `${phase.color}07`,
+                        borderRadius: "12px",
+                        border: `1px solid ${phase.color}16`,
+                        padding: "18px 22px"
+                      }}
                     >
-                      {phase.number}
+                      <p
+                        className="font-micro"
+                        style={{ color: phase.color, fontSize: "0.58rem", letterSpacing: "0.14em", marginBottom: "12px" }}
+                      >
+                        WHAT'S INCLUDED
+                      </p>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                        {phase.includes.map((item) => (
+                          <div key={item} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                            <div
+                              style={{
+                                width: "22px",
+                                height: "22px",
+                                borderRadius: "6px",
+                                backgroundColor: `${phase.color}14`,
+                                border: `1px solid ${phase.color}28`,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                flexShrink: 0
+                              }}
+                            >
+                              <div style={{ width: "5px", height: "5px", borderRadius: "50%", backgroundColor: phase.color }} />
+                            </div>
+                            <span
+                              className="font-body"
+                              style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: 1 }}
+                            >
+                              {item}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
 
         {/* ── Closing CTA ── */}
-        <div className="text-center mx-auto px-8 pt-8 pb-16" style={{ maxWidth: "600px" }}>
-          <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C4956A44, transparent)", marginBottom: "24px" }} />
-          <h3 className="font-display mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.2rem, 2vw, 1.55rem)", lineHeight: "1.25" }}>
+        <div
+          className="text-center mx-auto px-8 pb-20 pt-4"
+          style={{ maxWidth: "620px" }}
+        >
+          <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C4956A44, transparent)", marginBottom: "32px" }} />
+          <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.25rem, 2vw, 1.65rem)", lineHeight: "1.2" }}>
             A calm, guided path to opening with clarity and support.
           </h3>
-          <p className="font-body mb-6" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.7" }}>
+          <p className="font-body mb-8" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.75" }}>
             Founding members will be the first to move through the complete Mama Launch Method™ with step-by-step guidance, templates, and support designed for real motherhood.
           </p>
           <button
@@ -305,19 +432,20 @@ export default function WhatIsMamaLaunchSection() {
             style={{
               color: "#fff",
               fontSize: "0.7rem",
-              letterSpacing: "0.09em",
+              letterSpacing: "0.1em",
               backgroundColor: "#4D5E49",
               border: "none",
               borderRadius: "999px",
-              padding: "13px 28px",
+              padding: "15px 36px",
               cursor: "pointer",
-              boxShadow: "0 6px 20px rgba(77,94,73,0.26)"
+              boxShadow: "0 6px 24px rgba(77,94,73,0.28), 0 1px 4px rgba(77,94,73,0.14)"
             }}
           >
             Join the Founding Member Waitlist
           </button>
         </div>
       </div>
+
 
       {/* ══════════════════════════════════════════════════════════════
           MOBILE LAYOUT — UNCHANGED
