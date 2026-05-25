@@ -128,105 +128,21 @@ export default function WhatIsMamaLaunchSection() {
           </p>
         </div>
 
-        {/* ── Phone mockup showcase ── */}
-        <div
-          className="mx-auto px-8 pb-14"
-          style={{ maxWidth: "1080px" }}
-        >
-          <div
-            style={{
-              borderRadius: "24px",
-              background: "linear-gradient(135deg, #EDE5D8 0%, #E4D8C8 50%, #EBE0D0 100%)",
-              border: "1px solid rgba(196,149,106,0.14)",
-              boxShadow: "0 8px 48px rgba(44,44,44,0.06), inset 0 1px 0 rgba(255,255,255,0.5)",
-              display: "flex",
-              alignItems: "center",
-              gap: "56px",
-              padding: "48px 56px",
-              position: "relative",
-              overflow: "hidden"
-            }}
-          >
-            {/* Subtle background texture lines */}
-            <svg
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.07, pointerEvents: "none" }}
-              preserveAspectRatio="xMidYMid slice"
-            >
-              {[0,1,2,3,4,5,6,7,8,9,10,11,12].map(i => (
-                <line key={i} x1="0" y1={i * 28} x2="9999" y2={i * 28} stroke="#4D5E49" strokeWidth="0.8" />
-              ))}
-            </svg>
-
-            {/* Left: label + caption */}
-            <div style={{ flex: "1", minWidth: 0 }}>
-              <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.18em" }}>
-                SEE THE METHOD IN ACTION
-              </p>
-              <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.2rem, 2vw, 1.55rem)", lineHeight: "1.25" }}>
-                A guided app experience built for real motherhood.
-              </h3>
-              <p className="font-body" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.75", maxWidth: "42ch" }}>
-                Guided questions, progress tracking, templates, and portfolio-building tools help your business take shape as you move through each phase.
-              </p>
-            </div>
-
-            {/* Right: phone mockup */}
-            <div
-              style={{
-                flexShrink: 0,
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              {/* Glow behind phone */}
-              <div
-                style={{
-                  position: "absolute",
-                  inset: "-24px",
-                  borderRadius: "50%",
-                  background: "radial-gradient(ellipse at center, rgba(196,149,106,0.18) 0%, transparent 70%)",
-                  pointerEvents: "none"
-                }}
-              />
-              <img
-                src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
-                alt="Mama Launch Method app interface — guided phase experience"
-                style={{
-                  width: "clamp(200px, 20vw, 260px)",
-                  height: "auto",
-                  borderRadius: "0",
-                  boxShadow: "none",
-                  background: "none",
-                  position: "relative",
-                  zIndex: 1,
-                  display: "block",
-                  filter: "drop-shadow(0 28px 48px rgba(44,44,44,0.18)) drop-shadow(0 6px 16px rgba(44,44,44,0.10))"
-                }}
-              />
-            </div>
-
-          </div>
-        </div>
-
-        {/* Thin full-width divider */}
-        <div style={{ height: "1px", background: "linear-gradient(90deg, transparent 5%, rgba(196,149,106,0.2) 40%, rgba(196,149,106,0.2) 60%, transparent 95%)", marginBottom: "0" }} />
-
         {/* ── Two-column: sticky nav + scrollable phase cards ── */}
-        <div className="mx-auto flex" style={{ maxWidth: "1080px", padding: "0 32px" }}>
+        {/* Phone mockup is embedded in the sticky left column below */}
+        <div className="mx-auto flex" style={{ maxWidth: "1120px", padding: "0 32px" }}>
 
-          {/* LEFT: Sticky progress rail */}
+          {/* LEFT: Sticky progress rail + phone mockup */}
           <div
             className="flex-shrink-0"
             style={{
-              width: "220px",
+              width: "300px",
               paddingTop: "56px",
               paddingBottom: "56px",
-              paddingRight: "32px",
+              paddingRight: "40px",
             }}
           >
-            <div style={{ position: "sticky", top: "96px" }}>
+            <div style={{ position: "sticky", top: "80px" }}>
 
               {/* Rail label */}
               <p className="font-micro mb-5" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.16em" }}>
@@ -344,6 +260,64 @@ export default function WhatIsMamaLaunchSection() {
                   );
                 })}
               </div>
+
+              {/* ── Phone mockup below nav ── */}
+              <div style={{ marginTop: "40px" }}>
+                {/* Card frame */}
+                <div
+                  style={{
+                    borderRadius: "20px",
+                    background: "linear-gradient(150deg, #EDE5D8 0%, #E2D6C4 100%)",
+                    border: "1px solid rgba(196,149,106,0.16)",
+                    boxShadow: "0 6px 32px rgba(44,44,44,0.07), inset 0 1px 0 rgba(255,255,255,0.55)",
+                    padding: "20px 16px 8px",
+                    position: "relative",
+                    overflow: "hidden",
+                    textAlign: "center"
+                  }}
+                >
+                  {/* Subtle grid lines */}
+                  <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.06, pointerEvents: "none" }} preserveAspectRatio="xMidYMid slice">
+                    {[0,1,2,3,4,5,6,7,8].map(i => (
+                      <line key={i} x1="0" y1={i * 32} x2="9999" y2={i * 32} stroke="#4D5E49" strokeWidth="0.8" />
+                    ))}
+                  </svg>
+
+                  {/* Caption */}
+                  <p className="font-micro mb-1" style={{ color: "#C4956A", fontSize: "0.56rem", letterSpacing: "0.16em", position: "relative", zIndex: 1 }}>
+                    SEE THE METHOD IN ACTION
+                  </p>
+                  <p className="font-body mb-4" style={{ color: "#5C5148", fontSize: "0.75rem", lineHeight: "1.55", position: "relative", zIndex: 1 }}>
+                    Guided questions, progress tracking, and portfolio-building tools — all inside the app.
+                  </p>
+
+                  {/* Phone image */}
+                  <div style={{ position: "relative", display: "inline-block" }}>
+                    {/* Glow */}
+                    <div style={{
+                      position: "absolute",
+                      inset: "-20px 0",
+                      background: "radial-gradient(ellipse at 50% 60%, rgba(196,149,106,0.22) 0%, transparent 70%)",
+                      pointerEvents: "none",
+                      zIndex: 0
+                    }} />
+                    <img
+                      src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
+                      alt="Mama Launch Method app interface"
+                      style={{
+                        width: "100%",
+                        maxWidth: "220px",
+                        height: "auto",
+                        display: "block",
+                        position: "relative",
+                        zIndex: 1,
+                        filter: "drop-shadow(0 20px 40px rgba(44,44,44,0.20)) drop-shadow(0 4px 12px rgba(44,44,44,0.10))"
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
