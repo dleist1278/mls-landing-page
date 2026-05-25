@@ -128,8 +128,8 @@ export default function WhatIsMamaLaunchSection() {
       ══════════════════════════════════════════════════════════════ */}
       <style>{`
         @keyframes methodFadeUp {
-          from { opacity: 0; transform: translateY(18px); }
-          to   { opacity: 1; transform: translateY(0); }
+          from { opacity: 0; transform: translateY(22px); filter: blur(2px); }
+          to   { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
         @keyframes methodFadeIn {
           from { opacity: 0; }
@@ -137,15 +137,20 @@ export default function WhatIsMamaLaunchSection() {
         }
         @keyframes phoneFloat {
           0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-6px); }
+          50%       { transform: translateY(-7px); }
         }
         @keyframes glowPulse {
-          0%, 100% { opacity: 0.18; }
-          50%       { opacity: 0.28; }
+          0%, 100% { opacity: 0.16; transform: translate(-50%, -50%) scale(1); }
+          50%       { opacity: 0.28; transform: translate(-50%, -50%) scale(1.08); }
+        }
+        @keyframes railDot {
+          0%, 100% { box-shadow: 0 0 0 0px rgba(196,149,106,0); }
+          50%       { box-shadow: 0 0 0 5px rgba(196,149,106,0.12); }
         }
       `}</style>
 
       <div className="hidden md:block">
+
 
         {/* ── Section Intro — staggered entrance ── */}
         <div className="text-center mx-auto px-8 pt-16 pb-8" style={{ maxWidth: "620px" }}>
@@ -227,13 +232,8 @@ export default function WhatIsMamaLaunchSection() {
                 THE FIVE PHASES
               </p>
 
-              {/* Nav items with track */}
-              <div className="relative flex flex-col flex-1" style={{ gap: "0" }}>
-                {/* Track line */}
-                <div style={{ position: "absolute", left: "13px", top: "13px", bottom: "13px", width: "1px", background: "linear-gradient(180deg, rgba(196,149,106,0.2), rgba(77,94,73,0.15), rgba(196,149,106,0.1))", zIndex: 0 }} />
-                {/* Fill line */}
-                <div style={{ position: "absolute", left: "13px", top: "13px", width: "1px", height: `${(activeIndex / (phases.length - 1)) * 100}%`, background: "linear-gradient(180deg, #4D5E49, #C4956A)", zIndex: 1, transition: "height 0.45s ease" }} />
-
+              {/* Nav items — no connecting line */}
+              <div className="flex flex-col flex-1" style={{ gap: "2px" }}>
                 {phases.map((phase, i) => {
                   const isActive = i === activeIndex;
                   const isPast = i < activeIndex;
@@ -241,29 +241,39 @@ export default function WhatIsMamaLaunchSection() {
                     <button
                       key={phase.number}
                       onClick={() => scrollToPhase(i)}
-                      style={{ display: "flex", alignItems: "flex-start", gap: "12px", padding: "9px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", position: "relative", zIndex: 2 }}
+                      style={{
+                        display: "flex", alignItems: "center", gap: "11px",
+                        padding: "8px 10px 8px 6px",
+                        background: isActive ? `linear-gradient(90deg, ${phase.color}10, transparent)` : "none",
+                        border: "none", borderRadius: "10px",
+                        cursor: "pointer", textAlign: "left",
+                        transition: "background 0.4s ease"
+                      }}
                     >
                       {/* Node */}
                       <div style={{
                         width: "26px", height: "26px", borderRadius: "50%", flexShrink: 0,
                         display: "flex", alignItems: "center", justifyContent: "center",
-                        backgroundColor: isActive ? phase.color : "transparent",
-                        border: isActive ? `2px solid ${phase.color}` : isPast ? `1px solid ${phase.color}66` : "1px solid rgba(196,149,106,0.28)",
-                        boxShadow: isActive ? `0 0 0 3px ${phase.color}18, 0 2px 8px ${phase.color}28` : "none",
-                        transition: "all 0.35s ease", position: "relative", zIndex: 2
+                        backgroundColor: isActive ? phase.color : isPast ? phase.color + "22" : "transparent",
+                        border: isActive ? `2px solid ${phase.color}` : isPast ? `1px solid ${phase.color}55` : "1px solid rgba(196,149,106,0.3)",
+                        boxShadow: isActive ? `0 0 0 4px ${phase.color}14, 0 2px 10px ${phase.color}30` : "none",
+                        transition: "all 0.4s cubic-bezier(0.34,1.56,0.64,1)"
                       }}>
                         {isPast && !isActive ? (
-                          <svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke={phase.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          <svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke={phase.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         ) : (
-                          <span className="font-display" style={{ fontSize: "0.55rem", fontWeight: 700, lineHeight: 1, color: isActive ? "#fff" : "rgba(196,149,106,0.5)" }}>{phase.number}</span>
+                          <span className="font-display" style={{ fontSize: "0.55rem", fontWeight: 700, lineHeight: 1, color: isActive ? "#fff" : "rgba(196,149,106,0.55)" }}>{phase.number}</span>
                         )}
                       </div>
                       {/* Label */}
-                      <div style={{ paddingTop: "4px" }}>
-                        <p className="font-body" style={{ fontSize: "0.72rem", lineHeight: "1.2", color: isActive ? "#2C2C2C" : isPast ? "#7A6E65" : "#9a8f84", fontWeight: isActive ? 600 : 400, transition: "color 0.3s ease" }}>
-                          {phase.shortName}
-                        </p>
-                      </div>
+                      <p className="font-body" style={{
+                        fontSize: "0.72rem", lineHeight: "1.2",
+                        color: isActive ? "#2C2C2C" : isPast ? "#7A6E65" : "#9a8f84",
+                        fontWeight: isActive ? 600 : 400,
+                        transition: "color 0.35s ease, font-weight 0.35s ease"
+                      }}>
+                        {phase.shortName}
+                      </p>
                     </button>
                   );
                 })}
@@ -322,10 +332,28 @@ export default function WhatIsMamaLaunchSection() {
                         <p className="font-body" style={{ color: "#3a3228", fontSize: "0.88rem", lineHeight: "1.6", marginBottom: "14px" }}>
                           {phase.outcome}
                         </p>
-                        <div style={{ borderTop: `1px solid ${phase.color}18`, paddingTop: "12px", display: "flex", alignItems: "baseline", gap: "8px" }}>
-                          <span className="font-micro" style={{ color: phase.color, fontSize: "0.53rem", letterSpacing: "0.14em", flexShrink: 0 }}>INSIDE</span>
-                          <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.8rem", lineHeight: "1.5" }}>{phase.inside}</span>
-                        </div>
+                        <div style={{ borderTop: `1px solid ${phase.color}18`, paddingTop: "12px" }}>
+                           <p className="font-micro" style={{ color: phase.color, fontSize: "0.5rem", letterSpacing: "0.14em", marginBottom: "8px" }}>INSIDE</p>
+                           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                             {phase.inside.split(" · ").map((item) => (
+                               <span key={item} style={{
+                                 display: "inline-block",
+                                 backgroundColor: "#FDFAF6",
+                                 border: `1px solid ${phase.color}28`,
+                                 borderRadius: "999px",
+                                 padding: "4px 12px",
+                                 fontFamily: "'Inter', sans-serif",
+                                 fontSize: "0.72rem",
+                                 color: "#5C5148",
+                                 letterSpacing: "0.01em",
+                                 lineHeight: "1.4",
+                                 boxShadow: `0 1px 3px rgba(44,44,44,0.04), inset 0 1px 0 rgba(255,255,255,0.8)`
+                               }}>
+                                 {item}
+                               </span>
+                             ))}
+                           </div>
+                         </div>
                       </div>
                     </div>
                   </div>
@@ -356,8 +384,9 @@ export default function WhatIsMamaLaunchSection() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "space-between",
-                padding: "28px 20px 22px",
+                justifyContent: "center",
+                gap: "20px",
+                padding: "28px 20px 24px",
                 position: "relative",
                 overflow: "hidden",
                 opacity: visible ? 1 : 0,
@@ -429,35 +458,17 @@ export default function WhatIsMamaLaunchSection() {
                 />
               </div>
 
-              {/* Dynamic caption — changes with active phase */}
-              <div style={{
-                textAlign: "center",
-                position: "relative",
-                zIndex: 2,
-                flexShrink: 0,
-                padding: "0 4px"
-              }}>
-                <p
-                  className="font-micro"
-                  style={{
-                    color: phases[activeIndex].color,
-                    fontSize: "0.5rem",
-                    letterSpacing: "0.14em",
-                    marginBottom: "4px",
-                    transition: "color 0.4s ease"
-                  }}
-                >
-                  PHASE {phases[activeIndex].number} · {phaseCaptions[activeIndex]}
-                </p>
-                <p className="font-body" style={{
-                  color: "#7A6E65",
-                  fontSize: "0.67rem",
-                  lineHeight: "1.55",
-                  maxWidth: "24ch",
-                  margin: "0 auto"
-                }}>
-                  Guided prompts, progress tracking, templates, and portfolio tools help your business take shape.
-                </p>
+              {/* Phase indicator dot — minimal, below phone */}
+              <div style={{ display: "flex", gap: "6px", justifyContent: "center", position: "relative", zIndex: 2, flexShrink: 0, paddingBottom: "4px" }}>
+                {phases.map((phase, i) => (
+                  <div key={i} style={{
+                    width: i === activeIndex ? "18px" : "5px",
+                    height: "5px",
+                    borderRadius: "999px",
+                    backgroundColor: i === activeIndex ? phases[activeIndex].color : "rgba(196,149,106,0.25)",
+                    transition: "all 0.4s cubic-bezier(0.34,1.56,0.64,1)"
+                  }} />
+                ))}
               </div>
             </div>
 
