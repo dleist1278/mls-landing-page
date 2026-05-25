@@ -333,30 +333,32 @@ export default function WhatIsMamaLaunchSection() {
                         <p className="font-body" style={{ color: "#3a3228", fontSize: "0.88rem", lineHeight: "1.6", marginBottom: "14px" }}>
                           {phase.outcome}
                         </p>
-                        <div style={{ borderTop: `1px solid ${phase.color}18`, paddingTop: "12px" }}>
-                           <p className="font-micro" style={{ color: phase.color, fontSize: "0.5rem", letterSpacing: "0.14em", marginBottom: "8px" }}>INSIDE</p>
-                           <div style={{ display: "flex", flexWrap: "nowrap", gap: "5px", overflowX: "auto", scrollbarWidth: "none" }}>
-                             {phase.inside.split(" · ").map((item) => (
-                               <span key={item} style={{
-                                 display: "inline-block",
-                                 whiteSpace: "nowrap",
-                                 flexShrink: 0,
-                                 backgroundColor: "#FDFAF6",
-                                 border: `1px solid ${phase.color}26`,
-                                 borderRadius: "999px",
-                                 padding: "3px 9px",
-                                 fontFamily: "'Inter', sans-serif",
-                                 fontSize: "0.67rem",
-                                 color: "#5C5148",
-                                 letterSpacing: "0.005em",
-                                 lineHeight: "1.4",
-                                 boxShadow: `0 1px 2px rgba(44,44,44,0.04), inset 0 1px 0 rgba(255,255,255,0.8)`
-                               }}>
-                                 {item}
-                               </span>
-                             ))}
-                           </div>
-                         </div>
+                        <div style={{ borderTop: `1px solid ${phase.color}18`, paddingTop: "9px" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                            <p className="font-micro" style={{ color: phase.color, fontSize: "0.48rem", letterSpacing: "0.16em", flexShrink: 0 }}>INSIDE</p>
+                            <div style={{ display: "flex", gap: "4px", overflowX: "hidden", flexWrap: "nowrap", minWidth: 0 }}>
+                              {phase.inside.split(" · ").map((item) => (
+                                <span key={item} style={{
+                                  display: "inline-block",
+                                  whiteSpace: "nowrap",
+                                  flexShrink: 0,
+                                  backgroundColor: "#FDFAF6",
+                                  border: `1px solid ${phase.color}22`,
+                                  borderRadius: "999px",
+                                  padding: "2px 7px",
+                                  fontFamily: "'Inter', sans-serif",
+                                  fontSize: "0.62rem",
+                                  color: "#6B6156",
+                                  letterSpacing: "0em",
+                                  lineHeight: "1.5",
+                                  boxShadow: `inset 0 1px 0 rgba(255,255,255,0.7)`
+                                }}>
+                                  {item}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -420,20 +422,20 @@ export default function WhatIsMamaLaunchSection() {
               }} />
 
               {/* Panel heading */}
-              <div style={{ textAlign: "center", position: "relative", zIndex: 2, flexShrink: 0 }}>
+              <div style={{ textAlign: "center", position: "relative", zIndex: 2, flexShrink: 0, width: "100%" }}>
                 <p className="font-display" style={{
                   color: "#2C2C2C",
-                  fontSize: "0.95rem",
-                  letterSpacing: "0.06em",
-                  lineHeight: "1.3",
-                  marginBottom: "4px"
+                  fontSize: "1.2rem",
+                  letterSpacing: "-0.01em",
+                  lineHeight: "1.2",
+                  marginBottom: "2px"
                 }}>
                   See the Method
                 </p>
                 <p className="font-micro" style={{
                   color: "#C4956A",
-                  fontSize: "0.55rem",
-                  letterSpacing: "0.2em",
+                  fontSize: "0.58rem",
+                  letterSpacing: "0.22em",
                 }}>
                   IN ACTION
                 </p>
