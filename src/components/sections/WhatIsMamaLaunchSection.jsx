@@ -286,120 +286,102 @@ export default function WhatIsMamaLaunchSection() {
             {/* ── RIGHT: App Preview Panel ── */}
             <div
               style={{
-                width: "280px",
+                width: "clamp(300px, 32%, 380px)",
                 flexShrink: 0,
                 borderLeft: "1px solid rgba(196,149,106,0.12)",
-                background: "linear-gradient(170deg, #EAE0D0 0%, #DDD0BC 100%)",
+                background: "linear-gradient(170deg, #FEFAF5 0%, #F5EDE0 100%)",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "20px 16px 16px",
+                padding: "28px 24px 24px",
                 position: "relative",
-                overflow: "hidden",
-                gap: "0"
+                overflow: "hidden"
               }}
             >
-              {/* Blueprint grid lines */}
-              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.055, pointerEvents: "none" }} preserveAspectRatio="xMidYMid slice">
-                {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map(i => (
-                  <line key={i} x1="0" y1={i * 28} x2="9999" y2={i * 28} stroke="#4D5E49" strokeWidth="0.7" />
+              {/* Blueprint grid lines — behind everything */}
+              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.05, pointerEvents: "none", zIndex: 0 }} preserveAspectRatio="xMidYMid slice">
+                {Array.from({ length: 22 }, (_, i) => (
+                  <line key={i} x1="0" y1={i * 30} x2="9999" y2={i * 30} stroke="#4D5E49" strokeWidth="0.7" />
                 ))}
               </svg>
 
-              {/* Eyebrow */}
-              <div style={{ textAlign: "center", marginBottom: "10px", position: "relative", zIndex: 1 }}>
-                <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.52rem", letterSpacing: "0.18em" }}>
-                  SEE THE METHOD IN ACTION
-                </p>
-              </div>
+              {/* Radial glow — behind phone */}
+              <div style={{
+                position: "absolute",
+                top: "30%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "280px",
+                height: "320px",
+                background: "radial-gradient(ellipse at center, rgba(196,149,106,0.22) 0%, transparent 68%)",
+                pointerEvents: "none",
+                zIndex: 1
+              }} />
 
-              {/* Phone showcase card */}
-              <div
-                style={{
-                  position: "relative",
-                  zIndex: 1,
-                  width: "100%",
-                  borderRadius: "28px",
-                  background: "linear-gradient(155deg, #FEFAF5 0%, #F5EDE0 100%)",
-                  border: "1px solid rgba(196,149,106,0.22)",
-                  boxShadow: "0 8px 40px rgba(44,44,44,0.14), 0 2px 8px rgba(196,149,106,0.12), inset 0 1px 0 rgba(255,255,255,0.7)",
-                  padding: "18px 14px 14px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center"
-                }}
-              >
-                {/* Radial glow behind phone */}
+              {/* Eyebrow */}
+              <p className="font-micro" style={{
+                color: "#C4956A",
+                fontSize: "0.52rem",
+                letterSpacing: "0.2em",
+                textAlign: "center",
+                marginBottom: "14px",
+                position: "relative",
+                zIndex: 2
+              }}>
+                SEE THE METHOD IN ACTION
+              </p>
+
+              {/* Phone — the hero */}
+              <div style={{ position: "relative", zIndex: 2, width: "100%", display: "flex", justifyContent: "center" }}>
+
+                {/* Dynamic phase badge — top-right of phone area */}
                 <div style={{
                   position: "absolute",
-                  inset: 0,
-                  background: "radial-gradient(ellipse at 50% 60%, rgba(196,149,106,0.18) 0%, transparent 65%)",
-                  borderRadius: "28px",
-                  pointerEvents: "none"
-                }} />
-
-                {/* Dynamic phase badge */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "14px",
-                    right: "14px",
-                    backgroundColor: phases[activeIndex].color + "18",
-                    border: `1px solid ${phases[activeIndex].color}35`,
-                    borderRadius: "999px",
-                    padding: "3px 9px",
-                    zIndex: 3,
-                    transition: "all 0.35s ease"
-                  }}
-                >
-                  <span className="font-micro" style={{ color: phases[activeIndex].color, fontSize: "0.48rem", letterSpacing: "0.12em" }}>
-                    PHASE {phases[activeIndex].number}
+                  top: "-8px",
+                  right: "8px",
+                  backgroundColor: "#FFFDF9",
+                  border: `1px solid ${phases[activeIndex].color}40`,
+                  borderRadius: "999px",
+                  padding: "4px 11px",
+                  zIndex: 4,
+                  boxShadow: "0 2px 8px rgba(44,44,44,0.08)",
+                  transition: "border-color 0.35s ease"
+                }}>
+                  <span className="font-micro" style={{ color: phases[activeIndex].color, fontSize: "0.49rem", letterSpacing: "0.12em", transition: "color 0.35s ease" }}>
+                    PHASE {phases[activeIndex].number} IN ACTION
                   </span>
                 </div>
 
-                {/* Phone image */}
-                <div style={{ position: "relative", zIndex: 2, width: "100%" }}>
-                  <img
-                    src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
-                    alt="Mama Launch Method app interface"
-                    style={{
-                      width: "100%",
-                      maxWidth: "220px",
-                      height: "auto",
-                      display: "block",
-                      margin: "0 auto",
-                      position: "relative",
-                      zIndex: 2,
-                      filter: "drop-shadow(0 16px 32px rgba(44,44,44,0.20)) drop-shadow(0 3px 8px rgba(44,44,44,0.10))"
-                    }}
-                  />
-                </div>
-
-                {/* Floating micro-labels */}
-                <div style={{ position: "absolute", left: "12px", top: "38%", zIndex: 3 }}>
-                  <div style={{ background: "rgba(77,94,73,0.10)", border: "1px solid rgba(77,94,73,0.22)", borderRadius: "999px", padding: "3px 8px" }}>
-                    <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.44rem", letterSpacing: "0.1em" }}>Progress</span>
-                  </div>
-                </div>
-                <div style={{ position: "absolute", left: "10px", top: "58%", zIndex: 3 }}>
-                  <div style={{ background: "rgba(196,149,106,0.10)", border: "1px solid rgba(196,149,106,0.24)", borderRadius: "999px", padding: "3px 8px" }}>
-                    <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.44rem", letterSpacing: "0.1em" }}>Workbook</span>
-                  </div>
-                </div>
-                <div style={{ position: "absolute", right: "10px", top: "72%", zIndex: 3 }}>
-                  <div style={{ background: "rgba(77,94,73,0.08)", border: "1px solid rgba(77,94,73,0.20)", borderRadius: "999px", padding: "3px 8px" }}>
-                    <span className="font-micro" style={{ color: "#4D5E49", fontSize: "0.44rem", letterSpacing: "0.1em" }}>Portfolio</span>
-                  </div>
-                </div>
+                <img
+                  src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
+                  alt="Mama Launch Method app interface"
+                  style={{
+                    width: "100%",
+                    maxWidth: "300px",
+                    maxHeight: "580px",
+                    objectFit: "contain",
+                    display: "block",
+                    position: "relative",
+                    zIndex: 3,
+                    filter: "drop-shadow(0 20px 40px rgba(44,44,44,0.22)) drop-shadow(0 4px 12px rgba(44,44,44,0.10))"
+                  }}
+                />
               </div>
 
-              {/* Caption below card */}
-              <div style={{ textAlign: "center", marginTop: "12px", position: "relative", zIndex: 1, padding: "0 4px" }}>
-                <p className="font-body" style={{ color: "#5C5148", fontSize: "0.68rem", lineHeight: "1.55" }}>
-                  Your phase work, progress, tools, and portfolio live together inside the Mama Launch experience.
-                </p>
-              </div>
+              {/* Caption — below phone, supporting role */}
+              <p className="font-body" style={{
+                color: "#7A6E65",
+                fontSize: "0.69rem",
+                lineHeight: "1.6",
+                textAlign: "center",
+                marginTop: "16px",
+                maxWidth: "26ch",
+                position: "relative",
+                zIndex: 2
+              }}>
+                Guided prompts, progress tracking, templates, and portfolio tools help your business take shape as you move through each phase.
+              </p>
             </div>
 
           </div>
