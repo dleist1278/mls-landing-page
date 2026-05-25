@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 // Mobile-only swipe cards — unchanged
 const cards = [
@@ -53,6 +53,7 @@ const phases = [
 export default function WhatIsMamaLaunchSection() {
   const sectionRef = useRef(null);
   const phaseRefs = useRef([]);
+  const innerScrollRef = useRef(null);
   const [visible, setVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -66,22 +67,33 @@ export default function WhatIsMamaLaunchSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll-spy: track which phase card is in view
+  // Scroll-spy: watch the internal scroll container
   useEffect(() => {
-    const observers = phaseRefs.current.map((el, i) => {
-      if (!el) return null;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveIndex(i); },
-        { threshold: 0.4, rootMargin: "-10% 0px -50% 0px" }
-      );
-      obs.observe(el);
-      return obs;
-    });
-    return () => observers.forEach(obs => obs?.disconnect());
+    const container = innerScrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const containerTop = container.getBoundingClientRect().top;
+      let best = 0;
+      let bestDist = Infinity;
+      phaseRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const dist = Math.abs(rect.top - containerTop - 80);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      });
+      setActiveIndex(best);
+    };
+
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
   }, [visible]);
 
   const scrollToPhase = (i) => {
-    phaseRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const el = phaseRefs.current[i];
+    const container = innerScrollRef.current;
+    if (!el || !container) return;
+    container.scrollTo({ top: el.offsetTop - 24, behavior: "smooth" });
   };
 
   const scrollToWaitlist = () => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
@@ -112,72 +124,59 @@ export default function WhatIsMamaLaunchSection() {
       >
 
         {/* ── Section Intro ── */}
-        <div className="text-center mx-auto px-8 pt-16 pb-10" style={{ maxWidth: "620px" }}>
+        <div className="text-center mx-auto px-8 pt-16 pb-8" style={{ maxWidth: "620px" }}>
           <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.18em" }}>
             <span style={{ display: "inline-block", width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
             THE MAMA LAUNCH METHOD™
             <span style={{ display: "inline-block", width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
           </p>
-
           <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", lineHeight: "1.12" }}>
             The guided path from idea to opening day.
           </h2>
-
           <p className="font-body mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75", maxWidth: "52ch" }}>
             A step-by-step framework that helps mothers move from uncertainty to clarity, structure, and launch readiness — without piecing everything together alone.
           </p>
         </div>
 
-        {/* ── Two-column: sticky nav + scrollable phase cards ── */}
-        {/* Phone mockup is embedded in the sticky left column below */}
-        <div className="mx-auto flex" style={{ maxWidth: "1120px", padding: "0 32px" }}>
-
-          {/* LEFT: Sticky progress rail + phone mockup */}
+        {/* ── Framed 3-column Method showcase ── */}
+        <div className="mx-auto px-8 pb-12" style={{ maxWidth: "1160px" }}>
           <div
-            className="flex-shrink-0"
             style={{
-              width: "300px",
-              paddingTop: "56px",
-              paddingBottom: "56px",
-              paddingRight: "40px",
+              borderRadius: "28px",
+              border: "1px solid rgba(196,149,106,0.18)",
+              background: "linear-gradient(160deg, #FFFDF9 0%, #F7F2EB 100%)",
+              boxShadow: "0 12px 64px rgba(44,44,44,0.08), 0 2px 12px rgba(196,149,106,0.08), inset 0 1px 0 rgba(255,255,255,0.7)",
+              display: "flex",
+              height: "clamp(620px, 74vh, 760px)",
+              overflow: "hidden",
+              position: "relative"
             }}
           >
-            <div style={{ position: "sticky", top: "80px" }}>
+            {/* Top accent bar */}
+            <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #4D5E49, #C4956A, #4D5E49)", borderRadius: "28px 28px 0 0" }} />
 
-              {/* Rail label */}
-              <p className="font-micro mb-5" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.16em" }}>
+            {/* ── LEFT: Progress rail ── */}
+            <div
+              style={{
+                width: "180px",
+                flexShrink: 0,
+                borderRight: "1px solid rgba(196,149,106,0.12)",
+                padding: "36px 24px 36px 28px",
+                display: "flex",
+                flexDirection: "column",
+                background: "rgba(240,235,225,0.45)"
+              }}
+            >
+              <p className="font-micro mb-6" style={{ color: "#C4956A", fontSize: "0.57rem", letterSpacing: "0.16em" }}>
                 THE FIVE PHASES
               </p>
 
-              {/* Phase nav items */}
-              <div className="relative flex flex-col" style={{ gap: "0" }}>
-
-                {/* Vertical track line */}
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "14px",
-                    top: "14px",
-                    bottom: "14px",
-                    width: "1px",
-                    background: "linear-gradient(180deg, rgba(196,149,106,0.2), rgba(77,94,73,0.15), rgba(196,149,106,0.1))",
-                    zIndex: 0
-                  }}
-                />
-
-                {/* Animated fill line */}
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "14px",
-                    top: "14px",
-                    width: "1px",
-                    height: `${(activeIndex / (phases.length - 1)) * 100}%`,
-                    background: "linear-gradient(180deg, #4D5E49, #C4956A)",
-                    zIndex: 1,
-                    transition: "height 0.5s ease"
-                  }}
-                />
+              {/* Nav items with track */}
+              <div className="relative flex flex-col flex-1" style={{ gap: "0" }}>
+                {/* Track line */}
+                <div style={{ position: "absolute", left: "13px", top: "13px", bottom: "13px", width: "1px", background: "linear-gradient(180deg, rgba(196,149,106,0.2), rgba(77,94,73,0.15), rgba(196,149,106,0.1))", zIndex: 0 }} />
+                {/* Fill line */}
+                <div style={{ position: "absolute", left: "13px", top: "13px", width: "1px", height: `${(activeIndex / (phases.length - 1)) * 100}%`, background: "linear-gradient(180deg, #4D5E49, #C4956A)", zIndex: 1, transition: "height 0.45s ease" }} />
 
                 {phases.map((phase, i) => {
                   const isActive = i === activeIndex;
@@ -186,237 +185,157 @@ export default function WhatIsMamaLaunchSection() {
                     <button
                       key={phase.number}
                       onClick={() => scrollToPhase(i)}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: "14px",
-                        padding: "10px 0",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        textAlign: "left",
-                        position: "relative",
-                        zIndex: 2,
-                        transition: "opacity 0.3s ease"
-                      }}
+                      style={{ display: "flex", alignItems: "flex-start", gap: "12px", padding: "9px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", position: "relative", zIndex: 2 }}
                     >
-                      {/* Node dot */}
-                      <div
-                        style={{
-                          width: "28px",
-                          height: "28px",
-                          borderRadius: "50%",
-                          flexShrink: 0,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          backgroundColor: isActive ? phase.color : isPast ? "#F0EBE1" : "#F0EBE1",
-                          border: isActive
-                            ? `2px solid ${phase.color}`
-                            : isPast
-                            ? `1px solid ${phase.color}55`
-                            : "1px solid rgba(196,149,106,0.25)",
-                          boxShadow: isActive ? `0 0 0 4px ${phase.color}18, 0 2px 10px ${phase.color}30` : "none",
-                          transition: "all 0.35s ease",
-                          zIndex: 2,
-                          position: "relative"
-                        }}
-                      >
+                      {/* Node */}
+                      <div style={{
+                        width: "26px", height: "26px", borderRadius: "50%", flexShrink: 0,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        backgroundColor: isActive ? phase.color : "transparent",
+                        border: isActive ? `2px solid ${phase.color}` : isPast ? `1px solid ${phase.color}66` : "1px solid rgba(196,149,106,0.28)",
+                        boxShadow: isActive ? `0 0 0 3px ${phase.color}18, 0 2px 8px ${phase.color}28` : "none",
+                        transition: "all 0.35s ease", position: "relative", zIndex: 2
+                      }}>
                         {isPast && !isActive ? (
-                          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                            <path d="M1 4L3.5 6.5L9 1" stroke={phase.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
+                          <svg width="9" height="7" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke={phase.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         ) : (
-                          <span
-                            className="font-display"
-                            style={{
-                              fontSize: "0.6rem",
-                              fontWeight: 700,
-                              lineHeight: 1,
-                              color: isActive ? "#fff" : "rgba(196,149,106,0.5)"
-                            }}
-                          >
-                            {phase.number}
-                          </span>
+                          <span className="font-display" style={{ fontSize: "0.55rem", fontWeight: 700, lineHeight: 1, color: isActive ? "#fff" : "rgba(196,149,106,0.5)" }}>{phase.number}</span>
                         )}
                       </div>
-
-                      {/* Phase title in nav */}
-                      <div style={{ paddingTop: "5px" }}>
-                       <p
-                         className="font-body"
-                         style={{
-                           fontSize: "0.75rem",
-                           lineHeight: "1.2",
-                           color: isActive ? "#2C2C2C" : isPast ? "#7A6E65" : "#9a8f84",
-                           fontWeight: isActive ? 600 : 400,
-                           transition: "color 0.3s ease"
-                         }}
-                       >
-                         {phase.shortName}
-                       </p>
+                      {/* Label */}
+                      <div style={{ paddingTop: "4px" }}>
+                        <p className="font-body" style={{ fontSize: "0.72rem", lineHeight: "1.2", color: isActive ? "#2C2C2C" : isPast ? "#7A6E65" : "#9a8f84", fontWeight: isActive ? 600 : 400, transition: "color 0.3s ease" }}>
+                          {phase.shortName}
+                        </p>
                       </div>
                     </button>
                   );
                 })}
               </div>
-
-              {/* ── Phone mockup below nav ── */}
-              <div style={{ marginTop: "40px" }}>
-                {/* Card frame */}
-                <div
-                  style={{
-                    borderRadius: "20px",
-                    background: "linear-gradient(150deg, #EDE5D8 0%, #E2D6C4 100%)",
-                    border: "1px solid rgba(196,149,106,0.16)",
-                    boxShadow: "0 6px 32px rgba(44,44,44,0.07), inset 0 1px 0 rgba(255,255,255,0.55)",
-                    padding: "20px 16px 8px",
-                    position: "relative",
-                    overflow: "hidden",
-                    textAlign: "center"
-                  }}
-                >
-                  {/* Subtle grid lines */}
-                  <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.06, pointerEvents: "none" }} preserveAspectRatio="xMidYMid slice">
-                    {[0,1,2,3,4,5,6,7,8].map(i => (
-                      <line key={i} x1="0" y1={i * 32} x2="9999" y2={i * 32} stroke="#4D5E49" strokeWidth="0.8" />
-                    ))}
-                  </svg>
-
-                  {/* Caption */}
-                  <p className="font-micro mb-1" style={{ color: "#C4956A", fontSize: "0.56rem", letterSpacing: "0.16em", position: "relative", zIndex: 1 }}>
-                    SEE THE METHOD IN ACTION
-                  </p>
-                  <p className="font-body mb-4" style={{ color: "#5C5148", fontSize: "0.75rem", lineHeight: "1.55", position: "relative", zIndex: 1 }}>
-                    Guided questions, progress tracking, and portfolio-building tools — all inside the app.
-                  </p>
-
-                  {/* Phone image */}
-                  <div style={{ position: "relative", display: "inline-block" }}>
-                    {/* Glow */}
-                    <div style={{
-                      position: "absolute",
-                      inset: "-20px 0",
-                      background: "radial-gradient(ellipse at 50% 60%, rgba(196,149,106,0.22) 0%, transparent 70%)",
-                      pointerEvents: "none",
-                      zIndex: 0
-                    }} />
-                    <img
-                      src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
-                      alt="Mama Launch Method app interface"
-                      style={{
-                        width: "100%",
-                        maxWidth: "220px",
-                        height: "auto",
-                        display: "block",
-                        position: "relative",
-                        zIndex: 1,
-                        filter: "drop-shadow(0 20px 40px rgba(44,44,44,0.20)) drop-shadow(0 4px 12px rgba(44,44,44,0.10))"
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-
             </div>
-          </div>
 
-          {/* RIGHT: Scrollable phase detail cards */}
-          <div
-            className="flex-1 min-w-0 flex flex-col"
-            style={{ paddingTop: "48px", paddingBottom: "48px", gap: "0" }}
-          >
-            {phases.map((phase, i) => (
+            {/* ── CENTER: Internally scrolling phase cards ── */}
+            <div style={{ flex: "1", minWidth: 0, position: "relative" }}>
+              {/* Inner scroll container */}
               <div
-                key={phase.number}
-                ref={el => phaseRefs.current[i] = el}
+                ref={innerScrollRef}
+                className="method-inner-scroll"
                 style={{
-                  paddingTop: "40px",
-                  paddingBottom: "40px",
-                  borderBottom: i < phases.length - 1 ? "1px solid rgba(196,149,106,0.1)" : "none"
+                  height: "100%",
+                  overflowY: "auto",
+                  overflowX: "hidden",
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                  padding: "32px 28px 48px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "16px"
                 }}
               >
-                {/* Phase card — editorial layout */}
-                <div
-                  style={{
-                    borderRadius: "20px",
-                    backgroundColor: "#FFFDF9",
-                    border: `1px solid ${phase.color}1A`,
-                    boxShadow: "0 4px 32px rgba(44,44,44,0.07), 0 1px 4px rgba(196,149,106,0.06)",
-                    overflow: "hidden",
-                    transition: "box-shadow 0.4s ease"
-                  }}
-                >
-                  {/* Top accent bar */}
-                  <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}44, transparent)` }} />
-
-                  <div style={{ padding: "28px 36px 32px" }}>
-
-                    {/* Phase number + title */}
-                    <div style={{ marginBottom: "16px" }}>
-                      <span
-                        className="font-micro"
-                        style={{
-                          display: "inline-block",
-                          color: phase.color,
-                          fontSize: "0.58rem",
-                          letterSpacing: "0.16em",
-                          marginBottom: "8px"
-                        }}
-                      >
-                        PHASE {phase.number}
-                      </span>
-                      <h3
-                        className="font-display"
-                        style={{
-                          color: "#2C2C2C",
-                          fontSize: "clamp(1.15rem, 1.8vw, 1.45rem)",
-                          lineHeight: "1.2",
-                          letterSpacing: "-0.02em"
-                        }}
-                      >
-                        {phase.name}
-                      </h3>
+                <style>{`
+                  .method-inner-scroll::-webkit-scrollbar { display: none; }
+                `}</style>
+                {phases.map((phase, i) => (
+                  <div
+                    key={phase.number}
+                    ref={el => phaseRefs.current[i] = el}
+                  >
+                    <div style={{
+                      borderRadius: "18px",
+                      backgroundColor: "#FFFDF9",
+                      border: `1px solid ${phase.color}1C`,
+                      boxShadow: "0 3px 20px rgba(44,44,44,0.06), 0 1px 4px rgba(196,149,106,0.05)",
+                      overflow: "hidden"
+                    }}>
+                      <div style={{ height: "3px", background: `linear-gradient(90deg, ${phase.color}, ${phase.color}44, transparent)` }} />
+                      <div style={{ padding: "22px 28px 24px" }}>
+                        <div style={{ marginBottom: "10px" }}>
+                          <span className="font-micro" style={{ display: "inline-block", color: phase.color, fontSize: "0.55rem", letterSpacing: "0.16em", marginBottom: "6px" }}>
+                            PHASE {phase.number}
+                          </span>
+                          <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "clamp(1.05rem, 1.5vw, 1.3rem)", lineHeight: "1.2", letterSpacing: "-0.02em" }}>
+                            {phase.name}
+                          </h3>
+                        </div>
+                        <p className="font-body" style={{ color: "#3a3228", fontSize: "0.88rem", lineHeight: "1.6", marginBottom: "14px" }}>
+                          {phase.outcome}
+                        </p>
+                        <div style={{ borderTop: `1px solid ${phase.color}18`, paddingTop: "12px", display: "flex", alignItems: "baseline", gap: "8px" }}>
+                          <span className="font-micro" style={{ color: phase.color, fontSize: "0.53rem", letterSpacing: "0.14em", flexShrink: 0 }}>INSIDE</span>
+                          <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.8rem", lineHeight: "1.5" }}>{phase.inside}</span>
+                        </div>
+                      </div>
                     </div>
-
-                    {/* Outcome */}
-                    <p
-                      className="font-body"
-                      style={{ color: "#3a3228", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "20px" }}
-                    >
-                      {phase.outcome}
-                    </p>
-
-                    {/* Inside line */}
-                    <div
-                      style={{
-                        borderTop: `1px solid ${phase.color}18`,
-                        paddingTop: "16px",
-                        display: "flex",
-                        alignItems: "baseline",
-                        gap: "8px"
-                      }}
-                    >
-                      <span
-                        className="font-micro"
-                        style={{ color: phase.color, fontSize: "0.56rem", letterSpacing: "0.14em", flexShrink: 0 }}
-                      >
-                        INSIDE
-                      </span>
-                      <span
-                        className="font-body"
-                        style={{ color: "#7A6E65", fontSize: "0.82rem", lineHeight: "1.5" }}
-                      >
-                        {phase.inside}
-                      </span>
-                    </div>
-
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
 
+              {/* Bottom fade — scroll cue */}
+              <div style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: "64px",
+                background: "linear-gradient(to bottom, transparent, rgba(247,242,235,0.95))",
+                pointerEvents: "none",
+                borderRadius: "0 0 0 0"
+              }} />
+            </div>
+
+            {/* ── RIGHT: iPhone mockup ── */}
+            <div
+              style={{
+                width: "240px",
+                flexShrink: 0,
+                borderLeft: "1px solid rgba(196,149,106,0.12)",
+                background: "linear-gradient(160deg, #EDE5D8 0%, #E2D5C2 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "28px 20px 20px",
+                position: "relative",
+                overflow: "hidden"
+              }}
+            >
+              {/* Blueprint grid lines */}
+              <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.06, pointerEvents: "none" }} preserveAspectRatio="xMidYMid slice">
+                {[0,1,2,3,4,5,6,7,8,9,10,11,12].map(i => (
+                  <line key={i} x1="0" y1={i * 32} x2="9999" y2={i * 32} stroke="#4D5E49" strokeWidth="0.8" />
+                ))}
+              </svg>
+
+              {/* Caption */}
+              <div style={{ textAlign: "center", marginBottom: "16px", position: "relative", zIndex: 1 }}>
+                <p className="font-micro mb-1" style={{ color: "#C4956A", fontSize: "0.54rem", letterSpacing: "0.16em" }}>
+                  SEE THE METHOD IN ACTION
+                </p>
+                <p className="font-body" style={{ color: "#5C5148", fontSize: "0.72rem", lineHeight: "1.5" }}>
+                  Guided questions, progress tracking, and portfolio tools — inside the app.
+                </p>
+              </div>
+
+              {/* Phone */}
+              <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ position: "absolute", inset: "-24px 0", background: "radial-gradient(ellipse at 50% 55%, rgba(196,149,106,0.24) 0%, transparent 68%)", pointerEvents: "none" }} />
+                <img
+                  src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
+                  alt="Mama Launch Method app interface"
+                  style={{
+                    width: "100%",
+                    maxWidth: "190px",
+                    height: "auto",
+                    display: "block",
+                    position: "relative",
+                    zIndex: 1,
+                    filter: "drop-shadow(0 18px 36px rgba(44,44,44,0.22)) drop-shadow(0 4px 10px rgba(44,44,44,0.10))"
+                  }}
+                />
+              </div>
+            </div>
+
+          </div>
         </div>
 
         {/* ── Closing CTA ── */}
