@@ -132,6 +132,95 @@ export default function WhatIsMamaLaunchSection() {
           </p>
         </div>
 
+        {/* ── Phone mockup showcase ── */}
+        <div
+          className="mx-auto px-8 pb-14"
+          style={{ maxWidth: "1080px" }}
+        >
+          <div
+            style={{
+              borderRadius: "24px",
+              background: "linear-gradient(135deg, #EDE5D8 0%, #E4D8C8 50%, #EBE0D0 100%)",
+              border: "1px solid rgba(196,149,106,0.14)",
+              boxShadow: "0 8px 48px rgba(44,44,44,0.06), inset 0 1px 0 rgba(255,255,255,0.5)",
+              display: "flex",
+              alignItems: "center",
+              gap: "56px",
+              padding: "48px 56px",
+              position: "relative",
+              overflow: "hidden"
+            }}
+          >
+            {/* Subtle background texture lines */}
+            <svg
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.07, pointerEvents: "none" }}
+              preserveAspectRatio="xMidYMid slice"
+            >
+              {[0,1,2,3,4,5,6,7,8,9,10,11,12].map(i => (
+                <line key={i} x1="0" y1={i * 28} x2="9999" y2={i * 28} stroke="#4D5E49" strokeWidth="0.8" />
+              ))}
+            </svg>
+
+            {/* Left: label + caption */}
+            <div style={{ flex: "1", minWidth: 0 }}>
+              <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.18em" }}>
+                SEE THE METHOD IN ACTION
+              </p>
+              <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.2rem, 2vw, 1.6rem)", lineHeight: "1.25" }}>
+                A guided app experience built for real motherhood.
+              </h3>
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.75", maxWidth: "42ch" }}>
+                Each phase guides you through focused questions, progress tracking, templates, and portfolio-building tools so your business takes shape as you go.
+              </p>
+              {/* Three proof points */}
+              <div style={{ marginTop: "24px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                {["Step-by-step guided prompts at every phase", "Built-in templates, checklists, and policy docs", "Progress tracking so you always know what's next"].map((pt) => (
+                  <div key={pt} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#4D5E49", flexShrink: 0 }} />
+                    <span className="font-body" style={{ color: "#5C5148", fontSize: "0.83rem" }}>{pt}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: phone mockup */}
+            <div
+              style={{
+                flexShrink: 0,
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              {/* Glow behind phone */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: "-24px",
+                  borderRadius: "50%",
+                  background: "radial-gradient(ellipse at center, rgba(196,149,106,0.18) 0%, transparent 70%)",
+                  pointerEvents: "none"
+                }}
+              />
+              <img
+                src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bfb12d922_ChatGPTImageMay19202609_40_30AM.png"
+                alt="Mama Launch Method app interface — guided phase experience"
+                style={{
+                  width: "clamp(180px, 18vw, 240px)",
+                  height: "auto",
+                  borderRadius: "28px",
+                  boxShadow: "0 32px 80px rgba(44,44,44,0.22), 0 8px 24px rgba(44,44,44,0.12), 0 2px 6px rgba(44,44,44,0.08)",
+                  position: "relative",
+                  zIndex: 1,
+                  display: "block"
+                }}
+              />
+            </div>
+
+          </div>
+        </div>
+
         {/* Thin full-width divider */}
         <div style={{ height: "1px", background: "linear-gradient(90deg, transparent 5%, rgba(196,149,106,0.2) 40%, rgba(196,149,106,0.2) 60%, transparent 95%)", marginBottom: "0" }} />
 
