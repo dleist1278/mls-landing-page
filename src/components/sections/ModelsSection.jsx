@@ -44,94 +44,26 @@ const pathways = [
 }];
 
 
-const futurePathways = [
-  { id: "kids-programs", title: "Kids Programs", description: "For mothers who want to host enrichment-style classes, drop-ins, or small group programs from home." },
-  { id: "homeschool-pods", title: "Homeschool Pods", description: "For mothers who want to build intentional small-group learning environments with flexibility and autonomy." },
-  { id: "caregiver-babysitter", title: "Caregiver / Babysitter", description: "For mothers offering dedicated in-home care to one family, with the option to bring their own child." }
+const futurePathwayCards = [
+  {
+    id: "kids-programs",
+    title: "Kids Programs",
+    description: "For mothers who want to host enrichment-style classes, drop-ins, or small group programs from home.",
+    tags: ["Classes", "Drop-ins", "Small groups"]
+  },
+  {
+    id: "homeschool-pods",
+    title: "Homeschool Pods",
+    description: "For mothers who want to build intentional small-group learning environments with flexibility and autonomy.",
+    tags: ["Learning pods", "Flexible rhythm", "Small groups"]
+  },
+  {
+    id: "caregiver-babysitter",
+    title: "Caregiver / Babysitter",
+    description: "For mothers offering dedicated in-home care to one family, with the option to bring their own child.",
+    tags: ["In-home care", "One-family model", "Bring your child"]
+  }
 ];
-
-function DesktopPathwayDrawers({ visible }) {
-  const [openId, setOpenId] = useState(null);
-
-  return (
-    <div
-      style={{
-        borderTop: "1px solid rgba(196,149,106,0.14)",
-        paddingTop: "28px",
-        opacity: visible ? 1 : 0,
-        animation: visible ? "drawersFadeIn 0.7s ease 0.45s forwards" : "none",
-        animationFillMode: "forwards"
-      }}
-    >
-      <p className="font-micro" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.18em", marginBottom: "14px" }}>
-        OTHER PATHWAYS COMING SOON
-      </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-        {futurePathways.map((pathway) => {
-          const isOpen = openId === pathway.id;
-          return (
-            <div key={pathway.id}>
-              <button
-                className="models-drawer-row"
-                onClick={() => setOpenId(isOpen ? null : pathway.id)}
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: "12px",
-                  padding: "13px 16px",
-                  background: isOpen ? "rgba(196,149,106,0.05)" : "transparent",
-                  border: "1px solid rgba(196,149,106,0.12)",
-                  borderRadius: isOpen ? "10px 10px 0 0" : "10px",
-                  cursor: "pointer",
-                  textAlign: "left"
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1, minWidth: 0 }}>
-                  <span className="font-body" style={{ color: "#5C5148", fontSize: "0.88rem", fontWeight: 500 }}>{pathway.title}</span>
-                  <span className="font-micro" style={{
-                    flexShrink: 0,
-                    backgroundColor: "rgba(196,149,106,0.08)",
-                    border: "1px solid rgba(196,149,106,0.18)",
-                    color: "#C4956A",
-                    borderRadius: "999px",
-                    padding: "2px 9px",
-                    fontSize: "0.52rem",
-                    letterSpacing: "0.12em"
-                  }}>Coming Soon</span>
-                </div>
-                <svg
-                  className="models-drawer-chevron"
-                  width="14" height="14" viewBox="0 0 14 14" fill="none"
-                  style={{ flexShrink: 0, transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", color: "#C4956A" }}
-                >
-                  <path d="M3 5L7 9L11 5" stroke="#C4956A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              <div
-                className="models-drawer-body"
-                style={{
-                  maxHeight: isOpen ? "80px" : "0px",
-                  opacity: isOpen ? 1 : 0,
-                  backgroundColor: "rgba(196,149,106,0.03)",
-                  border: isOpen ? "1px solid rgba(196,149,106,0.12)" : "none",
-                  borderTop: "none",
-                  borderRadius: "0 0 10px 10px",
-                  padding: isOpen ? "12px 16px 14px" : "0 16px"
-                }}
-              >
-                <p className="font-body" style={{ color: "#8a7d74", fontSize: "0.83rem", lineHeight: "1.6" }}>
-                  {pathway.description}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 
 export default function ModelsSection() {
   const headerRef = useRef(null);
@@ -159,7 +91,7 @@ export default function ModelsSection() {
   return (
     <section
       id="models"
-      className="py-10 md:py-16 pb-6 md:pb-0 overflow-hidden"
+      className="py-10 md:py-10 pb-6 md:pb-10 overflow-hidden"
       style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw", width: "100%", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
       
       <div className="max-w-5xl mx-auto px-5 md:px-12 max-w-full overflow-hidden">
@@ -167,7 +99,7 @@ export default function ModelsSection() {
         {/* Header */}
         <div
           ref={headerRef}
-          className="mb-5 md:mb-14"
+          className="mb-5 md:mb-8"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
@@ -208,18 +140,18 @@ export default function ModelsSection() {
           </div>
         </div>
 
-        {/* Desktop: Editorial spotlight + accordion future pathways */}
+        {/* Desktop: Editorial spotlight + side-by-side future pathway cards */}
         <style>{`
           @keyframes enrollPulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.28; }
           }
           @keyframes spotlightFadeUp {
-            from { opacity: 0; transform: translateY(18px); }
+            from { opacity: 0; transform: translateY(16px); }
             to   { opacity: 1; transform: translateY(0); }
           }
-          @keyframes drawersFadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+          @keyframes cardsFadeUp {
+            from { opacity: 0; transform: translateY(12px); }
             to   { opacity: 1; transform: translateY(0); }
           }
           .models-cta-btn {
@@ -229,53 +161,47 @@ export default function ModelsSection() {
             box-shadow: 0 10px 32px rgba(77,94,73,0.34) !important;
             transform: translateY(-1px);
           }
-          .models-drawer-row {
-            transition: background 0.2s ease;
+          .models-future-card {
+            transition: border-color 0.22s ease, transform 0.22s ease;
           }
-          .models-drawer-row:hover {
-            background: rgba(196,149,106,0.05) !important;
-          }
-          .models-drawer-chevron {
-            transition: transform 0.3s ease;
-          }
-          .models-drawer-body {
-            overflow: hidden;
-            transition: max-height 0.35s ease, opacity 0.3s ease;
+          .models-future-card:hover {
+            border-color: rgba(196,149,106,0.28) !important;
+            transform: translateY(-2px);
           }
         `}</style>
 
-        {/* ── DESKTOP EDITORIAL SPOTLIGHT ── */}
+        {/* ── DESKTOP LAYOUT ── */}
         <div className="hidden md:block">
 
-          {/* Split layout: image left, content right */}
+          {/* ── Home Daycare / Nursery spotlight: image left, content right ── */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "clamp(36px, 5vw, 64px)",
+              gap: "clamp(32px, 4.5vw, 56px)",
               opacity: headerVisible ? 1 : 0,
               animation: headerVisible ? "spotlightFadeUp 0.75s ease forwards" : "none",
-              paddingBottom: "40px"
+              paddingBottom: "36px"
             }}
           >
             {/* Left: Image — swap src to update photo */}
             <div style={{
               flexShrink: 0,
-              width: "clamp(280px, 38%, 420px)",
+              width: "clamp(260px, 36%, 400px)",
               aspectRatio: "4 / 3",
-              borderRadius: "20px",
+              borderRadius: "18px",
               overflow: "hidden",
-              boxShadow: "0 8px 36px rgba(44,44,44,0.10), 0 2px 8px rgba(196,149,106,0.08)"
+              boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(196,149,106,0.07)"
             }}>
               <img
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/d4f06cd77_generated_image.png"
-                alt="Calm, intentional home nursery — placeholder, easy to replace"
+                alt="Calm home nursery — easy to replace"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
               />
             </div>
 
-            {/* Right: Content — open, breathable, no bounding box */}
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "16px", minWidth: 0 }}>
+            {/* Right: Content */}
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "14px", minWidth: 0 }}>
 
               {/* NOW ENROLLING badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ backgroundColor: "#4D5E4912", border: "1px solid #4D5E4924", alignSelf: "flex-start" }}>
@@ -284,7 +210,7 @@ export default function ModelsSection() {
               </div>
 
               {/* Title */}
-              <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "clamp(1.55rem, 2.6vw, 2.2rem)", lineHeight: "1.12", letterSpacing: "-0.02em", margin: 0 }}>
+              <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "clamp(1.5rem, 2.5vw, 2.1rem)", lineHeight: "1.12", letterSpacing: "-0.02em", margin: 0 }}>
                 Home Daycare / Nursery
               </h3>
 
@@ -323,7 +249,7 @@ export default function ModelsSection() {
                   color: "#fff",
                   border: "none",
                   borderRadius: "999px",
-                  padding: "14px 30px",
+                  padding: "13px 28px",
                   fontSize: "0.7rem",
                   letterSpacing: "0.1em",
                   cursor: "pointer",
@@ -336,8 +262,87 @@ export default function ModelsSection() {
             </div>
           </div>
 
-          {/* ── Other pathways coming soon — accordion drawers ── */}
-          <DesktopPathwayDrawers visible={headerVisible} />
+          {/* ── Future Pathways — side-by-side secondary cards ── */}
+          <div
+            style={{
+              borderTop: "1px solid rgba(196,149,106,0.12)",
+              paddingTop: "28px",
+              opacity: headerVisible ? 1 : 0,
+              animation: headerVisible ? "cardsFadeUp 0.7s ease 0.4s forwards" : "none",
+              animationFillMode: "forwards"
+            }}
+          >
+            {/* Sub-heading */}
+            <div style={{ marginBottom: "18px" }}>
+              <p className="font-micro" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.18em", marginBottom: "4px" }}>
+                FUTURE PATHWAYS COMING SOON
+              </p>
+              <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.82rem", lineHeight: "1.5" }}>
+                Mama Launch Studio is expanding into additional motherhood-centered childcare and learning models.
+              </p>
+            </div>
+
+            {/* Cards row */}
+            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+              {futurePathwayCards.map((card, i) => (
+                <div
+                  key={card.id}
+                  className="models-future-card"
+                  style={{
+                    flex: "1 1 200px",
+                    minWidth: "180px",
+                    backgroundColor: "#F5EFE6",
+                    border: "1px solid rgba(196,149,106,0.14)",
+                    borderRadius: "14px",
+                    padding: "20px 20px 18px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                    opacity: headerVisible ? 1 : 0,
+                    animation: headerVisible ? `cardsFadeUp 0.6s ease ${0.5 + i * 0.1}s forwards` : "none",
+                    animationFillMode: "forwards"
+                  }}
+                >
+                  {/* Coming Soon badge */}
+                  <span className="font-micro" style={{
+                    alignSelf: "flex-start",
+                    backgroundColor: "rgba(196,149,106,0.10)",
+                    border: "1px solid rgba(196,149,106,0.2)",
+                    color: "#C4956A",
+                    borderRadius: "999px",
+                    padding: "3px 9px",
+                    fontSize: "0.52rem",
+                    letterSpacing: "0.12em"
+                  }}>Coming Soon</span>
+
+                  {/* Title */}
+                  <h4 className="font-display" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.2", letterSpacing: "-0.01em", margin: 0 }}>
+                    {card.title}
+                  </h4>
+
+                  {/* Description */}
+                  <p className="font-body" style={{ color: "#8a7d74", fontSize: "0.8rem", lineHeight: "1.6", margin: 0 }}>
+                    {card.description}
+                  </p>
+
+                  {/* Value tags */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginTop: "2px" }}>
+                    {card.tags.map((tag) => (
+                      <span key={tag} className="font-micro" style={{
+                        backgroundColor: "rgba(196,149,106,0.07)",
+                        border: "1px solid rgba(196,149,106,0.14)",
+                        color: "#9a8f84",
+                        borderRadius: "999px",
+                        padding: "2px 8px",
+                        fontSize: "0.55rem",
+                        letterSpacing: "0.06em"
+                      }}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
 
