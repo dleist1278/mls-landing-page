@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 
 const studioCards = [
-  { title: "Interactive Guide", sub: "Step-by-step implementation", body: "Know exactly what to do next through guided phases, prompts, and progress tracking designed to keep you moving.", accent: "#4D5E49" },
-  { title: "Done-for-You Tools", sub: "Templates that save time", body: "Open ready-made templates, checklists, parent resources, and operational tools without starting from scratch.", accent: "#6B7E67" },
-  { title: "The Village", sub: "Community support built in", body: "Ask questions, get unstuck, and build alongside mothers walking through the same process with you.", accent: "#C4956A" }
-];
+{ title: "Interactive Guide", sub: "Step-by-step implementation", body: "Know exactly what to do next through guided phases, prompts, and progress tracking designed to keep you moving.", accent: "#4D5E49" },
+{ title: "Done-for-You Tools", sub: "Templates that save time", body: "Open ready-made templates, checklists, parent resources, and operational tools without starting from scratch.", accent: "#6B7E67" },
+{ title: "The Village", sub: "Community support built in", body: "Ask questions, get unstuck, and build alongside mothers walking through the same process with you.", accent: "#C4956A" }];
+
 
 export default function WalkAwaySection() {
   const headerRef = useRef(null);
@@ -13,16 +13,16 @@ export default function WalkAwaySection() {
   const [portalVisible, setPortalVisible] = useState(false);
 
   useEffect(() => {
-    const makeObs = (setter) => new IntersectionObserver(([e]) => { if (e.isIntersecting) setter(true); }, { threshold: 0.06 });
+    const makeObs = (setter) => new IntersectionObserver(([e]) => {if (e.isIntersecting) setter(true);}, { threshold: 0.06 });
     const o1 = makeObs(setHeaderVisible);
     const o2 = makeObs(setPortalVisible);
     if (headerRef.current) o1.observe(headerRef.current);
     if (portalRef.current) o2.observe(portalRef.current);
-    return () => { o1.disconnect(); o2.disconnect(); };
+    return () => {o1.disconnect();o2.disconnect();};
   }, []);
 
   return (
-    <section id="walkaway" className="pt-8 md:pt-12 overflow-hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
+    <section id="walkaway" className="pt-8 md:pt-12 overflow-hidden hidden" style={{ backgroundColor: "#FAF7F2", scrollMarginTop: "60px", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12 overflow-hidden">
 
         {/* Header */}
@@ -53,18 +53,18 @@ export default function WalkAwaySection() {
             src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c00815f2_Untitleddesign.png"
             alt="The Mama Launch Studio platform — your guided five-phase implementation dashboard"
             className="w-full h-auto block"
-            style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.10)) drop-shadow(0 2px 8px rgba(196,149,106,0.10))" }}
-          />
+            style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.10)) drop-shadow(0 2px 8px rgba(196,149,106,0.10))" }} />
+          
 
           {/* 3 concept cards — desktop grid, mobile swipe */}
           <div className="hidden md:grid grid-cols-3 gap-5 mt-8">
-            {studioCards.map((card, i) => (
-              <div key={card.title} className="rounded-2xl overflow-hidden flex flex-col"
-                style={{
-                  backgroundColor: i === 0 ? "#FFFDF9" : i === 1 ? "#F8F4EE" : "#F4EFE8",
-                  border: `1px solid ${card.accent}18`,
-                  boxShadow: i === 0 ? "0 8px 32px rgba(77,94,73,0.12)" : i === 1 ? "0 4px 16px rgba(77,94,73,0.07)" : "0 2px 8px rgba(196,149,106,0.06)"
-                }}>
+            {studioCards.map((card, i) =>
+            <div key={card.title} className="rounded-2xl overflow-hidden flex flex-col"
+            style={{
+              backgroundColor: i === 0 ? "#FFFDF9" : i === 1 ? "#F8F4EE" : "#F4EFE8",
+              border: `1px solid ${card.accent}18`,
+              boxShadow: i === 0 ? "0 8px 32px rgba(77,94,73,0.12)" : i === 1 ? "0 4px 16px rgba(77,94,73,0.07)" : "0 2px 8px rgba(196,149,106,0.06)"
+            }}>
                 <div style={{ height: "3px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}55)` }} />
                 <div className="p-5 flex flex-col flex-1 gap-2.5">
                   <p className="font-micro" style={{ color: card.accent, fontSize: "0.6rem", letterSpacing: "0.12em" }}>{card.sub}</p>
@@ -72,24 +72,24 @@ export default function WalkAwaySection() {
                   <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
                 </div>
               </div>
-            ))}
+            )}
           </div>
 
           {/* Mobile swipe cards */}
           <div className="md:hidden mt-6 overflow-hidden">
             <div className="flex gap-3 overflow-x-auto pb-3"
-              style={{
-                scrollSnapType: "x mandatory",
-                overscrollBehaviorX: "contain",
-                WebkitOverflowScrolling: "touch",
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-                paddingLeft: "calc(50% - 130px)",
-                paddingRight: "calc(50% - 130px + 20px)"
-              }}>
-              {studioCards.map((card) => (
-                <div key={card.title} className="flex-none rounded-2xl overflow-hidden"
-                  style={{ width: "260px", scrollSnapAlign: "center", background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)", border: "1px solid #E4D5C0", boxShadow: "0 4px 20px rgba(196,149,106,0.12)" }}>
+            style={{
+              scrollSnapType: "x mandatory",
+              overscrollBehaviorX: "contain",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              paddingLeft: "calc(50% - 130px)",
+              paddingRight: "calc(50% - 130px + 20px)"
+            }}>
+              {studioCards.map((card) =>
+              <div key={card.title} className="flex-none rounded-2xl overflow-hidden"
+              style={{ width: "260px", scrollSnapAlign: "center", background: "linear-gradient(160deg, #FFFDF9 0%, #F5EFE6 100%)", border: "1px solid #E4D5C0", boxShadow: "0 4px 20px rgba(196,149,106,0.12)" }}>
                   <div style={{ height: "3px", background: `linear-gradient(90deg, ${card.accent}, ${card.accent}88)` }} />
                   <div className="px-4 pt-3 pb-4">
                     <p className="font-micro mb-1" style={{ color: card.accent, fontSize: "0.58rem", letterSpacing: "0.1em" }}>{card.sub}</p>
@@ -97,7 +97,7 @@ export default function WalkAwaySection() {
                     <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>{card.body}</p>
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
@@ -112,6 +112,6 @@ export default function WalkAwaySection() {
         </div>
 
       </div>
-    </section>
-  );
+    </section>);
+
 }
