@@ -46,7 +46,7 @@ export default function IntakeFormSection() {
       style={{
         backgroundColor: "#FAF7F2",
         overflow: "hidden",
-        scrollMarginTop: "60px",
+        scrollMarginTop: "96px",
         borderTop: "1px solid rgba(196,149,106,0.08)",
       }}
     >

@@ -112,6 +112,7 @@ export default function WhatIsMamaLaunchSection() {
 
   return (
     <section
+      id="method"
       ref={sectionRef}
       style={{
         backgroundColor: "#F0EBE1",
@@ -119,7 +120,8 @@ export default function WhatIsMamaLaunchSection() {
         maxWidth: "100vw",
         width: "100%",
         position: "relative",
-        borderTop: "1px solid rgba(196,149,106,0.08)"
+        borderTop: "1px solid rgba(196,149,106,0.08)",
+        scrollMarginTop: "96px"
       }}
     >
 

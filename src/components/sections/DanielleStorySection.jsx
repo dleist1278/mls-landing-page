@@ -139,7 +139,7 @@ export default function DanielleStorySection() {
   const handleToggle = (index) => setOpenDrawer(openDrawer === index ? -1 : index);
 
   return (
-    <section style={{ backgroundColor: "#FAF7F2", overflow: "hidden" }}>
+    <section id="founder" style={{ backgroundColor: "#FAF7F2", overflow: "hidden", scrollMarginTop: "96px" }}>
       <div className="w-full h-px" style={{ backgroundColor: "#C4956A", opacity: 0.3 }} />
 
       <div
