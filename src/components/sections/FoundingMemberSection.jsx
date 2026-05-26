@@ -65,10 +65,10 @@ function StepCard({ step, index, isOpen, onToggle }) {
         className="flex flex-1 flex-col rounded-2xl cursor-pointer"
         onClick={onToggle}
         style={{
-          backgroundColor: "rgba(255,255,255,0.80)",
-          outline: isOpen ? "1px solid #D4BDA8" : "1px solid #EDE3D8",
-          backdropFilter: "blur(8px)",
-          boxShadow: isOpen ? "0 4px 18px rgba(196,149,106,0.10)" : "0 1px 4px rgba(196,149,106,0.05)",
+          backgroundColor: isOpen ? "rgba(255,255,255,0.72)" : "rgba(255,255,255,0.48)",
+          outline: isOpen ? "1px solid rgba(196,149,106,0.20)" : "1px solid rgba(196,149,106,0.10)",
+          backdropFilter: "blur(6px)",
+          boxShadow: isOpen ? "0 3px 12px rgba(196,149,106,0.08)" : "none",
           transition: "box-shadow 0.22s ease, outline-color 0.22s ease"
         }}>
         
@@ -345,7 +345,7 @@ export default function FoundingMemberSection() {
             <p className="font-micro mb-6" style={{ color: "#9a8f84", fontSize: "0.66rem", letterSpacing: "0.07em" }}>
               Built around real motherhood rhythms, not uninterrupted workdays.
             </p>
-            <div className="rounded-xl p-4" style={{ backgroundColor: "#EEF1E7", outline: "1px solid #E1E6D8" }}>
+            <div className="rounded-xl p-4" style={{ backgroundColor: "rgba(77,94,73,0.05)", outline: "1px solid rgba(77,94,73,0.12)" }}>
               <div className="flex items-start gap-3">
                 <Heart size={14} style={{ color: "#4D5E49", flexShrink: 0, strokeWidth: 1.6, marginTop: "2px" }} />
                 <div>

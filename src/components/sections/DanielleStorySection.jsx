@@ -74,7 +74,7 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
                 backgroundColor: isOpen ? "#FFFDF9" : "rgba(255,255,255,0.5)",
                 border: `1px solid ${isOpen ? "#C4956A28" : "#EAD9C8"}`,
                 borderBottom: isOpen ? "1px solid #FFFDF9" : "1px solid #EAD9C8",
-                boxShadow: isOpen ? "0 -8px 24px rgba(196,149,106,0.18), 0 -2px 6px rgba(0,0,0,0.06)" : "0 -4px 12px rgba(196,149,106,0.08), 0 -1px 3px rgba(0,0,0,0.04)",
+                boxShadow: isOpen ? "0 -4px 16px rgba(196,149,106,0.10)" : "none",
                 position: "relative",
                 zIndex: isOpen ? 2 : 1,
                 marginBottom: isOpen ? "-1px" : "0",
@@ -103,13 +103,13 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
         style={{
           borderRadius: "0 0 12px 12px",
           backgroundColor: "#FFFDF9",
-          border: "1px solid #C4956A28",
+          border: "1px solid rgba(196,149,106,0.12)",
           borderTop: "none",
           overflow: "hidden",
           maxHeight: openDrawer >= 0 ? "260px" : "0px",
           opacity: openDrawer >= 0 ? 1 : 0,
           transition: "max-height 0.32s ease, opacity 0.25s ease",
-          boxShadow: "0 8px 28px rgba(196,149,106,0.1)",
+          boxShadow: "0 4px 16px rgba(196,149,106,0.06)",
           position: "relative",
           zIndex: 1
         }}>
@@ -193,7 +193,7 @@ export default function DanielleStorySection() {
             <div className="relative">
               <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.13, zIndex: 0 }} />
               <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.09, zIndex: 1 }} />
-              <div className="relative rounded-[20px] overflow-hidden" style={{ zIndex: 2, boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)", border: "1px solid rgba(196,149,106,0.1)" }}>
+              <div className="relative rounded-[20px] overflow-hidden" style={{ zIndex: 2, boxShadow: "0 16px 48px rgba(196,149,106,0.22), 0 4px 16px rgba(0,0,0,0.08)", border: "1px solid rgba(196,149,106,0.08)" }}>
                 <img
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                   alt="Danielle, founder of Mama Launch Studio"

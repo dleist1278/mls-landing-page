@@ -191,7 +191,7 @@ export default function ModelsSection() {
               aspectRatio: "4 / 3",
               borderRadius: "18px",
               overflow: "hidden",
-              boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(196,149,106,0.07)"
+              boxShadow: "0 4px 20px rgba(44,44,44,0.07), 0 1px 4px rgba(196,149,106,0.05)"
             }}>
               <img
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/d4f06cd77_generated_image.png"
@@ -291,13 +291,13 @@ export default function ModelsSection() {
                   style={{
                     flex: "1 1 200px",
                     minWidth: "180px",
-                    backgroundColor: "#F5EFE6",
-                    border: "1px solid rgba(196,149,106,0.14)",
-                    borderRadius: "14px",
-                    padding: "20px 20px 18px",
+                    backgroundColor: "rgba(240,235,225,0.45)",
+                    border: "1px solid rgba(196,149,106,0.09)",
+                    borderRadius: "12px",
+                    padding: "16px 18px 14px",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "10px",
+                    gap: "8px",
                     opacity: headerVisible ? 1 : 0,
                     animation: headerVisible ? `cardsFadeUp 0.6s ease ${0.5 + i * 0.1}s forwards` : "none",
                     animationFillMode: "forwards"
@@ -306,22 +306,22 @@ export default function ModelsSection() {
                   {/* Coming Soon badge */}
                   <span className="font-micro" style={{
                     alignSelf: "flex-start",
-                    backgroundColor: "rgba(196,149,106,0.13)",
-                    border: "1px solid rgba(196,149,106,0.28)",
-                    color: "#B5834F",
+                    backgroundColor: "transparent",
+                    border: "1px solid rgba(196,149,106,0.18)",
+                    color: "#B5956A",
                     borderRadius: "999px",
-                    padding: "3px 9px",
-                    fontSize: "0.54rem",
-                    letterSpacing: "0.12em"
+                    padding: "2px 8px",
+                    fontSize: "0.52rem",
+                    letterSpacing: "0.10em"
                   }}>Coming Soon</span>
 
                   {/* Title */}
-                  <h4 className="font-display" style={{ color: "#3D3228", fontSize: "1rem", lineHeight: "1.2", letterSpacing: "-0.01em", margin: 0 }}>
+                  <h4 className="font-display" style={{ color: "#5C4E42", fontSize: "0.92rem", lineHeight: "1.2", letterSpacing: "-0.01em", margin: 0 }}>
                     {card.title}
                   </h4>
 
                   {/* Description */}
-                  <p className="font-body" style={{ color: "#6B6156", fontSize: "0.8rem", lineHeight: "1.6", margin: 0 }}>
+                  <p className="font-body" style={{ color: "#8A7D73", fontSize: "0.76rem", lineHeight: "1.55", margin: 0 }}>
                     {card.description}
                   </p>
 
@@ -329,13 +329,13 @@ export default function ModelsSection() {
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginTop: "2px" }}>
                     {card.tags.map((tag) => (
                       <span key={tag} className="font-micro" style={{
-                        backgroundColor: "rgba(196,149,106,0.10)",
-                        border: "1px solid rgba(196,149,106,0.22)",
-                        color: "#7A6558",
+                        backgroundColor: "transparent",
+                        border: "1px solid rgba(196,149,106,0.15)",
+                        color: "#9A8070",
                         borderRadius: "999px",
-                        padding: "2px 8px",
-                        fontSize: "0.55rem",
-                        letterSpacing: "0.06em"
+                        padding: "2px 7px",
+                        fontSize: "0.52rem",
+                        letterSpacing: "0.05em"
                       }}>{tag}</span>
                     ))}
                   </div>
