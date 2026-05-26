@@ -82,6 +82,14 @@ export default function WhatIsMamaLaunchSection() {
     if (!container) return;
 
     const handleScroll = () => {
+      // If scrolled to (or near) the bottom, always activate the last phase
+      const atBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 40;
+      if (atBottom) {
+        const last = phases.length - 1;
+        if (last !== activeIndex) { setPrevIndex(activeIndex); setActiveIndex(last); }
+        return;
+      }
+
       const containerTop = container.getBoundingClientRect().top;
       let best = 0;
       let bestDist = Infinity;

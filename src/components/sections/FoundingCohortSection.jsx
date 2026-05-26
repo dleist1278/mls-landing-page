@@ -56,7 +56,7 @@ export default function FoundingCohortSection() {
             animation: visible ? "cohortFadeUp 0.65s ease 0.1s forwards" : "none",
           }}
         >
-          July 6th.
+          July 8th.
         </h2>
 
         {/* Subheadline */}
@@ -80,7 +80,7 @@ export default function FoundingCohortSection() {
             animation: visible ? "cohortFadeUp 0.6s ease 0.3s forwards" : "none",
           }}
         >
-          The first Mama Launch cohort opens July 6th with a limited number of founding members.
+          The first Mama Launch cohort opens July 8th with a limited number of founding members.
         </p>
 
         {/* Closing date */}

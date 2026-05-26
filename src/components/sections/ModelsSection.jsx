@@ -118,7 +118,7 @@ export default function ModelsSection() {
               <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
             </h2>
             <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.65", maxWidth: "56ch" }}>
-              Start with the first founding pathway: Home Daycare / Nursery. Other Mama Launch pathways are coming soon.
+              Start with the first founding pathway: Home Daycare / Nursery.<br />Other Mama Launch pathways are coming soon.
             </p>
           </div>
 

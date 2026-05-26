@@ -26,9 +26,10 @@ export default function SiteNav() {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-5 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — hidden on desktop once scrolled to reduce nav clutter */}
         <div
-          className="cursor-pointer"
+          className="cursor-pointer transition-all duration-300"
+          style={{ opacity: scrolled ? 0 : 1, pointerEvents: scrolled ? "none" : "auto" }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <span className="font-display text-xl text-charcoal tracking-tight">
