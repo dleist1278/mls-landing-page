@@ -67,23 +67,7 @@ export default function BuildInMotionSection() {
           opacity: visible ? 1 : 0,
         }}
       >
-        {/* Left: Photo */}
-        <div
-          className="rounded-[24px] overflow-hidden"
-          style={{
-            aspectRatio: "4 / 5",
-            boxShadow: "0 16px 48px rgba(196,149,106,0.18), 0 4px 16px rgba(0,0,0,0.07)",
-            border: "1px solid rgba(196,149,106,0.12)",
-          }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1596496181165-27a147d34193?q=80&w=1200&auto=format&fit=crop"
-            alt="Mother working on her business during a quiet moment at home"
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", filter: "saturate(0.85) brightness(0.97)", display: "block" }}
-          />
-        </div>
-
-        {/* Right: Heading, copy, progress moments, closing line */}
+        {/* Left: Heading, copy, progress moments, closing line */}
         <div>
           <h3
             className="font-display leading-tight mb-3"
@@ -133,6 +117,21 @@ export default function BuildInMotionSection() {
           <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.82rem", lineHeight: "1.6", fontStyle: "italic" }}>
             Every saved answer, checklist, and template brings your business one step closer to launch.
           </p>
+        </div>
+
+        {/* Right: Photo */}
+        <div
+          className="rounded-[24px] overflow-hidden"
+          style={{
+            boxShadow: "0 16px 48px rgba(196,149,106,0.18), 0 4px 16px rgba(0,0,0,0.07)",
+            border: "1px solid rgba(196,149,106,0.12)",
+          }}
+        >
+          <img
+            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5895f9396_Untitleddesign.png"
+            alt="Mama Launch platform showing implementation tools and community village"
+            style={{ width: "100%", height: "auto", display: "block" }}
+          />
         </div>
       </div>
 
