@@ -1,12 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const current = window.scrollY;
+        const prev = lastScrollY.current;
+        setScrolled(current > 40);
+        if (current < 80) {
+          setNavVisible(true);
+        } else if (current > prev + 6) {
+          setNavVisible(false);
+        } else if (prev > current + 6) {
+          setNavVisible(true);
+        }
+        lastScrollY.current = current;
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -23,6 +43,8 @@ export default function SiteNav() {
         backdropFilter: scrolled ? "blur(16px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(196,149,106,0.18)" : "none",
         boxShadow: scrolled ? "0 1px 24px rgba(44,44,44,0.05)" : "none",
+        transform: `translateY(${navVisible ? "0" : "-100%"})`,
+        transition: "transform 0.35s cubic-bezier(0.4,0,0.2,1), background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-5 flex items-center justify-between">
