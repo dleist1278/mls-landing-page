@@ -168,9 +168,19 @@ export default function DanielleStorySection() {
             </p>
 
             {/* Concise credential chips */}
+            <style>{`
+              .danielle-chip {
+                transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+              }
+              .danielle-chip:hover {
+                background-color: rgba(77,94,73,0.13) !important;
+                border-color: rgba(77,94,73,0.22) !important;
+                transform: translateY(-1px);
+              }
+            `}</style>
             <div className="flex flex-wrap gap-2 mb-7">
               {["Former educator", "Home daycare owner", "Operations background", "Community builder"].map((chip) =>
-                <span key={chip} className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.65rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
+                <span key={chip} className="danielle-chip font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.65rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
               )}
             </div>
 

@@ -101,6 +101,7 @@ export default function IntakeFormSection() {
               background: "linear-gradient(145deg, #F0EBE1 0%, #E8DDD0 100%)",
               border: "1px solid rgba(196,149,106,0.12)",
               boxShadow: "0 8px 40px rgba(44,44,44,0.04), 0 2px 8px rgba(196,149,106,0.06)",
+              transition: "box-shadow 0.4s ease",
             }}
           >
             {/* Top accent bar */}
@@ -120,9 +121,19 @@ export default function IntakeFormSection() {
             <div className="px-6 md:px-10 py-8 md:py-10">
               {/* Desktop header */}
               <div className="hidden md:block text-center mb-8">
+                <style>{`
+                  @keyframes intakeFadeUp {
+                    from { opacity: 0; transform: translateY(12px); }
+                    to   { opacity: 1; transform: translateY(0); }
+                  }
+                `}</style>
                 <p
                   className="font-micro mb-3 inline-flex items-center gap-3"
-                  style={{ color: "#C4956A", fontSize: "0.72rem" }}
+                  style={{
+                    color: "#C4956A", fontSize: "0.72rem",
+                    opacity: visible ? 1 : 0,
+                    animation: visible ? "intakeFadeUp 0.55s ease forwards" : "none",
+                  }}
                 >
                   <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
                   FOUNDING MEMBER WAITLIST
@@ -134,6 +145,8 @@ export default function IntakeFormSection() {
                     color: "#2C2C2C",
                     fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)",
                     overflowWrap: "break-word",
+                    opacity: visible ? 1 : 0,
+                    animation: visible ? "intakeFadeUp 0.65s ease 0.1s forwards" : "none",
                   }}
                 >
                   Come build this{" "}
@@ -141,13 +154,21 @@ export default function IntakeFormSection() {
                 </h2>
                 <p
                   className="font-body mx-auto leading-relaxed"
-                  style={{ color: "#5C5148", maxWidth: "440px", fontSize: "0.95rem" }}
+                  style={{
+                    color: "#5C5148", maxWidth: "440px", fontSize: "0.95rem",
+                    opacity: visible ? 1 : 0,
+                    animation: visible ? "intakeFadeUp 0.6s ease 0.2s forwards" : "none",
+                  }}
                 >
                   From idea to opening day — with clarity, structure, and support.
                 </p>
                 <p
                   className="font-body mx-auto mt-2"
-                  style={{ color: "#7A6E65", maxWidth: "400px", fontSize: "0.88rem" }}
+                  style={{
+                    color: "#7A6E65", maxWidth: "400px", fontSize: "0.88rem",
+                    opacity: visible ? 1 : 0,
+                    animation: visible ? "intakeFadeUp 0.6s ease 0.28s forwards" : "none",
+                  }}
                 >
                   You do not need to have everything figured out before starting.
                 </p>
