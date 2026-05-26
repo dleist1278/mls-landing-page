@@ -23,10 +23,10 @@ export default function BuildInMotionSection() {
   return (
     <section style={{ backgroundColor: "#F0EBE1", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
 
-      {/* Shared intro — mobile + desktop */}
+      {/* Mobile-only intro */}
       <div
         ref={ref}
-        className="max-w-3xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20 text-center"
+        className="md:hidden max-w-3xl mx-auto px-5 sm:px-8 py-14 text-center"
         style={{
           transition: "opacity 0.7s ease, transform 0.7s ease",
           opacity: visible ? 1 : 0,
@@ -58,54 +58,72 @@ export default function BuildInMotionSection() {
 
       {/* Desktop-only: two-column editorial layout */}
       <div
-        className="hidden md:grid max-w-6xl mx-auto px-12 pb-20"
+        ref={ref}
+        className="hidden md:grid max-w-6xl mx-auto px-12 py-16"
         style={{
           gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(48px, 6vw, 80px)",
+          gap: "clamp(56px, 6vw, 88px)",
           alignItems: "center",
-          transition: "opacity 0.7s ease 0.2s",
+          transition: "opacity 0.7s ease",
           opacity: visible ? 1 : 0,
         }}
       >
-        {/* Left: Heading, copy, progress moments, closing line */}
+        {/* Left: Photo — emotional anchor */}
+        <div
+          style={{
+            borderRadius: "20px",
+            overflow: "hidden",
+            boxShadow: "0 8px 32px rgba(196,149,106,0.14), 0 2px 8px rgba(0,0,0,0.06)",
+            border: "1px solid rgba(196,149,106,0.10)",
+          }}
+        >
+          <img
+            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5895f9396_Untitleddesign.png"
+            alt="Mama Launch platform showing implementation tools and community village"
+            style={{ width: "100%", height: "auto", display: "block" }}
+          />
+        </div>
+
+        {/* Right: Heading, moments, closing line */}
         <div>
-          <h3
+          {/* Eyebrow */}
+          <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.68rem" }}>
+            <span style={{ display: "inline-block", width: "24px", height: "1px", backgroundColor: "#C4956A" }} />
+            BUILD IN MOTION
+          </p>
+
+          <h2
             className="font-display leading-tight mb-3"
-            style={{ color: "#2C2C2C", fontSize: "clamp(1.3rem, 2vw, 1.7rem)", lineHeight: "1.2" }}
+            style={{ color: "#2C2C2C", fontSize: "clamp(1.65rem, 2.8vw, 2.4rem)", lineHeight: "1.15" }}
           >
-            Small steps still count.
-          </h3>
+            Small steps{" "}
+            <em style={{ color: "#4D5E49" }}>still count.</em>
+          </h2>
+
           <p
-            className="font-body leading-relaxed mb-7"
-            style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.7", maxWidth: "42ch" }}
+            className="font-body leading-relaxed mb-8"
+            style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.7", maxWidth: "40ch" }}
           >
             Mama Launch Studio is designed so you can make progress in the pockets of time you already have.
           </p>
 
-          {/* Progress moments */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "18px", marginBottom: "28px" }}>
-            {progressMoments.map((moment, i) => (
+          {/* Progress moments — lightweight list */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "28px" }}>
+            {progressMoments.map((moment) => (
               <div key={moment.title} style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
-                <div
-                  style={{
-                    flexShrink: 0,
-                    width: "22px",
-                    height: "22px",
-                    borderRadius: "50%",
-                    backgroundColor: "#C4956A",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginTop: "2px",
-                  }}
-                >
-                  <span className="font-micro" style={{ color: "#fff", fontSize: "0.48rem", letterSpacing: "0" }}>{i + 1}</span>
-                </div>
+                <div style={{
+                  flexShrink: 0,
+                  width: "5px",
+                  height: "5px",
+                  borderRadius: "50%",
+                  backgroundColor: "#C4956A",
+                  marginTop: "7px",
+                }} />
                 <div>
-                  <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.88rem", fontWeight: 600, marginBottom: "2px" }}>
+                  <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.9rem", fontWeight: 600, marginBottom: "1px" }}>
                     {moment.title}
                   </p>
-                  <p className="font-body" style={{ color: "#5C5148", fontSize: "0.82rem", lineHeight: "1.5" }}>
+                  <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.83rem", lineHeight: "1.5" }}>
                     {moment.description}
                   </p>
                 </div>
@@ -117,21 +135,6 @@ export default function BuildInMotionSection() {
           <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.82rem", lineHeight: "1.6", fontStyle: "italic" }}>
             Every saved answer, checklist, and template brings your business one step closer to launch.
           </p>
-        </div>
-
-        {/* Right: Photo */}
-        <div
-          className="rounded-[24px] overflow-hidden"
-          style={{
-            boxShadow: "0 16px 48px rgba(196,149,106,0.18), 0 4px 16px rgba(0,0,0,0.07)",
-            border: "1px solid rgba(196,149,106,0.12)",
-          }}
-        >
-          <img
-            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5895f9396_Untitleddesign.png"
-            alt="Mama Launch platform showing implementation tools and community village"
-            style={{ width: "100%", height: "auto", display: "block" }}
-          />
         </div>
       </div>
 
