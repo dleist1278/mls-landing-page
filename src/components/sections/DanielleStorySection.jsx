@@ -217,6 +217,20 @@ export default function DanielleStorySection() {
 
             {/* Tabs */}
             <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
+
+            {/* Desktop-only CTA below drawers */}
+            <div className="text-center pt-2">
+              <p className="font-body mb-4" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6" }}>
+                Ready to build with guidance instead of figuring it out alone?
+              </p>
+              <button
+                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px]"
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
+              >
+                Join the Founding Member Waitlist
+              </button>
+            </div>
           </div>
         </div>
 
