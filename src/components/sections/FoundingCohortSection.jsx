@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Calendar } from "lucide-react";
 
 export default function FoundingCohortSection() {
   const ref = useRef(null);
@@ -50,21 +49,6 @@ export default function FoundingCohortSection() {
           FOUNDING COHORT BEGINS
           <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
         </p>
-
-        {/* Calendar badge */}
-        <div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-5"
-          style={{
-            backgroundColor: "rgba(196,149,106,0.08)",
-            border: "1px solid rgba(196,149,106,0.20)",
-            ...anim(0.1)
-          }}
-        >
-          <Calendar size={13} style={{ color: "#C4956A" }} />
-          <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.66rem", letterSpacing: "0.12em" }}>
-            JULY 8, 2026
-          </span>
-        </div>
 
         {/* Headline */}
         <h2
