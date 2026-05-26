@@ -58,7 +58,7 @@ export default function SiteNav() {
             className="font-micro text-white px-6 py-3 rounded-full transition-all duration-200 hover:opacity-90 focus-sage min-h-[44px]"
             style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 4px 16px rgba(77,94,73,0.2)" }}
           >
-            Become a Founding Member
+            Join the Founding Member Waitlist
           </button>
         </div>
 

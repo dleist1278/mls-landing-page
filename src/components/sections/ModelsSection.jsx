@@ -91,15 +91,15 @@ export default function ModelsSection() {
   return (
     <section
       id="models"
-      className="py-10 md:py-10 pb-6 md:pb-10 overflow-hidden"
-      style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "60px", maxWidth: "100vw", width: "100%", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
+      className="py-10 md:py-10 pb-6 md:pb-6 overflow-hidden"
+      style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "96px", maxWidth: "100vw", width: "100%", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
       
       <div className="max-w-5xl mx-auto px-5 md:px-12 max-w-full overflow-hidden">
 
         {/* Header */}
         <div
           ref={headerRef}
-          className="mb-5 md:mb-8"
+          className="mb-5 md:mb-5"
           style={{
             transition: "opacity 0.6s ease, transform 0.6s ease",
             opacity: headerVisible ? 1 : 0,
@@ -181,7 +181,7 @@ export default function ModelsSection() {
               gap: "clamp(32px, 4.5vw, 56px)",
               opacity: headerVisible ? 1 : 0,
               animation: headerVisible ? "spotlightFadeUp 0.75s ease forwards" : "none",
-              paddingBottom: "36px"
+              paddingBottom: "24px"
             }}
           >
             {/* Left: Image — swap src to update photo */}
@@ -273,11 +273,11 @@ export default function ModelsSection() {
             }}
           >
             {/* Sub-heading */}
-            <div style={{ marginBottom: "18px" }}>
-              <p className="font-micro" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.18em", marginBottom: "4px" }}>
+            <div style={{ marginBottom: "16px" }}>
+              <p className="font-micro" style={{ color: "#7A6E65", fontSize: "0.66rem", letterSpacing: "0.18em", marginBottom: "5px" }}>
                 FUTURE PATHWAYS COMING SOON
               </p>
-              <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.82rem", lineHeight: "1.5" }}>
+              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.84rem", lineHeight: "1.5" }}>
                 Mama Launch Studio is expanding into additional motherhood-centered childcare and learning models.
               </p>
             </div>
@@ -306,22 +306,22 @@ export default function ModelsSection() {
                   {/* Coming Soon badge */}
                   <span className="font-micro" style={{
                     alignSelf: "flex-start",
-                    backgroundColor: "rgba(196,149,106,0.10)",
-                    border: "1px solid rgba(196,149,106,0.2)",
-                    color: "#C4956A",
+                    backgroundColor: "rgba(196,149,106,0.13)",
+                    border: "1px solid rgba(196,149,106,0.28)",
+                    color: "#B5834F",
                     borderRadius: "999px",
                     padding: "3px 9px",
-                    fontSize: "0.52rem",
+                    fontSize: "0.54rem",
                     letterSpacing: "0.12em"
                   }}>Coming Soon</span>
 
                   {/* Title */}
-                  <h4 className="font-display" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.2", letterSpacing: "-0.01em", margin: 0 }}>
+                  <h4 className="font-display" style={{ color: "#3D3228", fontSize: "1rem", lineHeight: "1.2", letterSpacing: "-0.01em", margin: 0 }}>
                     {card.title}
                   </h4>
 
                   {/* Description */}
-                  <p className="font-body" style={{ color: "#8a7d74", fontSize: "0.8rem", lineHeight: "1.6", margin: 0 }}>
+                  <p className="font-body" style={{ color: "#6B6156", fontSize: "0.8rem", lineHeight: "1.6", margin: 0 }}>
                     {card.description}
                   </p>
 
@@ -329,9 +329,9 @@ export default function ModelsSection() {
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginTop: "2px" }}>
                     {card.tags.map((tag) => (
                       <span key={tag} className="font-micro" style={{
-                        backgroundColor: "rgba(196,149,106,0.07)",
-                        border: "1px solid rgba(196,149,106,0.14)",
-                        color: "#9a8f84",
+                        backgroundColor: "rgba(196,149,106,0.10)",
+                        border: "1px solid rgba(196,149,106,0.22)",
+                        color: "#7A6558",
                         borderRadius: "999px",
                         padding: "2px 8px",
                         fontSize: "0.55rem",
