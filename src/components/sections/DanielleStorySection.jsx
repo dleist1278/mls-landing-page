@@ -10,19 +10,19 @@ const credentials = [
 
 const drawers = [
 {
+  icon: Heart,
+  title: "Who",
+  content: "Danielle brings experience as a teacher, assistant principal, home daycare owner, and education community builder. She created Mama Launch Studio to help mothers build childcare businesses with real structure, warmth, and support."
+},
+{
   icon: Lightbulb,
-  title: "Why Mama Launch",
+  title: "Why",
   content: "Mama Launch Studio exists because mothers should not have to choose between meaningful work, income, and being present at home. The goal is to help women build childcare models that feel aligned with real motherhood."
 },
 {
   icon: Gift,
-  title: "What You'll Build",
-  content: "Through the Mama Launch Method™, members are guided through the decisions, systems, templates, and confidence-building steps needed to create a calm, intentional home childcare business with structure, parent trust, and real support."
-},
-{
-  icon: Heart,
-  title: "Who's Guiding You",
-  content: "Danielle brings experience as a teacher, assistant principal, home daycare owner, and education community builder. She created Mama Launch Studio to help mothers build childcare businesses with real structure, warmth, and support."
+  title: "What",
+  content: "Through the Mama Launch Method™, members are guided through the decisions, systems, templates, and confidence-building steps needed to create a calm, intentional home childcare business."
 }];
 
 
@@ -82,7 +82,7 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
                 animation: !isOpen && openDrawer < 0 ? `tabNudge 2.4s ease-in-out ${index * 0.3}s infinite` : "none"
               }}>
               <Icon className="h-4 w-4" style={{ color: isOpen ? "#C4956A" : "#9a8f84", transition: "color 0.2s" }} />
-              <span className="font-micro" style={{ fontSize: "0.52rem", letterSpacing: "0.1em", color: isOpen ? "#2B2B28" : "#9a8f84", transition: "color 0.2s", textAlign: "center", lineHeight: "1.3" }}>
+              <span className="font-micro" style={{ fontSize: "0.6rem", letterSpacing: "0.16em", color: isOpen ? "#2B2B28" : "#9a8f84", transition: "color 0.2s" }}>
                 {drawer.title}
               </span>
               {/* Active bottom accent */}
@@ -174,23 +174,8 @@ export default function DanielleStorySection() {
               )}
             </div>
 
-            {/* Why / What / Who drawers */}
+            {/* Who / Why / What drawers */}
             <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
-
-            {/* CTA — below the drawers, left column */}
-            <div className="flex flex-col items-center text-center" style={{ marginTop: "28px", gap: "12px" }}>
-              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6" }}>
-                Ready to build with guidance instead of figuring it out alone?
-              </p>
-              <button
-                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-                className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
-              >
-                Join the Founding Member Waitlist
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
-            </div>
           </div>
 
           {/* Right — photo + CTA as one visual unit */}
@@ -208,7 +193,20 @@ export default function DanielleStorySection() {
               </div>
             </div>
 
-
+            {/* CTA — directly under photo */}
+            <div className="flex flex-col items-center text-center" style={{ marginTop: "28px", gap: "16px" }}>
+              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6" }}>
+                Ready to build with guidance instead of figuring it out alone?
+              </p>
+              <button
+                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
+              >
+                Join the Founding Member Waitlist
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
+            </div>
           </div>
         </div>
 
