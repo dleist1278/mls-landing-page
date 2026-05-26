@@ -1,36 +1,38 @@
 import React, { useRef, useEffect, useState } from "react";
+import { Users, ClipboardList, MessageCircle } from "lucide-react";
 
 const progressMoments = [
-  { num: "01", title: "Nap time",       description: "Review one checklist or answer one workbook prompt." },
+  { num: "01", title: "Nap time",        description: "Review one checklist or answer one workbook prompt." },
   { num: "02", title: "Laundry running", description: "Customize one policy, form, or template." },
-  { num: "03", title: "Dinner prep",    description: "Listen, reflect, or plan your next small step." },
-  { num: "04", title: "Quiet evening",  description: "Save your progress and know exactly what comes next." },
+  { num: "03", title: "Dinner prep",     description: "Listen, reflect, or plan your next small step." },
+  { num: "04", title: "Quiet evening",   description: "Save your progress and know exactly what comes next." },
 ];
 
 const supportItems = [
-  { label: "Village",         line: "Peer community and phase-based support." },
-  { label: "Implementation",  line: "Templates, checklists, and guided action steps." },
-  { label: "Real Answers",    line: "Q&A and feedback when questions come up." },
+  { Icon: Users,         label: "Village",        line: "Peer community and phase-based support." },
+  { Icon: ClipboardList, label: "Implementation", line: "Templates, checklists, and guided action steps." },
+  { Icon: MessageCircle, label: "Real Answers",   line: "Q&A and feedback when questions come up." },
 ];
 
 export default function BuildInMotionSection() {
-  const mobileRef = useRef(null);
+  const mobileRef  = useRef(null);
   const desktopRef = useRef(null);
-  const [mobileVisible, setMobileVisible] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [mobileVisible,  setMobileVisible]  = useState(false);
+  const [visible,        setVisible]        = useState(false);
+  const [hoveredRow,     setHoveredRow]     = useState(null);
 
   useEffect(() => {
-    const mo = new IntersectionObserver(([e]) => { if (e.isIntersecting) setMobileVisible(true); }, { threshold: 0.06 });
-    const do_ = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.06 });
-    if (mobileRef.current) mo.observe(mobileRef.current);
-    if (desktopRef.current) do_.observe(desktopRef.current);
-    return () => { mo.disconnect(); do_.disconnect(); };
+    const mo  = new IntersectionObserver(([e]) => { if (e.isIntersecting) setMobileVisible(true); },  { threshold: 0.06 });
+    const dsk = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); },        { threshold: 0.06 });
+    if (mobileRef.current)  mo.observe(mobileRef.current);
+    if (desktopRef.current) dsk.observe(desktopRef.current);
+    return () => { mo.disconnect(); dsk.disconnect(); };
   }, []);
 
   return (
     <section style={{ backgroundColor: "#F0EBE1", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
 
-      {/* ─────────────────── DESKTOP ANIMATIONS ─────────────────── */}
+      {/* ── DESKTOP ANIMATIONS ── */}
       {visible && (
         <style>{`
           @keyframes bimFadeUp {
@@ -39,19 +41,18 @@ export default function BuildInMotionSection() {
           }
           @keyframes bimFloat {
             0%, 100% { transform: translateY(0px); }
-            50%       { transform: translateY(-10px); }
+            50%       { transform: translateY(-9px); }
           }
-          @keyframes bimPathDraw {
-            from { stroke-dashoffset: 400; opacity: 0; }
-            to   { stroke-dashoffset: 0;   opacity: 1; }
+          @keyframes bimScaleFade {
+            from { opacity: 0; transform: scale(0.7); }
+            to   { opacity: 1; transform: scale(1); }
           }
-          /* device: fade-up entry, then float forever */
           .bim-device {
             animation:
               bimFadeUp 0.9s cubic-bezier(0.25,0.46,0.45,0.94) forwards,
               bimFloat  7s ease-in-out 0.95s infinite;
           }
-          .bim-support  { animation: bimFadeUp 0.6s ease forwards 0.7s;  opacity: 0; }
+          .bim-support  { animation: bimFadeUp 0.6s ease forwards 0.70s; opacity: 0; }
           .bim-s0       { animation: bimFadeUp 0.5s ease forwards 0.82s; opacity: 0; }
           .bim-s1       { animation: bimFadeUp 0.5s ease forwards 0.94s; opacity: 0; }
           .bim-s2       { animation: bimFadeUp 0.5s ease forwards 1.06s; opacity: 0; }
@@ -61,16 +62,14 @@ export default function BuildInMotionSection() {
           .bim-m2       { animation: bimFadeUp 0.5s ease forwards 0.54s; opacity: 0; }
           .bim-m3       { animation: bimFadeUp 0.5s ease forwards 0.66s; opacity: 0; }
           .bim-close    { animation: bimFadeUp 0.5s ease forwards 0.78s; opacity: 0; }
-          .bim-path     {
-            stroke-dasharray: 400;
-            stroke-dashoffset: 400;
-            opacity: 0;
-            animation: bimPathDraw 1.4s ease forwards 0.5s;
-          }
+          .bim-num0     { animation: bimScaleFade 0.4s ease forwards 0.36s; opacity: 0; }
+          .bim-num1     { animation: bimScaleFade 0.4s ease forwards 0.48s; opacity: 0; }
+          .bim-num2     { animation: bimScaleFade 0.4s ease forwards 0.60s; opacity: 0; }
+          .bim-num3     { animation: bimScaleFade 0.4s ease forwards 0.72s; opacity: 0; }
         `}</style>
       )}
 
-      {/* ─────────────────── MOBILE (unchanged) ─────────────────── */}
+      {/* ── MOBILE (unchanged) ── */}
       <div
         ref={mobileRef}
         className="md:hidden max-w-xl mx-auto px-5 sm:px-8 py-12 text-center"
@@ -101,29 +100,27 @@ export default function BuildInMotionSection() {
         </p>
       </div>
 
-      {/* ─────────────────── DESKTOP ─────────────────── */}
-      <div ref={desktopRef} className="hidden md:block" style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(40px,5vw,64px) clamp(32px,4vw,64px) clamp(40px,5vw,60px)" }}>
-
+      {/* ── DESKTOP ── */}
+      <div
+        ref={desktopRef}
+        className="hidden md:block"
+        style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(40px,5vw,64px) clamp(32px,4vw,64px) clamp(40px,5vw,60px)" }}
+      >
         <p className="font-micro mb-5 flex items-center gap-2" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
           <span style={{ display: "inline-block", width: "20px", height: "1px", backgroundColor: "#C4956A" }} />
           BUILD IN MOTION
         </p>
 
-        {/* ── Main two-column row ── */}
-        <div style={{ display: "flex", gap: "clamp(28px, 4vw, 56px)", alignItems: "flex-start", position: "relative" }}>
+        {/* Two-column row */}
+        <div style={{ display: "flex", gap: "clamp(28px, 4vw, 60px)", alignItems: "flex-start" }}>
 
-          {/* ── LEFT COLUMN: floating device + support strip ── */}
-          <div style={{ flexShrink: 0, width: "clamp(480px, 54%, 640px)", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          {/* ── LEFT COLUMN ── */}
+          <div style={{ flexShrink: 0, width: "clamp(460px, 52%, 620px)", display: "flex", flexDirection: "column", alignItems: "center" }}>
 
-            {/* Device mockup — floating hero */}
+            {/* Floating device mockup */}
             <div
               className={visible ? "bim-device" : ""}
-              style={{
-                opacity: visible ? undefined : 0,
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-              }}
+              style={{ opacity: visible ? undefined : 0, width: "100%" }}
             >
               <img
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5895f9396_Untitleddesign.png"
@@ -133,56 +130,59 @@ export default function BuildInMotionSection() {
                   height: "auto",
                   display: "block",
                   filter: [
-                    "drop-shadow(0 32px 64px rgba(44,44,44,0.20))",
-                    "drop-shadow(0 8px 20px rgba(196,149,106,0.14))",
-                    "drop-shadow(0 2px 6px rgba(44,44,44,0.08))",
+                    "drop-shadow(0 36px 72px rgba(44,44,44,0.22))",
+                    "drop-shadow(0 10px 24px rgba(196,149,106,0.15))",
+                    "drop-shadow(0 2px 6px rgba(44,44,44,0.07))",
                   ].join(" "),
                 }}
               />
             </div>
 
-            {/* Support strip — directly under device, visually connected */}
+            {/* Support strip — visually connected directly under device */}
             <div
               className={visible ? "bim-support" : ""}
               style={{
                 opacity: visible ? undefined : 0,
                 width: "100%",
-                marginTop: "20px",
-                paddingTop: "18px",
-                borderTop: "1px solid rgba(196,149,106,0.14)",
+                marginTop: "18px",
+                paddingTop: "16px",
+                borderTop: "1px solid rgba(196,149,106,0.16)",
               }}
             >
-              {/* Strip header */}
-              <p className="font-display" style={{ color: "#2C2C2C", fontSize: "0.95rem", lineHeight: "1.2", marginBottom: "3px" }}>
+              <p className="font-display" style={{ color: "#2C2C2C", fontSize: "0.92rem", lineHeight: "1.2", marginBottom: "3px" }}>
                 Support that keeps you moving
               </p>
-              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.78rem", lineHeight: "1.55", marginBottom: "14px", maxWidth: "52ch" }}>
+              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.76rem", lineHeight: "1.55", marginBottom: "12px", maxWidth: "50ch" }}>
                 Village support, guided implementation, and small next steps live together inside Mama Launch Studio.
               </p>
 
-              {/* Mini chips — compact horizontal row */}
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                {supportItems.map((item, i) => (
+              {/* Support chips with icons */}
+              <div style={{ display: "flex", gap: "7px", flexWrap: "wrap" }}>
+                {supportItems.map(({ Icon, label, line }, i) => (
                   <div
-                    key={item.label}
+                    key={label}
                     className={visible ? `bim-s${i}` : ""}
                     style={{
                       opacity: visible ? undefined : 0,
+                      flex: "1 1 130px",
+                      minWidth: "120px",
+                      padding: "9px 11px",
+                      borderRadius: "9px",
+                      backgroundColor: "rgba(255,253,249,0.8)",
+                      border: "1px solid rgba(196,149,106,0.10)",
                       display: "flex",
                       flexDirection: "column",
-                      flex: "1 1 140px",
-                      minWidth: "130px",
-                      padding: "10px 13px",
-                      borderRadius: "10px",
-                      backgroundColor: "rgba(255,253,249,0.75)",
-                      border: "1px solid rgba(196,149,106,0.11)",
+                      gap: "4px",
                     }}
                   >
-                    <span className="font-body" style={{ color: "#2C2C2C", fontSize: "0.78rem", fontWeight: 600, marginBottom: "2px" }}>
-                      {item.label}
-                    </span>
-                    <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.72rem", lineHeight: "1.45" }}>
-                      {item.line}
+                    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                      <Icon size={12} style={{ color: "#4D5E49", opacity: 0.7, flexShrink: 0 }} />
+                      <span className="font-body" style={{ color: "#2C2C2C", fontSize: "0.76rem", fontWeight: 600 }}>
+                        {label}
+                      </span>
+                    </div>
+                    <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.70rem", lineHeight: "1.45" }}>
+                      {line}
                     </span>
                   </div>
                 ))}
@@ -190,65 +190,67 @@ export default function BuildInMotionSection() {
             </div>
           </div>
 
-          {/* ── Subtle SVG bridge between columns ── */}
-          <div style={{ position: "absolute", left: "clamp(480px,54%,640px)", top: "30%", width: "clamp(28px,4vw,56px)", height: "120px", pointerEvents: "none", overflow: "visible", zIndex: 1 }}>
-            <svg width="100%" height="100%" viewBox="0 0 56 120" fill="none" style={{ overflow: "visible" }}>
-              <path
-                className={visible ? "bim-path" : ""}
-                d="M4 10 C 20 40, 36 80, 52 110"
-                stroke="#C4956A"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeDasharray="4 7"
-                fill="none"
-                style={{ opacity: visible ? undefined : 0 }}
-              />
-              {/* tiny arrowhead */}
-              <circle cx="52" cy="110" r="2.5" fill="#C4956A" style={{ opacity: visible ? 0.45 : 0, transition: "opacity 0.4s ease 1.9s" }} />
-            </svg>
-          </div>
-
-          {/* ── RIGHT COLUMN: heading + progress moments ── */}
+          {/* ── RIGHT COLUMN: progress moments ── */}
           <div style={{ flex: 1, minWidth: 0, paddingTop: "4px" }}>
 
-            <div className={visible ? "bim-head" : ""} style={{ opacity: visible ? undefined : 0, marginBottom: "20px" }}>
+            <div className={visible ? "bim-head" : ""} style={{ opacity: visible ? undefined : 0, marginBottom: "22px" }}>
               <h2
                 className="font-display leading-tight mb-2"
-                style={{ color: "#2C2C2C", fontSize: "clamp(1.45rem, 2.2vw, 2rem)", lineHeight: "1.15" }}
+                style={{ color: "#2C2C2C", fontSize: "clamp(1.4rem, 2.1vw, 1.95rem)", lineHeight: "1.15" }}
               >
                 Small steps <em style={{ color: "#4D5E49" }}>still count.</em>
               </h2>
-              <p
-                className="font-body"
-                style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65", maxWidth: "36ch" }}
-              >
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "0.87rem", lineHeight: "1.65", maxWidth: "36ch" }}>
                 Mama Launch Studio is designed so you can make progress in the pockets of time you already have.
               </p>
             </div>
 
-            {/* Progress moments — compact numbered rows */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {/* Progress moment rows */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "9px" }}>
               {progressMoments.map((moment, i) => (
                 <div
                   key={moment.title}
                   className={visible ? `bim-m${i}` : ""}
+                  onMouseEnter={() => setHoveredRow(i)}
+                  onMouseLeave={() => setHoveredRow(null)}
                   style={{
                     opacity: visible ? undefined : 0,
                     display: "flex",
                     alignItems: "flex-start",
-                    gap: "12px",
-                    padding: "10px 13px",
-                    borderRadius: "10px",
-                    backgroundColor: "rgba(255,253,249,0.65)",
-                    border: "1px solid rgba(196,149,106,0.09)",
+                    gap: "13px",
+                    padding: "11px 14px",
+                    borderRadius: "11px",
+                    backgroundColor: hoveredRow === i ? "rgba(255,253,249,0.95)" : "rgba(255,253,249,0.55)",
+                    border: `1px solid ${hoveredRow === i ? "rgba(196,149,106,0.22)" : "rgba(196,149,106,0.10)"}`,
+                    boxShadow: hoveredRow === i ? "0 3px 14px rgba(44,44,44,0.07)" : "none",
+                    transition: "background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease",
+                    transform: hoveredRow === i ? "translateY(-1px)" : "translateY(0)",
+                    cursor: "default",
                   }}
                 >
-                  {/* Subtle number */}
-                  <span className="font-display" style={{ flexShrink: 0, color: "#C4956A", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.04em", lineHeight: 1, marginTop: "4px", opacity: 0.7 }}>
-                    {moment.num}
-                  </span>
+                  {/* Premium numbered circle */}
+                  <div
+                    className={visible ? `bim-num${i}` : ""}
+                    style={{
+                      opacity: visible ? undefined : 0,
+                      flexShrink: 0,
+                      width: "24px",
+                      height: "24px",
+                      borderRadius: "50%",
+                      backgroundColor: "#4D5E49",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: "1px",
+                    }}
+                  >
+                    <span className="font-display" style={{ color: "#fff", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.02em", lineHeight: 1 }}>
+                      {moment.num}
+                    </span>
+                  </div>
+
                   <div>
-                    <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.84rem", fontWeight: 600, marginBottom: "1px" }}>
+                    <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.86rem", fontWeight: 600, marginBottom: "2px" }}>
                       {moment.title}
                     </p>
                     <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.77rem", lineHeight: "1.45" }}>
@@ -262,7 +264,7 @@ export default function BuildInMotionSection() {
             {/* Closing line */}
             <p
               className={visible ? "bim-close font-body" : "font-body"}
-              style={{ color: "#9a8f84", fontSize: "0.77rem", lineHeight: "1.6", fontStyle: "italic", marginTop: "16px", opacity: visible ? undefined : 0 }}
+              style={{ color: "#9a8f84", fontSize: "0.76rem", lineHeight: "1.6", fontStyle: "italic", marginTop: "16px", opacity: visible ? undefined : 0 }}
             >
               Every saved answer, checklist, and template brings your business one step closer to launch.
             </p>
