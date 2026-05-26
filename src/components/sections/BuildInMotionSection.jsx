@@ -7,24 +7,6 @@ const progressMoments = [
   { title: "Quiet evening", description: "Save your progress and know exactly what comes next." },
 ];
 
-const desktopStyles = `
-  @keyframes bimPhotoLift {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes bimTextFade {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .bim-photo-enter { animation: bimPhotoLift 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-  .bim-text-enter  { animation: bimTextFade 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-  .bim-moment-0    { animation: bimTextFade 0.6s ease forwards 0.35s; opacity: 0; }
-  .bim-moment-1    { animation: bimTextFade 0.6s ease forwards 0.48s; opacity: 0; }
-  .bim-moment-2    { animation: bimTextFade 0.6s ease forwards 0.61s; opacity: 0; }
-  .bim-moment-3    { animation: bimTextFade 0.6s ease forwards 0.74s; opacity: 0; }
-  .bim-closing     { animation: bimTextFade 0.6s ease forwards 0.88s; opacity: 0; }
-`;
-
 export default function BuildInMotionSection() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -41,10 +23,25 @@ export default function BuildInMotionSection() {
   return (
     <section style={{ backgroundColor: "#F0EBE1", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
 
-      {/* Mobile-only intro */}
-      <div
+      {visible && (
+        <style>{`
+          @keyframes bimFadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          .bim-photo  { animation: bimFadeUp 0.85s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
+          .bim-head   { animation: bimFadeUp 0.65s ease forwards 0.15s; opacity: 0; }
+          .bim-m0     { animation: bimFadeUp 0.55s ease forwards 0.28s; opacity: 0; }
+          .bim-m1     { animation: bimFadeUp 0.55s ease forwards 0.38s; opacity: 0; }
+          .bim-m2     { animation: bimFadeUp 0.55s ease forwards 0.48s; opacity: 0; }
+          .bim-m3     { animation: bimFadeUp 0.55s ease forwards 0.58s; opacity: 0; }
+          .bim-close  { animation: bimFadeUp 0.55s ease forwards 0.70s; opacity: 0; }
+        `}</style>
+      )}
+
+      {/* ── MOBILE only intro block ── */}
+      <div className="md:hidden max-w-xl mx-auto px-5 sm:px-8 py-12 text-center"
         ref={ref}
-        className="md:hidden max-w-3xl mx-auto px-5 sm:px-8 py-14 text-center"
         style={{
           transition: "opacity 0.7s ease, transform 0.7s ease",
           opacity: visible ? 1 : 0,
@@ -56,102 +53,97 @@ export default function BuildInMotionSection() {
           BUILD IN MOTION
           <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
         </p>
-
-        <h2
-          className="font-display leading-tight mb-5 mx-auto"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2", maxWidth: "24ch" }}
-        >
+        <h2 className="font-display leading-tight mb-4 mx-auto"
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 5vw, 2.4rem)", lineHeight: "1.2", maxWidth: "22ch" }}>
           You do not need uninterrupted hours{" "}
           <em style={{ color: "#4D5E49" }}>to make progress.</em>
         </h2>
-
-        <p
-          className="font-body mx-auto leading-relaxed"
-          style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "50ch" }}
-        >
+        <p className="font-body mx-auto leading-relaxed"
+          style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.7", maxWidth: "42ch" }}>
           Chip away at your business while living real motherhood life — during nap time, laundry,
           dinner prep, school pickup, or quiet moments throughout the day.
         </p>
       </div>
 
-      {/* Desktop-only: two-column editorial layout */}
-      {visible && <style>{desktopStyles}</style>}
+      {/* ── DESKTOP two-column ── */}
       <div
         ref={ref}
-        className="hidden md:grid max-w-5xl mx-auto px-12 pb-16"
-        style={{
-          gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(48px, 5vw, 72px)",
-          alignItems: "center",
-        }}
+        className="hidden md:flex max-w-5xl mx-auto px-10 lg:px-12 py-14"
+        style={{ gap: "clamp(44px, 5vw, 72px)", alignItems: "center" }}
       >
-        {/* Left: Photo — emotional anchor */}
+
+        {/* Left: photo */}
         <div
-          className={visible ? "bim-photo-enter" : ""}
+          className={visible ? "bim-photo" : ""}
           style={{
-            borderRadius: "18px",
+            flexShrink: 0,
+            width: "clamp(260px, 40%, 380px)",
+            borderRadius: "16px",
             overflow: "hidden",
-            boxShadow: "0 6px 28px rgba(196,149,106,0.13), 0 2px 8px rgba(0,0,0,0.05)",
-            border: "1px solid rgba(196,149,106,0.09)",
             opacity: visible ? undefined : 0,
+            boxShadow: "0 6px 24px rgba(196,149,106,0.13), 0 1px 6px rgba(0,0,0,0.05)",
+            border: "1px solid rgba(196,149,106,0.09)",
           }}
         >
           <img
             src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5895f9396_Untitleddesign.png"
-            alt="Mama Launch platform showing implementation tools and community village"
+            alt="Mama Launch platform — implementation tools and community"
             style={{ width: "100%", height: "auto", display: "block" }}
           />
         </div>
 
-        {/* Right: Heading, moments, closing line */}
-        <div className={visible ? "bim-text-enter" : ""} style={{ opacity: visible ? undefined : 0 }}>
+        {/* Right: text */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+
           {/* Eyebrow */}
-          <p className="font-micro mb-3 inline-flex items-center gap-2" style={{ color: "#C4956A", fontSize: "0.66rem" }}>
-            <span style={{ display: "inline-block", width: "20px", height: "1px", backgroundColor: "#C4956A" }} />
+          <p className="font-micro mb-3 flex items-center gap-2" style={{ color: "#C4956A", fontSize: "0.64rem" }}>
+            <span style={{ display: "inline-block", width: "18px", height: "1px", backgroundColor: "#C4956A" }} />
             BUILD IN MOTION
           </p>
 
-          <h2
-            className="font-display leading-tight mb-3"
-            style={{ color: "#2C2C2C", fontSize: "clamp(1.55rem, 2.6vw, 2.2rem)", lineHeight: "1.15" }}
-          >
-            Small steps{" "}
-            <em style={{ color: "#4D5E49" }}>still count.</em>
-          </h2>
+          {/* Heading + copy */}
+          <div className={visible ? "bim-head" : ""} style={{ opacity: visible ? undefined : 0 }}>
+            <h2 className="font-display leading-tight mb-3"
+              style={{ color: "#2C2C2C", fontSize: "clamp(1.5rem, 2.4vw, 2.1rem)", lineHeight: "1.15" }}>
+              Small steps{" "}
+              <em style={{ color: "#4D5E49" }}>still count.</em>
+            </h2>
+            <p className="font-body mb-6"
+              style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.68", maxWidth: "38ch" }}>
+              Mama Launch Studio is designed so you can make progress in the pockets of time you already have.
+            </p>
+          </div>
 
-          <p
-            className="font-body leading-relaxed mb-6"
-            style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.7", maxWidth: "38ch" }}
-          >
-            Mama Launch Studio is designed so you can make progress in the pockets of time you already have.
-          </p>
-
-          {/* Progress moments — staggered lightweight list */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "14px", marginBottom: "24px" }}>
+          {/* Progress moments — compact rows */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "11px", marginBottom: "20px" }}>
             {progressMoments.map((moment, i) => (
               <div
                 key={moment.title}
-                className={visible ? `bim-moment-${i}` : ""}
+                className={visible ? `bim-m${i}` : ""}
                 style={{
                   display: "flex",
                   alignItems: "flex-start",
-                  gap: "12px",
+                  gap: "11px",
                   opacity: visible ? undefined : 0,
+                  padding: "9px 12px",
+                  borderRadius: "10px",
+                  backgroundColor: "rgba(255,253,249,0.7)",
+                  border: "1px solid rgba(196,149,106,0.09)",
                 }}
               >
-                <div style={{
+                <span style={{
                   flexShrink: 0,
                   width: "5px",
                   height: "5px",
                   borderRadius: "50%",
                   backgroundColor: "#C4956A",
-                  marginTop: "7px",
+                  marginTop: "6px",
                 }} />
                 <div>
-                  <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.88rem", fontWeight: 600, marginBottom: "1px" }}>
+                  <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.86rem", fontWeight: 600, marginBottom: "1px" }}>
                     {moment.title}
                   </p>
-                  <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.81rem", lineHeight: "1.5" }}>
+                  <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.8rem", lineHeight: "1.45" }}>
                     {moment.description}
                   </p>
                 </div>
@@ -159,10 +151,10 @@ export default function BuildInMotionSection() {
             ))}
           </div>
 
-          {/* Closing line — fades in last */}
+          {/* Closing line */}
           <p
-            className={visible ? "bim-closing font-body" : "font-body"}
-            style={{ color: "#9a8f84", fontSize: "0.8rem", lineHeight: "1.6", fontStyle: "italic", opacity: visible ? undefined : 0 }}
+            className={visible ? "bim-close font-body" : "font-body"}
+            style={{ color: "#9a8f84", fontSize: "0.79rem", lineHeight: "1.6", fontStyle: "italic", opacity: visible ? undefined : 0 }}
           >
             Every saved answer, checklist, and template brings your business one step closer to launch.
           </p>
