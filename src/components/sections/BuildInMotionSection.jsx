@@ -72,23 +72,27 @@ export default function BuildInMotionSection() {
         style={{ gap: "clamp(44px, 5vw, 72px)", alignItems: "center" }}
       >
 
-        {/* Left: photo */}
+        {/* Left: floating device mockup — no background panel */}
         <div
           className={visible ? "bim-photo" : ""}
           style={{
             flexShrink: 0,
-            width: "clamp(260px, 40%, 380px)",
-            borderRadius: "16px",
-            overflow: "hidden",
+            width: "clamp(320px, 46%, 460px)",
             opacity: visible ? undefined : 0,
-            boxShadow: "0 6px 24px rgba(196,149,106,0.13), 0 1px 6px rgba(0,0,0,0.05)",
-            border: "1px solid rgba(196,149,106,0.09)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <img
             src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5895f9396_Untitleddesign.png"
             alt="Mama Launch platform — implementation tools and community"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+              filter: "drop-shadow(0 14px 32px rgba(44,44,44,0.14)) drop-shadow(0 3px 10px rgba(196,149,106,0.10))",
+            }}
           />
         </div>
 
