@@ -123,19 +123,17 @@
   }
 
   .atmospheric-entrance {
-    animation: atmosphericEntrance 0.9s ease-out forwards;
+    animation: atmosphericEntrance 0.7s ease-out forwards;
   }
 
   @keyframes atmosphericEntrance {
     from {
       opacity: 0;
-      transform: translateY(24px);
-      filter: blur(4px);
+      transform: translateY(16px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
   }
 

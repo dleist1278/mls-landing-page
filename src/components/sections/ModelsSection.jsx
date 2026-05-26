@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import FuturePathwaysAccordion from "@/components/sections/FuturePathwaysAccordion";
 
 const pathways = [
 {
@@ -161,13 +162,7 @@ export default function ModelsSection() {
             box-shadow: 0 10px 32px rgba(77,94,73,0.34) !important;
             transform: translateY(-1px);
           }
-          .models-future-card {
-            transition: border-color 0.22s ease, transform 0.22s ease;
-          }
-          .models-future-card:hover {
-            border-color: rgba(196,149,106,0.28) !important;
-            transform: translateY(-2px);
-          }
+
         `}</style>
 
         {/* ── DESKTOP LAYOUT ── */}
@@ -264,87 +259,8 @@ export default function ModelsSection() {
             </div>
           </div>
 
-          {/* ── Future Pathways — side-by-side secondary cards ── */}
-          <div
-            style={{
-              borderTop: "1px solid rgba(196,149,106,0.12)",
-              paddingTop: "28px",
-              opacity: headerVisible ? 1 : 0,
-              animation: headerVisible ? "cardsFadeUp 0.7s ease 0.4s forwards" : "none",
-              animationFillMode: "forwards"
-            }}
-          >
-            {/* Sub-heading */}
-            <div style={{ marginBottom: "16px" }}>
-              <p className="font-micro" style={{ color: "#7A6E65", fontSize: "0.66rem", letterSpacing: "0.18em", marginBottom: "5px" }}>
-                FUTURE PATHWAYS COMING SOON
-              </p>
-              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.84rem", lineHeight: "1.5" }}>
-                Mama Launch Studio is expanding into additional motherhood-centered childcare and learning models.
-              </p>
-            </div>
-
-            {/* Cards row */}
-            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-              {futurePathwayCards.map((card, i) => (
-                <div
-                  key={card.id}
-                  className="models-future-card"
-                  style={{
-                    flex: "1 1 200px",
-                    minWidth: "180px",
-                    backgroundColor: "rgba(240,235,225,0.45)",
-                    border: "1px solid rgba(196,149,106,0.09)",
-                    borderRadius: "12px",
-                    padding: "16px 18px 14px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "8px",
-                    opacity: headerVisible ? 1 : 0,
-                    animation: headerVisible ? `cardsFadeUp 0.6s ease ${0.5 + i * 0.1}s forwards` : "none",
-                    animationFillMode: "forwards"
-                  }}
-                >
-                  {/* Coming Soon badge */}
-                  <span className="font-micro" style={{
-                    alignSelf: "flex-start",
-                    backgroundColor: "transparent",
-                    border: "1px solid rgba(196,149,106,0.18)",
-                    color: "#B5956A",
-                    borderRadius: "999px",
-                    padding: "2px 8px",
-                    fontSize: "0.52rem",
-                    letterSpacing: "0.10em"
-                  }}>Coming Soon</span>
-
-                  {/* Title */}
-                  <h4 className="font-display" style={{ color: "#5C4E42", fontSize: "0.92rem", lineHeight: "1.2", letterSpacing: "-0.01em", margin: 0 }}>
-                    {card.title}
-                  </h4>
-
-                  {/* Description */}
-                  <p className="font-body" style={{ color: "#8A7D73", fontSize: "0.82rem", lineHeight: "1.6", margin: 0 }}>
-                    {card.description}
-                  </p>
-
-                  {/* Value tags */}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginTop: "2px" }}>
-                    {card.tags.map((tag) => (
-                      <span key={tag} className="font-micro" style={{
-                        backgroundColor: "transparent",
-                        border: "1px solid rgba(196,149,106,0.15)",
-                        color: "#9A8070",
-                        borderRadius: "999px",
-                        padding: "2px 7px",
-                        fontSize: "0.52rem",
-                        letterSpacing: "0.05em"
-                      }}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* ── Future Pathways — accordion drawers ── */}
+          <FuturePathwaysAccordion headerVisible={headerVisible} />
 
         </div>
 
