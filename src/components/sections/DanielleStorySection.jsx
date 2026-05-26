@@ -144,7 +144,7 @@ export default function DanielleStorySection() {
 
       <div
         ref={sectionRef}
-        className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-10 md:py-20"
+        className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-10 md:py-14"
         style={{ transition: "opacity 0.7s ease, transform 0.7s ease", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)" }}>
 
         {/* Section eyebrow — shared mobile + desktop */}
@@ -188,13 +188,6 @@ export default function DanielleStorySection() {
               )}
             </div>
 
-            <button
-              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro inline-flex items-center gap-2 text-white px-8 py-4 rounded-full min-h-[52px] transition-all"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}>
-              Join the Founding Member Waitlist
-              <ArrowRight className="h-3.5 w-3.5" />
-            </button>
           </div>
 
           {/* Right — photo + accordion */}
@@ -217,21 +210,22 @@ export default function DanielleStorySection() {
 
             {/* Tabs */}
             <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
-
-            {/* Desktop-only CTA below drawers */}
-            <div className="text-center pt-2">
-              <p className="font-body mb-4" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6" }}>
-                Ready to build with guidance instead of figuring it out alone?
-              </p>
-              <button
-                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-                className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px]"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
-              >
-                Join the Founding Member Waitlist
-              </button>
-            </div>
           </div>
+        </div>
+
+        {/* Desktop-only CTA below both columns */}
+        <div className="hidden md:block text-center mt-10">
+          <p className="font-body mb-4" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6" }}>
+            Ready to build with guidance instead of figuring it out alone?
+          </p>
+          <button
+            onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+            className="font-micro inline-flex items-center gap-2 text-white px-8 py-4 rounded-full min-h-[52px] transition-all"
+            style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
+          >
+            Join the Founding Member Waitlist
+            <ArrowRight className="h-3.5 w-3.5" />
+          </button>
         </div>
 
         {/* ── MOBILE single-column ── */}
