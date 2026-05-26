@@ -77,13 +77,13 @@ function StepCard({ step, index, isOpen, onToggle }) {
             <Icon size={19} style={{ color: "#4D5E49", strokeWidth: 1.6 }} />
           </div>
           <div className="flex-1">
-            <h3 className="font-display text-[19px] leading-snug" style={{ color: "#2C2C2C" }}>{step.title}</h3>
-            <p className="font-micro mt-0.5" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.1em" }}>{step.sub}</p>
+            <h3 className="font-display text-[21px] leading-snug" style={{ color: "#2C2C2C" }}>{step.title}</h3>
+            <p className="font-micro mt-0.5" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.1em" }}>{step.sub}</p>
           </div>
         </div>
         {isOpen &&
         <div className="px-5 pb-4" style={{ borderTop: "1px solid #F0EBE3" }}>
-            <p className="pt-3 text-[15px] leading-relaxed" style={{ color: "#7A6E65", maxWidth: "38ch", lineHeight: "1.65" }}>{step.description}</p>
+            <p className="pt-3 text-[17px] leading-relaxed" style={{ color: "#7A6E65", maxWidth: "38ch", lineHeight: "1.68" }}>{step.description}</p>
           </div>
         }
       </div>
@@ -334,11 +334,11 @@ export default function FoundingMemberSection() {
           </p>
           <h2
             className="font-display leading-tight mb-3"
-            style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
+            style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.8vw, 3rem)", lineHeight: "1.2" }}>
             What Happens After<br />
             <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
           </h2>
-          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.68", maxWidth: "42ch" }}>
+          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "1.1rem", lineHeight: "1.7", maxWidth: "42ch" }}>
             Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
           </p>
         </div>
@@ -369,7 +369,7 @@ export default function FoundingMemberSection() {
             </div>
             <div>
               <p className="font-micro mb-0.5" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.14em" }}>FOUNDING MEMBER BENEFIT</p>
-              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.82rem", lineHeight: "1.6" }}>
+              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.6" }}>
                 First access, early pricing, and the opportunity to help shape the platform from the beginning.
               </p>
             </div>

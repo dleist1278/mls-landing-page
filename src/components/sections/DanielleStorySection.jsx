@@ -115,7 +115,7 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
         }}>
         {openDrawer >= 0 &&
         <div className="px-5 py-4">
-            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7" }}>
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1.05rem", lineHeight: "1.7" }}>
             {drawers[openDrawer]?.content}
             </p>
           </div>
@@ -159,11 +159,11 @@ export default function DanielleStorySection() {
 
           {/* Left — heading, tags, drawers, CTA */}
           <div>
-            <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
+            <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.8vw, 3rem)", lineHeight: "1.2" }}>
               Created by someone who understands{" "}
               <em style={{ color: "#4D5E49" }}>both the systems and the real life.</em>
             </h2>
-            <p className="font-body leading-relaxed mb-5" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.72" }}>
+            <p className="font-body leading-relaxed mb-5" style={{ color: "#5C5148", fontSize: "1.125rem", lineHeight: "1.72" }}>
               Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
             </p>
 
@@ -205,7 +205,7 @@ export default function DanielleStorySection() {
 
             {/* CTA — directly under photo */}
             <div className="flex flex-col items-center text-center" style={{ marginTop: "24px", gap: "14px" }}>
-              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6" }}>
+              <p className="font-body" style={{ color: "#7A6E65", fontSize: "1rem", lineHeight: "1.6" }}>
                 Ready to build with guidance instead of figuring it out alone?
               </p>
               <button

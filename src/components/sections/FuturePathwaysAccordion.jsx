@@ -56,7 +56,7 @@ function DrawerRow({ pathway, isOpen, onToggle, isLast }) {
           style={{
             flex: 1,
             color: "#3A3028",
-            fontSize: "0.97rem",
+            fontSize: "1.1rem",
             lineHeight: "1.2",
             letterSpacing: "-0.01em",
           }}
@@ -106,8 +106,8 @@ function DrawerRow({ pathway, isOpen, onToggle, isLast }) {
             className="font-body"
             style={{
               color: "#6B5F56",
-              fontSize: "0.84rem",
-              lineHeight: "1.62",
+              fontSize: "1rem",
+              lineHeight: "1.65",
               marginTop: "12px",
               marginBottom: "10px",
             }}
@@ -165,7 +165,7 @@ export default function FuturePathwaysAccordion({ headerVisible }) {
         </p>
         <p
           className="font-body"
-          style={{ color: "#7A6E65", fontSize: "0.84rem", lineHeight: "1.5" }}
+          style={{ color: "#7A6E65", fontSize: "1rem", lineHeight: "1.6" }}
         >
           Mama Launch Studio is expanding into additional motherhood-centered childcare and learning models.
         </p>

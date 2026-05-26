@@ -143,7 +143,7 @@ export default function IntakeFormSection() {
                   className="font-display leading-tight mb-3 break-words"
                   style={{
                     color: "#2C2C2C",
-                    fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)",
+                    fontSize: "clamp(2rem, 3.8vw, 3rem)",
                     overflowWrap: "break-word",
                     opacity: visible ? 1 : 0,
                     animation: visible ? "intakeFadeUp 0.65s ease 0.1s forwards" : "none",
@@ -155,7 +155,7 @@ export default function IntakeFormSection() {
                 <p
                   className="font-body mx-auto leading-relaxed"
                   style={{
-                    color: "#5C5148", maxWidth: "440px", fontSize: "1rem",
+                    color: "#5C5148", maxWidth: "440px", fontSize: "1.125rem",
                     opacity: visible ? 1 : 0,
                     animation: visible ? "intakeFadeUp 0.6s ease 0.2s forwards" : "none",
                   }}
@@ -165,7 +165,7 @@ export default function IntakeFormSection() {
                 <p
                   className="font-body mx-auto mt-2"
                   style={{
-                    color: "#7A6E65", maxWidth: "400px", fontSize: "0.93rem",
+                    color: "#7A6E65", maxWidth: "400px", fontSize: "1.05rem",
                     opacity: visible ? 1 : 0,
                     animation: visible ? "intakeFadeUp 0.6s ease 0.28s forwards" : "none",
                   }}

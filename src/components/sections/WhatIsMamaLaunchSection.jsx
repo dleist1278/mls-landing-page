@@ -191,7 +191,7 @@ export default function WhatIsMamaLaunchSection() {
           <p
             className="font-body mx-auto"
             style={{
-            color: "#5C5148", fontSize: "1rem", lineHeight: "1.75", maxWidth: "58ch",
+            color: "#5C5148", fontSize: "1.125rem", lineHeight: "1.75", maxWidth: "58ch",
               opacity: visible ? 1 : 0,
               animation: visible ? "methodFadeUp 0.8s ease forwards" : "none",
               animationDelay: "0.2s"
@@ -336,11 +336,11 @@ export default function WhatIsMamaLaunchSection() {
                           <span className="font-micro" style={{ display: "inline-block", color: phase.color, fontSize: "0.55rem", letterSpacing: "0.16em", marginBottom: "6px" }}>
                             PHASE {phase.number}
                           </span>
-                          <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "clamp(1.05rem, 1.5vw, 1.3rem)", lineHeight: "1.2", letterSpacing: "-0.02em" }}>
+                          <h3 className="font-display" style={{ color: "#2C2C2C", fontSize: "clamp(1.15rem, 1.6vw, 1.45rem)", lineHeight: "1.2", letterSpacing: "-0.02em" }}>
                             {phase.name}
                           </h3>
                         </div>
-                        <p className="font-body" style={{ color: "#3a3228", fontSize: "0.94rem", lineHeight: "1.65", marginBottom: "14px" }}>
+                        <p className="font-body" style={{ color: "#3a3228", fontSize: "1.05rem", lineHeight: "1.68", marginBottom: "14px" }}>
                           {phase.outcome}
                         </p>
                         <div style={{ borderTop: `1px solid ${phase.color}18`, paddingTop: "9px" }}>
@@ -508,7 +508,7 @@ export default function WhatIsMamaLaunchSection() {
           <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.25rem, 2vw, 1.65rem)", lineHeight: "1.2" }}>
             You don't need to figure out every step alone.
           </h3>
-          <p className="font-body mb-8" style={{ color: "#7A6E65", fontSize: "0.95rem", lineHeight: "1.75" }}>
+          <p className="font-body mb-8" style={{ color: "#7A6E65", fontSize: "1.1rem", lineHeight: "1.75" }}>
             Founding members will be the first to move through the full Mama Launch Method™ with guided support, templates, and a clear path to opening.
           </p>
           <button

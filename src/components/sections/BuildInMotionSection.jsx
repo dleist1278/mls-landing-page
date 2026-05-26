@@ -149,10 +149,10 @@ export default function BuildInMotionSection() {
                 borderTop: "1px solid rgba(196,149,106,0.16)",
               }}
             >
-              <p className="font-display" style={{ color: "#2C2C2C", fontSize: "0.92rem", lineHeight: "1.2", marginBottom: "3px" }}>
+              <p className="font-display" style={{ color: "#2C2C2C", fontSize: "1.05rem", lineHeight: "1.2", marginBottom: "3px" }}>
                 Support that keeps you moving
               </p>
-              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.76rem", lineHeight: "1.55", marginBottom: "12px", maxWidth: "50ch" }}>
+              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", maxWidth: "50ch" }}>
                 Village support, guided implementation, and small next steps live together inside Mama Launch Studio.
               </p>
 
@@ -177,11 +177,11 @@ export default function BuildInMotionSection() {
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                       <Icon size={12} style={{ color: "#4D5E49", opacity: 0.7, flexShrink: 0 }} />
-                      <span className="font-body" style={{ color: "#2C2C2C", fontSize: "0.76rem", fontWeight: 600 }}>
+                      <span className="font-body" style={{ color: "#2C2C2C", fontSize: "0.88rem", fontWeight: 600 }}>
                         {label}
                       </span>
                     </div>
-                    <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.75rem", lineHeight: "1.5" }}>
+                    <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.86rem", lineHeight: "1.5" }}>
                       {line}
                     </span>
                   </div>
@@ -200,7 +200,7 @@ export default function BuildInMotionSection() {
               >
                 Small steps <em style={{ color: "#4D5E49" }}>still count.</em>
               </h2>
-              <p className="font-body" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.65", maxWidth: "40ch" }}>
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "1.125rem", lineHeight: "1.7", maxWidth: "40ch" }}>
                 Mama Launch Studio is designed so you can make progress in the pockets of time you already have.
               </p>
             </div>
