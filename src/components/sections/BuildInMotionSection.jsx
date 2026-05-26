@@ -69,17 +69,17 @@ export default function BuildInMotionSection() {
       >
         {/* Left: Photo */}
         <div
-          className="rounded-[20px] overflow-hidden"
+          className="rounded-[24px] overflow-hidden"
           style={{
-            boxShadow: "0 20px 60px rgba(196,149,106,0.22), 0 6px 20px rgba(0,0,0,0.09)",
-            border: "1px solid rgba(196,149,106,0.1)",
+            aspectRatio: "4 / 5",
+            boxShadow: "0 16px 48px rgba(196,149,106,0.18), 0 4px 16px rgba(0,0,0,0.07)",
+            border: "1px solid rgba(196,149,106,0.12)",
           }}
         >
           <img
             src="https://images.unsplash.com/photo-1596496181165-27a147d34193?q=80&w=1200&auto=format&fit=crop"
             alt="Mother working on her business during a quiet moment at home"
-            className="w-full h-full object-cover block"
-            style={{ objectPosition: "center", filter: "saturate(0.88) brightness(0.97)", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", filter: "saturate(0.85) brightness(0.97)", display: "block" }}
           />
         </div>
 
