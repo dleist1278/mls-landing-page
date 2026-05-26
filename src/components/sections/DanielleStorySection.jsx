@@ -190,7 +190,7 @@ export default function DanielleStorySection() {
 
           {/* Right — photo + CTA as one visual unit */}
           <div className="flex flex-col items-center">
-            <div className="relative" style={{ width: "clamp(200px, 55%, 280px)" }}>
+            <div className="relative" style={{ width: "clamp(260px, 70%, 360px)" }}>
               <div className="absolute rounded-[16px]" style={{ inset: 0, transform: "translate(7px, 7px)", backgroundColor: "#C4956A", opacity: 0.13, zIndex: 0 }} />
               <div className="absolute rounded-[16px]" style={{ inset: 0, transform: "translate(4px, 4px)", backgroundColor: "#4D5E49", opacity: 0.09, zIndex: 1 }} />
               <div className="relative rounded-[16px] overflow-hidden" style={{ zIndex: 2, boxShadow: "0 12px 36px rgba(196,149,106,0.20), 0 3px 10px rgba(0,0,0,0.07)", border: "1px solid rgba(196,149,106,0.08)" }}>
@@ -198,7 +198,7 @@ export default function DanielleStorySection() {
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                   alt="Danielle, founder of Mama Launch Studio"
                   className="w-full"
-                  style={{ height: "240px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
+                  style={{ height: "340px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
                 <div className="absolute bottom-0 left-0 right-0 h-10" style={{ background: "linear-gradient(to top, rgba(250,247,242,0.4), transparent)" }} />
               </div>
             </div>
