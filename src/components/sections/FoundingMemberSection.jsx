@@ -3,8 +3,8 @@ import { ClipboardCheck, Mail, Users, Puzzle, DoorOpen, Heart, ChevronDown } fro
 
 // ── Desktop + mobile shared data ─────────────────────────────────────────────
 const steps = [
-{ step: "01", title: "Join", description: "Reserve your founding member spot and receive your welcome roadmap.", sub: "Immediate access + onboarding", icon: ClipboardCheck },
-{ step: "02", title: "Get Oriented", description: "Choose your pathway and unlock your first implementation phase.", sub: "Choose your launch path", icon: Puzzle },
+{ step: "01", title: "Mark Your Calendar", description: "The first Mama Launch cohort begins July 8, 2026. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th.", sub: "July 8, 2026", icon: ClipboardCheck },
+{ step: "02", title: "Get Oriented", description: "Define your hours, age range, and whether you're launching a daycare or nursery school. This is where your program starts taking real shape.", sub: "Shape your program", icon: Puzzle },
 { step: "03", title: "Build Forward", description: "Move through guided prompts, templates, and support at your own pace with the village beside you.", sub: "Steady momentum + support", icon: Users }];
 
 
@@ -13,8 +13,8 @@ const mobileStages = [
 {
   id: 1,
   title: "MARK YOUR CALENDAR",
-  label: "July 6th",
-  copy: "The first Mama Launch cohort begins July 6th. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th."
+  label: "July 8, 2026",
+  copy: "The first Mama Launch cohort begins July 8, 2026. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th."
 },
 {
   id: 2,
@@ -315,69 +315,67 @@ export default function FoundingMemberSection() {
         </div>
       </div>
 
-      {/* ── DESKTOP layout (unchanged) ───────────────────────────────────── */}
-      <div className="hidden lg:block max-w-[1120px] mx-auto px-12">
-        <div className="grid grid-cols-[0.85fr_1.15fr] gap-12 items-start">
+      {/* ── DESKTOP layout ───────────────────────────────────────────────── */}
+      <div className="hidden lg:block max-w-[680px] mx-auto px-8">
 
-          {/* Left column */}
-          <div
-            ref={headerRef}
-            className="sticky top-28 pr-6"
-            style={{
-              transition: "opacity 0.5s ease, transform 0.5s ease",
-              opacity: headerVisible ? 1 : 0,
-              transform: headerVisible ? "translateY(0)" : "translateY(14px)"
-            }}>
-            
-            <p className="font-micro mb-2 flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-              YOUR FOUNDING MEMBER JOURNEY
-            </p>
-            <h2
-              className="font-display leading-tight mb-4"
-              style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
-              Here's what happens<br />
-              <em style={{ color: "#4D5E49" }}>after you join.</em>
-            </h2>
-            <p className="font-body text-sm leading-relaxed mb-4" style={{ color: "#7A6E65", maxWidth: "32ch", lineHeight: "1.7" }}>
-              You do not need to figure everything out before starting. Mama Launch guides you step by step with structure, support, and implementation tools designed for real motherhood life.
-            </p>
-            <p className="font-micro mb-6" style={{ color: "#9a8f84", fontSize: "0.66rem", letterSpacing: "0.07em" }}>
-              Built around real motherhood rhythms, not uninterrupted workdays.
-            </p>
-            <div className="rounded-xl p-4" style={{ backgroundColor: "rgba(77,94,73,0.05)", outline: "1px solid rgba(77,94,73,0.12)" }}>
-              <div className="flex items-start gap-3">
-                <Heart size={14} style={{ color: "#4D5E49", flexShrink: 0, strokeWidth: 1.6, marginTop: "2px" }} />
-                <div>
-                  <p className="font-micro mb-1" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.12em" }}>FOUNDING MEMBER BENEFIT</p>
-                  <p className="font-body text-xs leading-relaxed" style={{ color: "#5C5148" }}>
-                    Founding members receive first access, early pricing, and the opportunity to help shape the platform from the beginning.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right column */}
-          <div>
-            <div className="relative space-y-2.5 max-w-[540px]">
-              <div
-                className="absolute left-[19px] lg:left-[21px] top-10 h-[calc(100%-72px)] border-l border-dashed"
-                style={{ borderColor: "rgba(196,149,106,0.22)" }} />
-              
-              {steps.map((step, i) =>
-              <StepCard
-                key={step.step}
-                step={step}
-                index={i}
-                isOpen={activeStep === step.step}
-                onToggle={() => setActiveStep(activeStep === step.step ? null : step.step)} />
-
-              )}
-            </div>
-          </div>
-
+        {/* Centered header */}
+        <div
+          ref={headerRef}
+          className="text-center mb-8"
+          style={{
+            transition: "opacity 0.5s ease, transform 0.5s ease",
+            opacity: headerVisible ? 1 : 0,
+            transform: headerVisible ? "translateY(0)" : "translateY(14px)"
+          }}>
+          <p className="font-micro mb-3 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+            YOUR FOUNDING MEMBER JOURNEY
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+          </p>
+          <h2
+            className="font-display leading-tight mb-3"
+            style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
+            What Happens After<br />
+            <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
+          </h2>
+          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65", maxWidth: "42ch" }}>
+            Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
+          </p>
         </div>
+
+        {/* Step accordion cards */}
+        <div className="flex flex-col gap-2.5 mb-5">
+          {steps.map((step, i) =>
+            <StepCard
+              key={step.step}
+              step={step}
+              index={i}
+              isOpen={activeStep === step.step}
+              onToggle={() => setActiveStep(activeStep === step.step ? null : step.step)} />
+          )}
+        </div>
+
+        {/* Founding member benefit block */}
+        <div
+          className="rounded-xl px-5 py-4"
+          style={{
+            backgroundColor: "transparent",
+            border: "1px solid #C4956A22"
+          }}>
+          <div className="flex items-start gap-3">
+            <div className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5"
+              style={{ backgroundColor: "#e5393518", border: "1px solid #e5393530" }}>
+              <Heart size={12} style={{ color: "#e53935", strokeWidth: 1.8, fill: "#e53935", animation: "heartPulse 1.4s ease-in-out infinite" }} />
+            </div>
+            <div>
+              <p className="font-micro mb-0.5" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.14em" }}>FOUNDING MEMBER BENEFIT</p>
+              <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.82rem", lineHeight: "1.6" }}>
+                First access, early pricing, and the opportunity to help shape the platform from the beginning.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </section>);
