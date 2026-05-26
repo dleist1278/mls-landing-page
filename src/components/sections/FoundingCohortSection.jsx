@@ -38,7 +38,7 @@ export default function FoundingCohortSection() {
 
       <div
         ref={ref}
-        className="max-w-xl mx-auto px-5 sm:px-8 py-10 md:py-10 text-center"
+        className="max-w-2xl mx-auto px-5 sm:px-8 py-10 md:py-10 text-center"
       >
         {/* Eyebrow */}
         <p

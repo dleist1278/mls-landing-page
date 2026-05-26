@@ -85,7 +85,7 @@ export default function IntakeFormSection() {
         </p>
       </div>
 
-      <div className="max-w-3xl mx-auto px-5 sm:px-8 md:px-10 py-6 md:py-16">
+      <div className="max-w-2xl mx-auto px-5 sm:px-8 md:px-10 py-6 md:py-16">
         <div
           ref={ref}
           style={{

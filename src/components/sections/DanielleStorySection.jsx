@@ -144,7 +144,7 @@ export default function DanielleStorySection() {
 
       <div
         ref={sectionRef}
-        className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-10 md:py-14"
+        className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 py-10 md:py-14"
         style={{ transition: "opacity 0.7s ease, transform 0.7s ease", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)" }}>
 
         {/* Section eyebrow — shared mobile + desktop */}
@@ -155,7 +155,7 @@ export default function DanielleStorySection() {
         </p>
 
         {/* ── DESKTOP two-column ── */}
-        <div className="hidden md:grid grid-cols-[1fr_1fr] gap-14 items-start">
+        <div className="hidden md:grid grid-cols-[1fr_1fr] gap-16 items-start">
 
           {/* Left — heading, tags, drawers, CTA */}
           <div>
@@ -198,7 +198,7 @@ export default function DanielleStorySection() {
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                   alt="Danielle, founder of Mama Launch Studio"
                   className="w-full"
-                  style={{ height: "340px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
+                  style={{ height: "400px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
                 <div className="absolute bottom-0 left-0 right-0 h-10" style={{ background: "linear-gradient(to top, rgba(250,247,242,0.4), transparent)" }} />
               </div>
             </div>

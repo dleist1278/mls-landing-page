@@ -104,7 +104,7 @@ export default function BuildInMotionSection() {
       <div
         ref={desktopRef}
         className="hidden md:block"
-        style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(40px,5vw,64px) clamp(32px,4vw,64px) clamp(40px,5vw,60px)" }}
+        style={{ maxWidth: "1280px", margin: "0 auto", padding: "clamp(40px,5vw,64px) clamp(40px,4vw,80px) clamp(40px,5vw,60px)" }}
       >
         <p className="font-micro mb-5 flex items-center gap-2" style={{ color: "#C4956A", fontSize: "0.62rem" }}>
           <span style={{ display: "inline-block", width: "20px", height: "1px", backgroundColor: "#C4956A" }} />
@@ -115,7 +115,7 @@ export default function BuildInMotionSection() {
         <div style={{ display: "flex", gap: "clamp(28px, 4vw, 60px)", alignItems: "flex-start" }}>
 
           {/* ── LEFT COLUMN ── */}
-          <div style={{ flexShrink: 0, width: "clamp(460px, 52%, 620px)", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ flexShrink: 0, width: "clamp(480px, 52%, 660px)", display: "flex", flexDirection: "column", alignItems: "center" }}>
 
             {/* Floating device mockup */}
             <div
@@ -196,11 +196,11 @@ export default function BuildInMotionSection() {
             <div className={visible ? "bim-head" : ""} style={{ opacity: visible ? undefined : 0, marginBottom: "22px" }}>
               <h2
                 className="font-display leading-tight mb-2"
-                style={{ color: "#2C2C2C", fontSize: "clamp(1.4rem, 2.1vw, 1.95rem)", lineHeight: "1.15" }}
+                style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 2.4vw, 2.2rem)", lineHeight: "1.15" }}
               >
                 Small steps <em style={{ color: "#4D5E49" }}>still count.</em>
               </h2>
-              <p className="font-body" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.65", maxWidth: "36ch" }}>
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.65", maxWidth: "40ch" }}>
                 Mama Launch Studio is designed so you can make progress in the pockets of time you already have.
               </p>
             </div>
@@ -250,10 +250,10 @@ export default function BuildInMotionSection() {
                   </div>
 
                   <div>
-                    <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.86rem", fontWeight: 600, marginBottom: "2px" }}>
+                    <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.92rem", fontWeight: 600, marginBottom: "2px" }}>
                       {moment.title}
                     </p>
-                    <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.82rem", lineHeight: "1.5" }}>
+                    <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.5" }}>
                       {moment.description}
                     </p>
                   </div>

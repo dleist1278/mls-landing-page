@@ -163,7 +163,7 @@ export default function WhatIsMamaLaunchSection() {
 
 
         {/* ── Section Intro — staggered entrance ── */}
-        <div className="text-center mx-auto px-8 pt-16 pb-8" style={{ maxWidth: "620px" }}>
+        <div className="text-center mx-auto px-8 pt-16 pb-8" style={{ maxWidth: "720px" }}>
           <p
             className="font-micro mb-4 inline-flex items-center gap-3"
             style={{
@@ -180,7 +180,7 @@ export default function WhatIsMamaLaunchSection() {
           <h2
             className="font-display leading-tight mb-4"
             style={{
-              color: "#2C2C2C", fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", lineHeight: "1.12",
+              color: "#2C2C2C", fontSize: "clamp(2rem, 3.4vw, 3rem)", lineHeight: "1.12",
               opacity: visible ? 1 : 0,
               animation: visible ? "methodFadeUp 0.8s ease forwards" : "none",
               animationDelay: "0.1s"
@@ -191,7 +191,7 @@ export default function WhatIsMamaLaunchSection() {
           <p
             className="font-body mx-auto"
             style={{
-              color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.75", maxWidth: "52ch",
+            color: "#5C5148", fontSize: "1rem", lineHeight: "1.75", maxWidth: "58ch",
               opacity: visible ? 1 : 0,
               animation: visible ? "methodFadeUp 0.8s ease forwards" : "none",
               animationDelay: "0.2s"
@@ -205,7 +205,7 @@ export default function WhatIsMamaLaunchSection() {
         <div
           className="mx-auto px-8 pb-12"
           style={{
-            maxWidth: "1160px",
+            maxWidth: "1280px",
             opacity: visible ? 1 : 0,
             animation: visible ? "methodFadeUp 0.9s ease forwards" : "none",
             animationDelay: "0.3s"
@@ -218,7 +218,7 @@ export default function WhatIsMamaLaunchSection() {
               background: "linear-gradient(160deg, #FFFDF9 0%, #F7F2EB 100%)",
               boxShadow: "0 12px 64px rgba(44,44,44,0.08), 0 2px 12px rgba(196,149,106,0.08), inset 0 1px 0 rgba(255,255,255,0.7)",
               display: "flex",
-              height: "clamp(620px, 74vh, 760px)",
+              height: "clamp(660px, 76vh, 800px)",
               overflow: "hidden",
               position: "relative"
             }}
@@ -229,7 +229,7 @@ export default function WhatIsMamaLaunchSection() {
             {/* ── LEFT: Progress rail ── */}
             <div
               style={{
-                width: "180px",
+                width: "200px",
                 flexShrink: 0,
                 borderRight: "1px solid rgba(196,149,106,0.12)",
                 padding: "36px 24px 36px 28px",
@@ -392,7 +392,7 @@ export default function WhatIsMamaLaunchSection() {
             {/* ── RIGHT: App Preview Panel ── */}
             <div
               style={{
-                width: "clamp(300px, 32%, 380px)",
+                width: "clamp(320px, 34%, 420px)",
                 flexShrink: 0,
                 borderLeft: "1px solid rgba(196,149,106,0.12)",
                 background: "linear-gradient(170deg, #FEFAF5 0%, #F5EDE0 100%)",
@@ -502,7 +502,7 @@ export default function WhatIsMamaLaunchSection() {
         {/* ── Closing CTA ── */}
         <div
           className="text-center mx-auto px-8 pb-20 pt-4"
-          style={{ maxWidth: "620px" }}
+          style={{ maxWidth: "720px" }}
         >
           <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, #C4956A44, transparent)", marginBottom: "32px" }} />
           <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.25rem, 2vw, 1.65rem)", lineHeight: "1.2" }}>

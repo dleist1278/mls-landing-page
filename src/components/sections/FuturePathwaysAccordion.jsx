@@ -151,7 +151,7 @@ export default function FuturePathwaysAccordion({ headerVisible }) {
         paddingTop: "24px",
         opacity: headerVisible ? 1 : 0,
         transition: "opacity 0.5s ease 0.35s",
-        maxWidth: "1000px",
+        maxWidth: "1160px",
         margin: "0 auto",
       }}
     >

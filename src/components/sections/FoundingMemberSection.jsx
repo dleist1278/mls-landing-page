@@ -316,7 +316,7 @@ export default function FoundingMemberSection() {
       </div>
 
       {/* ── DESKTOP layout ───────────────────────────────────────────────── */}
-      <div className="hidden lg:block max-w-[680px] mx-auto px-8">
+      <div className="hidden lg:block max-w-[780px] mx-auto px-8">
 
         {/* Centered header */}
         <div

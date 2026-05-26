@@ -95,7 +95,7 @@ export default function ModelsSection() {
       className="py-10 md:pt-16 md:pb-10 overflow-hidden"
       style={{ backgroundColor: "#F0EBE1", scrollMarginTop: "96px", maxWidth: "100vw", width: "100%", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
       
-      <div className="max-w-5xl mx-auto px-5 md:px-12 max-w-full overflow-hidden">
+      <div className="mx-auto px-5 md:px-16 max-w-full overflow-hidden" style={{ maxWidth: "1280px" }}>
 
         {/* Header */}
         <div
@@ -177,7 +177,7 @@ export default function ModelsSection() {
               opacity: headerVisible ? 1 : 0,
               animation: headerVisible ? "spotlightFadeUp 0.75s ease forwards" : "none",
               paddingBottom: "24px",
-              maxWidth: "1000px",
+              maxWidth: "1160px",
               margin: "0 auto"
             }}
           >
