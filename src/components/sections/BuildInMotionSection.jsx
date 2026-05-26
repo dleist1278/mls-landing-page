@@ -68,20 +68,21 @@ export default function BuildInMotionSection() {
       {/* ── DESKTOP two-column ── */}
       <div
         ref={ref}
-        className="hidden md:flex max-w-5xl mx-auto px-10 lg:px-12 py-14"
+        className="hidden md:flex max-w-6xl mx-auto px-10 lg:px-14 py-14"
         style={{ gap: "clamp(44px, 5vw, 72px)", alignItems: "center" }}
       >
 
-        {/* Left: floating device mockup — no background panel */}
+        {/* Left: floating device mockup — no background, no panel */}
         <div
           className={visible ? "bim-photo" : ""}
           style={{
             flexShrink: 0,
-            width: "clamp(320px, 46%, 460px)",
+            width: "clamp(380px, 52%, 540px)",
             opacity: visible ? undefined : 0,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            padding: "12px 0",
           }}
         >
           <img
@@ -91,7 +92,7 @@ export default function BuildInMotionSection() {
               width: "100%",
               height: "auto",
               display: "block",
-              filter: "drop-shadow(0 14px 32px rgba(44,44,44,0.14)) drop-shadow(0 3px 10px rgba(196,149,106,0.10))",
+              filter: "drop-shadow(0 20px 48px rgba(44,44,44,0.18)) drop-shadow(0 4px 14px rgba(196,149,106,0.12))",
             }}
           />
         </div>
