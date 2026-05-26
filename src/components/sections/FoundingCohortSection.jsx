@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { Calendar } from "lucide-react";
 
 export default function FoundingCohortSection() {
   const ref = useRef(null);
@@ -13,13 +14,20 @@ export default function FoundingCohortSection() {
     return () => observer.disconnect();
   }, []);
 
+  const anim = (delay) => ({
+    opacity: visible ? 1 : 0,
+    transform: visible ? "translateY(0)" : "translateY(12px)",
+    transition: `opacity 0.55s ease ${delay}s, transform 0.55s ease ${delay}s`,
+  });
+
+  const milestones = [
+    { label: "Enrollment closes", date: "June 30, 2026" },
+    { label: "Founding cohort begins", date: "July 8, 2026" },
+  ];
+
   return (
     <section style={{ backgroundColor: "#FAF7F2", borderTop: "1px solid rgba(196,149,106,0.08)" }}>
       <style>{`
-        @keyframes cohortFadeUp {
-          from { opacity: 0; transform: translateY(14px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
         .cohort-cta-btn {
           transition: box-shadow 0.25s ease, transform 0.25s ease;
         }
@@ -31,97 +39,91 @@ export default function FoundingCohortSection() {
 
       <div
         ref={ref}
-        className="max-w-3xl mx-auto px-5 sm:px-8 md:px-12 py-14 md:py-20 text-center"
+        className="max-w-xl mx-auto px-5 sm:px-8 py-10 md:py-14 text-center"
       >
         {/* Eyebrow */}
         <p
-          className="font-micro mb-4 inline-flex items-center gap-3"
-          style={{
-            color: "#C4956A", fontSize: "0.72rem",
-            opacity: visible ? 1 : 0,
-            animation: visible ? "cohortFadeUp 0.55s ease forwards" : "none",
-          }}
+          className="font-micro mb-5 inline-flex items-center gap-3"
+          style={{ color: "#C4956A", fontSize: "0.72rem", ...anim(0) }}
         >
           <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
           FOUNDING COHORT BEGINS
           <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
         </p>
 
+        {/* Calendar badge */}
+        <div
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-5"
+          style={{
+            backgroundColor: "rgba(196,149,106,0.08)",
+            border: "1px solid rgba(196,149,106,0.20)",
+            ...anim(0.1)
+          }}
+        >
+          <Calendar size={13} style={{ color: "#C4956A" }} />
+          <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.66rem", letterSpacing: "0.12em" }}>
+            JULY 8, 2026
+          </span>
+        </div>
+
         {/* Headline */}
         <h2
-          className="font-display leading-tight mb-4"
-          style={{
-            color: "#2C2C2C", fontSize: "clamp(2rem, 4vw, 3.2rem)", lineHeight: "1.1",
-            opacity: visible ? 1 : 0,
-            animation: visible ? "cohortFadeUp 0.65s ease 0.1s forwards" : "none",
-          }}
+          className="font-display leading-tight mb-3"
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", lineHeight: "1.15", ...anim(0.18) }}
         >
-          July 8th.
+          A small cohort.<br />
+          <em style={{ color: "#4D5E49" }}>A supported start.</em>
         </h2>
-
-        {/* Subheadline */}
-        <p
-          className="font-display leading-snug mb-5 mx-auto"
-          style={{
-            color: "#4D5E49", fontSize: "clamp(1.1rem, 2vw, 1.4rem)", fontStyle: "italic", lineHeight: "1.4", maxWidth: "22ch",
-            opacity: visible ? 1 : 0,
-            animation: visible ? "cohortFadeUp 0.65s ease 0.2s forwards" : "none",
-          }}
-        >
-          A small cohort. A supported start.
-        </p>
 
         {/* Body */}
         <p
-          className="font-body mx-auto leading-relaxed mb-3"
-          style={{
-            color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.65", maxWidth: "42ch",
-            opacity: visible ? 1 : 0,
-            animation: visible ? "cohortFadeUp 0.6s ease 0.3s forwards" : "none",
-          }}
+          className="font-body mx-auto leading-relaxed mb-7"
+          style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65", maxWidth: "40ch", ...anim(0.26) }}
         >
-          The first Mama Launch cohort opens July 8th with a limited number of founding members.
+          The first Mama Launch cohort opens July 8, 2026 with a limited number of founding members.
         </p>
 
-        {/* Closing date */}
-        <p
-          className="font-micro"
-          style={{
-            color: "#9a8f84", fontSize: "0.66rem", letterSpacing: "0.08em",
-            opacity: visible ? 1 : 0,
-            animation: visible ? "cohortFadeUp 0.6s ease 0.38s forwards" : "none",
-          }}
-        >
-          Enrollment closes June 30th.
-        </p>
+        {/* Soft divider */}
+        <div style={{ ...anim(0.32), display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "20px" }}>
+          <span style={{ flex: 1, maxWidth: "60px", height: "1px", backgroundColor: "rgba(196,149,106,0.18)" }} />
+          <span style={{ width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "rgba(196,149,106,0.35)" }} />
+          <span style={{ flex: 1, maxWidth: "60px", height: "1px", backgroundColor: "rgba(196,149,106,0.18)" }} />
+        </div>
 
-        {/* Desktop CTA — animated */}
+        {/* Timeline milestones */}
         <div
-          className="hidden md:flex justify-center mt-8"
-          style={{
-            opacity: visible ? 1 : 0,
-            animation: visible ? "cohortFadeUp 0.6s ease 0.46s forwards" : "none",
-          }}
+          className="inline-flex flex-col gap-0 mx-auto mb-7"
+          style={{ ...anim(0.38), alignItems: "stretch", minWidth: "220px" }}
         >
+          {milestones.map((m, i) => (
+            <div key={m.label}>
+              <div className="flex items-center gap-3 py-2.5 px-4 rounded-xl"
+                style={{ backgroundColor: i === 1 ? "rgba(77,94,73,0.05)" : "transparent" }}>
+                {/* dot */}
+                <div style={{
+                  flexShrink: 0,
+                  width: "8px", height: "8px",
+                  borderRadius: "50%",
+                  backgroundColor: i === 1 ? "#4D5E49" : "rgba(196,149,106,0.45)",
+                  border: i === 1 ? "none" : "1px solid rgba(196,149,106,0.5)"
+                }} />
+                <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.8rem", flex: 1, textAlign: "left" }}>{m.label}</span>
+                <span className="font-micro" style={{ color: i === 1 ? "#4D5E49" : "#A8917A", fontSize: "0.66rem", letterSpacing: "0.06em" }}>{m.date}</span>
+              </div>
+              {i < milestones.length - 1 && (
+                <div className="flex justify-start pl-[19px]">
+                  <div style={{ width: "1px", height: "8px", backgroundColor: "rgba(196,149,106,0.20)" }} />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div style={anim(0.44)}>
           <button
             onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
             className="cohort-cta-btn font-micro text-white px-8 py-4 rounded-full min-h-[52px]"
-            style={{
-              backgroundColor: "#4D5E49",
-              fontSize: "0.75rem",
-              letterSpacing: "0.08em",
-              boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)"
-            }}
-          >
-            Join the Founding Member Waitlist
-          </button>
-        </div>
-
-        {/* Mobile CTA — no animation */}
-        <div className="md:hidden flex justify-center mt-8">
-          <button
-            onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-            className="font-micro text-white px-8 py-4 rounded-full transition-all min-h-[52px]"
             style={{
               backgroundColor: "#4D5E49",
               fontSize: "0.75rem",
