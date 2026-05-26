@@ -12,17 +12,17 @@ const drawers = [
 {
   icon: Heart,
   title: "WHO",
-  content: "I'm Danielle — and I've lived every version of this. I've been the teacher, the assistant principal, the mom figuring out childcare, and the one who actually went through licensing and opened my own home daycare. I didn't read about this path. I walked it."
+  content: "Danielle brings experience as a teacher, assistant principal, home daycare owner, and education community builder. She created Mama Launch Studio to help mothers build childcare businesses with real structure, warmth, and support."
 },
 {
   icon: Lightbulb,
   title: "WHY",
-  content: "When I opened my program, I was shocked at how hard it was to find real, organized guidance. The information was scattered, the process felt impossible to navigate alone, and nothing was built for mothers running serious programs from home. So I built what I wished had existed."
+  content: "Mama Launch Studio exists because mothers should not have to choose between meaningful work, income, and being present at home. The goal is to help women build childcare models that feel aligned with real motherhood."
 },
 {
   icon: Gift,
   title: "WHAT",
-  content: "I took everything — my years in education, my licensing experience, my work building features and retention systems at ClassTag — and designed a platform that actually moves you forward. Mama Launch is the structured, supported launch path I needed and couldn't find."
+  content: "Through the Mama Launch Method™, members are guided through the decisions, systems, templates, and confidence-building steps needed to create a calm, intentional home childcare business."
 }];
 
 
@@ -157,42 +157,44 @@ export default function DanielleStorySection() {
         {/* ── DESKTOP two-column ── */}
         <div className="hidden md:grid grid-cols-[1fr_1fr] gap-14 items-start">
 
-          {/* Left — text content */}
+          {/* Left — heading, tags, drawers, CTA */}
           <div>
             <h2 className="font-display leading-tight mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)", lineHeight: "1.2" }}>
               Created by someone who understands{" "}
               <em style={{ color: "#4D5E49" }}>both the systems and the real life.</em>
             </h2>
-            <p className="font-body leading-relaxed mb-6" style={{ color: "#5C5148", fontSize: "0.97rem", lineHeight: "1.72" }}>
+            <p className="font-body leading-relaxed mb-5" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7" }}>
               Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
             </p>
 
-            {/* Credential chips */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {["Former educator + school leader", "Licensed home daycare owner", "Mom of two", "Experience in app implementation"].map((chip) =>
-              <span key={chip} className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.65rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
+            {/* Concise credential chips */}
+            <div className="flex flex-wrap gap-2 mb-7">
+              {["Former educator", "Home daycare owner", "Operations background", "Community builder"].map((chip) =>
+                <span key={chip} className="font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.65rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
               )}
             </div>
 
-            {/* Trust blocks */}
-            <div className="flex flex-col gap-3 mb-8">
-              {[
-              { label: "WHY I BUILT THIS", body: "When I opened my own program, I found scattered information, unclear direction, and very little support built for serious home providers." },
-              { label: "WHAT I UNDERSTAND", body: "I understand licensing, parent communication, daily systems, classroom flow, and the reality of building while raising children." },
-              { label: "WHAT THIS GIVES YOU", body: "Mama Launch gives you structure, guidance, tools, and community support so you can stop piecing everything together alone." }].
-              map((block) =>
-              <div key={block.label} className="rounded-xl p-4" style={{ backgroundColor: "#F8F4EE", border: "1px solid #C4956A14" }}>
-                  <p className="font-micro mb-1.5" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.12em" }}>{block.label}</p>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: "#5C5148" }}>{block.body}</p>
-                </div>
-              )}
-            </div>
+            {/* Who / Why / What drawers */}
+            <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
 
+            {/* Single CTA — directly below drawers */}
+            <div className="mt-7">
+              <p className="font-body mb-3" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.55" }}>
+                Ready to build with guidance instead of figuring it out alone?
+              </p>
+              <button
+                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
+              >
+                Join the Founding Member Waitlist
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
+            </div>
           </div>
 
-          {/* Right — photo + accordion */}
-          <div className="flex flex-col gap-5">
-            {/* Photo with depth layers */}
+          {/* Right — photo only */}
+          <div>
             <div className="relative">
               <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.13, zIndex: 0 }} />
               <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.09, zIndex: 1 }} />
@@ -201,31 +203,11 @@ export default function DanielleStorySection() {
                   src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                   alt="Danielle, founder of Mama Launch Studio"
                   className="w-full"
-                  style={{ height: "400px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
-                
-                {/* Subtle gradient overlay at bottom */}
+                  style={{ height: "480px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
                 <div className="absolute bottom-0 left-0 right-0 h-20" style={{ background: "linear-gradient(to top, rgba(250,247,242,0.4), transparent)" }} />
               </div>
             </div>
-
-            {/* Tabs */}
-            <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
           </div>
-        </div>
-
-        {/* Desktop-only CTA below both columns */}
-        <div className="hidden md:block text-center mt-10">
-          <p className="font-body mb-4" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6" }}>
-            Ready to build with guidance instead of figuring it out alone?
-          </p>
-          <button
-            onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-            className="font-micro inline-flex items-center gap-2 text-white px-8 py-4 rounded-full min-h-[52px] transition-all"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
-          >
-            Join the Founding Member Waitlist
-            <ArrowRight className="h-3.5 w-3.5" />
-          </button>
         </div>
 
         {/* ── MOBILE single-column ── */}
