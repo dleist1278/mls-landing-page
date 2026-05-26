@@ -72,7 +72,7 @@ export default function FoundingCohortSection() {
               boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)"
             }}
           >
-            Become a Founding Member
+            Join the Founding Member Waitlist
           </button>
         </div>
       </div>
