@@ -176,25 +176,10 @@ export default function DanielleStorySection() {
 
             {/* Who / Why / What drawers */}
             <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
-
-            {/* Single CTA — directly below drawers */}
-            <div className="mt-7">
-              <p className="font-body mb-3" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.55" }}>
-                Ready to build with guidance instead of figuring it out alone?
-              </p>
-              <button
-                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-                className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
-              >
-                Join the Founding Member Waitlist
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
-            </div>
           </div>
 
-          {/* Right — photo only */}
-          <div>
+          {/* Right — photo + CTA as one visual unit */}
+          <div className="flex flex-col">
             <div className="relative">
               <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(10px, 10px)", backgroundColor: "#C4956A", opacity: 0.13, zIndex: 0 }} />
               <div className="absolute rounded-[20px]" style={{ inset: 0, transform: "translate(5px, 5px)", backgroundColor: "#4D5E49", opacity: 0.09, zIndex: 1 }} />
@@ -206,6 +191,21 @@ export default function DanielleStorySection() {
                   style={{ height: "480px", objectFit: "cover", objectPosition: "center 10%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
                 <div className="absolute bottom-0 left-0 right-0 h-20" style={{ background: "linear-gradient(to top, rgba(250,247,242,0.4), transparent)" }} />
               </div>
+            </div>
+
+            {/* CTA — connected directly below the photo */}
+            <div className="flex flex-col items-center text-center" style={{ marginTop: "28px", gap: "16px" }}>
+              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6" }}>
+                Ready to build with guidance instead of figuring it out alone?
+              </p>
+              <button
+                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
+              >
+                Join the Founding Member Waitlist
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
             </div>
           </div>
         </div>
