@@ -38,7 +38,7 @@ export default function FoundingCohortSection() {
 
       <div
         ref={ref}
-        className="max-w-xl mx-auto px-5 sm:px-8 py-10 md:py-14 text-center"
+        className="max-w-xl mx-auto px-5 sm:px-8 py-10 md:py-10 text-center"
       >
         {/* Eyebrow */}
         <p
@@ -61,13 +61,13 @@ export default function FoundingCohortSection() {
 
         {/* Body */}
         <p
-          className="font-body mx-auto leading-relaxed mb-7"
+          className="font-body mx-auto leading-relaxed mb-5"
           style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65", maxWidth: "40ch", ...anim(0.26) }}
         >
           The first Mama Launch cohort opens July 8, 2026 with a limited number of founding members.
         </p>
 
-        {/* Soft divider */}
+        {/* Soft divider — desktop tighter */}
         <div style={{ ...anim(0.32), display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "20px" }}>
           <span style={{ flex: 1, maxWidth: "60px", height: "1px", backgroundColor: "rgba(196,149,106,0.18)" }} />
           <span style={{ width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "rgba(196,149,106,0.35)" }} />
@@ -76,7 +76,7 @@ export default function FoundingCohortSection() {
 
         {/* Timeline milestones */}
         <div
-          className="inline-flex flex-col gap-0 mx-auto mb-7"
+          className="inline-flex flex-col gap-0 mx-auto mb-5"
           style={{ ...anim(0.38), alignItems: "stretch", minWidth: "220px" }}
         >
           {milestones.map((m, i) => (
