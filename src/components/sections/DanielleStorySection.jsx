@@ -190,7 +190,7 @@ export default function DanielleStorySection() {
 
           {/* Right — photo + CTA as one visual unit */}
           <div className="flex flex-col items-center">
-            <div className="relative" style={{ width: "clamp(260px, 70%, 360px)" }}>
+            <div className="relative" style={{ width: "min(100%, 320px)" }}>
               <div className="absolute rounded-[16px]" style={{ inset: 0, transform: "translate(7px, 7px)", backgroundColor: "#C4956A", opacity: 0.13, zIndex: 0 }} />
               <div className="absolute rounded-[16px]" style={{ inset: 0, transform: "translate(4px, 4px)", backgroundColor: "#4D5E49", opacity: 0.09, zIndex: 1 }} />
               <div className="relative rounded-[16px] overflow-hidden" style={{ zIndex: 2, boxShadow: "0 12px 36px rgba(196,149,106,0.20), 0 3px 10px rgba(0,0,0,0.07)", border: "1px solid rgba(196,149,106,0.08)" }}>
