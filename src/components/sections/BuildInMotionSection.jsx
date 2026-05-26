@@ -234,8 +234,8 @@ export default function BuildInMotionSection() {
                     style={{
                       opacity: visible ? undefined : 0,
                       flexShrink: 0,
-                      width: "24px",
-                      height: "24px",
+                      width: "28px",
+                      height: "28px",
                       borderRadius: "50%",
                       backgroundColor: "#4D5E49",
                       display: "flex",
