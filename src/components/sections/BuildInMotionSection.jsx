@@ -181,7 +181,7 @@ export default function BuildInMotionSection() {
                         {label}
                       </span>
                     </div>
-                    <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.70rem", lineHeight: "1.45" }}>
+                    <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.75rem", lineHeight: "1.5" }}>
                       {line}
                     </span>
                   </div>
@@ -200,7 +200,7 @@ export default function BuildInMotionSection() {
               >
                 Small steps <em style={{ color: "#4D5E49" }}>still count.</em>
               </h2>
-              <p className="font-body" style={{ color: "#5C5148", fontSize: "0.87rem", lineHeight: "1.65", maxWidth: "36ch" }}>
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.65", maxWidth: "36ch" }}>
                 Mama Launch Studio is designed so you can make progress in the pockets of time you already have.
               </p>
             </div>
@@ -253,7 +253,7 @@ export default function BuildInMotionSection() {
                     <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.86rem", fontWeight: 600, marginBottom: "2px" }}>
                       {moment.title}
                     </p>
-                    <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.77rem", lineHeight: "1.45" }}>
+                    <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.82rem", lineHeight: "1.5" }}>
                       {moment.description}
                     </p>
                   </div>

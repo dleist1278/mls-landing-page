@@ -340,7 +340,7 @@ export default function WhatIsMamaLaunchSection() {
                             {phase.name}
                           </h3>
                         </div>
-                        <p className="font-body" style={{ color: "#3a3228", fontSize: "0.88rem", lineHeight: "1.6", marginBottom: "14px" }}>
+                        <p className="font-body" style={{ color: "#3a3228", fontSize: "0.94rem", lineHeight: "1.65", marginBottom: "14px" }}>
                           {phase.outcome}
                         </p>
                         <div style={{ borderTop: `1px solid ${phase.color}18`, paddingTop: "9px" }}>
@@ -357,7 +357,7 @@ export default function WhatIsMamaLaunchSection() {
                                   borderRadius: "999px",
                                   padding: "2px 7px",
                                   fontFamily: "'Inter', sans-serif",
-                                  fontSize: "0.62rem",
+                                  fontSize: "0.65rem",
                                   color: "#6B6156",
                                   letterSpacing: "0em",
                                   lineHeight: "1.5",
@@ -508,7 +508,7 @@ export default function WhatIsMamaLaunchSection() {
           <h3 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.25rem, 2vw, 1.65rem)", lineHeight: "1.2" }}>
             You don't need to figure out every step alone.
           </h3>
-          <p className="font-body mb-8" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.75" }}>
+          <p className="font-body mb-8" style={{ color: "#7A6E65", fontSize: "0.95rem", lineHeight: "1.75" }}>
             Founding members will be the first to move through the full Mama Launch Method™ with guided support, templates, and a clear path to opening.
           </p>
           <button

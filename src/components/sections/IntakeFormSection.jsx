@@ -155,7 +155,7 @@ export default function IntakeFormSection() {
                 <p
                   className="font-body mx-auto leading-relaxed"
                   style={{
-                    color: "#5C5148", maxWidth: "440px", fontSize: "0.95rem",
+                    color: "#5C5148", maxWidth: "440px", fontSize: "1rem",
                     opacity: visible ? 1 : 0,
                     animation: visible ? "intakeFadeUp 0.6s ease 0.2s forwards" : "none",
                   }}
@@ -165,7 +165,7 @@ export default function IntakeFormSection() {
                 <p
                   className="font-body mx-auto mt-2"
                   style={{
-                    color: "#7A6E65", maxWidth: "400px", fontSize: "0.88rem",
+                    color: "#7A6E65", maxWidth: "400px", fontSize: "0.93rem",
                     opacity: visible ? 1 : 0,
                     animation: visible ? "intakeFadeUp 0.6s ease 0.28s forwards" : "none",
                   }}

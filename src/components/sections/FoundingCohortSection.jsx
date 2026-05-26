@@ -62,7 +62,7 @@ export default function FoundingCohortSection() {
         {/* Body */}
         <p
           className="font-body mx-auto leading-relaxed mb-5"
-          style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65", maxWidth: "40ch", ...anim(0.26) }}
+          style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.68", maxWidth: "40ch", ...anim(0.26) }}
         >
           The first Mama Launch cohort opens July 8, 2026 with a limited number of founding members.
         </p>

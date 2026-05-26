@@ -83,7 +83,7 @@ function StepCard({ step, index, isOpen, onToggle }) {
         </div>
         {isOpen &&
         <div className="px-5 pb-4" style={{ borderTop: "1px solid #F0EBE3" }}>
-            <p className="pt-3 text-[14px] leading-relaxed" style={{ color: "#7A6E65", maxWidth: "38ch" }}>{step.description}</p>
+            <p className="pt-3 text-[15px] leading-relaxed" style={{ color: "#7A6E65", maxWidth: "38ch", lineHeight: "1.65" }}>{step.description}</p>
           </div>
         }
       </div>
@@ -338,7 +338,7 @@ export default function FoundingMemberSection() {
             What Happens After<br />
             <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
           </h2>
-          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65", maxWidth: "42ch" }}>
+          <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.68", maxWidth: "42ch" }}>
             Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
           </p>
         </div>

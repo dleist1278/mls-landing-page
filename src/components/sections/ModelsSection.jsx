@@ -117,7 +117,7 @@ export default function ModelsSection() {
               Choose the path that fits{" "}
               <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
             </h2>
-            <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.65", maxWidth: "56ch" }}>
+            <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.65", maxWidth: "56ch" }}>
               Start with the first founding pathway: Home Daycare / Nursery.<br />Other Mama Launch pathways are coming soon.
             </p>
           </div>
@@ -181,7 +181,9 @@ export default function ModelsSection() {
               gap: "clamp(32px, 4.5vw, 56px)",
               opacity: headerVisible ? 1 : 0,
               animation: headerVisible ? "spotlightFadeUp 0.75s ease forwards" : "none",
-              paddingBottom: "24px"
+              paddingBottom: "24px",
+              maxWidth: "1000px",
+              margin: "0 auto"
             }}
           >
             {/* Left: Image — swap src to update photo */}
@@ -215,7 +217,7 @@ export default function ModelsSection() {
               </h3>
 
               {/* Description */}
-              <p className="font-body" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.72", maxWidth: "44ch", margin: 0 }}>
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.72", maxWidth: "44ch", margin: 0 }}>
                 Build a calm, intentional home childcare program naturally woven into daily family life.
               </p>
 
@@ -321,7 +323,7 @@ export default function ModelsSection() {
                   </h4>
 
                   {/* Description */}
-                  <p className="font-body" style={{ color: "#8A7D73", fontSize: "0.76rem", lineHeight: "1.55", margin: 0 }}>
+                  <p className="font-body" style={{ color: "#8A7D73", fontSize: "0.82rem", lineHeight: "1.6", margin: 0 }}>
                     {card.description}
                   </p>
 

@@ -115,8 +115,8 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
         }}>
         {openDrawer >= 0 &&
         <div className="px-5 py-4">
-            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65" }}>
-              {drawers[openDrawer]?.content}
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7" }}>
+            {drawers[openDrawer]?.content}
             </p>
           </div>
         }
@@ -163,7 +163,7 @@ export default function DanielleStorySection() {
               Created by someone who understands{" "}
               <em style={{ color: "#4D5E49" }}>both the systems and the real life.</em>
             </h2>
-            <p className="font-body leading-relaxed mb-5" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7" }}>
+            <p className="font-body leading-relaxed mb-5" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.72" }}>
               Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
             </p>
 
@@ -180,7 +180,7 @@ export default function DanielleStorySection() {
             `}</style>
             <div className="flex flex-wrap gap-2 mb-7">
               {["Former educator", "Home daycare owner", "Operations background", "Community builder"].map((chip) =>
-                <span key={chip} className="danielle-chip font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.65rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
+                <span key={chip} className="danielle-chip font-micro px-3 py-1.5 rounded-full" style={{ backgroundColor: "rgba(77,94,73,0.07)", color: "#4D5E49", fontSize: "0.68rem", letterSpacing: "0.06em", border: "1px solid rgba(77,94,73,0.12)" }}>{chip}</span>
               )}
             </div>
 
