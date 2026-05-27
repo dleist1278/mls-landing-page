@@ -70,7 +70,7 @@ export default function SiteNav() {
               key={item.id}
               onClick={() => scrollTo(item.id)}
               className="font-micro text-charcoal hover:text-sage transition-colors duration-200 focus-sage min-h-[44px] flex items-center"
-              style={{ fontSize: "0.78rem", letterSpacing: "0.08em" }}
+              style={{ fontSize: "0.85rem", letterSpacing: "0.07em" }}
             >
               {item.label}
             </button>
@@ -78,7 +78,7 @@ export default function SiteNav() {
           <button
             onClick={() => scrollTo("intake")}
             className="font-micro text-white rounded-full transition-all duration-200 hover:opacity-90 focus-sage"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", letterSpacing: "0.08em", padding: "14px 26px", boxShadow: "0 4px 16px rgba(77,94,73,0.22)", minHeight: "48px" }}
+            style={{ backgroundColor: "#4D5E49", fontSize: "0.82rem", letterSpacing: "0.07em", padding: "14px 28px", boxShadow: "0 4px 16px rgba(77,94,73,0.22)", minHeight: "48px" }}
           >
             Join the Founding Member Waitlist
           </button>

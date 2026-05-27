@@ -62,7 +62,7 @@ export default function FoundingCohortSection() {
         {/* Body */}
         <p
           className="font-body mx-auto leading-relaxed mb-5"
-          style={{ color: "#5C5148", fontSize: "1.1rem", lineHeight: "1.7", maxWidth: "40ch", ...anim(0.26) }}
+          style={{ color: "#5C5148", fontSize: "1.25rem", lineHeight: "1.7", maxWidth: "40ch", ...anim(0.26) }}
         >
           The first Mama Launch cohort opens July 8, 2026 with a limited number of founding members.
         </p>
@@ -91,7 +91,7 @@ export default function FoundingCohortSection() {
                   backgroundColor: i === 1 ? "#4D5E49" : "rgba(196,149,106,0.45)",
                   border: i === 1 ? "none" : "1px solid rgba(196,149,106,0.5)"
                 }} />
-                <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.92rem", flex: 1, textAlign: "left" }}>{m.label}</span>
+                <span className="font-body" style={{ color: "#7A6E65", fontSize: "1rem", flex: 1, textAlign: "left" }}>{m.label}</span>
                 <span className="font-micro" style={{ color: i === 1 ? "#4D5E49" : "#A8917A", fontSize: "0.66rem", letterSpacing: "0.06em" }}>{m.date}</span>
               </div>
               {i < milestones.length - 1 && (

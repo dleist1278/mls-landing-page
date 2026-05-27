@@ -118,7 +118,7 @@ export default function ModelsSection() {
               Choose the path that fits{" "}
               <em style={{ color: "#4D5E49" }}>your motherhood life.</em>
             </h2>
-            <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "1.125rem", lineHeight: "1.7", maxWidth: "56ch" }}>
+            <p className="font-body mx-auto leading-relaxed" style={{ color: "#5C5148", fontSize: "1.25rem", lineHeight: "1.7", maxWidth: "56ch" }}>
               Start with the first founding pathway: Home Daycare / Nursery.<br />Other Mama Launch pathways are coming soon.
             </p>
           </div>
@@ -212,7 +212,7 @@ export default function ModelsSection() {
               </h3>
 
               {/* Description */}
-              <p className="font-body" style={{ color: "#5C5148", fontSize: "1.125rem", lineHeight: "1.72", maxWidth: "44ch", margin: 0 }}>
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "1.25rem", lineHeight: "1.7", maxWidth: "44ch", margin: 0 }}>
                 Build a calm, intentional home childcare program naturally woven into daily family life.
               </p>
 
@@ -232,7 +232,7 @@ export default function ModelsSection() {
               </div>
 
               {/* Support line */}
-              <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.9rem", fontStyle: "italic", margin: 0 }}>
+              <p className="font-body" style={{ color: "#9a8f84", fontSize: "1rem", fontStyle: "italic", margin: 0 }}>
                 This is the pathway currently enrolling for the founding cohort.
               </p>
 

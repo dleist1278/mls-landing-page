@@ -149,10 +149,10 @@ export default function BuildInMotionSection() {
                 borderTop: "1px solid rgba(196,149,106,0.16)",
               }}
             >
-              <p className="font-display" style={{ color: "#2C2C2C", fontSize: "1.05rem", lineHeight: "1.2", marginBottom: "3px" }}>
+              <p className="font-display" style={{ color: "#2C2C2C", fontSize: "1.2rem", lineHeight: "1.2", marginBottom: "3px" }}>
                 Support that keeps you moving
               </p>
-              <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", maxWidth: "50ch" }}>
+              <p className="font-body" style={{ color: "#7A6E65", fontSize: "1rem", lineHeight: "1.6", marginBottom: "12px", maxWidth: "50ch" }}>
                 Village support, guided implementation, and small next steps live together inside Mama Launch Studio.
               </p>
 
@@ -177,11 +177,11 @@ export default function BuildInMotionSection() {
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                       <Icon size={12} style={{ color: "#4D5E49", opacity: 0.7, flexShrink: 0 }} />
-                      <span className="font-body" style={{ color: "#2C2C2C", fontSize: "0.88rem", fontWeight: 600 }}>
+                      <span className="font-body" style={{ color: "#2C2C2C", fontSize: "0.95rem", fontWeight: 600 }}>
                         {label}
                       </span>
                     </div>
-                    <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.86rem", lineHeight: "1.5" }}>
+                    <span className="font-body" style={{ color: "#7A6E65", fontSize: "0.94rem", lineHeight: "1.5" }}>
                       {line}
                     </span>
                   </div>
@@ -196,11 +196,11 @@ export default function BuildInMotionSection() {
             <div className={visible ? "bim-head" : ""} style={{ opacity: visible ? undefined : 0, marginBottom: "22px" }}>
               <h2
                 className="font-display leading-tight mb-2"
-                style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 2.4vw, 2.2rem)", lineHeight: "1.15" }}
+                style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 2.6vw, 2.5rem)", lineHeight: "1.15" }}
               >
                 Small steps <em style={{ color: "#4D5E49" }}>still count.</em>
               </h2>
-              <p className="font-body" style={{ color: "#5C5148", fontSize: "1.125rem", lineHeight: "1.7", maxWidth: "40ch" }}>
+              <p className="font-body" style={{ color: "#5C5148", fontSize: "1.25rem", lineHeight: "1.7", maxWidth: "40ch" }}>
                 Mama Launch Studio is designed so you can make progress in the pockets of time you already have.
               </p>
             </div>
@@ -250,10 +250,10 @@ export default function BuildInMotionSection() {
                   </div>
 
                   <div>
-                    <p className="font-body" style={{ color: "#2C2C2C", fontSize: "0.92rem", fontWeight: 600, marginBottom: "2px" }}>
+                    <p className="font-body" style={{ color: "#2C2C2C", fontSize: "1.05rem", fontWeight: 600, marginBottom: "2px" }}>
                       {moment.title}
                     </p>
-                    <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.88rem", lineHeight: "1.5" }}>
+                    <p className="font-body" style={{ color: "#7A6E65", fontSize: "1rem", lineHeight: "1.55" }}>
                       {moment.description}
                     </p>
                   </div>
@@ -264,7 +264,7 @@ export default function BuildInMotionSection() {
             {/* Closing line */}
             <p
               className={visible ? "bim-close font-body" : "font-body"}
-              style={{ color: "#9a8f84", fontSize: "0.76rem", lineHeight: "1.6", fontStyle: "italic", marginTop: "16px", opacity: visible ? undefined : 0 }}
+              style={{ color: "#9a8f84", fontSize: "0.9rem", lineHeight: "1.6", fontStyle: "italic", marginTop: "16px", opacity: visible ? undefined : 0 }}
             >
               Every saved answer, checklist, and template brings your business one step closer to launch.
             </p>
