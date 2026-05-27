@@ -109,10 +109,9 @@ export default function BuildInMotionSection() {
           </h2>
           <p
             className={`font-body mx-auto leading-relaxed mb-6 ${mobileVisible ? "mbim-body" : ""}`}
-            style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65", maxWidth: "42ch", opacity: mobileVisible ? undefined : 0 }}
+            style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65", maxWidth: "38ch", opacity: mobileVisible ? undefined : 0 }}
           >
-            Chip away at your business while living real motherhood life — during nap time, laundry,
-            dinner prep, school pickup, or quiet moments throughout the day.
+            Chip away at your business during nap time, laundry, dinner prep, or quiet moments throughout the day.
           </p>
         </div>
 
