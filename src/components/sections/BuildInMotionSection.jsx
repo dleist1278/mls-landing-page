@@ -106,7 +106,7 @@ export default function BuildInMotionSection() {
             alt="Mama Launch Studio app on tablet and phone"
             style={{
               width: "100%",
-              maxWidth: "min(430px, 94vw)",
+              maxWidth: "min(645px, 94vw)",
               height: "auto",
               display: "block",
               filter: "drop-shadow(0 16px 32px rgba(44,44,44,0.18)) drop-shadow(0 3px 10px rgba(44,44,44,0.08))"
