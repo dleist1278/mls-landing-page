@@ -153,24 +153,14 @@ export default function IntakeFormSection() {
                   <em style={{ color: "#4D5E49" }}>with us.</em>
                 </h2>
                 <p
-                  className="font-body mx-auto leading-relaxed"
+                  className="font-body mx-auto"
                   style={{
-                    color: "#5C5148", maxWidth: "440px", fontSize: "1.25rem",
+                    color: "#5C5148", maxWidth: "680px", fontSize: "1.2rem", lineHeight: "1.62",
                     opacity: visible ? 1 : 0,
                     animation: visible ? "intakeFadeUp 0.6s ease 0.2s forwards" : "none",
                   }}
                 >
-                  From idea to opening day — with clarity, structure, and support.
-                </p>
-                <p
-                  className="font-body mx-auto mt-2"
-                  style={{
-                    color: "#7A6E65", maxWidth: "400px", fontSize: "1.15rem",
-                    opacity: visible ? 1 : 0,
-                    animation: visible ? "intakeFadeUp 0.6s ease 0.28s forwards" : "none",
-                  }}
-                >
-                  You do not need to have everything figured out before starting.
+                  From idea to opening day — with clarity, structure, and support. You do not need to have everything figured out before starting.
                 </p>
               </div>
 
