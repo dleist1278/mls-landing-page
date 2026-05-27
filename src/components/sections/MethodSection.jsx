@@ -221,7 +221,7 @@ export default function MethodSection() {
       <div
         id="method-roadmap"
         className="md:hidden px-4 max-w-full overflow-hidden"
-        style={{ display: "flex", flexDirection: "column", gap: "8px", paddingTop: "12px" }}>
+        style={{ display: "flex", flexDirection: "column", gap: "8px", paddingTop: "12px", paddingBottom: "24px" }}>
         {phases.map((phase) =>
         <MobilePhaseCard
           key={phase.number}
