@@ -555,28 +555,7 @@ export default function WhatIsMamaLaunchSection() {
             A guided opening path that helps you move from idea to real program with less guesswork. Built from real childcare experience, not theory.
           </p>
 
-          {/* Mobile-only: See the Method in Action */}
-          <div className="flex flex-col items-center mb-8">
-            <div className="text-center mb-4">
-              <p className="font-display" style={{ color: "#2C2C2C", fontSize: "1.4rem", lineHeight: "1.2", letterSpacing: "-0.01em", marginBottom: "2px" }}>
-                See the Method
-              </p>
-              <p className="font-micro" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.2em" }}>
-                IN ACTION
-              </p>
-            </div>
-            <img
-              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
-              alt="Mama Launch Method app interface on iPhone"
-              style={{
-                width: "auto",
-                maxWidth: "min(290px, 88vw)",
-                height: "auto",
-                display: "block",
-                filter: "drop-shadow(0 16px 32px rgba(44,44,44,0.18)) drop-shadow(0 3px 10px rgba(44,44,44,0.08))"
-              }}
-            />
-          </div>
+
 
           <div className="mb-5 overflow-hidden w-full">
             <style>{`
