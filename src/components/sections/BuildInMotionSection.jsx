@@ -92,12 +92,27 @@ export default function BuildInMotionSection() {
           <em style={{ color: "#4D5E49" }}>to make progress.</em>
         </h2>
         <p
-          className="font-body mx-auto leading-relaxed"
+          className="font-body mx-auto leading-relaxed mb-7"
           style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.7", maxWidth: "42ch" }}
         >
           Chip away at your business while living real motherhood life — during nap time, laundry,
           dinner prep, school pickup, or quiet moments throughout the day.
         </p>
+
+        {/* Mobile-only: tablet + phone mockup */}
+        <div className="flex justify-center">
+          <img
+            src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5895f9396_Untitleddesign.png"
+            alt="Mama Launch Studio app on tablet and phone"
+            style={{
+              width: "100%",
+              maxWidth: "min(430px, 94vw)",
+              height: "auto",
+              display: "block",
+              filter: "drop-shadow(0 16px 32px rgba(44,44,44,0.18)) drop-shadow(0 3px 10px rgba(44,44,44,0.08))"
+            }}
+          />
+        </div>
       </div>
 
       {/* ── DESKTOP ── */}
