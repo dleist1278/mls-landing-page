@@ -69,47 +69,67 @@ export default function BuildInMotionSection() {
         `}</style>
       )}
 
-      {/* ── MOBILE (unchanged) ── */}
+      {/* ── MOBILE ANIMATIONS ── */}
+      {mobileVisible && (
+        <style>{`
+          @keyframes mbimFadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes mbimImgLift {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          .mbim-eyebrow { animation: mbimFadeUp 0.55s ease forwards 0s;    opacity: 0; }
+          .mbim-heading { animation: mbimFadeUp 0.6s ease forwards 0.08s;  opacity: 0; }
+          .mbim-body    { animation: mbimFadeUp 0.6s ease forwards 0.16s;  opacity: 0; }
+          .mbim-img     { animation: mbimImgLift 0.75s cubic-bezier(0.25,0.46,0.45,0.94) forwards 0.22s; opacity: 0; }
+        `}</style>
+      )}
+
+      {/* ── MOBILE ── */}
       <div
         ref={mobileRef}
-        className="md:hidden max-w-xl mx-auto px-5 sm:px-8 py-12 text-center"
-        style={{
-          transition: "opacity 0.7s ease, transform 0.7s ease",
-          opacity: mobileVisible ? 1 : 0,
-          transform: mobileVisible ? "translateY(0)" : "translateY(16px)",
-        }}
+        className="md:hidden"
+        style={{ paddingTop: "40px", paddingBottom: "36px", overflow: "hidden" }}
       >
-        <p className="font-micro mb-4 inline-flex items-center gap-3" style={{ color: "#C4956A", fontSize: "0.72rem" }}>
-          <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-          BUILD IN MOTION
-          <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-        </p>
-        <h2
-          className="font-display leading-tight mb-4 mx-auto"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.55rem, 5vw, 2rem)", lineHeight: "1.2", maxWidth: "22ch" }}
-        >
-          You do not need uninterrupted hours{" "}
-          <em style={{ color: "#4D5E49" }}>to make progress.</em>
-        </h2>
-        <p
-          className="font-body mx-auto leading-relaxed mb-7"
-          style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65", maxWidth: "42ch" }}
-        >
-          Chip away at your business while living real motherhood life — during nap time, laundry,
-          dinner prep, school pickup, or quiet moments throughout the day.
-        </p>
+        {/* Text content — padded */}
+        <div className="px-5 text-center">
+          <p className={`font-micro mb-4 inline-flex items-center gap-3 ${mobileVisible ? "mbim-eyebrow" : ""}`} style={{ color: "#C4956A", fontSize: "0.72rem", opacity: mobileVisible ? undefined : 0 }}>
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+            BUILD IN MOTION
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
+          </p>
+          <h2
+            className={`font-display leading-tight mb-4 mx-auto ${mobileVisible ? "mbim-heading" : ""}`}
+            style={{ color: "#2C2C2C", fontSize: "clamp(1.55rem, 5vw, 2rem)", lineHeight: "1.2", maxWidth: "22ch", opacity: mobileVisible ? undefined : 0 }}
+          >
+            You do not need uninterrupted hours{" "}
+            <em style={{ color: "#4D5E49" }}>to make progress.</em>
+          </h2>
+          <p
+            className={`font-body mx-auto leading-relaxed mb-6 ${mobileVisible ? "mbim-body" : ""}`}
+            style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65", maxWidth: "42ch", opacity: mobileVisible ? undefined : 0 }}
+          >
+            Chip away at your business while living real motherhood life — during nap time, laundry,
+            dinner prep, school pickup, or quiet moments throughout the day.
+          </p>
+        </div>
 
-        {/* Mobile-only: tablet + phone mockup */}
-        <div className="flex justify-center">
+        {/* Device image — full-bleed, no constraining parent padding */}
+        <div style={{ width: "100%", display: "flex", justifyContent: "center", padding: "0 8px" }}>
           <img
             src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/5895f9396_Untitleddesign.png"
             alt="Mama Launch Studio app on tablet and phone"
+            className={mobileVisible ? "mbim-img" : ""}
             style={{
-              width: "100%",
-              maxWidth: "min(645px, 94vw)",
+              width: "94vw",
+              maxWidth: "520px",
               height: "auto",
+              objectFit: "contain",
               display: "block",
-              filter: "drop-shadow(0 16px 32px rgba(44,44,44,0.18)) drop-shadow(0 3px 10px rgba(44,44,44,0.08))"
+              opacity: mobileVisible ? undefined : 0,
+              filter: "drop-shadow(0 20px 40px rgba(44,44,44,0.20)) drop-shadow(0 4px 12px rgba(44,44,44,0.09))"
             }}
           />
         </div>
