@@ -551,7 +551,7 @@ export default function WhatIsMamaLaunchSection() {
             What is the <em style={{ color: "#4D5E49" }}>Mama Launch Method™?</em>
           </h2>
 
-          <p className="font-body leading-relaxed mb-6 text-center mx-auto" style={{ color: "#5C5148", fontSize: "0.93rem", lineHeight: "1.65", maxWidth: "42ch" }}>
+          <p className="font-body leading-relaxed mb-6 text-center mx-auto" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65", maxWidth: "42ch" }}>
             A guided opening path that helps you move from idea to real program with less guesswork. Built from real childcare experience, not theory.
           </p>
 

@@ -105,17 +105,18 @@ function DrawerTabs({ drawers, openDrawer, onToggle }) {
           backgroundColor: "#FFFDF9",
           border: "1px solid rgba(196,149,106,0.12)",
           borderTop: "none",
-          overflow: "hidden",
-          maxHeight: openDrawer >= 0 ? "260px" : "0px",
+          overflow: "visible",
+          maxHeight: openDrawer >= 0 ? "none" : "0px",
           opacity: openDrawer >= 0 ? 1 : 0,
-          transition: "max-height 0.32s ease, opacity 0.25s ease",
+          transition: "opacity 0.25s ease",
           boxShadow: "0 4px 16px rgba(196,149,106,0.06)",
           position: "relative",
-          zIndex: 1
+          zIndex: 1,
+          display: openDrawer >= 0 ? "block" : "none"
         }}>
         {openDrawer >= 0 &&
-        <div className="px-5 py-5">
-            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1.15rem", lineHeight: "1.7" }}>
+        <div className="px-4 py-4">
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.6" }}>
             {drawers[openDrawer]?.content}
             </p>
           </div>

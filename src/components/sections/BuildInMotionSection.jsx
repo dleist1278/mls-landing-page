@@ -86,14 +86,14 @@ export default function BuildInMotionSection() {
         </p>
         <h2
           className="font-display leading-tight mb-4 mx-auto"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 5vw, 2.4rem)", lineHeight: "1.2", maxWidth: "22ch" }}
+          style={{ color: "#2C2C2C", fontSize: "clamp(1.55rem, 5vw, 2rem)", lineHeight: "1.2", maxWidth: "22ch" }}
         >
           You do not need uninterrupted hours{" "}
           <em style={{ color: "#4D5E49" }}>to make progress.</em>
         </h2>
         <p
           className="font-body mx-auto leading-relaxed mb-7"
-          style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.7", maxWidth: "42ch" }}
+          style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65", maxWidth: "42ch" }}
         >
           Chip away at your business while living real motherhood life — during nap time, laundry,
           dinner prep, school pickup, or quiet moments throughout the day.
