@@ -264,8 +264,8 @@ export default function DanielleStorySection() {
           <div className="flex justify-center">
             <button
               onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px]"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", boxShadow: "0 8px 32px rgba(77,94,73,0.32), 0 2px 8px rgba(0,0,0,0.10)" }}>
+              className="font-micro inline-flex items-center gap-2 text-white px-5 py-3.5 rounded-full min-h-[48px] whitespace-nowrap"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.07em", boxShadow: "0 8px 32px rgba(77,94,73,0.32), 0 2px 8px rgba(0,0,0,0.10)" }}>
               Join the Founding Member Waitlist
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
