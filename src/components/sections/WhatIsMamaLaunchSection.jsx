@@ -555,6 +555,21 @@ export default function WhatIsMamaLaunchSection() {
             A guided opening path that helps you move from idea to real program with less guesswork. Built from real childcare experience, not theory.
           </p>
 
+          {/* Phone image */}
+          <div className="flex justify-center mb-6">
+            <img
+              src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/ff612859f_Untitleddesign.png"
+              alt="Mama Launch Method app interface on iPhone"
+              style={{
+                width: "auto",
+                maxWidth: "min(290px, 88vw)",
+                height: "auto",
+                display: "block",
+                filter: "drop-shadow(0 16px 32px rgba(44,44,44,0.18)) drop-shadow(0 3px 10px rgba(44,44,44,0.08))"
+              }}
+            />
+          </div>
+
 
 
           <div className="mb-5 overflow-hidden w-full">
