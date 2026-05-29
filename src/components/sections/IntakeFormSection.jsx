@@ -35,6 +35,7 @@ export default function IntakeFormSection() {
           portalId: "246156561",
           formId: "aa96c22d-2a9d-495a-9951-158ab4b95899",
           target: "#hs-form-container",
+          redirectUrl: window.location.origin + "/thank-you",
         });
       }
     }

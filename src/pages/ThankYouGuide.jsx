@@ -1,9 +1,9 @@
-export default function ThankYou() {
+export default function ThankYouGuide() {
   const steps = [
-    "Check your inbox shortly for your first Mama Launch Studio email.",
-    "Learn more about the Mama Launch Method™ and how it helps moms build childcare-based businesses with clarity and support.",
-    "Get details about the July 8 founding launch, founding member pricing, and what's included.",
-    "If it feels like the right fit, you'll receive your invitation to join as a Founding Member.",
+    "Check your inbox shortly for your free guide.",
+    "Look through the 10 home-based kids program ideas and notice which ones feel most realistic for your home, schedule, and season of motherhood.",
+    "Over the next few days, I'll send you simple next steps to help you choose your best-fit program idea.",
+    "When you're ready, Mama Launch Studio can help you turn your idea into a real program with step-by-step support inside The Mama Launch Method™.",
   ];
 
   return (
@@ -43,7 +43,7 @@ export default function ThankYou() {
             fontFamily: 'Arial, sans-serif'
           }}
         >
-          — Founding Member Waitlist —
+          — Free Guide —
         </p>
 
         {/* Headline */}
@@ -57,7 +57,7 @@ export default function ThankYou() {
             lineHeight: '1.2'
           }}
         >
-          You're officially on the founding waitlist.
+          You're officially on the list.
         </h1>
 
         {/* Intro copy — paragraph 1 */}
@@ -73,10 +73,26 @@ export default function ThankYou() {
             marginRight: 'auto'
           }}
         >
-          You've taken the first step toward building a calm, intentional childcare-based business rooted in meaningful work, child development, and a rhythm that can fit real motherhood.
+          Your free guide, <em>10 Home-Based Kids Programs Moms Can Start This Month</em>, is on its way to your inbox.
         </p>
 
         {/* Intro copy — paragraph 2 */}
+        <p
+          className="ty-intro-2"
+          style={{
+            fontSize: '15px',
+            color: '#5a5a4a',
+            marginBottom: '14px',
+            lineHeight: '1.6',
+            maxWidth: '460px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        >
+          Inside, you'll find simple, realistic program ideas for moms who want flexible income, meaningful work, and a childcare-based business that can fit real family life.
+        </p>
+
+        {/* Intro copy — paragraph 3 */}
         <p
           className="ty-intro-2"
           style={{
@@ -89,7 +105,7 @@ export default function ThankYou() {
             marginRight: 'auto'
           }}
         >
-          I'll send your first email shortly with more details about Mama Launch Studio, the July 8 founding launch, and how The Mama Launch Method™ will guide you step by step.
+          Over the next few days, I'll also send you simple next steps to help you think through your best-fit model, income goals, setup needs, and launch path.
         </p>
 
         {/* What Happens Next card */}
