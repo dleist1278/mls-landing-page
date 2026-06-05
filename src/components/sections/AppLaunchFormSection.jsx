@@ -13,31 +13,17 @@ const US_STATES = [
   "Virginia","Washington","West Virginia","Wisconsin","Wyoming"
 ];
 
-const PATHWAY_OPTIONS = [
-  { label: "Not sure yet — take the quiz", value: "" },
-  { label: "Home Daycare / Nursery", value: "home_daycare_nursery" },
-  { label: "Part-Time Nursery", value: "part_time_nursery" },
-  { label: "Drop-In Care", value: "drop_in_care" },
-  { label: "Kids Classes & Enrichment", value: "kids_classes" },
-  { label: "Mommy & Me / Caregiver & Me", value: "mommy_and_me" },
-  { label: "Playgroup / Open Play", value: "playgroup_open_play" },
-  { label: "Homeschool Pod", value: "homeschool_pod" },
-  { label: "Nanny-Style / Private Care", value: "nanny_style_care" },
-  { label: "Hybrid Model", value: "hybrid_model" },
-];
-
 export default function AppLaunchFormSection() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
 
-  const [firstName, setFirstName]           = useState("");
-  const [email, setEmail]                   = useState("");
-  const [state, setState]                   = useState("");
-  const [pathwayInterest, setPathwayInterest] = useState("");
-  const [submitting, setSubmitting]         = useState(false);
-  const [error, setError]                   = useState("");
-  const [success, setSuccess]               = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail]         = useState("");
+  const [state, setState]         = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError]         = useState("");
+  const [success, setSuccess]     = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,7 +47,6 @@ export default function AppLaunchFormSection() {
       contactType: "App Launch Lead",
       launchInterest: true,
       state: state || undefined,
-      pathwayInterest: pathwayInterest || undefined,
     };
 
     const res = await base44.functions.invoke("hubspotLeadCapture", payload);
@@ -85,7 +70,7 @@ export default function AppLaunchFormSection() {
       }}
     >
       <div
-        className="max-w-2xl mx-auto px-5 sm:px-8 py-14 md:py-20"
+        className="max-w-xl mx-auto px-5 sm:px-8 py-10 md:py-16"
         style={{
           transition: "opacity 0.6s ease, transform 0.6s ease",
           opacity: visible ? 1 : 0,
@@ -112,82 +97,61 @@ export default function AppLaunchFormSection() {
                     COMING SOON
                     <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
                   </p>
-                  <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", lineHeight: "1.2" }}>
-                    Be the first to know when<br />
-                    <em style={{ color: "#4D5E49" }}>Mama Launch Studio opens.</em>
+                  <h2 className="font-display leading-tight mb-3" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", lineHeight: "1.2" }}>
+                    Get App Updates
                   </h2>
-                  <p className="font-body mx-auto" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.7", maxWidth: "44ch" }}>
-                    Join the app launch list to get early access, pathway updates, and launch day details.
+                  <p className="font-body mx-auto" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.65", maxWidth: "38ch" }}>
+                    You'll be the first to know when the app and free Childcare Fit Quiz are ready.
                   </p>
                 </div>
 
                 {error && <p className="font-body text-sm text-center mb-4" style={{ color: "#DC2626" }}>{error}</p>}
 
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto">
-                  <div>
-                    <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>FIRST NAME</label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Sarah"
-                      value={firstName}
-                      onChange={e => setFirstName(e.target.value)}
-                      className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
-                      style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: "#2C2C2C" }}
-                    />
-                  </div>
-                  <div>
-                    <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>EMAIL ADDRESS <span style={{ color: "#DC2626" }}>*</span></label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="e.g. sarah@email.com"
-                      value={email}
-                      onChange={e => setEmail(e.target.value)}
-                      className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
-                      style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: "#2C2C2C" }}
-                    />
-                  </div>
-                  <div>
-                    <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>YOUR STATE</label>
-                    <select
-                      value={state}
-                      onChange={e => setState(e.target.value)}
-                      className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
-                      style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: state ? "#2C2C2C" : "#9a8f84" }}
-                    >
-                      <option value="">Select your state (optional)</option>
-                      {US_STATES.map(s => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>PATHWAY INTEREST (OPTIONAL)</label>
-                    <select
-                      value={pathwayInterest}
-                      onChange={e => setPathwayInterest(e.target.value)}
-                      className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
-                      style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: pathwayInterest ? "#2C2C2C" : "#9a8f84" }}
-                    >
-                      {PATHWAY_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-                    </select>
-                  </div>
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                  <input
+                    type="text"
+                    placeholder="First name"
+                    value={firstName}
+                    onChange={e => setFirstName(e.target.value)}
+                    className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                    style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: "#2C2C2C" }}
+                  />
+                  <input
+                    type="email"
+                    required
+                    placeholder="Email address *"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                    style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: "#2C2C2C" }}
+                  />
+                  <select
+                    value={state}
+                    onChange={e => setState(e.target.value)}
+                    className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                    style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: state ? "#2C2C2C" : "#9a8f84" }}
+                  >
+                    <option value="">State (optional)</option>
+                    {US_STATES.map(s => <option key={s} value={s}>{s}</option>)}
+                  </select>
 
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="font-micro text-white rounded-full py-4 mt-2 flex items-center justify-center gap-2"
+                    className="font-micro text-white rounded-full py-4 w-full flex items-center justify-center gap-2 mt-1"
                     style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.1em", boxShadow: "0 6px 24px rgba(77,94,73,0.28)" }}
                   >
                     {submitting
                       ? <Loader2 className="w-4 h-4 animate-spin" />
-                      : <><span>Join the App Launch List</span><ArrowRight className="w-4 h-4" /></>
+                      : <><span>Get App Updates</span><ArrowRight className="w-4 h-4" /></>
                     }
                   </button>
                 </form>
 
-                <p className="font-body text-xs text-center mt-5" style={{ color: "#9a8f84" }}>
-                  Or start now with the{" "}
+                <p className="font-body text-xs text-center mt-4" style={{ color: "#9a8f84" }}>
+                  Or{" "}
                   <button onClick={() => navigate("/quiz")} className="underline" style={{ color: "#C4956A", background: "none", border: "none", cursor: "pointer", padding: 0 }}>
-                    free Childcare Fit Quiz
+                    take the free quiz now
                   </button>.
                 </p>
               </>

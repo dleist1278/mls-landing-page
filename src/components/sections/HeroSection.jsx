@@ -98,17 +98,17 @@ export default function HeroSection() {
 
             {/* Subheadline */}
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <p
-                className="font-body mb-6 md:text-left text-center"
-                style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.72", maxWidth: "44ch", marginBottom: "1.75rem" }}>
-                Mama Launch Studio is building a guided app for mothers who want to create flexible, modern childcare programs around home, motherhood, income, and community. Start with the free Childcare Fit Quiz and discover which pathway may fit your season, schedule, strengths, and goals.
-              </p>
-              <div className="flex justify-center md:justify-start mb-1">
+              <div className="flex justify-center md:justify-start mb-4">
                 <span className="font-micro inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: "rgba(196,149,106,0.12)", border: "1px solid rgba(196,149,106,0.28)", color: "#A07845", fontSize: "0.62rem", letterSpacing: "0.14em" }}>
-                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#C4956A", display: "inline-block", animation: "heroPulse 2.8s ease-in-out infinite" }} />
-                  The full Mama Launch Studio app is coming soon
+                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#C4956A", display: "inline-block" }} />
+                  App Coming Soon
                 </span>
               </div>
+              <p
+                className="font-body mb-6 md:text-left text-center"
+                style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.65", maxWidth: "36ch" }}>
+                A guided app for mothers building modern childcare programs. Take the free quiz to find which pathway fits your life.
+              </p>
             </div>
 
             <div className="mb-6" />
@@ -119,27 +119,26 @@ export default function HeroSection() {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`
               }>
               
+              <style>{`
+                @keyframes heroPulse {
+                  0%, 100% { box-shadow: 0 4px 20px rgba(77,94,73,0.22); transform: scale(1); }
+                  50% { box-shadow: 0 6px 32px rgba(77,94,73,0.42), 0 0 0 6px rgba(77,94,73,0.08); transform: scale(1.015); }
+                }
+              `}</style>
               <button
                 onClick={goToQuiz}
-                className="font-micro text-white px-8 py-4 rounded-full min-h-[52px] focus-sage w-full sm:w-auto text-center relative overflow-hidden"
+                className="font-micro text-white px-8 py-4 rounded-full min-h-[52px] focus-sage w-full sm:w-auto text-center"
                 style={{
                   backgroundColor: "#4D5E49",
                   fontSize: "0.75rem",
                   letterSpacing: "0.08em",
-                  boxShadow: "0 6px 24px rgba(77,94,73,0.28)",
                   animation: "heroPulse 2.8s ease-in-out infinite"
                 }}>
-                <style>{`
-                  @keyframes heroPulse {
-                    0%, 100% { box-shadow: 0 4px 20px rgba(77,94,73,0.22); transform: scale(1); }
-                    50% { box-shadow: 0 6px 32px rgba(77,94,73,0.42), 0 0 0 6px rgba(77,94,73,0.08); transform: scale(1.015); }
-                  }
-                `}</style>
-                Take the Free Childcare Fit Quiz
-                </button>
+                Take the Free Quiz
+              </button>
               <button
                 onClick={scrollToIntake}
-                className="hidden sm:block font-micro px-8 py-4 rounded-full border transition-all duration-200 min-h-[52px] focus-sage text-center"
+                className="font-micro px-8 py-4 rounded-full border transition-all duration-200 min-h-[52px] focus-sage w-full sm:w-auto text-center"
                 style={{
                   color: "#4D5E49",
                   borderColor: "#4D5E4940",
@@ -147,14 +146,11 @@ export default function HeroSection() {
                   letterSpacing: "0.08em",
                   backgroundColor: "rgba(77,94,73,0.04)"
                 }}>
-                Get App Launch Updates
+                Get App Updates
               </button>
             </div>
 
-            {/* Mobile-only bridge copy */}
-            <p className="md:hidden mt-4 font-body text-xs leading-relaxed text-center w-full" style={{ color: "#7A6E65" }}>
-              The full Mama Launch Studio app is coming soon.
-            </p>
+
             
           </div>
 
