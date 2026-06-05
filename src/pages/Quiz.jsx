@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronRight, ArrowLeft, Loader2 } from "lucide-react";
 import SiteNav from "@/components/SiteNav";
@@ -29,6 +29,11 @@ export default function Quiz() {
 
   const current = QUIZ_QUESTIONS[currentQuestionIndex];
   const progress = Math.round(((currentQuestionIndex + 1) / QUIZ_QUESTIONS.length) * 100);
+
+  // Scroll to top whenever question or step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentQuestionIndex, currentStep]);
 
   // ── Lead Capture Submit ──
   const handleLeadSubmit = async (e) => {

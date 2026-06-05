@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Loader2, ArrowRight } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import { PATHWAY_LABELS, PATHWAY_DESCRIPTIONS, HOME_BASED_PATHWAYS } from "@/lib/quizConfig";
+import { PATHWAY_RICH_CONTENT } from "@/lib/pathwayContent";
 
 export default function QuizResult() {
   const location = useLocation();
@@ -15,9 +16,14 @@ export default function QuizResult() {
   const [error, setError]           = useState("");
   const [saved, setSaved]           = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const primaryLabel = PATHWAY_LABELS[result.primary] || "Your Best-Fit Pathway";
   const description  = PATHWAY_DESCRIPTIONS[result.primary] || "";
   const isHomeBased  = HOME_BASED_PATHWAYS.includes(result.primary);
+  const richContent  = PATHWAY_RICH_CONTENT[result.primary] || null;
 
   if (!result.primary) {
     return (
@@ -67,7 +73,6 @@ export default function QuizResult() {
         careLocation:      answers.q_care_location,
       };
 
-      // Include contactId for direct patch — email is fallback upsert
       if (savedContactId) payload.contactId = savedContactId;
 
       const res = await base44.functions.invoke("hubspotLeadCapture", payload);
@@ -75,6 +80,7 @@ export default function QuizResult() {
 
       if (res.data?.success) {
         setSaved(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         setError("Something went wrong saving your result. Your quiz result is still here — please try again in a moment.");
       }
@@ -88,52 +94,81 @@ export default function QuizResult() {
   const displayEmail = leadForm.email || "";
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2" }}>
+    <div
+      className="min-h-screen flex flex-col"
+      style={{ backgroundColor: "#FAF7F2", overflowX: "hidden", maxWidth: "100vw" }}
+    >
       <SiteNav />
-      <main className="flex-1 w-full max-w-2xl mx-auto px-5 py-10 md:py-20">
+      <main
+        className="flex-1 w-full max-w-2xl mx-auto px-4 sm:px-5 py-8 md:py-16"
+        style={{ paddingBottom: "calc(100px + env(safe-area-inset-bottom, 0px))" }}
+      >
 
-        {/* Result card */}
+        {/* 1. Result badge + title + short description */}
         <div
-          className="rounded-3xl mb-6 overflow-hidden"
+          className="rounded-3xl mb-5 overflow-hidden"
           style={{
             background: "linear-gradient(145deg, #F0EBE1 0%, #E8DDD0 100%)",
             border: "1px solid rgba(196,149,106,0.18)",
             boxShadow: "0 8px 40px rgba(44,44,44,0.06)",
+            maxWidth: "100%",
+            boxSizing: "border-box",
           }}
         >
           <div style={{ height: "4px", background: "linear-gradient(90deg, #C4956A, #4D5E49, #C4956A)" }} />
-          <div className="p-6 md:p-10">
+          <div className="p-5 md:p-10">
             <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.18em" }}>
               YOUR CHILDCARE FIT RESULT
             </p>
-            <h1 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", lineHeight: "1.15" }}>
+            <h1 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 5vw, 2.6rem)", lineHeight: "1.15" }}>
               {primaryLabel}
             </h1>
-            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1.1rem", lineHeight: "1.7" }}>
+            <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.7" }}>
               {description}
             </p>
-
-            {/* Licensing + insurance setup note for home-based pathways */}
-            {isHomeBased && (
-              <div className="mt-5 rounded-xl p-4" style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.14)" }}>
-                <p className="font-micro mb-1" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
-                  BEFORE YOU OPEN YOUR DOORS
-                </p>
-                <p className="font-body" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
-                  Before accepting children into care, confirm your licensing pathway, home/business insurance needs, parent policies, emergency procedures, and local requirements. Mama Launch helps you organize this inside the <strong>Licensing + Business Protection</strong> setup path.
-                </p>
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Save result / waitlist CTA */}
+        {/* 2. Rich content sections */}
+        {richContent && (
+          <div className="flex flex-col gap-4 mb-5">
+
+            {/* Why this pathway fits you */}
+            <RichSection eyebrow="WHY THIS PATHWAY FITS YOU" text={richContent.why} accentColor="#C4956A" bgColor="rgba(196,149,106,0.05)" borderColor="rgba(196,149,106,0.16)" />
+
+            {/* What this can become */}
+            <RichSection eyebrow="WHAT THIS CAN BECOME" text={richContent.become} accentColor="#4D5E49" bgColor="rgba(77,94,73,0.04)" borderColor="rgba(77,94,73,0.14)" />
+
+            {/* Your Phase 1 focus */}
+            <RichSection eyebrow="YOUR PHASE 1 FOCUS" text={richContent.phase1} accentColor="#4D5E49" bgColor="rgba(77,94,73,0.06)" borderColor="rgba(77,94,73,0.16)" />
+
+          </div>
+        )}
+
+        {/* 3. Before you open your doors — home-based only */}
+        {isHomeBased && (
+          <div
+            className="rounded-2xl p-5 mb-5"
+            style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.14)", maxWidth: "100%", boxSizing: "border-box" }}
+          >
+            <p className="font-micro mb-2" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
+              BEFORE YOU OPEN YOUR DOORS
+            </p>
+            <p className="font-body" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.7" }}>
+              Before accepting children into care, confirm your licensing pathway, home/business insurance needs, parent policies, emergency procedures, and local requirements. Mama Launch helps you organize this inside the <strong>Licensing + Business Protection</strong> setup path.
+            </p>
+          </div>
+        )}
+
+        {/* 4. Save result / waitlist card */}
         <div
-          className="rounded-3xl p-6 md:p-10"
+          className="rounded-3xl p-5 md:p-10"
           style={{
             backgroundColor: "#FFFDF9",
             border: "1px solid rgba(196,149,106,0.14)",
             boxShadow: "0 4px 24px rgba(44,44,44,0.04)",
+            maxWidth: "100%",
+            boxSizing: "border-box",
           }}
         >
           {saved ? (
@@ -143,35 +178,23 @@ export default function QuizResult() {
               </div>
               <p className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "1.3rem" }}>Your result is saved!</p>
               <p className="font-body mb-1" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.6" }}>
-                Your result has been saved. You're on the Mama Launch waitlist.
+                You're on the Mama Launch waitlist.
               </p>
               {displayEmail && (
-                <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.85rem" }}>
+                <p className="font-body mt-1" style={{ color: "#9a8f84", fontSize: "0.85rem" }}>
                   Check {displayEmail} soon for your saved pathway and next steps.
                 </p>
               )}
-              <button
-                disabled
-                className="font-micro text-white rounded-full py-3 px-6 mt-5 opacity-70"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.1em" }}
-              >
-                Saved — you're on the list ✓
-              </button>
             </div>
           ) : (
             <>
-              <h2 className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "1.5rem", lineHeight: "1.2" }}>
-                Save your result & join the Mama Launch waitlist
+              <h2 className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "clamp(1.25rem, 4vw, 1.5rem)", lineHeight: "1.2" }}>
+                Ready to build this with support?
               </h2>
-              {displayEmail ? (
-                <p className="font-body mb-6" style={{ color: "#7A6E65", fontSize: "0.95rem", lineHeight: "1.6" }}>
-                  Your result is ready — we'll send a copy to <strong>{displayEmail}</strong>.
-                </p>
-              ) : (
-                <p className="font-body mb-6" style={{ color: "#7A6E65", fontSize: "0.95rem", lineHeight: "1.6" }}>
-                  Save your Childcare Fit result and get notified when Mama Launch opens.
-                </p>
-              )}
+              <p className="font-body mb-5" style={{ color: "#7A6E65", fontSize: "0.95rem", lineHeight: "1.65" }}>
+                Inside Mama Launch, you'll get the roadmap, setup guidance, licensing and insurance organization, parent policies, pricing support, and systems to turn this pathway into a real business.
+                {displayEmail && <><br /><span style={{ color: "#9a8f84", fontSize: "0.85rem" }}>We'll send a copy of your result to <strong>{displayEmail}</strong>.</span></>}
+              </p>
 
               {error && (
                 <p className="font-body text-sm mb-4 p-3 rounded-xl" style={{ color: "#92400E", backgroundColor: "rgba(196,149,106,0.12)", border: "1px solid rgba(196,149,106,0.25)" }}>
@@ -184,18 +207,47 @@ export default function QuizResult() {
                 onClick={handleSaveResult}
                 disabled={submitting}
                 className="w-full font-micro text-white rounded-full py-4 flex items-center justify-center gap-2 transition-opacity disabled:opacity-60"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.1em", boxShadow: "0 6px 24px rgba(77,94,73,0.28)" }}
+                style={{
+                  backgroundColor: "#4D5E49",
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.08em",
+                  boxShadow: "0 6px 24px rgba(77,94,73,0.28)",
+                  maxWidth: "100%",
+                  whiteSpace: "normal",
+                  lineHeight: "1.3",
+                  minHeight: "56px",
+                  boxSizing: "border-box",
+                }}
               >
                 {submitting
-                  ? <Loader2 className="w-4 h-4 animate-spin" />
-                  : <><span>SEND MY RESULT + JOIN THE WAITLIST</span><ArrowRight className="w-4 h-4" /></>
+                  ? <Loader2 className="w-4 h-4 animate-spin flex-shrink-0" />
+                  : <><span>SAVE MY RESULT + JOIN WAITLIST</span><ArrowRight className="w-4 h-4 flex-shrink-0" /></>
                 }
               </button>
             </>
           )}
         </div>
+
       </main>
       <SiteFooter />
+    </div>
+  );
+}
+
+function RichSection({ eyebrow, text, accentColor, bgColor, borderColor }) {
+  return (
+    <div
+      className="rounded-2xl p-5"
+      style={{ backgroundColor: bgColor, border: `1px solid ${borderColor}`, maxWidth: "100%", boxSizing: "border-box" }}
+    >
+      <p className="font-micro mb-2" style={{ color: accentColor, fontSize: "0.58rem", letterSpacing: "0.14em" }}>
+        {eyebrow}
+      </p>
+      {text.split("\n\n").map((para, i) => (
+        <p key={i} className="font-body" style={{ color: "#5C5148", fontSize: "0.92rem", lineHeight: "1.72", marginBottom: i < text.split("\n\n").length - 1 ? "0.75rem" : 0 }}>
+          {para}
+        </p>
+      ))}
     </div>
   );
 }
