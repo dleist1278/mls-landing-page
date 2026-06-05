@@ -1,43 +1,10 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Loader2, CheckCircle2, ArrowRight } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
-
-const PATHWAY_LABELS = {
-  home_daycare_nursery: "Home Daycare / Nursery",
-  part_time_nursery: "Part-Time Nursery",
-  drop_in_care: "Drop-In Care",
-  kids_classes: "Kids Classes & Enrichment",
-  mommy_and_me: "Mommy & Me / Caregiver & Me",
-  playgroup_open_play: "Playgroup / Open Play",
-  homeschool_pod: "Homeschool Pod",
-  nanny_style_care: "Nanny-Style / Private Care",
-  hybrid_model: "Hybrid Model",
-};
-
-const PATHWAY_DESCRIPTIONS = {
-  home_daycare_nursery: "A calm, structured home-based program woven into your daily family life. Great for consistent income and building deep relationships with a small group of families.",
-  part_time_nursery: "A flexible part-time program — perfect for mothers who want structure without a full-day commitment.",
-  drop_in_care: "Flexible, on-demand care for families who need occasional coverage. Low barrier to entry with strong community demand.",
-  kids_classes: "Enrichment classes, workshops, or themed programs. Great for educators who want variety and don't want to commit to full-day care.",
-  mommy_and_me: "Parent-present programs that build community while introducing structured learning for young children and caregivers.",
-  playgroup_open_play: "Community-driven open play or guided group time. Ideal for mothers who love connection and low-key structured fun.",
-  homeschool_pod: "A small-group learning environment for school-age children. Perfect for educators who want to design their own curriculum.",
-  nanny_style_care: "Dedicated in-home care for one family. Intimate, flexible, and relationship-centered.",
-  hybrid_model: "A combination of care types and income streams. Great for mothers who want variety and maximum flexibility.",
-};
-
-const US_STATES = [
-  "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware",
-  "Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky",
-  "Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi",
-  "Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico",
-  "New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
-  "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont",
-  "Virginia","Washington","West Virginia","Wisconsin","Wyoming"
-];
+import { PATHWAY_LABELS, PATHWAY_DESCRIPTIONS, HOME_BASED_PATHWAYS, US_STATES } from "@/lib/quizConfig";
 
 export default function QuizResult() {
   const location = useLocation();
@@ -49,12 +16,11 @@ export default function QuizResult() {
   const [state, setState]         = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]         = useState("");
-  const [saved, setSaved]         = useState(false);
 
-  const primaryLabel = PATHWAY_LABELS[result.primary] || "Your Best-Fit Pathway";
-  const description  = PATHWAY_DESCRIPTIONS[result.primary] || "";
+  const primaryLabel  = PATHWAY_LABELS[result.primary] || "Your Best-Fit Pathway";
+  const description   = PATHWAY_DESCRIPTIONS[result.primary] || "";
+  const isHomeBased   = HOME_BASED_PATHWAYS.includes(result.primary);
 
-  // If user landed here directly without quiz data, redirect back
   if (!result.primary) {
     return (
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2" }}>
@@ -80,33 +46,40 @@ export default function QuizResult() {
     setSubmitting(true);
     setError("");
 
-    const res = await base44.functions.invoke("hubspotLeadCapture", {
-      email,
-      firstName,
-      source: "quiz",
-      contactType: "Quiz Lead",
-      quizTaken: true,
-      quizCompletedDate: new Date().toISOString(),
-      primaryPathway: result.primary,
-      secondaryPathways: result.secondary,
-      pathway: result.primary,
-      state,
-      incomeGoal:       answers.incomeGoal,
-      incomeStyle:      answers.incomeStyle,
-      launchTimeline:   answers.launchTimeline,
-      biggestBlocker:   answers.biggestBlocker,
-      supportNeeded:    answers.supportNeeded,
-      readinessLevel:   answers.readinessLevel,
-      providerIdentity: answers.providerIdentity,
-      parentPresence:   answers.parentPresence,
-      careLocation:     answers.careLocation,
-    });
+    try {
+      const res = await base44.functions.invoke("hubspotLeadCapture", {
+        email,
+        firstName,
+        source: "quiz",
+        contactType: "Quiz Lead",
+        quizTaken: true,
+        quizCompletedDate: new Date().toISOString(),
+        primaryPathway: result.primary,
+        secondaryPathways: result.secondary,
+        pathway: result.primary,
+        state,
+        incomeGoal:         answers.q_income_goal,
+        incomeStyle:        answers.q_income_style,
+        launchTimeline:     answers.q_launch_timeline,
+        biggestBlocker:     answers.q_biggest_blocker,
+        supportNeeded:      Array.isArray(answers.q_support_needed) ? answers.q_support_needed.join(", ") : answers.q_support_needed,
+        readinessLevel:     answers.q_readiness_level,
+        providerIdentity:   answers.q_provider_identity,
+        parentPresence:     answers.q_parent_presence,
+        careLocation:       answers.q_care_location,
+      });
 
-    setSubmitting(false);
-    if (res.data?.success) {
-      navigate("/quiz/join", { state: { primaryLabel, firstName } });
-    } else {
-      setError(res.data?.error || "Something went wrong. Please try again.");
+      setSubmitting(false);
+
+      if (res.data?.success) {
+        navigate("/quiz/join", { state: { primaryLabel, firstName } });
+      } else {
+        setError(res.data?.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      console.error("Quiz lead capture failed:", err);
+      setSubmitting(false);
+      setError(err.message || "A network error occurred. Please try again.");
     }
   };
 
@@ -135,6 +108,18 @@ export default function QuizResult() {
             <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1.1rem", lineHeight: "1.7" }}>
               {description}
             </p>
+
+            {/* Licensing + insurance setup note for home-based pathways */}
+            {isHomeBased && (
+              <div className="mt-5 rounded-xl p-4" style={{ backgroundColor: "rgba(77,94,73,0.06)", border: "1px solid rgba(77,94,73,0.14)" }}>
+                <p className="font-micro mb-1" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
+                  BEFORE YOU OPEN YOUR DOORS
+                </p>
+                <p className="font-body" style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.65" }}>
+                  Before accepting children into care, confirm your licensing pathway, home/business insurance needs, parent policies, emergency procedures, and local requirements. Mama Launch helps you organize this inside the <strong>Licensing + Business Protection</strong> setup path.
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -195,7 +180,7 @@ export default function QuizResult() {
                 style={{ border: "1px solid #E0D1BF", backgroundColor: "#FAF7F2", color: state ? "#2C2C2C" : "#9a8f84" }}
               >
                 <option value="">Select your state (optional)</option>
-                {US_STATES.map(s => <option key={s} value={s}>{s}</option>)}
+                {US_STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
               </select>
             </div>
             <button
