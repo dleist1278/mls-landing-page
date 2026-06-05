@@ -10,7 +10,16 @@ import { PATHWAY_RICH_CONTENT } from "@/lib/pathwayContent";
 export default function QuizResult() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { answers = {}, result = {}, leadForm = {}, savedContactId } = location.state || {};
+
+  // Restore from sessionStorage if state was lost (page refresh)
+  const stateData = location.state || (() => {
+    try {
+      const s = sessionStorage.getItem("mls_quiz_result");
+      return s ? JSON.parse(s) : null;
+    } catch (_) { return null; }
+  })();
+
+  const { answers = {}, result = {}, leadForm = {}, savedContactId } = stateData || {};
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]           = useState("");
@@ -27,17 +36,39 @@ export default function QuizResult() {
 
   if (!result.primary) {
     return (
-      <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2" }}>
+      <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2", overflowX: "hidden", width: "100%" }}>
         <SiteNav />
-        <main className="flex-1 flex flex-col items-center justify-center px-5 text-center gap-4">
-          <p className="font-body" style={{ color: "#5C5148" }}>No quiz result found. Please take the quiz first.</p>
-          <button
-            onClick={() => navigate("/quiz")}
-            className="font-micro text-white px-6 py-3 rounded-full"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem" }}
+        <main
+          className="flex-1 w-full max-w-2xl mx-auto flex flex-col justify-center"
+          style={{ padding: "48px 16px calc(100px + env(safe-area-inset-bottom, 0px))" }}
+        >
+          <div
+            className="rounded-3xl w-full"
+            style={{
+              background: "linear-gradient(145deg, #F0EBE1 0%, #E8DDD0 100%)",
+              border: "1px solid rgba(196,149,106,0.14)",
+              boxShadow: "0 8px 40px rgba(44,44,44,0.05)",
+              padding: "clamp(24px, 6vw, 48px)",
+              textAlign: "center",
+            }}
           >
-            Take the Quiz
-          </button>
+            <p className="font-micro mb-4" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.18em" }}>
+              CHILDCARE FIT QUIZ
+            </p>
+            <h1 className="font-display mb-4" style={{ color: "#2C2C2C", fontSize: "clamp(1.6rem, 5vw, 2.4rem)", lineHeight: "1.2" }}>
+              Your quiz result isn't available yet.
+            </h1>
+            <p className="font-body mx-auto mb-8" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.7", maxWidth: "38ch" }}>
+              Take the free Childcare Fit Quiz to discover which Mama Launch pathway fits your season of life, your home, your schedule, and the kind of village you want to build.
+            </p>
+            <button
+              onClick={() => navigate("/quiz")}
+              className="font-micro text-white rounded-full w-full"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", minHeight: "56px", padding: "16px 24px", boxShadow: "0 6px 24px rgba(77,94,73,0.28)", whiteSpace: "normal", lineHeight: "1.25" }}
+            >
+              TAKE THE FREE QUIZ
+            </button>
+          </div>
         </main>
         <SiteFooter />
       </div>
@@ -96,12 +127,12 @@ export default function QuizResult() {
   return (
     <div
       className="min-h-screen flex flex-col"
-      style={{ backgroundColor: "#FAF7F2", overflowX: "hidden", maxWidth: "100vw" }}
+      style={{ backgroundColor: "#FAF7F2", overflowX: "hidden", width: "100%" }}
     >
       <SiteNav />
       <main
-        className="flex-1 w-full max-w-2xl mx-auto px-4 sm:px-5 py-8 md:py-16"
-        style={{ paddingBottom: "calc(100px + env(safe-area-inset-bottom, 0px))" }}
+        className="flex-1 w-full max-w-2xl mx-auto"
+        style={{ padding: "32px 16px calc(120px + env(safe-area-inset-bottom, 0px))" }}
       >
 
         {/* 1. Result badge + title + short description */}

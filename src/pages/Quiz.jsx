@@ -80,14 +80,9 @@ export default function Quiz() {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       const result = calculatePathwayScore(updated);
-      navigate("/quiz/result", {
-        state: {
-          answers: updated,
-          result,
-          leadForm,
-          savedContactId,
-        },
-      });
+      const resultState = { answers: updated, result, leadForm, savedContactId };
+      try { sessionStorage.setItem("mls_quiz_result", JSON.stringify(resultState)); } catch (_) {}
+      navigate("/quiz/result", { state: resultState });
     }
   };
 
@@ -142,14 +137,16 @@ export default function Quiz() {
                 type="button"
                 disabled={isDisabled}
                 onClick={() => toggleMulti(opt.value)}
-                className="font-body text-left p-4 rounded-xl flex items-center justify-between transition-all duration-200 disabled:opacity-50"
+                className="font-body text-left rounded-xl flex items-center justify-between transition-all duration-200 disabled:opacity-50 w-full"
                 style={{
                   backgroundColor: isSelected ? "#FFFDF9" : "rgba(255,253,249,0.85)",
                   border: isSelected ? "2px solid #4D5E49" : "1px solid rgba(196,149,106,0.18)",
                   boxShadow: isSelected ? "0 4px 12px rgba(77,94,73,0.08)" : "none",
+                  padding: "14px 16px",
+                  minWidth: 0,
                 }}
               >
-                <span className="font-body text-sm md:text-base" style={{ color: "#2C2C2C", fontWeight: isSelected ? "500" : "normal" }}>
+                <span className="font-body text-sm" style={{ color: "#2C2C2C", fontWeight: isSelected ? "500" : "normal", lineHeight: "1.4", wordBreak: "normal", overflowWrap: "break-word", minWidth: 0, flex: 1 }}>
                   {opt.label}
                 </span>
                 <div
@@ -194,8 +191,8 @@ export default function Quiz() {
             key={opt.value}
             type="button"
             onClick={() => handleSingleSelect(opt.value)}
-            className="font-body text-left p-4 rounded-xl flex items-center justify-between group transition-all duration-200"
-            style={{ backgroundColor: "rgba(255,253,249,0.85)", border: "1px solid rgba(196,149,106,0.18)" }}
+            className="font-body text-left rounded-xl flex items-center justify-between group transition-all duration-200 w-full"
+            style={{ backgroundColor: "rgba(255,253,249,0.85)", border: "1px solid rgba(196,149,106,0.18)", padding: "14px 16px", minWidth: 0 }}
             onMouseEnter={e => {
               e.currentTarget.style.backgroundColor = "#FFFDF9";
               e.currentTarget.style.borderColor = "rgba(77,94,73,0.35)";
@@ -207,7 +204,7 @@ export default function Quiz() {
               e.currentTarget.style.boxShadow = "none";
             }}
           >
-            <span className="font-body text-sm md:text-base" style={{ color: "#2C2C2C", lineHeight: "1.5" }}>
+            <span className="font-body text-sm" style={{ color: "#2C2C2C", lineHeight: "1.4", flex: 1, minWidth: 0, wordBreak: "normal", overflowWrap: "break-word" }}>
               {opt.label}
             </span>
             <ChevronRight className="w-4 h-4 flex-shrink-0 ml-3" style={{ color: "#C4956A" }} />
@@ -220,15 +217,19 @@ export default function Quiz() {
   // ── LEAD CAPTURE SCREEN ──
   if (currentStep === "lead_capture") {
     return (
-      <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2" }}>
+      <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2", overflowX: "hidden", width: "100%" }}>
         <SiteNav />
-        <main className="flex-1 w-full max-w-2xl mx-auto px-5 py-10 md:py-20">
+        <main
+          className="flex-1 w-full max-w-2xl mx-auto"
+          style={{ padding: "40px 16px calc(120px + env(safe-area-inset-bottom, 0px))" }}
+        >
           <div
-            className="rounded-3xl p-6 md:p-10"
+            className="rounded-3xl w-full"
             style={{
               background: "linear-gradient(145deg, #F0EBE1 0%, #E8DDD0 100%)",
               border: "1px solid rgba(196,149,106,0.14)",
               boxShadow: "0 8px 40px rgba(44,44,44,0.05)",
+              padding: "clamp(20px, 5vw, 40px)",
             }}
           >
             <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.16em" }}>
@@ -312,11 +313,11 @@ export default function Quiz() {
               <button
                 type="submit"
                 disabled={leadSubmitting}
-                className="font-micro text-white rounded-full py-4 flex items-center justify-center gap-2 transition-opacity disabled:opacity-60 mt-2"
-                style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.1em", boxShadow: "0 6px 24px rgba(77,94,73,0.28)" }}
+                className="font-micro text-white rounded-full flex items-center justify-center gap-2 transition-opacity disabled:opacity-60 mt-2 w-full text-center"
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.28)", minHeight: "56px", padding: "16px 24px", whiteSpace: "normal", lineHeight: "1.25" }}
               >
                 {leadSubmitting
-                  ? <Loader2 className="w-4 h-4 animate-spin" />
+                  ? <Loader2 className="w-4 h-4 animate-spin flex-shrink-0" />
                   : "START MY FREE CHILDCARE FIT QUIZ"
                 }
               </button>
@@ -334,21 +335,24 @@ export default function Quiz() {
 
   // ── QUIZ SCREEN ──
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2" }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2", overflowX: "hidden", width: "100%" }}>
       <SiteNav />
-      <main className="flex-1 w-full max-w-2xl mx-auto px-5 py-10 md:py-20">
+      <main
+        className="flex-1 w-full max-w-2xl mx-auto"
+        style={{ padding: "32px 16px calc(120px + env(safe-area-inset-bottom, 0px))" }}
+      >
         {/* Progress bar */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-2">
+        <div className="mb-6 w-full">
+          <div className="flex items-center justify-between mb-2 w-full" style={{ gap: "12px" }}>
             <button
               type="button"
               onClick={handleBack}
-              className="flex items-center gap-1 font-body text-sm transition-opacity"
-              style={{ color: "#7A6E65" }}
+              className="flex items-center gap-1 font-body text-sm transition-opacity flex-shrink-0"
+              style={{ color: "#7A6E65", whiteSpace: "nowrap" }}
             >
-              <ArrowLeft className="w-4 h-4" /> Back
+              <ArrowLeft className="w-4 h-4 flex-shrink-0" /> Back
             </button>
-            <span className="font-micro text-xs" style={{ color: "#C4956A", letterSpacing: "0.12em" }}>
+            <span className="font-micro text-xs flex-shrink-0" style={{ color: "#C4956A", letterSpacing: "0.1em", whiteSpace: "nowrap" }}>
               {currentQuestionIndex + 1} OF {QUIZ_QUESTIONS.length}
             </span>
           </div>
@@ -363,17 +367,22 @@ export default function Quiz() {
         {/* Question card */}
         <div
           key={currentQuestionIndex}
-          className="rounded-3xl p-6 md:p-10"
+          className="w-full rounded-3xl"
           style={{
             background: "linear-gradient(145deg, #F0EBE1 0%, #E8DDD0 100%)",
             border: "1px solid rgba(196,149,106,0.14)",
             boxShadow: "0 8px 40px rgba(44,44,44,0.05)",
+            padding: "clamp(20px, 5vw, 40px)",
+            overflow: "hidden",
           }}
         >
           <p className="font-micro mb-2" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.16em" }}>
             CHILDCARE FIT QUIZ
           </p>
-          <h2 className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "clamp(1.5rem, 4vw, 2.2rem)", lineHeight: "1.2" }}>
+          <h2
+            className="font-display mb-2"
+            style={{ color: "#2C2C2C", fontSize: "clamp(1.35rem, 5.5vw, 2.2rem)", lineHeight: "1.2", wordBreak: "normal", overflowWrap: "break-word" }}
+          >
             {current.text}
           </h2>
           {current.subtext && (
@@ -381,7 +390,7 @@ export default function Quiz() {
               {current.subtext}
             </p>
           )}
-          {!current.subtext && <div className="mb-7" />}
+          {!current.subtext && <div className="mb-6" />}
 
           {renderOptions()}
         </div>
