@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [navVisible, setNavVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let ticking = false;
@@ -76,11 +78,11 @@ export default function SiteNav() {
             </button>
           ))}
           <button
-            onClick={() => scrollTo("intake")}
+            onClick={() => navigate("/quiz")}
             className="font-micro text-white rounded-full transition-all duration-200 hover:opacity-90 focus-sage"
             style={{ backgroundColor: "#4D5E49", fontSize: "0.82rem", letterSpacing: "0.07em", padding: "14px 28px", boxShadow: "0 4px 16px rgba(77,94,73,0.22)", minHeight: "48px" }}
           >
-            Join the Founding Member Waitlist
+            Take the Free Quiz
           </button>
         </div>
 
@@ -124,11 +126,11 @@ export default function SiteNav() {
           <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A33" }} />
           {/* CTA */}
           <button
-            onClick={() => scrollTo("intake")}
+            onClick={() => { navigate("/quiz"); setMenuOpen(false); }}
             className="font-micro text-white px-6 py-4 rounded-full min-h-[52px] focus-sage w-full text-center"
             style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem" }}
           >
-            Join the Founding Member Waitlist
+            Take the Free Quiz
           </button>
         </div>
       )}

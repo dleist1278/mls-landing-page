@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import HeroImage from "@/components/sections/HeroImage";
 import { trackCTAClick } from "@/lib/analytics";
@@ -6,6 +7,7 @@ import { trackCTAClick } from "@/lib/analytics";
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
   const [heroImageData, setHeroImageData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 100);
@@ -15,13 +17,13 @@ export default function HeroSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  const scrollToIntake = () => {
-    trackCTAClick("Join the Founding Member Waitlist", "hero");
-    document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
+  const goToQuiz = () => {
+    trackCTAClick("Take the Free Childcare Fit Quiz", "hero");
+    navigate("/quiz");
   };
-  const scrollToMethod = () => {
-    trackCTAClick("Explore the Method", "hero");
-    document.getElementById("method")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToIntake = () => {
+    trackCTAClick("Get App Launch Updates", "hero");
+    document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -60,19 +62,19 @@ export default function HeroSection() {
             <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1
               className="font-display mb-5 break-words md:text-left text-center"
-                style={{
-                  color: "#2C2C2C",
-                  fontSize: "clamp(2.4rem, 7vw, 4.2rem)",
-                  letterSpacing: "-0.02em",
-                  lineHeight: "1.12",
-                  maxWidth: "100%",
-                  wordBreak: "break-word",
-                  overflowWrap: "break-word",
-                }}>
-                
-                Reimagining Home Childcare for
-                <br />
-                <em style={{ color: "#4D5E49" }}>Modern Motherhood.</em>
+              style={{
+                color: "#2C2C2C",
+                fontSize: "clamp(2.4rem, 7vw, 4.2rem)",
+                letterSpacing: "-0.02em",
+                lineHeight: "1.12",
+                maxWidth: "100%",
+                wordBreak: "break-word",
+                overflowWrap: "break-word",
+              }}>
+
+              Find the childcare path
+              <br />
+              <em style={{ color: "#4D5E49" }}>that fits your life.</em>
               </h1>
             </div>
 
@@ -98,10 +100,15 @@ export default function HeroSection() {
             <div className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p
                 className="font-body mb-6 md:text-left text-center"
-                style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.72", maxWidth: "38ch", marginBottom: "1.75rem" }}>
-                
-                Build a <strong style={{ color: "#2C2C2C", fontWeight: 500 }}>flexible childcare business</strong><br />around your life, your family, and your goals.
+                style={{ color: "#5C5148", fontSize: "1rem", lineHeight: "1.72", maxWidth: "44ch", marginBottom: "1.75rem" }}>
+                Mama Launch Studio is building a guided app for mothers who want to create flexible, modern childcare programs around home, motherhood, income, and community. Start with the free Childcare Fit Quiz and discover which pathway may fit your season, schedule, strengths, and goals.
               </p>
+              <div className="flex justify-center md:justify-start mb-1">
+                <span className="font-micro inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: "rgba(196,149,106,0.12)", border: "1px solid rgba(196,149,106,0.28)", color: "#A07845", fontSize: "0.62rem", letterSpacing: "0.14em" }}>
+                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#C4956A", display: "inline-block", animation: "heroPulse 2.8s ease-in-out infinite" }} />
+                  The full Mama Launch Studio app is coming soon
+                </span>
+              </div>
             </div>
 
             <div className="mb-6" />
@@ -113,7 +120,7 @@ export default function HeroSection() {
               }>
               
               <button
-                onClick={scrollToIntake}
+                onClick={goToQuiz}
                 className="font-micro text-white px-8 py-4 rounded-full min-h-[52px] focus-sage w-full sm:w-auto text-center relative overflow-hidden"
                 style={{
                   backgroundColor: "#4D5E49",
@@ -128,10 +135,10 @@ export default function HeroSection() {
                     50% { box-shadow: 0 6px 32px rgba(77,94,73,0.42), 0 0 0 6px rgba(77,94,73,0.08); transform: scale(1.015); }
                   }
                 `}</style>
-                Join the Founding Member Waitlist
+                Take the Free Childcare Fit Quiz
                 </button>
               <button
-                onClick={scrollToMethod}
+                onClick={scrollToIntake}
                 className="hidden sm:block font-micro px-8 py-4 rounded-full border transition-all duration-200 min-h-[52px] focus-sage text-center"
                 style={{
                   color: "#4D5E49",
@@ -140,13 +147,13 @@ export default function HeroSection() {
                   letterSpacing: "0.08em",
                   backgroundColor: "rgba(77,94,73,0.04)"
                 }}>
-                Explore the Method
+                Get App Launch Updates
               </button>
             </div>
 
             {/* Mobile-only bridge copy */}
             <p className="md:hidden mt-4 font-body text-xs leading-relaxed text-center w-full" style={{ color: "#7A6E65" }}>
-              The step-by-step path from idea to opening day.
+              The full Mama Launch Studio app is coming soon.
             </p>
             
           </div>

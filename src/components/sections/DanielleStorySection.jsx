@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { GraduationCap, Home, Heart, ArrowRight, LayoutDashboard, Lightbulb, Gift } from "lucide-react";
 
 const credentials = [
@@ -130,6 +131,7 @@ export default function DanielleStorySection() {
   const [openDrawer, setOpenDrawer] = useState(-1);
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(([e]) => {if (e.isIntersecting) setVisible(true);}, { threshold: 0.06 });
@@ -207,14 +209,14 @@ export default function DanielleStorySection() {
             {/* CTA — directly under photo */}
             <div className="flex flex-col items-center text-center" style={{ marginTop: "24px", gap: "14px" }}>
               <p className="font-body" style={{ color: "#7A6E65", fontSize: "1.1rem", lineHeight: "1.6" }}>
-                Ready to build with guidance instead of figuring it out alone?
+                Ready to find your best-fit childcare pathway?
               </p>
               <button
-                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => navigate("/quiz")}
                 className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
                 style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
               >
-                Join the Founding Member Waitlist
+                Take the Free Childcare Fit Quiz
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </div>
@@ -263,10 +265,10 @@ export default function DanielleStorySection() {
 
           <div className="flex justify-center">
             <button
-              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => navigate("/quiz")}
               className="font-micro inline-flex items-center gap-2 text-white px-5 py-3.5 rounded-full min-h-[48px] whitespace-nowrap"
               style={{ backgroundColor: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.07em", boxShadow: "0 8px 32px rgba(77,94,73,0.32), 0 2px 8px rgba(0,0,0,0.10)" }}>
-              Join the Founding Member Waitlist
+              Take the Free Childcare Fit Quiz
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </div>

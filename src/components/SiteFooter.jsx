@@ -1,14 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SiteFooter() {
+  const navigate = useNavigate();
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   const navLinks = [
-  { label: "The Method", id: "method" },
-  { label: "Program Pathways", id: "models" },
-  { label: "Community", id: "ecosystem" },
+  { label: "Pathways", id: "pathways" },
+  { label: "How It Works", id: null, href: "/#intake" },
   { label: "Meet Danielle", id: "founder" },
-  { label: "Join the Waitlist", id: "intake" }];
+  { label: "Get App Updates", id: "intake" }];
 
 
   return (
@@ -33,13 +34,19 @@ export default function SiteFooter() {
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {navLinks.map((item) =>
             <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
+              key={item.label}
+              onClick={() => item.id ? scrollTo(item.id) : undefined}
               className="font-micro transition-colors duration-150 hover:text-white"
               style={{ color: "#6A5E57", fontSize: "0.68rem", letterSpacing: "0.08em", background: "none", border: "none", padding: 0, cursor: "pointer" }}>
                 {item.label}
               </button>
             )}
+          <button
+            onClick={() => navigate("/quiz")}
+            className="font-micro transition-colors duration-150 hover:text-white"
+            style={{ color: "#C4956A", fontSize: "0.68rem", letterSpacing: "0.08em", background: "none", border: "none", padding: 0, cursor: "pointer" }}>
+            Take the Free Quiz
+          </button>
           </nav>
         </div>
 
