@@ -82,12 +82,14 @@ export const QUESTIONS = [
     id: "q_age_group",
     text: "What age group are you most drawn to caring for?",
     type: "multi",
-    maxSelect: 4,
+    maxSelect: 5,
+    helperText: "SELECT UP TO 5",
     options: [
-      { label: "Infants & Toddlers (0 - 2 years)", value: "infants_toddlers", scores: { home_daycare_nursery: 2, nanny_style_care: 2, mommy_and_me: 1 } },
-      { label: "Preschoolers (3 - 5 years)", value: "preschoolers", scores: { home_daycare_nursery: 1, part_time_nursery: 2, playgroup_open_play: 2, mommy_and_me: 1 } },
+      { label: "Infants (0 - 12 months)", value: "infants", scores: { home_daycare_nursery: 2, nanny_style_care: 2, mommy_and_me: 1 } },
+      { label: "Toddlers (1 - 2 years)", value: "toddlers", scores: { home_daycare_nursery: 2, part_time_nursery: 1, nanny_style_care: 1, playgroup_open_play: 1 } },
+      { label: "Preschoolers (3 - 5 years)", value: "preschoolers", scores: { home_daycare_nursery: 1, part_time_nursery: 2, playgroup_open_play: 2, mommy_and_me: 1, kids_classes: 1 } },
       { label: "School-age kids / Homeschoolers (5+ years)", value: "school_age", scores: { homeschool_pod: 3, kids_classes: 3 } },
-      { label: "Mixed age groups (all ages)", value: "mixed_ages", scores: { home_daycare_nursery: 3, drop_in_care: 2, playgroup_open_play: 1 } }
+      { label: "Mixed age groups", value: "mixed_ages", scores: { home_daycare_nursery: 3, drop_in_care: 2, playgroup_open_play: 1 } }
     ]
   },
   {
@@ -301,11 +303,4 @@ export const QUESTIONS = [
       { label: "Ready to start very soon", value: "ready_to_start_soon", scores: {} }
     ]
   },
-  {
-    id: "q_state",
-    text: "Which state do you live in?",
-    type: "dropdown",
-    optional: false,
-    options: [] // Populated from US_STATES at runtime
-  }
 ];
