@@ -2,16 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader2, ArrowRight } from "lucide-react";
 import { base44 } from "@/api/base44Client";
-
-const US_STATES = [
-  "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware",
-  "Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky",
-  "Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi",
-  "Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico",
-  "New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
-  "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont",
-  "Virginia","Washington","West Virginia","Wisconsin","Wyoming"
-];
+import { US_STATES } from "@/lib/quizConfig";
 
 export default function AppLaunchFormSection() {
   const ref = useRef(null);
@@ -19,6 +10,7 @@ export default function AppLaunchFormSection() {
   const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName]   = useState("");
   const [email, setEmail]         = useState("");
   const [state, setState]         = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -36,26 +28,32 @@ export default function AppLaunchFormSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email) { setError("Please enter your email."); return; }
+    if (!email.trim()) { setError("Please enter your email."); return; }
     setSubmitting(true);
     setError("");
 
-    const payload = {
-      email,
-      firstName,
-      source: "app-launch",
-      contactType: "App Launch Lead",
-      launchInterest: true,
-      state: state || undefined,
-    };
-
-    const res = await base44.functions.invoke("hubspotLeadCapture", payload);
-    setSubmitting(false);
-
-    if (res.data?.success) {
-      setSuccess(true);
-    } else {
-      setError(res.data?.error || "Something went wrong. Please try again.");
+    try {
+      const stateObj = US_STATES.find(s => s.value === state);
+      const res = await base44.functions.invoke("hubspotLeadCapture", {
+        email:        email.trim().toLowerCase(),
+        firstName:    firstName.trim(),
+        lastName:     lastName.trim(),
+        source:       "app-launch",
+        contactType:  "App Launch Lead",
+        launchInterest: true,
+        state:        state || undefined,
+        stateLabel:   stateObj?.label || undefined,
+      });
+      setSubmitting(false);
+      if (res.data?.success) {
+        setSuccess(true);
+      } else {
+        setError("Something went wrong saving your info. Please try again.");
+      }
+    } catch (err) {
+      console.error("App launch lead capture failed:", err);
+      setSubmitting(false);
+      setError("Something went wrong. Please try again in a moment.");
     }
   };
 
@@ -108,14 +106,24 @@ export default function AppLaunchFormSection() {
                 {error && <p className="font-body text-sm text-center mb-4" style={{ color: "#DC2626" }}>{error}</p>}
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    value={firstName}
-                    onChange={e => setFirstName(e.target.value)}
-                    className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
-                    style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: "#2C2C2C" }}
-                  />
+                  <div className="grid grid-cols-2 gap-2">
+                    <input
+                      type="text"
+                      placeholder="First name"
+                      value={firstName}
+                      onChange={e => setFirstName(e.target.value)}
+                      className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                      style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: "#2C2C2C" }}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Last name"
+                      value={lastName}
+                      onChange={e => setLastName(e.target.value)}
+                      className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                      style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: "#2C2C2C" }}
+                    />
+                  </div>
                   <input
                     type="email"
                     required
@@ -132,7 +140,7 @@ export default function AppLaunchFormSection() {
                     style={{ border: "1px solid #E0D1BF", backgroundColor: "rgba(255,253,249,0.7)", color: state ? "#2C2C2C" : "#9a8f84" }}
                   >
                     <option value="">State (optional)</option>
-                    {US_STATES.map(s => <option key={s} value={s}>{s}</option>)}
+                    {US_STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
                   </select>
 
                   <button

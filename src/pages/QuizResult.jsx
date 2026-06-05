@@ -12,10 +12,12 @@ export default function QuizResult() {
   const { answers = {}, result = {} } = location.state || {};
 
   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName]   = useState("");
   const [email, setEmail]         = useState("");
   const [state, setState]         = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError]         = useState("");
+  const [saved, setSaved]         = useState(false);
 
   const primaryLabel  = PATHWAY_LABELS[result.primary] || "Your Best-Fit Pathway";
   const description   = PATHWAY_DESCRIPTIONS[result.primary] || "";
@@ -42,27 +44,34 @@ export default function QuizResult() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email) { setError("Please enter your email."); return; }
+    if (!firstName.trim()) { setError("Please enter your first name."); return; }
+    if (!lastName.trim())  { setError("Please enter your last name."); return; }
+    if (!email.trim())     { setError("Please enter your email address."); return; }
+    if (!state)            { setError("Please select your state."); return; }
     setSubmitting(true);
     setError("");
 
     try {
+      const stateObj = US_STATES.find(s => s.value === state);
       const res = await base44.functions.invoke("hubspotLeadCapture", {
-        email,
-        firstName,
-        source: "quiz",
-        contactType: "Quiz Lead",
-        quizTaken: true,
-        quizCompletedDate: new Date().toISOString(),
-        primaryPathway: result.primary,
-        secondaryPathways: result.secondary,
-        pathway: result.primary,
-        state,
+        email:              email.trim().toLowerCase(),
+        firstName:          firstName.trim(),
+        lastName:           lastName.trim(),
+        source:             "childcare_fit_quiz",
+        contactType:        "Quiz Lead",
+        quizTaken:          true,
+        quizCompletedDate:  new Date().toISOString(),
+        primaryPathway:     result.primary,
+        secondaryPathways:  result.secondary,
+        pathway:            result.primary,
+        state:              state,
+        stateLabel:         stateObj?.label || "",
         incomeGoal:         answers.q_income_goal,
         incomeStyle:        answers.q_income_style,
         launchTimeline:     answers.q_launch_timeline,
         biggestBlocker:     answers.q_biggest_blocker,
-        supportNeeded:      Array.isArray(answers.q_support_needed) ? answers.q_support_needed.join(", ") : answers.q_support_needed,
+        supportNeeded:      Array.isArray(answers.q_support_needed) ? answers.q_support_needed.join(", ") : (answers.q_support_needed || ""),
+        localParentNeed:    Array.isArray(answers.q_local_parent_need) ? answers.q_local_parent_need.join(", ") : (answers.q_local_parent_need || ""),
         readinessLevel:     answers.q_readiness_level,
         providerIdentity:   answers.q_provider_identity,
         parentPresence:     answers.q_parent_presence,
@@ -72,14 +81,14 @@ export default function QuizResult() {
       setSubmitting(false);
 
       if (res.data?.success) {
-        navigate("/quiz/join", { state: { primaryLabel, firstName } });
+        setSaved(true);
       } else {
-        setError(res.data?.error || "Something went wrong. Please try again.");
+        setError("We couldn't save your result just yet. Please check your email and try again. If it still doesn't work, your quiz result is still visible on this page.");
       }
     } catch (err) {
       console.error("Quiz lead capture failed:", err);
       setSubmitting(false);
-      setError(err.message || "A network error occurred. Please try again.");
+      setError("Something went wrong saving your result. Your quiz result is still here — please try again in a moment.");
     }
   };
 
@@ -133,68 +142,107 @@ export default function QuizResult() {
           }}
         >
           <h2 className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "1.5rem", lineHeight: "1.2" }}>
-            Save your result & get app updates
+            Save your result & join the Mama Launch waitlist
           </h2>
           <p className="font-body mb-6" style={{ color: "#7A6E65", fontSize: "0.95rem", lineHeight: "1.6" }}>
-            Mama Launch Studio is coming soon. Enter your email to save your Childcare Fit result and be first to know when the app opens.
+            Enter your first name, last name, email, and state so we can save your Childcare Fit result and send you the right launch resources when Mama Launch opens.
           </p>
 
-          {error && <p className="font-body text-sm mb-4" style={{ color: "#DC2626" }}>{error}</p>}
-
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div>
-              <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
-                FIRST NAME
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. Sarah"
-                value={firstName}
-                onChange={e => setFirstName(e.target.value)}
-                className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
-                style={{ border: "1px solid #E0D1BF", backgroundColor: "#FAF7F2", color: "#2C2C2C" }}
-              />
-            </div>
-            <div>
-              <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
-                EMAIL ADDRESS <span style={{ color: "#DC2626" }}>*</span>
-              </label>
-              <input
-                type="email"
-                required
-                placeholder="e.g. sarah@email.com"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
-                style={{ border: "1px solid #E0D1BF", backgroundColor: "#FAF7F2", color: "#2C2C2C" }}
-              />
-            </div>
-            <div>
-              <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
-                YOUR STATE
-              </label>
-              <select
-                value={state}
-                onChange={e => setState(e.target.value)}
-                className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
-                style={{ border: "1px solid #E0D1BF", backgroundColor: "#FAF7F2", color: state ? "#2C2C2C" : "#9a8f84" }}
+          {saved ? (
+            <div className="text-center py-4">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: "rgba(77,94,73,0.12)" }}>
+                <span style={{ fontSize: "1.4rem" }}>✓</span>
+              </div>
+              <p className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "1.3rem" }}>Your result is saved!</p>
+              <p className="font-body mb-1" style={{ color: "#5C5148", fontSize: "0.95rem", lineHeight: "1.6" }}>You're on the list for Mama Launch Studio updates.</p>
+              <p className="font-body" style={{ color: "#9a8f84", fontSize: "0.85rem" }}>Check your inbox soon for your saved pathway and next steps.</p>
+              <button
+                disabled
+                className="font-micro text-white rounded-full py-3 px-6 mt-5 opacity-70"
+                style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.1em" }}
               >
-                <option value="">Select your state (optional)</option>
-                {US_STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
-              </select>
+                Saved — you're on the list ✓
+              </button>
             </div>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="font-micro text-white rounded-full py-4 flex items-center justify-center gap-2 transition-opacity"
-              style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.1em", boxShadow: "0 6px 24px rgba(77,94,73,0.28)" }}
-            >
-              {submitting
-                ? <Loader2 className="w-4 h-4 animate-spin" />
-                : <><span>Save My Result & Get App Updates</span><ArrowRight className="w-4 h-4" /></>
-              }
-            </button>
-          </form>
+          ) : (
+            <>
+              {error && (
+                <p className="font-body text-sm mb-4 p-3 rounded-xl" style={{ color: "#92400E", backgroundColor: "rgba(196,149,106,0.12)", border: "1px solid rgba(196,149,106,0.25)" }}>
+                  {error}
+                </p>
+              )}
+
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
+                      FIRST NAME <span style={{ color: "#DC2626" }}>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Sarah"
+                      value={firstName}
+                      onChange={e => setFirstName(e.target.value)}
+                      className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                      style={{ border: "1px solid #E0D1BF", backgroundColor: "#FAF7F2", color: "#2C2C2C" }}
+                    />
+                  </div>
+                  <div>
+                    <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
+                      LAST NAME <span style={{ color: "#DC2626" }}>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Johnson"
+                      value={lastName}
+                      onChange={e => setLastName(e.target.value)}
+                      className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                      style={{ border: "1px solid #E0D1BF", backgroundColor: "#FAF7F2", color: "#2C2C2C" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
+                    EMAIL ADDRESS <span style={{ color: "#DC2626" }}>*</span>
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="e.g. sarah@email.com"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                    style={{ border: "1px solid #E0D1BF", backgroundColor: "#FAF7F2", color: "#2C2C2C" }}
+                  />
+                </div>
+                <div>
+                  <label className="font-micro block mb-1" style={{ color: "#9a8f84", fontSize: "0.6rem", letterSpacing: "0.12em" }}>
+                    YOUR STATE <span style={{ color: "#DC2626" }}>*</span>
+                  </label>
+                  <select
+                    value={state}
+                    onChange={e => setState(e.target.value)}
+                    className="w-full rounded-xl px-4 py-3 font-body text-sm outline-none"
+                    style={{ border: "1px solid #E0D1BF", backgroundColor: "#FAF7F2", color: state ? "#2C2C2C" : "#9a8f84" }}
+                  >
+                    <option value="">Select your state</option>
+                    {US_STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="font-micro text-white rounded-full py-4 flex items-center justify-center gap-2 transition-opacity disabled:opacity-60"
+                  style={{ backgroundColor: "#4D5E49", fontSize: "0.75rem", letterSpacing: "0.1em", boxShadow: "0 6px 24px rgba(77,94,73,0.28)" }}
+                >
+                  {submitting
+                    ? <Loader2 className="w-4 h-4 animate-spin" />
+                    : <><span>Save My Result & Join the Waitlist</span><ArrowRight className="w-4 h-4" /></>
+                  }
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </main>
       <SiteFooter />

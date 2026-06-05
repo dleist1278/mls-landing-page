@@ -10,7 +10,7 @@ Deno.serve(async (req) => {
       source, contactType,
       quizTaken, quizCompletedDate,
       primaryPathway, secondaryPathways, pathway, pathwayInterest,
-      state,
+      state, stateLabel,
       incomeGoal, incomeStyle, launchTimeline,
       biggestBlocker, supportNeeded, localParentNeed,
       readinessLevel, providerIdentity, parentPresence, careLocation,
@@ -40,6 +40,7 @@ Deno.serve(async (req) => {
     if (secondaryPathways)    properties.mls_secondary_pathways = String(secondaryPathways);
     if (pathway || primaryPathway) properties.mls_pathway       = String(pathway || primaryPathway);
     if (state)                properties.mls_state              = String(state);
+    if (stateLabel)           properties.mls_state_label        = String(stateLabel);
     if (incomeGoal)           properties.mls_income_goal        = String(incomeGoal);
     if (incomeStyle)          properties.mls_income_style       = String(incomeStyle);
     if (launchTimeline)       properties.mls_launch_timeline    = String(launchTimeline);
