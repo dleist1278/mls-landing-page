@@ -10,6 +10,7 @@ const QUESTION_IMAGES = {
   q_program_vibe: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2db4a7b29_10.png",
   q_parent_presence: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/48469afbc_6.png",
   q_support_needed: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/1a9605b32_8.png",
+  q_local_parent_need: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/12d82ff6d_8.png",
 };
 
 // Mid-quiz encouragement shown at key transitions
