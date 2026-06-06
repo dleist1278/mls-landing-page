@@ -4,11 +4,16 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import HeroSection from "@/components/sections/HeroSection";
 import TrustBar from "@/components/sections/TrustBar";
-import AppFeaturesSection from "@/components/sections/AppFeaturesSection";
-import PathwaysSection from "@/components/sections/PathwaysSection";
-import AppFlowSection from "@/components/sections/AppFlowSection";
+import WhatIsMamaLaunchSection from "@/components/sections/WhatIsMamaLaunchSection";
+import ModelsSection from "@/components/sections/ModelsSection";
+import BuildInMotionSection from "@/components/sections/BuildInMotionSection";
+import MethodSection from "@/components/sections/MethodSection";
+import WalkAwaySection from "@/components/sections/WalkAwaySection";
+import EcosystemSection from "@/components/sections/EcosystemSection";
 import DanielleStorySection from "@/components/sections/DanielleStorySection";
-import AppLaunchFormSection from "@/components/sections/AppLaunchFormSection";
+import FoundingMemberSection from "@/components/sections/FoundingMemberSection";
+import FoundingCohortSection from "@/components/sections/FoundingCohortSection";
+import IntakeFormSection from "@/components/sections/IntakeFormSection";
 
 export default function Home() {
   useScrollDepth();
@@ -18,11 +23,16 @@ export default function Home() {
       <main>
         <HeroSection />
         <TrustBar />
-        <AppFeaturesSection />
-        <PathwaysSection />
-        <AppFlowSection />
+        <WhatIsMamaLaunchSection />
+        <ModelsSection />
+        <BuildInMotionSection />
+        <div className="md:hidden"><MethodSection /></div>
+        <WalkAwaySection />
+        <EcosystemSection />
         <DanielleStorySection />
-        <AppLaunchFormSection />
+        <FoundingMemberSection />
+        <FoundingCohortSection />
+        <IntakeFormSection />
       </main>
       <SiteFooter />
     </div>

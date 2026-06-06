@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { GraduationCap, Home, Heart, ArrowRight, LayoutDashboard, Lightbulb, Gift } from "lucide-react";
 
 const credentials = [
@@ -131,7 +130,6 @@ export default function DanielleStorySection() {
   const [openDrawer, setOpenDrawer] = useState(-1);
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(([e]) => {if (e.isIntersecting) setVisible(true);}, { threshold: 0.06 });
@@ -147,7 +145,7 @@ export default function DanielleStorySection() {
 
       <div
         ref={sectionRef}
-        className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 py-8 md:py-12"
+        className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 py-10 md:py-14"
         style={{ transition: "opacity 0.7s ease, transform 0.7s ease", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)" }}>
 
         {/* Section eyebrow — shared mobile + desktop */}
@@ -209,14 +207,14 @@ export default function DanielleStorySection() {
             {/* CTA — directly under photo */}
             <div className="flex flex-col items-center text-center" style={{ marginTop: "24px", gap: "14px" }}>
               <p className="font-body" style={{ color: "#7A6E65", fontSize: "1.1rem", lineHeight: "1.6" }}>
-                Ready to find your best-fit childcare pathway?
+                Ready to build with guidance instead of figuring it out alone?
               </p>
               <button
-                onClick={() => navigate("/quiz")}
+                onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
                 className="font-micro inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full min-h-[48px] transition-all"
                 style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.24), 0 1px 3px rgba(77,94,73,0.12)" }}
               >
-                Take the Free Childcare Fit Quiz
+                Join the Founding Member Waitlist
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </div>
@@ -225,43 +223,53 @@ export default function DanielleStorySection() {
 
         {/* ── MOBILE single-column ── */}
         <div className="md:hidden flex flex-col gap-5">
-          <h2 className="font-display leading-snug text-center mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 6vw, 2.4rem)", lineHeight: "1.18", maxWidth: "22ch" }}>
-            Created by a mother who understands
-            <br /><em style={{ color: "#4D5E49" }}>the childcare gap.</em>
+          <h2 className="font-display leading-snug text-center mx-auto" style={{ color: "#2C2C2C", fontSize: "clamp(1.85rem, 6vw, 2.8rem)", lineHeight: "1.18", maxWidth: "20ch" }}>
+            Created by Someone<br /><em style={{ color: "#4D5E49" }}>Who Understands</em>
           </h2>
+          <p className="font-body leading-relaxed text-center mx-auto" style={{ color: "#5C5148", fontSize: "0.9rem", lineHeight: "1.65", maxWidth: "36ch" }}>
+            Mama Launch was built from the intersection of education, childcare operations, motherhood, and implementation systems — so you can move forward with more clarity and less overwhelm.
+          </p>
 
-          {/* Mobile photo */}
+          {/* Mobile photo with depth */}
           <div className="relative mx-4">
-            <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(6px, 6px)", backgroundColor: "#C4956A", opacity: 0.14, zIndex: 0 }} />
-            <div className="relative rounded-2xl overflow-hidden" style={{ zIndex: 2, boxShadow: "0 16px 48px rgba(196,149,106,0.28), 0 4px 16px rgba(0,0,0,0.09)" }}>
+            <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(8px, 8px)", backgroundColor: "#C4956A", opacity: 0.15, zIndex: 0 }} />
+            <div className="absolute rounded-2xl" style={{ inset: 0, transform: "translate(4px, 4px)", backgroundColor: "#4D5E49", opacity: 0.1, zIndex: 1 }} />
+            <div className="relative rounded-2xl overflow-hidden" style={{ zIndex: 2, boxShadow: "0 24px 64px rgba(196,149,106,0.35), 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.07)" }}>
               <img
                 src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2c01c579c_54354ad6-84ca-460d-9cf0-f3fe5fffec311.png"
                 alt="Danielle, founder of Mama Launch Studio"
                 className="w-full"
-                style={{ maxHeight: "260px", objectFit: "cover", objectPosition: "center 12%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
+                style={{ maxHeight: "280px", objectFit: "cover", objectPosition: "center 12%", filter: "saturate(0.82) brightness(0.98)", display: "block" }} />
+              
             </div>
           </div>
 
-          {/* Short credential list */}
-          <div className="flex flex-col gap-1 px-1">
+          {/* Credential list — mobile */}
+          <div className="flex flex-col" style={{ borderLeft: "2px solid #C4956A28" }}>
             {credentials.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.text} className="flex items-center gap-3 py-2 px-3 rounded-lg" style={{ backgroundColor: "rgba(77,94,73,0.04)" }}>
+                <div key={item.text} className="flex items-center gap-3 py-2.5 px-4"
+                style={{ borderBottom: "1px solid rgba(77,94,73,0.07)" }}>
                   <Icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: "#C4956A" }} />
                   <span className="font-body" style={{ fontSize: "0.82rem", color: "#3A3530" }}>{item.text}</span>
-                </div>
-              );
+                </div>);
+
             })}
           </div>
 
-          <button
-            onClick={() => navigate("/quiz")}
-            className="font-micro inline-flex items-center justify-center gap-2 text-white w-full py-4 rounded-full min-h-[52px]"
-            style={{ backgroundColor: "#4D5E49", fontSize: "0.72rem", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(77,94,73,0.26)" }}>
-            Take the Free Quiz
-            <ArrowRight className="h-3.5 w-3.5" />
-          </button>
+          {/* Tabs */}
+          <DrawerTabs drawers={drawers} openDrawer={openDrawer} onToggle={handleToggle} />
+
+          <div className="flex justify-center">
+            <button
+              onClick={() => document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" })}
+              className="font-micro inline-flex items-center gap-2 text-white px-5 py-3.5 rounded-full min-h-[48px] whitespace-nowrap"
+              style={{ backgroundColor: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.07em", boxShadow: "0 8px 32px rgba(77,94,73,0.32), 0 2px 8px rgba(0,0,0,0.10)" }}>
+              Join the Founding Member Waitlist
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
         </div>
 
       </div>
