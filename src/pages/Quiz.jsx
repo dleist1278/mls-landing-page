@@ -194,18 +194,22 @@ export default function Quiz() {
     setLeadLoading(true);
     setLeadError(null);
     try {
-      const res = await base44.functions.invoke("hubspotLeadCapture", {
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        state: form.stateCode,
-        source: "quiz",
-        contactType: "Quiz Lead",
+      const res = await fetch("https://superagent-40f97e01.base44.app/functions/hubspotLeadCapture", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          state: form.stateCode,
+          source: "quiz",
+          contactType: "Quiz Lead",
+          quizTaken: false,
+        }),
       });
-      const data = res?.data;
-      if (!data?.success) throw new Error(data?.error || "Submission failed");
-      const contactId = data?.contactId;
-      setLeadData({ ...form, contactId });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error || "Submission failed");
+      setLeadData({ ...form, contactId: data.contactId });
       setQuizStarted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
