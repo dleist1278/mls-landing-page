@@ -4,6 +4,7 @@ import { quizConfig } from "@/lib/quizConfig";
 
 // Warm imagery for key emotional moments
 const QUESTION_IMAGES = {
+  q_startup_budget: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/634c9a42e_Untitleddesign2.png",
   q_season: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/db7fa380c_2.png",
   q_care_location: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/bed21046e_Untitleddesign1.png",
   q_income_goal: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/b0774a763_5.png",
