@@ -7,7 +7,7 @@ import { base44 } from "@/api/base44Client";
 export default function QuizResult() {
   const [bestModelKey, setBestModelKey] = useState("home_daycare_nursery");
   const [rawAnswers, setRawAnswers] = useState({});
-  const [form, setForm] = useState({ firstName: "", email: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "" });
   const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
@@ -30,28 +30,33 @@ export default function QuizResult() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    if (!form.firstName || !form.email) {
-      setError("Please provide your name and email.");
+    if (!form.firstName || !form.lastName || !form.email) {
+      setError("Please fill in all fields.");
       return;
     }
     setError("");
     setLoading(true);
 
     try {
-      const res = await base44.functions.invoke("hubspotLeadCapture", {
-        firstName: form.firstName,
-        email: form.email,
-        contactType: "Quiz Lead",
-        source: "Childcare Fit Quiz",
-        primaryPathway: bestModelKey,
-        state: rawAnswers.q_state || "",
-        answers: rawAnswers
+      const res = await fetch("https://superagent-40f97e01.base44.app/functions/sendQuizResultEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: form.email,
+          firstName: form.firstName,
+          lastName: form.lastName,
+          primaryPathway: bestModelKey,
+          secondaryPathways: model.alternatives.join(","),
+          whySurfaced: model.surfaceReason,
+          incomeRange: model.incomeRange,
+          lightestStart: model.lightestStartingVersion,
+        }),
       });
-
-      if (res?.data?.success) {
+      const data = await res.json();
+      if (data.success) {
         setSaved(true);
       } else {
-        setError(res?.data?.error || "Could not save your results. Please try again.");
+        setError(data.error || "Could not send your results. Please try again.");
       }
     } catch (err) {
       setError("Network error. Please try again.");
@@ -178,15 +183,24 @@ export default function QuizResult() {
                   style={{ backgroundColor: "#F5F0EA", borderColor: "rgba(196,149,106,0.2)", color: "#2C2C2C" }}
                 />
                 <input
-                  type="email"
-                  placeholder="your@email.com"
+                  type="text"
+                  placeholder="Last Name"
                   required
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  value={form.lastName}
+                  onChange={(e) => setForm({ ...form, lastName: e.target.value })}
                   className="font-body outline-none rounded-xl border p-4 text-sm"
                   style={{ backgroundColor: "#F5F0EA", borderColor: "rgba(196,149,106,0.2)", color: "#2C2C2C" }}
                 />
               </div>
+              <input
+                type="email"
+                placeholder="your@email.com"
+                required
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="font-body outline-none rounded-xl border p-4 text-sm w-full"
+                style={{ backgroundColor: "#F5F0EA", borderColor: "rgba(196,149,106,0.2)", color: "#2C2C2C" }}
+              />
 
               {error && (
                 <p className="font-body text-center text-xs" style={{ color: "#b94a4a" }}>{error}</p>
@@ -204,7 +218,7 @@ export default function QuizResult() {
                   border: "none"
                 }}
               >
-                {loading ? "Saving..." : "Save My Result & Get Updates →"}
+                {loading ? "Sending..." : "Email My Result →"}
               </button>
 
               <p className="font-body text-center" style={{ color: "#9a8f84", fontSize: "0.72rem" }}>
@@ -221,9 +235,9 @@ export default function QuizResult() {
                   <path d="M5 13l4 4L19 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "1.25rem" }}>Saved!</h3>
+              <h3 className="font-display mb-2" style={{ color: "#2C2C2C", fontSize: "1.25rem" }}>On its way!</h3>
               <p className="font-body mb-6" style={{ color: "#5C5148", fontSize: "0.85rem", lineHeight: "1.65" }}>
-                Your Childcare Fit Result was saved. Watch your inbox for updates.
+                Your result is on its way to <strong>{form.email}</strong>. Check your inbox — and keep an eye out for app launch updates from Mama Launch Studio.
               </p>
               <Link
                 to="/"
