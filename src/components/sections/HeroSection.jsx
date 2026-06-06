@@ -16,7 +16,7 @@ export default function HeroSection() {
   }, []);
 
   const scrollToIntake = () => {
-    trackCTAClick("Join the Founding Member Waitlist", "hero");
+    trackCTAClick("Get App Updates", "hero");
     document.getElementById("intake")?.scrollIntoView({ behavior: "smooth" });
   };
   const scrollToMethod = () => {
@@ -112,15 +112,16 @@ export default function HeroSection() {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`
               }>
               
-              <button
-                onClick={scrollToIntake}
-                className="font-micro text-white px-8 py-4 rounded-full min-h-[52px] focus-sage w-full sm:w-auto text-center relative overflow-hidden"
+              <a
+                href="/quiz"
+                className="font-micro text-white px-8 py-4 rounded-full min-h-[52px] focus-sage w-full sm:w-auto text-center relative overflow-hidden flex items-center justify-center"
                 style={{
                   backgroundColor: "#4D5E49",
                   fontSize: "0.75rem",
                   letterSpacing: "0.08em",
                   boxShadow: "0 6px 24px rgba(77,94,73,0.28)",
-                  animation: "heroPulse 2.8s ease-in-out infinite"
+                  animation: "heroPulse 2.8s ease-in-out infinite",
+                  textDecoration: "none"
                 }}>
                 <style>{`
                   @keyframes heroPulse {
@@ -128,11 +129,11 @@ export default function HeroSection() {
                     50% { box-shadow: 0 6px 32px rgba(77,94,73,0.42), 0 0 0 6px rgba(77,94,73,0.08); transform: scale(1.015); }
                   }
                 `}</style>
-                Join the Founding Member Waitlist
-                </button>
+                Take the Free Quiz →
+                </a>
               <button
-                onClick={scrollToMethod}
-                className="hidden sm:block font-micro px-8 py-4 rounded-full border transition-all duration-200 min-h-[52px] focus-sage text-center"
+                onClick={scrollToIntake}
+                className="font-micro px-8 py-4 rounded-full border transition-all duration-200 min-h-[52px] focus-sage text-center w-full sm:w-auto"
                 style={{
                   color: "#4D5E49",
                   borderColor: "#4D5E4940",
@@ -140,7 +141,7 @@ export default function HeroSection() {
                   letterSpacing: "0.08em",
                   backgroundColor: "rgba(77,94,73,0.04)"
                 }}>
-                Explore the Method
+                Get App Updates
               </button>
             </div>
 

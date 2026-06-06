@@ -1,8 +1,13 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
 
 Deno.serve(async (req) => {
   try {
-    const { firstName, lastName, email, state, pathway, stage, source } = await req.json();
+    const payload = await req.json();
+    const {
+      firstName, lastName, email, state,
+      contactType, primaryPathway, source,
+      answers = {}
+    } = payload;
 
     if (!email) {
       return Response.json({ success: false, error: "Email is required." }, { status: 400 });
@@ -10,6 +15,7 @@ Deno.serve(async (req) => {
 
     const accessToken = Deno.env.get("HUBSPOT_ACCESS_TOKEN");
 
+    // Standard properties — exist on every HubSpot portal
     const properties = {
       firstname: firstName || "",
       lastname: lastName || "",
@@ -17,13 +23,45 @@ Deno.serve(async (req) => {
       hs_lead_status: "NEW",
     };
 
-    if (state) properties.state = state;
-    if (pathway) properties.jobtitle = pathway;
-    if (stage) properties.mls_readiness_stage = stage;
-    if (source) properties.mls_lead_source = source;
+    // mls_quiz_taken: HubSpot checkbox property expects boolean true/false
+    // mls_launch_interest: same
+    // mls_quiz_completed_date: HubSpot date property expects Unix timestamp in milliseconds (integer)
+    const isQuizLead = contactType === "Quiz Lead";
+    const isAppLaunchLead = contactType === "App Launch Lead";
 
-    // Try to create contact first
-    const createResponse = await fetch("https://api.hubapi.com/crm/v3/objects/contacts", {
+    const customProperties = {
+      mls_contact_type: contactType || "",
+      mls_quiz_taken: isQuizLead,               // boolean — HubSpot checkbox
+      mls_launch_interest: isAppLaunchLead,     // boolean — HubSpot checkbox
+      mls_quiz_completed_date: isQuizLead ? Date.now() : undefined,  // integer ms timestamp
+      mls_primary_pathway: primaryPathway || "",
+      mls_state: state || answers.q_state || "",
+      mls_income_goal: answers.q_income_goal || "",
+      mls_income_style: answers.q_income_style || "",
+      mls_launch_timeline: answers.q_launch_timeline || "",
+      mls_biggest_blocker: answers.q_biggest_blocker || "",
+      mls_support_needed: Array.isArray(answers.q_support_needed) ? answers.q_support_needed.join(";") : (answers.q_support_needed || ""),
+      mls_local_parent_need: Array.isArray(answers.q_local_parent_need) ? answers.q_local_parent_need.join(";") : (answers.q_local_parent_need || ""),
+      mls_readiness_level: answers.q_readiness_level || "",
+      mls_provider_identity: answers.q_provider_identity || "",
+      mls_parent_presence: answers.q_parent_presence || "",
+      mls_care_location: answers.q_care_location || "",
+      mls_pathway: primaryPathway || "",
+    };
+
+    // Assign only if value is defined and non-empty string (but allow explicit booleans)
+    Object.entries(customProperties).forEach(([key, val]) => {
+      if (typeof val === "boolean") {
+        properties[key] = val;
+      } else if (typeof val === "number" && val > 0) {
+        properties[key] = val;
+      } else if (typeof val === "string" && val !== "") {
+        properties[key] = val;
+      }
+    });
+
+    // Attempt CREATE
+    const createRes = await fetch("https://api.hubapi.com/crm/v3/objects/contacts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,15 +70,15 @@ Deno.serve(async (req) => {
       body: JSON.stringify({ properties }),
     });
 
-    const createData = await createResponse.json();
+    const createBody = await createRes.json();
 
-    if (createResponse.ok) {
-      return Response.json({ success: true, contactId: createData.id });
+    if (createRes.ok) {
+      return Response.json({ success: true, contactId: createBody.id });
     }
 
-    // If contact already exists, upsert via email
-    if (createData?.category === "CONFLICT" || createResponse.status === 409) {
-      const upsertResponse = await fetch(
+    // Handle existing contact — PATCH by email
+    if (createRes.status === 409 || createBody?.category === "CONFLICT") {
+      const patchRes = await fetch(
         `https://api.hubapi.com/crm/v3/objects/contacts/${encodeURIComponent(email)}?idProperty=email`,
         {
           method: "PATCH",
@@ -51,16 +89,19 @@ Deno.serve(async (req) => {
           body: JSON.stringify({ properties }),
         }
       );
-      const upsertData = await upsertResponse.json();
-      if (upsertResponse.ok) {
-        return Response.json({ success: true, contactId: upsertData.id, note: "Contact updated." });
+      const patchBody = await patchRes.json();
+      if (patchRes.ok) {
+        return Response.json({ success: true, contactId: patchBody.id, updated: true });
       }
-      return Response.json({ success: false, error: upsertData?.message || "HubSpot upsert error." }, { status: 500 });
+      console.error("HubSpot PATCH error:", JSON.stringify(patchBody));
+      return Response.json({ success: false, error: patchBody?.message || "HubSpot update failed." }, { status: 500 });
     }
 
-    return Response.json({ success: false, error: createData?.message || "HubSpot error." }, { status: 500 });
+    console.error("HubSpot POST error:", JSON.stringify(createBody));
+    return Response.json({ success: false, error: createBody?.message || "HubSpot submission failed." }, { status: 500 });
 
   } catch (error) {
+    console.error("hubspotLeadCapture exception:", error.message);
     return Response.json({ success: false, error: error.message }, { status: 500 });
   }
 });

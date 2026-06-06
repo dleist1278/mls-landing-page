@@ -72,17 +72,17 @@ export default function IntakeFormSection() {
             marginRight: "auto",
           }}
         >
-          Come build this
+          The app is coming.
           <br />
-          <em style={{ color: "#4D5E49" }}>with us.</em>
+          <em style={{ color: "#4D5E49" }}>Be the first to know.</em>
         </h2>
         <p
           className="font-body leading-relaxed mb-3 text-center mx-auto"
           style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "32ch" }}
         >
-          From idea to opening day —
+          Leave your details and we'll reach out
           <br />
-          with clarity, structure, and support.
+          when Mama Launch is ready for you.
         </p>
       </div>
 
@@ -137,7 +137,7 @@ export default function IntakeFormSection() {
                   }}
                 >
                   <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-                  FOUNDING MEMBER WAITLIST
+                  APP LAUNCH UPDATES
                   <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
                 </p>
                 <h2
@@ -150,8 +150,8 @@ export default function IntakeFormSection() {
                     animation: visible ? "intakeFadeUp 0.65s ease 0.1s forwards" : "none",
                   }}
                 >
-                  Come build this{" "}
-                  <em style={{ color: "#4D5E49" }}>with us.</em>
+                  The app is coming.{" "}
+                  <em style={{ color: "#4D5E49" }}>Be the first to know.</em>
                 </h2>
                 <p
                   className="font-body mx-auto"
@@ -161,7 +161,7 @@ export default function IntakeFormSection() {
                     animation: visible ? "intakeFadeUp 0.6s ease 0.2s forwards" : "none",
                   }}
                 >
-                  From idea to opening day — with clarity, structure, and support. You do not need to have everything figured out before starting.
+                  Leave your details and we'll reach out when Mama Launch is ready for you.
                 </p>
               </div>
 

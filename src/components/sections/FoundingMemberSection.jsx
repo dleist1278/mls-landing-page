@@ -3,7 +3,7 @@ import { ClipboardCheck, Mail, Users, Puzzle, DoorOpen, Heart, ChevronDown } fro
 
 // ── Desktop + mobile shared data ─────────────────────────────────────────────
 const steps = [
-{ step: "01", title: "Mark Your Calendar", description: "The first Mama Launch cohort begins July 8, 2026. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th.", sub: "July 8, 2026", icon: ClipboardCheck },
+{ step: "01", title: "Take the Quiz", description: "Start with the free Childcare Fit Quiz to discover which home childcare model aligns with your life, income goals, and caregiving style.", sub: "3 minutes · free", icon: ClipboardCheck },
 { step: "02", title: "Get Oriented", description: "Define your hours, age range, and whether you're launching a daycare or nursery school. This is where your program starts taking real shape.", sub: "Shape your program", icon: Puzzle },
 { step: "03", title: "Build Forward", description: "Move through guided prompts, templates, and support at your own pace with the village beside you.", sub: "Steady momentum + support", icon: Users }];
 
@@ -12,9 +12,9 @@ const steps = [
 const mobileStages = [
 {
   id: 1,
-  title: "MARK YOUR CALENDAR",
-  label: "July 8, 2026",
-  copy: "The first Mama Launch cohort begins July 8, 2026. Spots are limited — this is a small, supported founding group. Enrollment closes June 30th."
+  title: "TAKE THE QUIZ",
+  label: "3 minutes · free",
+  copy: "Start with the free Childcare Fit Quiz to discover which home childcare model aligns with your life, income goals, and caregiving style."
 },
 {
   id: 2,
@@ -219,9 +219,9 @@ export default function FoundingMemberSection() {
         {/* Eyebrow */}
         <p className="font-micro mb-3 flex items-center justify-center gap-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.16em" }}>
           <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-          YOUR FOUNDING MEMBER JOURNEY
+          YOUR PATH FORWARD
           <span className="inline-block w-8 h-px" style={{ backgroundColor: "#C4956A" }} />
-        </p>
+          </p>
 
         {/* Headline */}
         <h2
@@ -237,7 +237,7 @@ export default function FoundingMemberSection() {
           className="font-body leading-relaxed mb-3 text-center"
           style={{ color: "#5C5148", fontSize: "0.875rem", lineHeight: "1.65", maxWidth: "38ch", margin: "0 auto 0.75rem" }}>
           
-          Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
+          See your Childcare Fit Result, then get on the list for when Mama Launch is ready.
         </p>
         
 
@@ -306,9 +306,9 @@ export default function FoundingMemberSection() {
               <style>{`@keyframes heartPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.28); } }`}</style>
             </div>
             <div>
-              <p className="font-micro mb-0.5" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.14em" }}>FOUNDING MEMBER BENEFIT</p>
+              <p className="font-micro mb-0.5" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.14em" }}>EARLY ACCESS</p>
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "0.8rem", lineHeight: "1.6" }}>
-                First access, early pricing, and the opportunity to help shape the platform from the beginning.
+                Get on the list and be among the first to access Mama Launch when the app is ready.
               </p>
             </div>
           </div>
@@ -336,10 +336,10 @@ export default function FoundingMemberSection() {
             className="font-display leading-tight mb-3"
             style={{ color: "#2C2C2C", fontSize: "clamp(2rem, 3.8vw, 3rem)", lineHeight: "1.2" }}>
             What Happens After<br />
-            <em style={{ color: "#4D5E49" }}>You Join the Waitlist?</em>
+            <em style={{ color: "#4D5E49" }}>You Take the Quiz?</em>
           </h2>
           <p className="font-body leading-relaxed mx-auto" style={{ color: "#5C5148", fontSize: "1.25rem", lineHeight: "1.7", maxWidth: "42ch" }}>
-            Mama Launch guides you step by step with structure, support, and tools for real motherhood life.
+            See your Childcare Fit Result, then get on the list for when Mama Launch is ready.
           </p>
         </div>
 
@@ -368,9 +368,9 @@ export default function FoundingMemberSection() {
               <Heart size={12} style={{ color: "#e53935", strokeWidth: 1.8, fill: "#e53935", animation: "heartPulse 1.4s ease-in-out infinite" }} />
             </div>
             <div>
-              <p className="font-micro mb-0.5" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.14em" }}>FOUNDING MEMBER BENEFIT</p>
+              <p className="font-micro mb-0.5" style={{ color: "#4D5E49", fontSize: "0.6rem", letterSpacing: "0.14em" }}>EARLY ACCESS</p>
               <p className="font-body leading-relaxed" style={{ color: "#5C5148", fontSize: "1.05rem", lineHeight: "1.6" }}>
-                First access, early pricing, and the opportunity to help shape the platform from the beginning.
+                Get on the list now and be among the first to access Mama Launch when the app is ready.
               </p>
             </div>
           </div>
