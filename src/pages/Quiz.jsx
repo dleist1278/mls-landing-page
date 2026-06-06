@@ -100,10 +100,14 @@ function LeadCaptureScreen({ onSubmit, loading, error }) {
           style={{ maxWidth: "520px", width: "100%", backgroundColor: "#FFFDF9", borderRadius: "24px", boxShadow: "0 4px 32px rgba(44,44,44,0.06), 0 1px 8px rgba(196,149,106,0.08)", border: "1px solid rgba(196,149,106,0.1)", overflow: "hidden", boxSizing: "border-box" }}
         >
           <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #4D5E49, #C4956A)" }} />
-          <div className="px-7 md:px-9 pt-8 pb-8">
+          <div style={{ width: "100%", height: "180px", overflow: "hidden", position: "relative" }}>
+            <img src="https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/e40057de2_3.png" alt="" role="presentation" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(255,253,249,0) 40%, rgba(255,253,249,0.95) 100%)" }} />
+          </div>
+          <div className="px-7 md:px-9 pt-4 pb-8">
             <p className="font-micro mb-2 text-center" style={{ color: "#C4956A", fontSize: "0.58rem", letterSpacing: "0.18em" }}>FREE · 3 MINUTES</p>
             <h2 className="font-display text-center leading-snug mb-2" style={{ color: "#2C2C2C", fontSize: "clamp(1.3rem, 4vw, 1.75rem)", lineHeight: "1.25" }}>
-              Discover your Childcare Fit
+              Discover Your Childcare Fit
             </h2>
             <p className="font-body text-center mb-7" style={{ color: "#7A6E65", fontSize: "0.84rem", lineHeight: "1.6" }}>
               Enter your details to receive your personalized result.
