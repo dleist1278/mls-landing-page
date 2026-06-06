@@ -202,12 +202,14 @@ export default function Quiz() {
         source: "quiz",
         contactType: "Quiz Lead",
       });
-      const data = res.data;
-      if (!data.success) throw new Error(data.error);
-      setLeadData({ ...form, contactId: data.contactId });
+      const data = res?.data;
+      if (!data?.success) throw new Error(data?.error || "Submission failed");
+      const contactId = data?.contactId;
+      setLeadData({ ...form, contactId });
       setQuizStarted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
+      console.error("Lead capture error:", err);
       setLeadError("Something went wrong. Please try again.");
     } finally {
       setLeadLoading(false);

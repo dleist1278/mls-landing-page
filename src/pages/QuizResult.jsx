@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { quizConfig } from "@/lib/quizConfig";
 import { calculateChildcareFit } from "@/lib/quizResultEngine";
+import { base44 } from "@/api/base44Client";
 
 export default function QuizResult() {
   const location = useLocation();
@@ -37,39 +38,46 @@ export default function QuizResult() {
           catch { return {}; }
         })();
 
-    // 1. Patch HubSpot with quiz results
-    fetch("https://superagent-40f97e01.base44.app/functions/hubspotLeadCapture", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: leadData.email,
-        firstName: leadData.firstName,
-        lastName: leadData.lastName,
-        state: leadData.stateCode,
-        contactType: "Quiz Lead",
-        primaryPathway: bestModelKey,
-        answers: parsedAnswers,
-      }),
-    }).catch(() => {});
+    // 1. Patch HubSpot with completed quiz answers
+    base44.functions.invoke("hubspotLeadCapture", {
+      contactId:         leadData.contactId,
+      email:             leadData.email,
+      state:             leadData.stateCode,
+      contactType:       "Quiz Lead",
+      quizTaken:         true,
+      quizCompletedDate: new Date().toISOString(),
+      primaryPathway:    bestModelKey,
+      secondaryPathways: model.alternatives.join(","),
+      incomeGoal:        parsedAnswers.q_income_goal,
+      incomeStyle:       parsedAnswers.q_income_style,
+      launchTimeline:    parsedAnswers.q_launch_timeline,
+      biggestBlocker:    parsedAnswers.q_biggest_blocker,
+      supportNeeded:     parsedAnswers.q_support_needed,
+      localParentNeed:   parsedAnswers.q_local_parent_need,
+      readinessLevel:    parsedAnswers.q_readiness_level,
+      providerIdentity:  parsedAnswers.q_provider_identity,
+      parentPresence:    parsedAnswers.q_parent_presence,
+      careLocation:      parsedAnswers.q_care_location,
+    }).catch((err) => console.error("HubSpot patch error:", err));
 
     // 2. Send result email
-    fetch("https://superagent-40f97e01.base44.app/functions/sendQuizResultEmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: leadData.email,
-        firstName: leadData.firstName,
-        lastName: leadData.lastName,
-        primaryPathway: bestModelKey,
-        secondaryPathways: model.alternatives.join(","),
-        whySurfaced: model.surfaceReason,
-        incomeRange: model.incomeRange,
-        lightestStart: model.lightestStartingVersion,
-      }),
+    base44.functions.invoke("sendQuizResultEmail", {
+      email:             leadData.email,
+      firstName:         leadData.firstName,
+      lastName:          leadData.lastName,
+      primaryPathway:    bestModelKey,
+      secondaryPathways: model.alternatives.join(","),
+      whySurfaced:       model.surfaceReason,
+      incomeRange:       model.incomeRange,
+      lightestStart:     model.lightestStartingVersion,
     })
-      .then((r) => r.json())
-      .then((d) => { if (d.success) setEmailSent(true); })
-      .catch(() => setEmailSent(true)); // show confirmation even if email fails silently
+      .then((res) => {
+        if (res?.data?.success || res?.success) setEmailSent(true);
+      })
+      .catch((err) => {
+        console.error("Result email error:", err);
+        setEmailSent(true);
+      });
   }, [model, leadData]);
 
   if (!model) return null;
