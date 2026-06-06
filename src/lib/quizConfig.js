@@ -232,7 +232,6 @@ export const quizConfig = {
         { label: "Marketing plan", value: "marketing_plan", scores: {} },
         { label: "Confidence / clarity", value: "confidence_clarity", scores: {} },
         { label: "Community support", value: "community_support", scores: {} },
-        { label: "Mama Launch AI help", value: "ai_help", scores: {} },
         { label: "Step-by-step roadmap", value: "roadmap", scores: {} }
       ]
     },
