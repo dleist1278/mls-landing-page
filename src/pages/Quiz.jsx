@@ -4,10 +4,10 @@ import { quizConfig } from "@/lib/quizConfig";
 
 // Warm imagery for key emotional moments
 const QUESTION_IMAGES = {
-  q_season: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80",
-  q_care_location: "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=600&q=80",
-  q_income_goal: "https://images.unsplash.com/photo-1556909114-4851a4b61c57?w=600&q=80",
-  q_program_vibe: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=600&q=80",
+  q_season: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/be3b5e598_1.png",
+  q_care_location: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/904fdd248_9.png",
+  q_income_goal: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/b589189b6_4.png",
+  q_program_vibe: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2db4a7b29_10.png",
 };
 
 // Mid-quiz encouragement shown at key transitions
