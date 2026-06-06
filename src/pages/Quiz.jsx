@@ -106,10 +106,10 @@ function LeadCaptureScreen({ onSubmit, loading, error }) {
           </div>
           <div className="px-7 md:px-9 pt-4 pb-8">
             <p className="font-micro mb-2 text-center" style={{ color: "#C4956A", fontSize: "0.58rem", letterSpacing: "0.18em" }}>FREE · 3 MINUTES</p>
-            <h2 className="font-display text-center leading-snug mb-2" style={{ color: "#2C2C2C", fontSize: "clamp(1.3rem, 4vw, 1.75rem)", lineHeight: "1.25" }}>
+            <h2 className="font-display text-center leading-snug mb-2" style={{ color: "#2C2C2C", fontSize: "clamp(1.7rem, 5vw, 2.2rem)", lineHeight: "1.25" }}>
               Discover Your Childcare Fit
             </h2>
-            <p className="font-body text-center mb-7" style={{ color: "#7A6E65", fontSize: "0.84rem", lineHeight: "1.6" }}>
+            <p className="font-body text-center mb-7" style={{ color: "#7A6E65", fontSize: "1rem", lineHeight: "1.6" }}>
               Enter your details to receive your personalized result.
             </p>
 
