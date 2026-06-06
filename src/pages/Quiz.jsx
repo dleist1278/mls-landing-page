@@ -23,6 +23,7 @@ const ENCOURAGEMENT = {
 };
 
 const SHARED_STYLES = `
+  * { box-sizing: border-box; }
   @keyframes fadeSlideIn {
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -81,22 +82,22 @@ function LeadCaptureScreen({ onSubmit, loading, error }) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#F2EDE5" }}>
+    <div style={{ backgroundColor: "#F2EDE5", minHeight: "100svh", width: "100%", maxWidth: "100vw", overflowX: "hidden", display: "flex", flexDirection: "column" }}>
       <style>{SHARED_STYLES}</style>
 
       {/* Nav */}
       <div className="w-full px-5 py-4 flex items-center justify-between"
-        style={{ borderBottom: "1px solid rgba(196,149,106,0.15)", backgroundColor: "#FAF7F2", position: "sticky", top: 0, zIndex: 20, boxShadow: "0 1px 8px rgba(44,44,44,0.04)" }}>
+        style={{ borderBottom: "1px solid rgba(196,149,106,0.15)", backgroundColor: "#FAF7F2", position: "sticky", top: 0, zIndex: 20, boxShadow: "0 1px 8px rgba(44,44,44,0.04)", flexShrink: 0 }}>
         <Link to="/" className="font-display" style={{ fontSize: "1rem", letterSpacing: "-0.01em", textDecoration: "none", color: "#2C2C2C" }}>
           Mama Launch Studio
         </Link>
         <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.14em" }}>CHILDCARE FIT QUIZ</span>
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center px-4 py-10">
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 16px" }}>
         <div
           className="quiz-card-enter w-full"
-          style={{ maxWidth: "520px", backgroundColor: "#FFFDF9", borderRadius: "24px", boxShadow: "0 4px 32px rgba(44,44,44,0.06), 0 1px 8px rgba(196,149,106,0.08)", border: "1px solid rgba(196,149,106,0.1)", overflow: "hidden" }}
+          style={{ maxWidth: "520px", width: "100%", backgroundColor: "#FFFDF9", borderRadius: "24px", boxShadow: "0 4px 32px rgba(44,44,44,0.06), 0 1px 8px rgba(196,149,106,0.08)", border: "1px solid rgba(196,149,106,0.1)", overflow: "hidden", boxSizing: "border-box" }}
         >
           <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #4D5E49, #C4956A)" }} />
           <div className="px-7 md:px-9 pt-8 pb-8">
@@ -289,12 +290,12 @@ export default function Quiz() {
   const imageUrl = QUESTION_IMAGES[currentQuestion.id];
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#F2EDE5", overflowX: "hidden" }}>
+    <div style={{ backgroundColor: "#F2EDE5", minHeight: "100svh", width: "100%", maxWidth: "100vw", overflowX: "hidden", display: "flex", flexDirection: "column" }}>
       <style>{SHARED_STYLES}</style>
 
       {/* Nav */}
       <div className="w-full px-5 py-4 flex items-center justify-between"
-        style={{ borderBottom: "1px solid rgba(196,149,106,0.15)", backgroundColor: "#FAF7F2", position: "sticky", top: 0, zIndex: 20, boxShadow: "0 1px 8px rgba(44,44,44,0.04)" }}>
+        style={{ borderBottom: "1px solid rgba(196,149,106,0.15)", backgroundColor: "#FAF7F2", position: "sticky", top: 0, zIndex: 20, boxShadow: "0 1px 8px rgba(44,44,44,0.04)", flexShrink: 0 }}>
         <Link to="/" className="font-display" style={{ fontSize: "1rem", letterSpacing: "-0.01em", textDecoration: "none", color: "#2C2C2C" }}>
           Mama Launch Studio
         </Link>
@@ -327,11 +328,11 @@ export default function Quiz() {
       )}
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col items-center px-4 py-6 md:py-10">
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", padding: "24px 16px 40px", width: "100%", maxWidth: "100vw", boxSizing: "border-box" }}>
         <div
           ref={cardRef}
           className={animating ? "quiz-card-exit" : "quiz-card-enter"}
-          style={{ width: "100%", maxWidth: "580px", backgroundColor: "#FFFDF9", borderRadius: "24px", boxShadow: "0 4px 32px rgba(44,44,44,0.06), 0 1px 8px rgba(196,149,106,0.08)", border: "1px solid rgba(196,149,106,0.1)", overflow: "hidden" }}
+          style={{ width: "100%", maxWidth: "580px", backgroundColor: "#FFFDF9", borderRadius: "24px", boxShadow: "0 4px 32px rgba(44,44,44,0.06), 0 1px 8px rgba(196,149,106,0.08)", border: "1px solid rgba(196,149,106,0.1)", overflow: "hidden", boxSizing: "border-box" }}
         >
           {hasImage && (
             <div style={{ width: "100%", height: "160px", overflow: "hidden", position: "relative" }}>
