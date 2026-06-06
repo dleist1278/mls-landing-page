@@ -1,24 +1,72 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { quizConfig } from "@/lib/quizConfig";
+
+// Warm imagery for key emotional moments
+const QUESTION_IMAGES = {
+  q_season: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80",
+  q_care_location: "https://images.unsplash.com/photo-1586105251261-72a756497a11?w=600&q=80",
+  q_income_goal: "https://images.unsplash.com/photo-1556909114-4851a4b61c57?w=600&q=80",
+  q_program_vibe: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=600&q=80",
+};
+
+// Mid-quiz encouragement shown at key transitions
+const ENCOURAGEMENT = {
+  4: "You're getting clearer.",
+  9: "Now let's shape the kind of childcare experience that fits your life.",
+  14: "Almost there — this part helps us personalize your result.",
+  17: "You're doing great. Just a few more.",
+};
 
 export default function Quiz() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [animating, setAnimating] = useState(false);
+  const [animDir, setAnimDir] = useState("forward");
+  const [showEncouragement, setShowEncouragement] = useState(false);
+  const [encouragementText, setEncouragementText] = useState("");
   const navigate = useNavigate();
+  const cardRef = useRef(null);
 
   const currentQuestion = quizConfig.questions[currentIdx];
   const totalQuestions = quizConfig.questions.length;
-  const progressPercent = Math.round(((currentIdx + 1) / totalQuestions) * 100);
+  const progressPercent = Math.round(((currentIdx) / totalQuestions) * 100);
+  const multiSelected = answers[currentQuestion.id] || [];
 
-  const saveAndAdvance = (updatedAnswers) => {
-    if (currentIdx === totalQuestions - 1) {
-      localStorage.setItem("mama_launch_quiz_answers", JSON.stringify(updatedAnswers));
-      navigate("/quiz/result");
+  const advanceWithAnimation = (updatedAnswers, direction = "forward") => {
+    const encouragement = ENCOURAGEMENT[currentIdx + 1];
+    if (direction === "forward" && encouragement) {
+      setEncouragementText(encouragement);
+      setShowEncouragement(true);
+      setTimeout(() => {
+        setShowEncouragement(false);
+        doAdvance(updatedAnswers, direction);
+      }, 1400);
     } else {
-      setCurrentIdx((i) => i + 1);
+      doAdvance(updatedAnswers, direction);
     }
   };
+
+  const doAdvance = (updatedAnswers, direction) => {
+    setAnimDir(direction);
+    setAnimating(true);
+    setTimeout(() => {
+      if (direction === "forward") {
+        if (currentIdx === totalQuestions - 1) {
+          localStorage.setItem("mama_launch_quiz_answers", JSON.stringify(updatedAnswers));
+          navigate("/quiz/result");
+          return;
+        }
+        setCurrentIdx((i) => i + 1);
+      } else {
+        setCurrentIdx((i) => i - 1);
+      }
+      setAnimating(false);
+    }, 260);
+  };
+
+  // ── All logic handlers — untouched ──
+  const saveAndAdvance = (updatedAnswers) => advanceWithAnimation(updatedAnswers, "forward");
 
   const handleSingleChoice = (optValue) => {
     const updatedAnswers = { ...answers, [currentQuestion.id]: optValue };
@@ -52,13 +100,94 @@ export default function Quiz() {
     saveAndAdvance(updatedAnswers);
   };
 
-  const multiSelected = answers[currentQuestion.id] || [];
+  const handleBack = () => {
+    advanceWithAnimation(answers, "back");
+  };
+
+  const hasImage = !!QUESTION_IMAGES[currentQuestion.id];
+  const imageUrl = QUESTION_IMAGES[currentQuestion.id];
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FAF7F2" }}>
-      {/* Nav bar */}
-      <div className="w-full px-5 py-4 flex items-center justify-between" style={{ borderBottom: "1px solid rgba(196,149,106,0.15)" }}>
-        <Link to="/" className="font-display text-charcoal" style={{ fontSize: "1.05rem", letterSpacing: "-0.01em", textDecoration: "none" }}>
+    <div
+      className="min-h-screen flex flex-col"
+      style={{ backgroundColor: "#F2EDE5", overflowX: "hidden" }}
+    >
+      <style>{`
+        @keyframes fadeSlideIn {
+          from { opacity: 0; transform: translateY(14px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeSlideOut {
+          from { opacity: 1; transform: translateY(0); }
+          to   { opacity: 0; transform: translateY(-10px); }
+        }
+        @keyframes fadeSlideBack {
+          from { opacity: 0; transform: translateY(-10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes encourageFadeIn {
+          0%   { opacity: 0; transform: translateY(8px) scale(0.98); }
+          20%  { opacity: 1; transform: translateY(0) scale(1); }
+          80%  { opacity: 1; transform: translateY(0) scale(1); }
+          100% { opacity: 0; transform: translateY(-6px) scale(0.98); }
+        }
+        .quiz-card-enter { animation: fadeSlideIn 0.32s ease forwards; }
+        .quiz-card-exit  { animation: fadeSlideOut 0.22s ease forwards; }
+        .quiz-card-back  { animation: fadeSlideBack 0.32s ease forwards; }
+
+        .answer-card {
+          transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+        }
+        .answer-card:hover:not(:disabled) {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 18px rgba(77,94,73,0.12);
+        }
+        .answer-card:active:not(:disabled) {
+          transform: scale(0.985);
+        }
+        .answer-card.selected {
+          background-color: #EEF0EB !important;
+          border-color: #4D5E49 !important;
+          box-shadow: 0 0 0 2px rgba(77,94,73,0.18), 0 4px 16px rgba(77,94,73,0.1) !important;
+        }
+        .answer-card.single-unselected {
+          background-color: rgba(255,255,255,0.72);
+          border-color: rgba(196,149,106,0.2);
+        }
+        .answer-card.single-unselected:hover {
+          background-color: #FFFDF9;
+          border-color: rgba(196,149,106,0.45);
+        }
+
+        .continue-btn {
+          transition: box-shadow 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+        }
+        .continue-btn:hover:not(:disabled) {
+          box-shadow: 0 8px 28px rgba(77,94,73,0.34);
+          transform: translateY(-1px);
+        }
+        .continue-btn:active:not(:disabled) {
+          transform: scale(0.98);
+        }
+      `}</style>
+
+      {/* ── Nav ── */}
+      <div
+        className="w-full px-5 py-4 flex items-center justify-between"
+        style={{
+          borderBottom: "1px solid rgba(196,149,106,0.15)",
+          backgroundColor: "#FAF7F2",
+          position: "sticky",
+          top: 0,
+          zIndex: 20,
+          boxShadow: "0 1px 8px rgba(44,44,44,0.04)"
+        }}
+      >
+        <Link
+          to="/"
+          className="font-display"
+          style={{ fontSize: "1rem", letterSpacing: "-0.01em", textDecoration: "none", color: "#2C2C2C" }}
+        >
           Mama Launch Studio
         </Link>
         <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.6rem", letterSpacing: "0.14em" }}>
@@ -66,129 +195,284 @@ export default function Quiz() {
         </span>
       </div>
 
-      {/* Progress bar */}
-      <div className="w-full h-1" style={{ backgroundColor: "#E8D5C0" }}>
-        <div
-          className="h-full transition-all duration-500"
-          style={{ width: `${progressPercent}%`, backgroundColor: "#4D5E49" }}
-        />
+      {/* ── Progress ── */}
+      <div style={{ backgroundColor: "#FAF7F2", paddingBottom: "2px" }}>
+        <div className="max-w-xl mx-auto px-5 pt-3 pb-2 flex items-center gap-3">
+          <span className="font-micro" style={{ color: "#9a8f84", fontSize: "0.58rem", letterSpacing: "0.12em", whiteSpace: "nowrap" }}>
+            {currentIdx + 1} / {totalQuestions}
+          </span>
+          <div className="flex-1 h-1.5 rounded-full" style={{ backgroundColor: "#E0D1BF" }}>
+            <div
+              className="h-full rounded-full"
+              style={{
+                width: `${progressPercent}%`,
+                backgroundColor: "#4D5E49",
+                transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)"
+              }}
+            />
+          </div>
+          <span className="font-micro" style={{ color: "#C4956A", fontSize: "0.58rem", letterSpacing: "0.1em" }}>
+            {progressPercent}%
+          </span>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="flex-1 flex flex-col justify-center px-5 py-10 max-w-xl mx-auto w-full">
-        <p className="font-micro mb-3" style={{ color: "#C4956A", fontSize: "0.62rem", letterSpacing: "0.14em" }}>
-          Question {currentIdx + 1} of {totalQuestions}
-        </p>
-
-        <h2
-          className="font-display leading-tight mb-8"
-          style={{ color: "#2C2C2C", fontSize: "clamp(1.4rem, 4vw, 2rem)", lineHeight: "1.25" }}
+      {/* ── Encouragement overlay ── */}
+      {showEncouragement && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 50,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            pointerEvents: "none",
+            backgroundColor: "rgba(242,237,229,0.88)",
+            backdropFilter: "blur(4px)"
+          }}
         >
-          {currentQuestion.text}
-        </h2>
+          <div style={{ animation: "encourageFadeIn 1.4s ease forwards", textAlign: "center", padding: "0 32px" }}>
+            <p
+              className="font-display"
+              style={{ color: "#4D5E49", fontSize: "clamp(1.4rem, 5vw, 2rem)", letterSpacing: "-0.01em", lineHeight: "1.3" }}
+            >
+              {encouragementText}
+            </p>
+            <div className="mx-auto mt-3" style={{ width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
+          </div>
+        </div>
+      )}
 
-        {/* State select */}
-        {currentQuestion.type === "state_select" && (
-          <div className="relative">
-            <select
-              value={answers[currentQuestion.id] || ""}
-              onChange={(e) => handleStateSelect(e.target.value)}
-              className="w-full font-body p-4 rounded-2xl border outline-none"
+      {/* ── Main content ── */}
+      <div className="flex-1 flex flex-col items-center px-4 py-6 md:py-10">
+        <div
+          ref={cardRef}
+          className={animating ? (animDir === "forward" ? "quiz-card-exit" : "quiz-card-exit") : "quiz-card-enter"}
+          style={{
+            width: "100%",
+            maxWidth: "580px",
+            backgroundColor: "#FFFDF9",
+            borderRadius: "24px",
+            boxShadow: "0 4px 32px rgba(44,44,44,0.06), 0 1px 8px rgba(196,149,106,0.08)",
+            border: "1px solid rgba(196,149,106,0.1)",
+            overflow: "hidden",
+          }}
+        >
+          {/* Optional question image */}
+          {hasImage && (
+            <div style={{ width: "100%", height: "160px", overflow: "hidden", position: "relative" }}>
+              <img
+                src={imageUrl}
+                alt=""
+                role="presentation"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center 40%",
+                  display: "block",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(to bottom, rgba(255,253,249,0) 40%, rgba(255,253,249,0.95) 100%)"
+                }}
+              />
+            </div>
+          )}
+
+          <div className="px-6 md:px-8 pt-7 pb-7">
+            {/* Question label */}
+            <p
+              className="font-micro mb-2"
+              style={{ color: "#C4956A", fontSize: "0.58rem", letterSpacing: "0.16em" }}
+            >
+              QUESTION {currentIdx + 1}
+            </p>
+
+            {/* Question text */}
+            <h2
+              className="font-display leading-snug mb-2"
               style={{
-                backgroundColor: "rgba(255,255,255,0.7)",
-                borderColor: "rgba(196,149,106,0.2)",
-                color: answers[currentQuestion.id] ? "#2C2C2C" : "#9a8f84",
-                fontSize: "0.95rem",
-                appearance: "none",
-                cursor: "pointer"
+                color: "#2C2C2C",
+                fontSize: "clamp(1.2rem, 3.5vw, 1.65rem)",
+                lineHeight: "1.25",
+                letterSpacing: "-0.01em",
               }}
             >
-              <option value="">Select your state</option>
-              {currentQuestion.options.map((opt) => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-            <span style={{ position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)", color: "#C4956A", pointerEvents: "none", fontSize: "0.7rem" }}>▼</span>
-          </div>
-        )}
+              {currentQuestion.text}
+            </h2>
 
-        {/* Multi-select */}
-        {currentQuestion.type === "multi_select" && (
-          <div className="flex flex-col gap-3">
-            <p className="font-body" style={{ color: "#7A6E65", fontSize: "0.78rem", marginBottom: "4px" }}>
-              Select up to {currentQuestion.max_select}:
-            </p>
-            {currentQuestion.options.map((opt) => {
-              const isSelected = multiSelected.includes(opt.value);
-              return (
-                <button
-                  key={opt.value}
-                  onClick={() => handleMultiSelectToggle(opt.value)}
-                  className="w-full text-left font-body p-4 rounded-2xl border transition-all duration-150"
+            {/* Helper text for multi-select */}
+            {currentQuestion.type === "multi_select" && (
+              <p className="font-body mb-5" style={{ color: "#9a8f84", fontSize: "0.74rem", lineHeight: "1.5" }}>
+                Choose up to {currentQuestion.max_select}
+              </p>
+            )}
+            {currentQuestion.type !== "multi_select" && <div className="mb-5" />}
+
+            {/* ── State select ── */}
+            {currentQuestion.type === "state_select" && (
+              <div className="relative">
+                <select
+                  value={answers[currentQuestion.id] || ""}
+                  onChange={(e) => handleStateSelect(e.target.value)}
+                  className="w-full font-body rounded-xl border outline-none"
                   style={{
-                    backgroundColor: isSelected ? "#F0EBE1" : "rgba(255,255,255,0.55)",
-                    borderColor: isSelected ? "#C4956A" : "rgba(196,149,106,0.18)",
-                    color: "#2C2C2C",
-                    fontSize: "0.92rem"
+                    backgroundColor: "rgba(255,255,255,0.8)",
+                    borderColor: answers[currentQuestion.id] ? "#4D5E49" : "rgba(196,149,106,0.25)",
+                    color: answers[currentQuestion.id] ? "#2C2C2C" : "#9a8f84",
+                    fontSize: "0.92rem",
+                    appearance: "none",
+                    cursor: "pointer",
+                    padding: "14px 44px 14px 16px",
+                    boxShadow: "0 1px 4px rgba(44,44,44,0.05)"
                   }}
                 >
-                  <span className="mr-3" style={{ color: isSelected ? "#C4956A" : "#9a8f84" }}>
-                    {isSelected ? "◼" : "◻"}
-                  </span>
-                  {opt.label}
+                  <option value="">Select your state</option>
+                  {currentQuestion.options.map((opt) => (
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                  ))}
+                </select>
+                <span style={{
+                  position: "absolute", right: "16px", top: "50%",
+                  transform: "translateY(-50%)", color: "#C4956A",
+                  pointerEvents: "none", fontSize: "0.65rem"
+                }}>▼</span>
+              </div>
+            )}
+
+            {/* ── Multi-select ── */}
+            {currentQuestion.type === "multi_select" && (
+              <div className="flex flex-col gap-2.5">
+                {currentQuestion.options.map((opt) => {
+                  const isSelected = multiSelected.includes(opt.value);
+                  return (
+                    <button
+                      key={opt.value}
+                      onClick={() => handleMultiSelectToggle(opt.value)}
+                      className={`answer-card w-full text-left rounded-xl border px-4 py-3.5 flex items-center gap-3 ${isSelected ? "selected" : ""}`}
+                      style={{ minHeight: "52px" }}
+                    >
+                      <span
+                        style={{
+                          width: "18px",
+                          height: "18px",
+                          borderRadius: "5px",
+                          flexShrink: 0,
+                          border: `1.5px solid ${isSelected ? "#4D5E49" : "rgba(196,149,106,0.35)"}`,
+                          backgroundColor: isSelected ? "#4D5E49" : "transparent",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          transition: "all 0.15s ease"
+                        }}
+                      >
+                        {isSelected && (
+                          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                            <path d="M1 4l3 3 5-6" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        )}
+                      </span>
+                      <span
+                        className="font-body"
+                        style={{
+                          color: isSelected ? "#2C2C2C" : "#5C5148",
+                          fontSize: "0.88rem",
+                          lineHeight: "1.4",
+                          fontWeight: isSelected ? "500" : "400"
+                        }}
+                      >
+                        {opt.label}
+                      </span>
+                    </button>
+                  );
+                })}
+
+                <button
+                  onClick={handleMultiSelectContinue}
+                  disabled={multiSelected.length === 0}
+                  className="continue-btn mt-2 font-micro w-full py-4 rounded-xl text-center"
+                  style={{
+                    backgroundColor: multiSelected.length > 0 ? "#4D5E49" : "#C8BFB5",
+                    color: "#fff",
+                    fontSize: "0.7rem",
+                    letterSpacing: "0.12em",
+                    border: "none",
+                    cursor: multiSelected.length > 0 ? "pointer" : "not-allowed",
+                    boxShadow: multiSelected.length > 0 ? "0 6px 22px rgba(77,94,73,0.26)" : "none",
+                    transition: "all 0.2s ease"
+                  }}
+                >
+                  {multiSelected.length > 0 ? "Continue →" : "Select at least one to continue"}
                 </button>
-              );
-            })}
-            <button
-              onClick={handleMultiSelectContinue}
-              className="mt-3 font-micro text-white py-4 rounded-2xl text-center transition-colors"
-              style={{
-                backgroundColor: multiSelected.length > 0 ? "#4D5E49" : "#9a8f84",
-                fontSize: "0.72rem",
-                letterSpacing: "0.1em",
-                cursor: multiSelected.length > 0 ? "pointer" : "not-allowed"
-              }}
-            >
-              {multiSelected.length > 0 ? "Continue →" : "Select at least one to continue"}
-            </button>
-          </div>
-        )}
+              </div>
+            )}
 
-        {/* Single choice */}
-        {currentQuestion.type === "single_choice" && (
-          <div className="flex flex-col gap-3">
-            {currentQuestion.options.map((opt) => (
-              <button
-                key={opt.value}
-                onClick={() => handleSingleChoice(opt.value)}
-                className="w-full text-left font-body p-4 rounded-2xl border transition-all duration-150"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.55)",
-                  borderColor: "rgba(196,149,106,0.18)",
-                  color: "#2C2C2C",
-                  fontSize: "0.92rem"
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#FFFDF9"; e.currentTarget.style.borderColor = "rgba(196,149,106,0.4)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.55)"; e.currentTarget.style.borderColor = "rgba(196,149,106,0.18)"; }}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
-        )}
+            {/* ── Single choice ── */}
+            {currentQuestion.type === "single_choice" && (
+              <div className="flex flex-col gap-2.5">
+                {currentQuestion.options.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => handleSingleChoice(opt.value)}
+                    className="answer-card single-unselected w-full text-left rounded-xl border px-4 py-3.5 flex items-center gap-3"
+                    style={{ minHeight: "52px" }}
+                  >
+                    <span
+                      style={{
+                        width: "10px",
+                        height: "10px",
+                        borderRadius: "50%",
+                        flexShrink: 0,
+                        backgroundColor: "#C4956A",
+                        opacity: 0.4
+                      }}
+                    />
+                    <span
+                      className="font-body"
+                      style={{ color: "#5C5148", fontSize: "0.88rem", lineHeight: "1.4" }}
+                    >
+                      {opt.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
 
-        {/* Back */}
-        {currentIdx > 0 && (
-          <div className="mt-8 text-center">
-            <button
-              onClick={() => setCurrentIdx((i) => i - 1)}
-              className="font-micro"
-              style={{ color: "#9a8f84", fontSize: "0.66rem", letterSpacing: "0.1em", background: "none", border: "none", cursor: "pointer" }}
-            >
-              ← Back
-            </button>
+            {/* ── Back button ── */}
+            {currentIdx > 0 && (
+              <div className="mt-6 text-center">
+                <button
+                  onClick={handleBack}
+                  className="font-micro"
+                  style={{
+                    color: "#B5A99E",
+                    fontSize: "0.63rem",
+                    letterSpacing: "0.1em",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: "8px 16px"
+                  }}
+                >
+                  ← Back
+                </button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
+
+        {/* Bottom brand mark */}
+        <p
+          className="font-micro mt-6 text-center"
+          style={{ color: "rgba(196,149,106,0.45)", fontSize: "0.55rem", letterSpacing: "0.14em" }}
+        >
+          MAMA LAUNCH STUDIO · CHILDCARE FIT QUIZ
+        </p>
       </div>
     </div>
   );
