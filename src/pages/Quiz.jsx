@@ -8,6 +8,7 @@ const QUESTION_IMAGES = {
   q_care_location: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/904fdd248_9.png",
   q_income_goal: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/b0774a763_5.png",
   q_program_vibe: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/2db4a7b29_10.png",
+  q_parent_presence: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/48469afbc_6.png",
 };
 
 // Mid-quiz encouragement shown at key transitions
