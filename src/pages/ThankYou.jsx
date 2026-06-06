@@ -1,8 +1,8 @@
 export default function ThankYou() {
   const steps = [
-    "Check your inbox shortly for your first Mama Launch Studio email.",
+    "We'll notify you as soon as enrollment opens.",
     "Learn more about the Mama Launch Method™ and how it helps moms build childcare-based businesses with clarity and support.",
-    "Get details about the July 8 founding launch, founding member pricing, and what's included.",
+    "Get details about founding member pricing and what's included when doors open.",
     "If it feels like the right fit, you'll receive your invitation to join as a Founding Member.",
   ];
 
@@ -89,7 +89,7 @@ export default function ThankYou() {
             marginRight: 'auto'
           }}
         >
-          I'll send your first email shortly with more details about Mama Launch Studio, the July 8 founding launch, and how The Mama Launch Method™ will guide you step by step.
+          We'll be in touch when enrollment opens — you'll be among the first to know, and founding member pricing will be held for waitlist members.
         </p>
 
         {/* What Happens Next card */}
