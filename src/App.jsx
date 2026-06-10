@@ -4,6 +4,7 @@ import ThankYou from './pages/ThankYou';
 import ThankYouGuide from './pages/ThankYouGuide';
 import BlueprintPage from './pages/BlueprintPage';
 import Quiz from './pages/Quiz';
+import QuizLanding from './pages/QuizLanding';
 import QuizResult from './pages/QuizResult';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/quiz/start" element={<QuizLanding />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/quiz/result" element={<QuizResult />} />
         <Route path="/thank-you" element={<ThankYou />} />
