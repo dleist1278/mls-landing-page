@@ -40,7 +40,7 @@ export default function AppComingSoonSection() {
 
         <div style={anim(0.36)}>
           <a
-            href="/quiz"
+            href="/quiz/start"
             className="font-micro text-white px-8 py-4 rounded-full min-h-[52px] inline-flex items-center justify-center"
             style={{
               backgroundColor: "#4D5E49",

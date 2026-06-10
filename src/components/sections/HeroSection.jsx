@@ -113,7 +113,7 @@ export default function HeroSection() {
               }>
               
               <a
-                href="/quiz"
+                href="/quiz/start"
                 className="font-micro text-white px-8 py-4 rounded-full min-h-[52px] focus-sage w-full sm:w-auto text-center relative overflow-hidden flex items-center justify-center"
                 style={{
                   backgroundColor: "#4D5E49",
