@@ -226,7 +226,7 @@ export default function Quiz() {
       setTimeout(() => {
         setShowEncouragement(false);
         doAdvance(updatedAnswers, direction);
-      }, 1400);
+      }, 800);
     } else {
       doAdvance(updatedAnswers, direction);
     }
@@ -395,7 +395,7 @@ export default function Quiz() {
                 <button onClick={handleMultiSelectContinue} disabled={multiSelected.length === 0}
                   className="continue-btn mt-2 font-micro w-full py-4 rounded-xl text-center"
                   style={{ backgroundColor: multiSelected.length > 0 ? "#4D5E49" : "#C8BFB5", color: "#fff", fontSize: "0.7rem", letterSpacing: "0.12em", border: "none", cursor: multiSelected.length > 0 ? "pointer" : "not-allowed", boxShadow: multiSelected.length > 0 ? "0 6px 22px rgba(77,94,73,0.26)" : "none", transition: "all 0.2s ease" }}>
-                  {multiSelected.length > 0 ? "Continue →" : "Select at least one to continue"}
+                  Continue →
                 </button>
               </div>
             )}
