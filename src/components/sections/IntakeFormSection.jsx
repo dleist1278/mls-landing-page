@@ -81,9 +81,9 @@ export default function IntakeFormSection() {
           lastName: form.lastName,
           email: form.email,
           state: form.state,
-          programPath: form.programPath,
+          primaryPathway: form.programPath,
           source: "waitlist",
-          contactType: "Waitlist Lead",
+          contactType: "App Launch Lead",
         }),
       });
       const data = await res.json();
