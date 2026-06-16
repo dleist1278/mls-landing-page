@@ -73,7 +73,7 @@ const SHARED_STYLES = `
 `;
 
 // ── Lead Capture Screen ──────────────────────────────────────────────────────
-function LeadCaptureScreen({ onSubmit, loading, error }) {
+function LeadCaptureScreen({ onSubmit, loading }) {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", stateCode: "" });
 
   const handleSubmit = (e) => {
@@ -148,8 +148,6 @@ function LeadCaptureScreen({ onSubmit, loading, error }) {
                 <span style={{ position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)", color: "#C4956A", pointerEvents: "none", fontSize: "0.65rem" }}>▼</span>
               </div>
 
-              {error && <p className="font-body text-center text-xs" style={{ color: "#b94a4a" }}>{error}</p>}
-
               <button
                 type="submit" disabled={loading}
                 className="continue-btn font-micro text-white py-4 rounded-xl mt-1"
@@ -178,7 +176,6 @@ export default function Quiz() {
   const [quizStarted, setQuizStarted] = useState(false);
   const [leadData, setLeadData] = useState(null);
   const [leadLoading, setLeadLoading] = useState(false);
-  const [leadError, setLeadError] = useState(null);
 
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -290,7 +287,7 @@ export default function Quiz() {
   const handleBack = () => advanceWithAnimation(answers, "back");
 
   if (!quizStarted) {
-    return <LeadCaptureScreen onSubmit={handleLeadSubmit} loading={leadLoading} error={leadError} />;
+    return <LeadCaptureScreen onSubmit={handleLeadSubmit} loading={leadLoading} />;
   }
 
   const hasImage = !!QUESTION_IMAGES[currentQuestion.id];
