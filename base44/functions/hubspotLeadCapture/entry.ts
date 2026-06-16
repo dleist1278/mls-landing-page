@@ -29,12 +29,27 @@ Deno.serve(async (req) => {
     const isQuizLead = contactType === "Quiz Lead";
     const isAppLaunchLead = contactType === "App Launch Lead";
 
+    // Map internal underscore values to HubSpot's hyphenated enum options
+    const pathwayMap = {
+      home_daycare_nursery: "home-daycare",
+      part_time_nursery: "home-daycare",
+      kids_classes: "kids-programs",
+      kids_programs: "kids-programs",
+      homeschool_pod: "homeschool-pods",
+      nanny_style_care: "caregiver-launch",
+      drop_in_care: "home-daycare",
+      mommy_and_me: "kids-programs",
+      playgroup_open_play: "kids-programs",
+      hybrid_model: "home-daycare",
+    };
+    const mappedPathway = pathwayMap[primaryPathway] || primaryPathway || "";
+
     const customProperties = {
       mls_contact_type: contactType || "",
       mls_quiz_taken: isQuizLead,               // boolean — HubSpot checkbox
       mls_launch_interest: isAppLaunchLead,     // boolean — HubSpot checkbox
       mls_quiz_completed_date: isQuizLead ? Date.now() : undefined,  // integer ms timestamp
-      mls_primary_pathway: primaryPathway || "",
+      mls_primary_pathway: mappedPathway,
       mls_state: state || answers.q_state || "",
       mls_income_goal: answers.q_income_goal || "",
       mls_income_style: answers.q_income_style || "",
@@ -46,7 +61,7 @@ Deno.serve(async (req) => {
       mls_provider_identity: answers.q_provider_identity || "",
       mls_parent_presence: answers.q_parent_presence || "",
       mls_care_location: answers.q_care_location || "",
-      mls_pathway: primaryPathway || "",
+      mls_pathway: mappedPathway,
     };
 
     // Assign only if value is defined and non-empty string (but allow explicit booleans)
