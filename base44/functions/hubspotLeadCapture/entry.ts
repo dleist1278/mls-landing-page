@@ -6,7 +6,11 @@ Deno.serve(async (req) => {
     const {
       firstName, lastName, email, state,
       contactType, primaryPathway, source,
-      answers = {}
+      answers = {},
+      // flat fields sent from QuizResult
+      incomeGoal, incomeStyle, launchTimeline, biggestBlocker,
+      supportNeeded, localParentNeed, readinessLevel, providerIdentity,
+      parentPresence, careLocation,
     } = payload;
 
     if (!email) {
@@ -51,16 +55,16 @@ Deno.serve(async (req) => {
       mls_quiz_completed_date: isQuizLead ? Date.now() : undefined,  // integer ms timestamp
       mls_primary_pathway: mappedPathway,
       mls_state: state || answers.q_state || "",
-      mls_income_goal: answers.q_income_goal || "",
-      mls_income_style: answers.q_income_style || "",
-      mls_launch_timeline: answers.q_launch_timeline || "",
-      mls_biggest_blocker: answers.q_biggest_blocker || "",
-      mls_support_needed: Array.isArray(answers.q_support_needed) ? answers.q_support_needed.join(";") : (answers.q_support_needed || ""),
-      mls_local_parent_need: Array.isArray(answers.q_local_parent_need) ? answers.q_local_parent_need.join(";") : (answers.q_local_parent_need || ""),
-      mls_readiness_level: answers.q_readiness_level || "",
-      mls_provider_identity: answers.q_provider_identity || "",
-      mls_parent_presence: answers.q_parent_presence || "",
-      mls_care_location: answers.q_care_location || "",
+      mls_income_goal: answers.q_income_goal || incomeGoal || "",
+      mls_income_style: answers.q_income_style || incomeStyle || "",
+      mls_launch_timeline: answers.q_launch_timeline || launchTimeline || "",
+      mls_biggest_blocker: answers.q_biggest_blocker || biggestBlocker || "",
+      mls_support_needed: (() => { const v = answers.q_support_needed || supportNeeded; return Array.isArray(v) ? v.join(";") : (v || ""); })(),
+      mls_local_parent_need: (() => { const v = answers.q_local_parent_need || localParentNeed; return Array.isArray(v) ? v.join(";") : (v || ""); })(),
+      mls_readiness_level: answers.q_readiness_level || readinessLevel || "",
+      mls_provider_identity: answers.q_provider_identity || providerIdentity || "",
+      mls_parent_presence: answers.q_parent_presence || parentPresence || "",
+      mls_care_location: answers.q_care_location || careLocation || "",
       mls_pathway: mappedPathway,
     };
 
