@@ -15,12 +15,6 @@ const QUESTION_IMAGES = {
   q_state: "https://media.base44.com/images/public/6a090e6659c9e6ef2267ee4b/f0a7d893d_Untitleddesign.png",
 };
 
-const ENCOURAGEMENT = {
-  4: "You're getting clearer.",
-  9: "Now let's shape the kind of childcare experience that fits your life.",
-  14: "Almost there — this part helps us personalize your result.",
-  17: "You're doing great. Just a few more.",
-};
 
 const SHARED_STYLES = `
   * { box-sizing: border-box; }
@@ -182,7 +176,6 @@ export default function Quiz() {
   const [animating, setAnimating] = useState(false);
   const [animDir, setAnimDir] = useState("forward");
   const [showEncouragement, setShowEncouragement] = useState(false);
-  const [encouragementText, setEncouragementText] = useState("");
   const navigate = useNavigate();
   const cardRef = useRef(null);
 
@@ -219,17 +212,7 @@ export default function Quiz() {
   };
 
   const advanceWithAnimation = (updatedAnswers, direction = "forward") => {
-    const encouragement = ENCOURAGEMENT[currentIdx + 1];
-    if (direction === "forward" && encouragement) {
-      setEncouragementText(encouragement);
-      setShowEncouragement(true);
-      setTimeout(() => {
-        setShowEncouragement(false);
-        doAdvance(updatedAnswers, direction);
-      }, 800);
-    } else {
-      doAdvance(updatedAnswers, direction);
-    }
+    doAdvance(updatedAnswers, direction);
   };
 
   const doAdvance = (updatedAnswers, direction) => {
@@ -319,17 +302,7 @@ export default function Quiz() {
         </div>
       </div>
 
-      {/* Encouragement overlay */}
-      {showEncouragement && (
-        <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", backgroundColor: "rgba(242,237,229,0.88)", backdropFilter: "blur(4px)" }}>
-          <div style={{ animation: "encourageFadeIn 1.4s ease forwards", textAlign: "center", padding: "0 32px" }}>
-            <p className="font-display" style={{ color: "#4D5E49", fontSize: "clamp(1.4rem, 5vw, 2rem)", letterSpacing: "-0.01em", lineHeight: "1.3" }}>
-              {encouragementText}
-            </p>
-            <div className="mx-auto mt-3" style={{ width: "32px", height: "1px", backgroundColor: "#C4956A" }} />
-          </div>
-        </div>
-      )}
+
 
       {/* Main content */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", padding: "24px 16px 40px", width: "100%", maxWidth: "100vw", boxSizing: "border-box" }}>
