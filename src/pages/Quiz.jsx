@@ -196,32 +196,29 @@ export default function Quiz() {
 
   const handleLeadSubmit = async (form) => {
     setLeadLoading(true);
-    setLeadError(null);
-    try {
-      const res = await fetch("https://superagent-40f97e01.base44.app/functions/hubspotLeadCapture", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          email: form.email,
-          state: form.stateCode,
-          source: "quiz",
-          contactType: "Quiz Lead",
-          quizTaken: false,
-        }),
-      });
-      const data = await res.json();
-      if (!data.success) throw new Error(data.error || "Submission failed");
-      setLeadData({ ...form, contactId: data.contactId });
-      setQuizStarted(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch (err) {
-      console.error("Lead capture error:", err);
-      setLeadError("Something went wrong. Please try again.");
-    } finally {
-      setLeadLoading(false);
-    }
+    // Always proceed to quiz — HubSpot capture is best-effort
+    setLeadData({ ...form });
+    setQuizStarted(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setLeadLoading(false);
+
+    // Fire-and-forget HubSpot capture in background
+    fetch("https://superagent-40f97e01.base44.app/functions/hubspotLeadCapture", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        state: form.stateCode,
+        source: "quiz",
+        contactType: "Quiz Lead",
+        quizTaken: false,
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => { if (data.contactId) setLeadData((prev) => ({ ...prev, contactId: data.contactId })); })
+      .catch((err) => console.error("Lead capture error:", err));
   };
 
   const advanceWithAnimation = (updatedAnswers, direction = "forward") => {
