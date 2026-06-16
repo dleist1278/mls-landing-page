@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { quizConfig, US_STATES_COMPACT } from "@/lib/quizConfig";
 import { base44 } from "@/api/base44Client";
@@ -173,11 +173,9 @@ export default function Quiz() {
 
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [animating, setAnimating] = useState(false);
-  const [animDir, setAnimDir] = useState("forward");
-  const [showEncouragement, setShowEncouragement] = useState(false);
+
   const navigate = useNavigate();
-  const cardRef = useRef(null);
+
 
   const currentQuestion = quizConfig.questions[currentIdx];
   const totalQuestions = quizConfig.questions.length;
@@ -216,21 +214,16 @@ export default function Quiz() {
   };
 
   const doAdvance = (updatedAnswers, direction) => {
-    setAnimDir(direction);
-    setAnimating(true);
-    setTimeout(() => {
-      if (direction === "forward") {
-        if (currentIdx === totalQuestions - 1) {
-          localStorage.setItem("mama_launch_quiz_answers", JSON.stringify(updatedAnswers));
-          navigate("/quiz/result", { state: { answers: updatedAnswers, leadData } });
-          return;
-        }
-        setCurrentIdx((i) => i + 1);
-      } else {
-        setCurrentIdx((i) => i - 1);
+    if (direction === "forward") {
+      if (currentIdx === totalQuestions - 1) {
+        localStorage.setItem("mama_launch_quiz_answers", JSON.stringify(updatedAnswers));
+        navigate("/quiz/result", { state: { answers: updatedAnswers, leadData } });
+        return;
       }
-      setAnimating(false);
-    }, 260);
+      setCurrentIdx((i) => i + 1);
+    } else {
+      setCurrentIdx((i) => i - 1);
+    }
   };
 
   const saveAndAdvance = (updatedAnswers) => advanceWithAnimation(updatedAnswers, "forward");
@@ -307,8 +300,7 @@ export default function Quiz() {
       {/* Main content */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", padding: "24px 16px 40px", width: "100%", maxWidth: "100vw", boxSizing: "border-box" }}>
         <div
-          ref={cardRef}
-          className={animating ? "quiz-card-exit" : "quiz-card-enter"}
+          className="quiz-card-enter"
           style={{ width: "100%", maxWidth: "580px", backgroundColor: "#FFFDF9", borderRadius: "24px", boxShadow: "0 4px 32px rgba(44,44,44,0.06), 0 1px 8px rgba(196,149,106,0.08)", border: "1px solid rgba(196,149,106,0.1)", overflow: "hidden", boxSizing: "border-box" }}
         >
           {hasImage && (
