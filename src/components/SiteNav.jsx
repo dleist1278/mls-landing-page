@@ -76,7 +76,7 @@ export default function SiteNav() {
             </button>
           ))}
           <a
-            href="/quiz/start"
+            href="https://mama-launch-space.base44.app/quiz/start"
             className="font-micro text-white rounded-full transition-all duration-200 hover:opacity-90 focus-sage flex items-center"
             style={{ backgroundColor: "#4D5E49", fontSize: "0.82rem", letterSpacing: "0.07em", padding: "14px 28px", boxShadow: "0 4px 16px rgba(77,94,73,0.22)", minHeight: "48px", textDecoration: "none" }}
           >
@@ -124,7 +124,7 @@ export default function SiteNav() {
           <div className="w-full h-px mb-5" style={{ backgroundColor: "#C4956A33" }} />
           {/* CTA */}
           <a
-            href="/quiz/start"
+            href="https://mama-launch-space.base44.app/quiz/start"
             className="font-micro text-white px-6 py-4 rounded-full min-h-[52px] focus-sage w-full text-center flex items-center justify-center"
             style={{ backgroundColor: "#4D5E49", fontSize: "0.78rem", textDecoration: "none" }}
           >

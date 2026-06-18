@@ -98,9 +98,9 @@ export default function QuizResult() {
         <Link to="/" className="font-display text-charcoal" style={{ fontSize: "1.05rem", textDecoration: "none" }}>
           Mama Launch Studio
         </Link>
-        <Link to="/quiz" className="font-micro" style={{ color: "#9a8f84", fontSize: "0.62rem", letterSpacing: "0.1em", textDecoration: "none" }}>
+        <a href="https://mama-launch-space.base44.app/quiz/start" className="font-micro" style={{ color: "#9a8f84", fontSize: "0.62rem", letterSpacing: "0.1em", textDecoration: "none" }}>
           Retake Quiz
-        </Link>
+        </a>
       </div>
 
       <div className="max-w-2xl mx-auto">
@@ -161,6 +161,17 @@ export default function QuizResult() {
               </p>
             )}
           </div>
+        </div>
+
+        {/* Primary conversion CTA — lead → member */}
+        <div className="text-center mb-4">
+          <a
+            href="https://mama-launch-space.base44.app/signup"
+            className="font-micro inline-block text-white py-4 px-10 rounded-full"
+            style={{ backgroundColor: "#C4895A", fontSize: "0.78rem", letterSpacing: "0.1em", textDecoration: "none", boxShadow: "0 6px 24px rgba(196,137,90,0.32)" }}
+          >
+            Start My Journey →
+          </a>
         </div>
 
         {/* Return home */}
